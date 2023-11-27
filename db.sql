@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `classes`;
 DROP TABLE IF EXISTS `grades`;
 DROP TABLE IF EXISTS `incomes`;
 DROP TABLE IF EXISTS `expenses`;
-DROP TABLE IF EXISTS `attendences`;
+DROP TABLE IF EXISTS `attendances`;
 DROP TABLE IF EXISTS `lesson_student`;
 SET FOREIGN_KEY_CHECKS = 1;
 
@@ -77,12 +77,12 @@ CREATE TABLE `expenses` (
     PRIMARY KEY (`expense_id`)
 );
 
-CREATE TABLE `attendences` (
-    `attendence_id` INTEGER NOT NULL AUTO_INCREMENT,
+CREATE TABLE `attendances` (
+    `attendance_id` INTEGER NOT NULL AUTO_INCREMENT,
     `times_present` INTEGER NOT NULL,
     `lesson_id` INTEGER NOT NULL,
     `student_id` INTEGER NOT NULL,
-    PRIMARY KEY (`attendence_id`),
+    PRIMARY KEY (`attendance_id`),
     UNIQUE (`lesson_id`, `student_id`)
 );
 
@@ -98,18 +98,19 @@ ALTER TABLE `lessons` ADD FOREIGN KEY (`class_id`) REFERENCES `classes`(`class_i
 ALTER TABLE `lessons` ADD FOREIGN KEY (`grade_id`) REFERENCES `grades`(`grade_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `incomes` ADD FOREIGN KEY (`student_id`) REFERENCES `students`(`student_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `expenses` ADD FOREIGN KEY (`teacher_id`) REFERENCES `teachers`(`teacher_id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendences` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lessons`(`lesson_id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendences` ADD FOREIGN KEY (`student_id`) REFERENCES `students`(`student_id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lessons`(`lesson_id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD FOREIGN KEY (`student_id`) REFERENCES `students`(`student_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `lesson_student` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lessons`(`lesson_id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `lesson_student` ADD FOREIGN KEY (`student_id`) REFERENCES `students`(`student_id`) ON UPDATE CASCADE ON DELETE CASCADE;
+
 ALTER TABLE `students` ADD INDEX `idx_grade_id` (`grade_id`);
 ALTER TABLE `lessons` ADD INDEX `idx_teacher_id` (`teacher_id`);
 ALTER TABLE `lessons` ADD INDEX `idx_class_id` (`class_id`);
 ALTER TABLE `lessons` ADD INDEX `idx_grade_id` (`grade_id`);
 ALTER TABLE `incomes` ADD INDEX `idx_student_id` (`student_id`);
 ALTER TABLE `expenses` ADD INDEX `idx_teacher_id` (`teacher_id`);
-ALTER TABLE `attendences` ADD INDEX `idx_lesson_id` (`lesson_id`);
-ALTER TABLE `attendences` ADD INDEX `idx_student_id` (`student_id`);
+ALTER TABLE `attendances` ADD INDEX `idx_lesson_id` (`lesson_id`);
+ALTER TABLE `attendances` ADD INDEX `idx_student_id` (`student_id`);
 ALTER TABLE `lesson_student` ADD INDEX `idx_lesson_id` (`lesson_id`);
 ALTER TABLE `lesson_student` ADD INDEX `idx_student_id` (`student_id`);
 
@@ -131,8 +132,8 @@ CREATE OR REPLACE VIEW `expenses_view` AS
 SELECT `expenses`.`amount`, `expenses`.`details`, `expenses`.`time`, CONCAT(`teachers`.`first_name`, ' ', `teachers`.`last_name`) AS `teacher_name` FROM `expenses`
 INNER JOIN `teachers` ON `teachers`.`teacher_id` = `expenses`.`teacher_id`;
 
-CREATE OR REPLACE VIEW `attendences_view` AS
-SELECT CONCAT(`students`.`first_name`, ' ', `students`.`last_name`) AS `student_name`, `lessons`.`lesson_name`, `attendences`.`times_present` FROM `attendences`
-INNER JOIN `students` ON `students`.`student_id` = `attendences`.`student_id`
-INNER JOIN `lessons` ON `lessons`.`lesson_id` = `attendences`.`lesson_id`;
+CREATE OR REPLACE VIEW `attendances_view` AS
+SELECT CONCAT(`students`.`first_name`, ' ', `students`.`last_name`) AS `student_name`, `lessons`.`lesson_name`, `attendances`.`times_present` FROM `attendances`
+INNER JOIN `students` ON `students`.`student_id` = `attendances`.`student_id`
+INNER JOIN `lessons` ON `lessons`.`lesson_id` = `attendances`.`lesson_id`;
 
