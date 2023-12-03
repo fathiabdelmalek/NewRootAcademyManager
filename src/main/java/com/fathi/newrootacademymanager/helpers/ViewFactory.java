@@ -12,7 +12,6 @@ public class ViewFactory {
         try {
             Stage stage = new Stage();
             stage.setTitle(title);
-            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(new FXMLLoader(ViewFactory.class.getResource(viewPath)).load()));
             stage.showAndWait();
         } catch (IOException e) {
@@ -25,7 +24,6 @@ public class ViewFactory {
             FXMLLoader loader = new FXMLLoader(ViewFactory.class.getResource(viewPath));
             Stage stage = new Stage();
             stage.setTitle(title);
-            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(loader.load()));
 //            EditStudentController editStudentController = loader.getController();
 //            editStudentController.setStudentData(entity);

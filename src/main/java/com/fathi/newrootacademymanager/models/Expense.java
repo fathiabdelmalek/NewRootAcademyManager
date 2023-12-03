@@ -2,16 +2,17 @@ package com.fathi.newrootacademymanager.models;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "incomes")
+@Table(name = "expenses")
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
-    private float amount;
+    private BigDecimal amount;
     @Column(nullable = false)
     private String details;
     @Column(name = "create time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
@@ -19,17 +20,17 @@ public class Expense {
     @Column(name = "update time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private LocalDateTime updateTime;
     @ManyToOne
-    @JoinColumn(name = "student id")
+    @JoinColumn(name = "teacher id")
     private Teacher teacher;
 
     public Expense() {}
 
-    public Expense(float amount, String details) {
+    public Expense(BigDecimal amount, String details) {
         this.amount = amount;
         this.details = details;
     }
 
-    public Expense(float amount, String details, Teacher teacher) {
+    public Expense(BigDecimal amount, String details, Teacher teacher) {
         this.amount = amount;
         this.details = details;
         this.teacher = teacher;
@@ -43,11 +44,11 @@ public class Expense {
         this.id = id;
     }
 
-    public float getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

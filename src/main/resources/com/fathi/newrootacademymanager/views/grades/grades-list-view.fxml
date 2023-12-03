@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.fathi.newrootacademymanager.controllers.grades.GradesListController"
+            prefHeight="400.0" prefWidth="600.0">
+    <TableView fx:id="tableView" layoutX="280.0" prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="00.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TableColumn minWidth="180.0" prefWidth="180.0" text="Level">
+                <cellValueFactory>
+                    <PropertyValueFactory property="level" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="180.0" prefWidth="180.0" text="Year">
+                <cellValueFactory>
+                    <PropertyValueFactory property="year" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</AnchorPane>

@@ -16,8 +16,7 @@ public class MainApplication extends Application {
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setTitle("New Root Academy Manager");
         stage.setScene(scene);
-//        stage.setFullScreen(true);
-//        stage.setMaximized(true);
+        stage.setMaximized(true);
         stage.show();
     }
 

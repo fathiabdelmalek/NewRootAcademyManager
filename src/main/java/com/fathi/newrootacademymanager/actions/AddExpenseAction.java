@@ -8,8 +8,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+import java.math.BigDecimal;
+
 public class AddExpenseAction extends FontIcon {
-    public AddExpenseAction(float amount, String details) {
+    public AddExpenseAction(BigDecimal amount, String details) {
         this.setIconLiteral("far-money-bill-alt");
         this.setIconSize(24);
         this.setIconColor(Color.valueOf("#00E676"));
@@ -19,7 +21,7 @@ public class AddExpenseAction extends FontIcon {
         });
     }
 
-    public AddExpenseAction(float amount, String details, Teacher teacher) {
+    public AddExpenseAction(BigDecimal amount, String details, Teacher teacher) {
         this.setIconLiteral("far-money-bill-alt");
         this.setIconSize(24);
         this.setIconColor(Color.valueOf("#00E676"));

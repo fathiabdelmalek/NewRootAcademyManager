@@ -3,6 +3,7 @@ package com.fathi.newrootacademymanager.models;
 import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalTime;
 
 @Entity
@@ -21,7 +22,7 @@ public class Lesson {
     @Column(name = "end time", nullable = false)
     private LocalTime endTime;
     @Column(nullable = false)
-    private float price;
+    private BigDecimal price;
     @ManyToOne
     @JoinColumn(name = "teacher id", nullable = false)
     private Teacher teacher;
@@ -34,7 +35,7 @@ public class Lesson {
 
     public Lesson() {}
 
-    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, float price, Teacher teacher, Room room) {
+    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room) {
         this.lessonName = lessonName;
         this.day = day;
         this.startTime = startTime;
@@ -44,7 +45,7 @@ public class Lesson {
         this.room = room;
     }
 
-    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, float price, Teacher teacher, Room room, Grade grade) {
+    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room, Grade grade) {
         this.lessonName = lessonName;
         this.day = day;
         this.startTime = startTime;
@@ -95,11 +96,11 @@ public class Lesson {
         this.endTime = endTime;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

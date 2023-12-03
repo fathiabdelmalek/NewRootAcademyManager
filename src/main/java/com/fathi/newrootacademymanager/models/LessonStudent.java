@@ -3,11 +3,11 @@ package com.fathi.newrootacademymanager.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lesson student", uniqueConstraints = @UniqueConstraint(columnNames = {"lesson id", "student id"}))
+@Table(name = "lesson student", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson id", "student id"})})
 public class LessonStudent {
     @Id
     @ManyToOne
-    @JoinColumn(name = "student id", nullable = false)
+    @JoinColumn(name = "lesson id", nullable = false)
     private Lesson lesson;
     @Id
     @ManyToOne

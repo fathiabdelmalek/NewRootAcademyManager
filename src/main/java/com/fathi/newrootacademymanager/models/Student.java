@@ -24,12 +24,12 @@ public class Student {
     private LocalDate birthDate;
     @ManyToOne
     @JoinColumn(name = "grade id", nullable = false)
-    private int grade;
+    private Grade grade;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String phoneNumber, Sex sex, LocalDate birthDate, int grade) {
+    public Student(String firstName, String lastName, String phoneNumber, Sex sex, LocalDate birthDate, Grade grade) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -86,11 +86,11 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public int getGrade() {
+    public Grade getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Grade grade) {
         this.grade = grade;
     }
 }

@@ -3,7 +3,7 @@ package com.fathi.newrootacademymanager.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "classes")
+@Table(name = "rooms")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
