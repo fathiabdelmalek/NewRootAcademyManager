@@ -1,0 +1,73 @@
+/*black blue #1F2B51*/
+/*blue       #187BBE*/
+/*light blue #4DC2ED*/
+/*orange     #F8B038*/
+
+.root {
+    -fx-font-family: "Arial";
+}
+
+.top-part {
+    -fx-background-color: linear-gradient(to right, #1F2B51 25%, #187BBE 45%, #4DC2ED 65%, #FFFFFF 95%);
+}
+
+.top-part .button {
+    -fx-background-color: transparent;
+}
+
+.top-part .btn-close:hover {
+    -fx-background-color: #FF0000;
+    -fx-cursor: hand;
+}
+
+.top-part .btn-minimize:hover {
+    -fx-background-color: #DDDDDD;
+    -fx-cursor: hand;
+}
+
+.left-part {
+    /*-fx-background-color: linear-gradient(from 0% 0% to 100% 200%, #1F2B51, #187BBE);*/
+    /*-fx-background-color: linear-gradient(to bottom right, #1F2B51, #187BBE);*/
+    /*-fx-background-color: linear-gradient(to bottom, #1F2B51, #187BBE);*/
+    -fx-background-color: #1F2B51;
+}
+
+.left-part .title-text {
+    -fx-text-fill: #F8B038;
+    -fx-font-size: 40px;
+    -fx-font-family: "Arial";
+    -fx-alignment: center;
+}
+
+.left-part .nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #DDDDDD;
+    -fx-cursor: hand;
+}
+
+.left-part .nav-button:hover {
+    -fx-border-color: transparent transparent #1f2b51 transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-text-fill: #FFFFFF;
+}
+
+.left-part .nav-button:pressed {
+    -fx-text-fill: #DDDDDD;
+}
+
+.right-part {
+    -fx-background-color: #FFFFFF;
+}
+
+
+
+.bottom-part {
+    -fx-background-color: linear-gradient(to right, #1F2B51 25%, #FFFFFF 25.1%);
+}
+
+.bottom-part .label {
+    -fx-text-fill: #F8B038;
+    -fx-font-size: 24;
+    -fx-alignment: center;
+}

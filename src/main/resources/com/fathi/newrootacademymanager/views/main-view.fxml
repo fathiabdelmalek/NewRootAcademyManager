@@ -1,36 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainController">
-    <TabPane layoutX="3.0" layoutY="3.0" prefHeight="800.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<!--        <Tab text="Dashboard">-->
-<!--            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />-->
-<!--        </Tab>-->
-<!--        <Tab text="Table Board">-->
-<!--            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>-->
-<!--        </Tab>-->
-        <Tab text="Students">
-            <fx:include source="students/students-list-view.fxml"/>
-        </Tab>
-        <Tab text="Teachers">
-            <fx:include source="teachers/teachers-list-view.fxml"/>
-        </Tab>
-        <Tab text="Incomes">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="Expenses">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="Lessons">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="Grades">
-            <fx:include source="grades/grades-list-view.fxml"/>
-        </Tab>
-        <Tab text="Rooms">
-            <fx:include source="rooms/rooms-list-view.fxml"/>
-        </Tab>
-    </TabPane>
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainController">
+   <BorderPane prefHeight="1691.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <top>
+          <AnchorPane fx:id="topPane" prefHeight="30.0" prefWidth="1600.0" styleClass="top-part" BorderPane.alignment="CENTER">
+              <Button alignment="CENTER" layoutX="1540.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER">
+                 <graphic>
+                     <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="24" />
+                 </graphic>
+              </Button>
+              <Button alignment="CENTER" layoutX="1480.0" mnemonicParsing="false" onAction="#minimize" prefHeight="30.0" prefWidth="60.0" styleClass="btn-minimize" textAlignment="CENTER">
+                 <graphic>
+                     <FontAwesomeIconView caretBias="false" glyphName="MINUS" size="24" />
+                 </graphic>
+              </Button>
+          </AnchorPane>
+      </top>
+      <left>
+          <AnchorPane prefHeight="860.0" prefWidth="400" styleClass="left-part" BorderPane.alignment="CENTER">
+              <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+                  <Image url="@../images/new_root.png" />
+              </ImageView>
+            <Button layoutY="400.0" mnemonicParsing="false" onAction="#openDashboardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Dashboard">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+               </graphic>
+               <graphic>
+                  <FontAwesomeIconView glyphName="HOME" />
+               </graphic>
+            </Button>
+            <Button layoutX="1.0" layoutY="460.0" mnemonicParsing="false" onAction="#openFinancesScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Finances">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="MONEY" />
+               </graphic>
+            </Button>
+            <Button layoutY="520.0" mnemonicParsing="false" onAction="#openTableBoardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Table Board">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="TABLE" />
+               </graphic>
+            </Button>
+            <Button layoutX="1.0" layoutY="580.0" mnemonicParsing="false" onAction="#openLessonsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Lessons">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="BOOK" />
+               </graphic>
+            </Button>
+            <Button layoutX="1.0" layoutY="640.0" mnemonicParsing="false" onAction="#openStudentsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Students">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView />
+               </graphic>
+            </Button>
+            <Button layoutX="1.0" layoutY="700.0" mnemonicParsing="false" onAction="#openTeachersScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Teachers">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView />
+               </graphic>
+            </Button>
+            <Button layoutX="1.0" layoutY="760.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Grades &amp; Rooms">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+            </Button>
+          </AnchorPane>
+      </left>
+      <center>
+         <AnchorPane fx:id="mainPane" prefHeight="860.0" prefWidth="1200.0" styleClass="right-part" BorderPane.alignment="CENTER" />
+      </center>
+      <bottom>
+          <AnchorPane prefHeight="40.0" prefWidth="1600.0" styleClass="bottom-part" BorderPane.alignment="CENTER_LEFT">
+              <Label prefWidth="400" prefHeight="40" text="By Fathi Abdelmalek" />
+          </AnchorPane>
+      </bottom>
+   </BorderPane>
 </AnchorPane>

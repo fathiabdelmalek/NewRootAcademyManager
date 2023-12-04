@@ -5,9 +5,6 @@ module com.fathi.newrootacademymanager {
     requires mysql.connector.j;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
-    requires org.kordamp.bootstrapfx.core;
-    requires org.kordamp.ikonli.javafx;
-    requires org.kordamp.ikonli.fontawesome5;
 
     opens com.fathi.newrootacademymanager to javafx.fxml;
     opens com.fathi.newrootacademymanager.models to javafx.fxml, org.hibernate.orm.core;
@@ -16,11 +13,12 @@ module com.fathi.newrootacademymanager {
     opens com.fathi.newrootacademymanager.controllers to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.students to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.teachers to javafx.fxml, org.hibernate.orm.core;
+    opens com.fathi.newrootacademymanager.controllers.lessons to javafx.fxml, org.hibernate.orm.core;
 //    opens com.fathi.newrootacademymanager.controllers.incomes to javafx.fxml, org.hibernate.orm.core;
 //    opens com.fathi.newrootacademymanager.controllers.expenses to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.grades to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.rooms to javafx.fxml, org.hibernate.orm.core;
-//    opens com.fathi.newrootacademymanager.controllers.others to javafx.fxml, org.hibernate.orm.core;
+    opens com.fathi.newrootacademymanager.controllers.others to javafx.fxml, org.hibernate.orm.core;
 
     exports com.fathi.newrootacademymanager;
     exports com.fathi.newrootacademymanager.models;
@@ -31,7 +29,7 @@ module com.fathi.newrootacademymanager {
 //    exports com.fathi.newrootacademymanager.actions;
 //    exports com.fathi.newrootacademymanager.controllers.students;
 //    exports com.fathi.newrootacademymanager.controllers.teachers;
-//    exports com.fathi.demonewrootacademymanager.controllers.incomes;
+//    exports com.fathi.newrootacademymanager.controllers.incomes;
 //    exports com.fathi.newrootacademymanager.controllers.expenses;
 //    exports com.fathi.newrootacademymanager.controllers.others;
 }

@@ -12,7 +12,7 @@
             <TextField fx:id="searchText" onKeyTyped="#searchAction" prefHeight="26.0" prefWidth="102.0" />
         </HBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
-            <Button mnemonicParsing="false" onAction="#addAction" text="Add Student" />
+            <Button mnemonicParsing="false" onAction="#addAction" text="Add Student" styleClass="nav" />
         </HBox>
       <padding>
          <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
