@@ -90,12 +90,12 @@
 }
 
 .right-part .table-view .table-cell {
-    -fx-border-color: transparent;
+    -fx-border-color: #FFFFFF;
     -fx-font-size: 16;
 }
 
 .right-part .table-view .table-row-cell {
-    -fx-background-color: transparent;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: transparent transparent #1F2B51 transparent;
 }
 
@@ -106,6 +106,7 @@
 
 .right-part .table-view .table-row-cell:selected {
     -fx-background-color: #4DC2ED;
+    -fx-text-background-color: #FFFFFF;
 }
 
 .right-part .table-view .virtual-flow .scroll-bar:vertical,
@@ -114,7 +115,7 @@
 .right-part .table-view .virtual-flow .scroll-bar:horizontal,
 .right-part .table-view .virtual-flow .scroll-bar:horizontal .track,
 .right-part .table-view .virtual-flow .scroll-bar:horizontal .track-background {
-    -fx-background-color: transparent;
+    -fx-background-color: #FFFFFF;
 }
 
 .right-part .table-view .virtual-flow .scroll-bar .increment-button,
@@ -127,6 +128,48 @@
     -fx-background-color: #187BBE;
 }
 .right-part .table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: #187BBE;
+}
+
+.right-part .list-view {
+    -fx-background-color: #FFFFFF;
+}
+
+.right-part .list-view .list-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #1F2B51 transparent;
+    -fx-font-size: 16;
+}
+
+.right-part .list-view .list-cell:hover {
+    -fx-background-color: #4DC2ED11;
+    -fx-text-background-color: #187BBE;
+}
+
+.right-part .list-view .list-cell:selected {
+    -fx-background-color: #4DC2ED;
+    -fx-text-background-color: #FFFFFF;
+}
+
+.right-part .list-view .virtual-flow .scroll-bar:vertical,
+.right-part .list-view .virtual-flow .scroll-bar:vertical .track,
+.right-part .list-view .virtual-flow .scroll-bar:vertical .track-background,
+.right-part .list-view .virtual-flow .scroll-bar:horizontal,
+.right-part .list-view .virtual-flow .scroll-bar:horizontal .track,
+.right-part .list-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: #FFFFFF;
+}
+
+.right-part .list-view .virtual-flow .scroll-bar .increment-button,
+.right-part .list-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.right-part .list-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #187BBE;
+}
+.right-part .list-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color: #187BBE;
 }
 

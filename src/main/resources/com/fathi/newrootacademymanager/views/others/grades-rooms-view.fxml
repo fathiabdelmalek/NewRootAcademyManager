@@ -5,11 +5,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane prefHeight="860.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.GradesRoomsViewController">
     <Line endY="860.0" layoutX="600.0" stroke="#1f2b51" />
     <TextField fx:id="searchGradeText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchGradeAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -30,7 +33,6 @@
       </padding>
    </TextField>
    <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="621.0" layoutY="37.0" size="24" />
-   <ListView fx:id="gradesList" layoutY="60.0" prefHeight="600.0" prefWidth="599.0" AnchorPane.topAnchor="60.0" />
    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="675.0" prefWidth="75.0" text="Level">
       <font>
          <Font size="24.0" />
@@ -71,7 +73,7 @@
          <Font size="24.0" />
       </font>
    </Button>
-   <ListView fx:id="roomsList" layoutX="601.0" layoutY="60.0" prefHeight="600.0" prefWidth="599.0" />
+   <ListView fx:id="listView" layoutX="601.0" layoutY="60.0" prefHeight="600.0" prefWidth="599.0" />
    <Label alignment="CENTER_RIGHT" layoutX="626.0" layoutY="675.0" prefWidth="150.0" text="Code">
       <font>
          <Font size="24.0" />
@@ -102,4 +104,18 @@
          <Font size="24.0" />
       </font>
    </Button>
+   <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="599.0">
+     <columns>
+        <TableColumn prefWidth="295.0" text="Level">
+           <cellValueFactory>
+              <PropertyValueFactory property="level" />
+           </cellValueFactory>
+        </TableColumn>
+        <TableColumn prefWidth="295.0" text="Year">
+           <cellValueFactory>
+              <PropertyValueFactory property="year" />
+           </cellValueFactory>
+        </TableColumn>
+     </columns>
+   </TableView>
 </AnchorPane>

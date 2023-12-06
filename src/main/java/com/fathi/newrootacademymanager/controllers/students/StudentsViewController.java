@@ -6,9 +6,7 @@ import com.fathi.newrootacademymanager.models.Student;
 import com.fathi.newrootacademymanager.models.StudentView;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -46,17 +44,14 @@ public class StudentsViewController {
         FilteredList<StudentView> filter = new FilteredList<>(tableView.getItems(), e -> true);
         searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
-                if (newValue == null || newValue.isEmpty())
-                    return true;
+                if (newValue == null || newValue.isEmpty()) return true;
                 String key = newValue.toLowerCase();
                 return predicate.getFirstName().toLowerCase().contains(key) ||
                         predicate.getLastName().toLowerCase().contains(key) ||
                         predicate.getPhoneNumber().contains(key);
             });
         });
-        SortedList<StudentView> sortedList = new SortedList<>(filter);
-        sortedList.comparatorProperty().bind(tableView.comparatorProperty());
-        tableView.setItems(sortedList);
+        tableView.setItems(filter);
     }
 
     public void insertAction(ActionEvent actionEvent) {
@@ -83,21 +78,29 @@ public class StudentsViewController {
     }
 
     public void updateAction(ActionEvent actionEvent) {
-        Student student = CRUDService.readById(Student.class, id);
-        assert student != null;
-        student.setFirstName(firstNameText.getText());
-        student.setLastName(lastNameText.getText());
-        student.setPhoneNumber(phoneNumberText.getText());
-        student.setSex(Sex.valueOf(((RadioButton) sex.getSelectedToggle()).getText()));
-        student.setBirthDate(datePicker.getValue());
-        student.setGrade(gradeChoice.getValue());
-        CRUDService.update(student);
-        refreshTable();
+        if (firstNameText.getText().isEmpty() ||
+                lastNameText.getText().isEmpty() ||
+                phoneNumberText.getText().isEmpty() ||
+                !sex.getSelectedToggle().isSelected() ||
+                datePicker.getValue() == null ||
+                gradeChoice.getValue() == null) {
+            System.out.println("You should insert all required data");
+        } else {
+            Student student = CRUDService.readById(Student.class, id);
+            assert student != null;
+            student.setFirstName(firstNameText.getText());
+            student.setLastName(lastNameText.getText());
+            student.setPhoneNumber(phoneNumberText.getText());
+            student.setSex(Sex.valueOf(((RadioButton) sex.getSelectedToggle()).getText()));
+            student.setBirthDate(datePicker.getValue());
+            student.setGrade(gradeChoice.getValue());
+            CRUDService.update(student);
+            refreshTable();
+        }
     }
 
     public void deleteAction(ActionEvent actionEvent) {
-        Student student = CRUDService.readById(Student.class, id);
-        CRUDService.delete(student);
+        CRUDService.delete(CRUDService.readById(Student.class, id));
         refreshTable();
     }
 
