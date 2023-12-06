@@ -6,6 +6,9 @@ import com.fathi.newrootacademymanager.models.Student;
 import com.fathi.newrootacademymanager.models.StudentView;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -40,6 +43,20 @@ public class StudentsViewController {
     }
 
     public void searchAction(KeyEvent keyEvent) {
+        FilteredList<StudentView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filter.setPredicate(predicate -> {
+                if (newValue == null || newValue.isEmpty())
+                    return true;
+                String key = newValue.toLowerCase();
+                return predicate.getFirstName().toLowerCase().contains(key) ||
+                        predicate.getLastName().toLowerCase().contains(key) ||
+                        predicate.getPhoneNumber().contains(key);
+            });
+        });
+        SortedList<StudentView> sortedList = new SortedList<>(filter);
+        sortedList.comparatorProperty().bind(tableView.comparatorProperty());
+        tableView.setItems(sortedList);
     }
 
     public void insertAction(ActionEvent actionEvent) {
@@ -91,7 +108,7 @@ public class StudentsViewController {
         datePicker.setValue(null);
         maleChoice.setSelected(false);
         femaleChoice.setSelected(false);
-        gradeChoice.setValue(null);
+        gradeChoice.getSelectionModel().clearSelection();
     }
 
     private void loadUI() {

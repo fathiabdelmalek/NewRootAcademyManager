@@ -33,7 +33,7 @@
 
 .left-part .title-text {
     -fx-text-fill: #F8B038;
-    -fx-font-size: 40px;
+    -fx-font-size: 40;
     -fx-font-family: "Arial";
     -fx-alignment: center;
 }
@@ -46,7 +46,7 @@
 
 .left-part .nav-button:hover {
     -fx-border-color: transparent transparent #1F2B51 transparent;
-    -fx-border-width: 2px;
+    -fx-border-width: 2;
     -fx-border-radius: 50%;
     -fx-text-fill: #FFFFFF;
 }
@@ -82,7 +82,7 @@
 
 .right-part .table-view .column-header, .filter {
     -fx-background-color: transparent;
-    -fx-font-size: 18;
+    -fx-font-size: 20;
 }
 
 .right-part .table-view .column-header .label {
@@ -91,6 +91,7 @@
 
 .right-part .table-view .table-cell {
     -fx-border-color: transparent;
+    -fx-font-size: 16;
 }
 
 .right-part .table-view .table-row-cell {
