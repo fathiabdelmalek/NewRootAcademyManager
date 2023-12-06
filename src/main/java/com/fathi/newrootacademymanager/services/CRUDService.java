@@ -36,7 +36,7 @@ public class CRUDService {
             Root<T> root = cr.from(entityClass);
             List<Predicate> conditions = new ArrayList<>();
             for (int i = 0; i < paramValues.length; i++) {
-                conditions.add(cb.like(root.get(paramNames[i]), "%" + paramValues[i] + "%"));
+                conditions.add(cb.like(root.get(paramNames[i]), paramValues[i]));
             }
             ObservableList<T> result = FXCollections.observableArrayList();
             result.addAll(em.createQuery(cr.where(cb.and(conditions.toArray(new Predicate[0])))).getResultList());

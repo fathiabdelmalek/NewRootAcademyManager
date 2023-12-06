@@ -16,7 +16,7 @@ public class MainApplication extends Application {
     private double x = 0, y = 0;
     @Override
     public void start(Stage stage) throws IOException {
-//        DBCManager.getInstance();
+        DBCManager.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());

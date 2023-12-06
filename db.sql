@@ -118,7 +118,7 @@ ALTER TABLE `lesson_student` ADD INDEX `idx_lesson_id` (`lesson id`);
 ALTER TABLE `lesson_student` ADD INDEX `idx_student_id` (`student id`);
 
 CREATE OR REPLACE VIEW `students view` AS
-SELECT `students`.`id`, CONCAT(`students`.`first name`, ' ', `students`.`last name`) AS `student name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade` FROM `students`
+SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade` FROM `students`
 INNER JOIN `grades` ON `grades`.`id` = `students`.`grade id`;
 
 CREATE OR REPLACE VIEW `lessons view` AS

@@ -26,7 +26,8 @@ public class MainController {
             stage.setX(event.getScreenX() - xOffset);
             stage.setY(event.getScreenY() - yOffset);
         });
-        loadView("/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml");
+//        loadView("/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml");
+        loadView("/com/fathi/newrootacademymanager/views/students/students-view.fxml");
     }
 
     public void openDashboardScene(ActionEvent actionEvent) {

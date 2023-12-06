@@ -11,8 +11,10 @@ public class StudentView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "student name", nullable = false)
-    private String studentName;
+    @Column(name = "first name", nullable = false)
+    private String firstName;
+    @Column(name = "last name", nullable = false)
+    private String lastName;
     @Column(name = "phone number", nullable = false)
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
@@ -34,12 +36,20 @@ public class StudentView {
         this.id = id;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {

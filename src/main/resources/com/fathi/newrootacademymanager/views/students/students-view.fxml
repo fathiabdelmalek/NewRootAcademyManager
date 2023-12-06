@@ -1,19 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.fathi.newrootacademymanager.controllers.students.StudentsViewController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label prefHeight="860" prefWidth="1200" alignment="CENTER" text="Students View">
+<AnchorPane prefHeight="860" prefWidth="1200" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.students.StudentsViewController">
+    <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font>
-            <Font size="60" />
+          <Font size="16.0" />
+        </font>
+        <padding>
+          <Insets left="32.0" />
+        </padding>
+    </TextField>
+    <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
+    <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <columns>
+          <TableColumn prefWidth="200.0" text="First Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="firstName" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="200.0" text="Last Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="lastName" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="200.0" text="Phone Number">
+              <cellValueFactory>
+                  <PropertyValueFactory property="phoneNumber" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="200.0" text="Sex">
+              <cellValueFactory>
+                  <PropertyValueFactory property="sex" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="200.0" text="Birth Date">
+              <cellValueFactory>
+                  <PropertyValueFactory property="birthDate" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="180.0" text="Grade">
+              <cellValueFactory>
+                  <PropertyValueFactory property="grade" />
+              </cellValueFactory>
+          </TableColumn>
+      </columns>
+    </TableView>
+    <Label layoutX="25.0" layoutY="700.0" text="First Name">
+        <font>
+          <Font size="24.0" />
         </font>
     </Label>
+    <Label layoutX="450.0" layoutY="700.0" text="Last Name">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="25.0" layoutY="750.0" text="Phone #">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="450.0" layoutY="750.0" text="Birth Date">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="25.0" layoutY="800.0" text="Sex">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="450.0" layoutY="800.0" text="Grade">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <TextField fx:id="firstNameText" layoutX="175.0" layoutY="700.0" prefHeight="35.0" prefWidth="250.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="lastNameText" layoutX="600.0" layoutY="700.0" prefHeight="35.0" prefWidth="250.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="phoneNumberText" layoutX="175.0" layoutY="750.0" prefHeight="35.0" prefWidth="250.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </TextField>
+    <DatePicker fx:id="datePicker" layoutX="600.0" layoutY="750.0" prefHeight="35.0" prefWidth="250.0" />
+    <RadioButton fx:id="maleChoice" layoutX="175.0" layoutY="800.0" mnemonicParsing="false" selected="true" text="Male">
+        <font>
+          <Font size="24.0" />
+        </font>
+      <toggleGroup>
+         <ToggleGroup fx:id="sex" />
+      </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="femaleChoice" layoutX="300.0" layoutY="800.0" mnemonicParsing="false" text="Female" toggleGroup="$sex">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </RadioButton>
+    <ComboBox fx:id="gradeChoice" layoutX="600.0" layoutY="800.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
+    <Button layoutX="900.0" layoutY="700.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="900.0" layoutY="775.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="1055.0" layoutY="700.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="1055.0" layoutY="775.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
 </AnchorPane>
