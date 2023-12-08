@@ -122,7 +122,7 @@ SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `studen
 INNER JOIN `grades` ON `grades`.`id` = `students`.`grade id`;
 
 CREATE OR REPLACE VIEW `lessons view` AS
-SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`date`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade` FROM `lessons`
+SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`price`, `lessons`.`day`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade` FROM `lessons`
 INNER JOIN `teachers` ON `teachers`.`id` = `lessons`.`teacher id`
 INNER JOIN `rooms` ON `rooms`.`id` = `lessons`.`room id`
 LEFT JOIN `grades` ON `grades`.`id` = `lessons`.`grade id`;
