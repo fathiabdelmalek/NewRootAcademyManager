@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.teachers;
 
 import com.fathi.newrootacademymanager.models.Teacher;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import javafx.application.Platform;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,8 +24,17 @@ public class TeachersViewController {
 
     private int id;
 
-    public void initialize() {
-        loadUI();
+    @FXML
+    void initialize() {
+        Platform.runLater(() -> searchText.requestFocus());
+
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            id = newSelection.getId();
+            firstNameText.setText(newSelection.getFirstName());
+            lastNameText.setText(newSelection.getLastName());
+            phoneNumberText.setText(newSelection.getPhoneNumber());
+        });
+        refreshTable();
     }
 
     public void searchAction(KeyEvent keyEvent) {
@@ -83,16 +93,6 @@ public class TeachersViewController {
         firstNameText.clear();
         lastNameText.clear();
         phoneNumberText.clear();
-    }
-
-    private void loadUI() {
-        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            firstNameText.setText(newSelection.getFirstName());
-            lastNameText.setText(newSelection.getLastName());
-            phoneNumberText.setText(newSelection.getPhoneNumber());
-        });
-        refreshTable();
     }
 
     private void refreshTable() {

@@ -9,7 +9,7 @@
 
 
 .top-part {
-    -fx-background-color: linear-gradient(to right, #1F2B51 25%, #187BBE 45%, #4DC2ED 65%, #FFFFFF 95%);
+    -fx-background-color: linear-gradient(to right, #1F2B51 23.5%, #187BBE 45%, #4DC2ED 65%, #FFFFFF 95%);
 }
 
 .top-part .button {
@@ -176,10 +176,11 @@
 
 
 .bottom-part {
-    -fx-background-color: linear-gradient(to right, #187BBE 25%, #FFFFFF 25.1%);
+    -fx-background-color: #FFFFFF;
 }
 
 .bottom-part .label {
+    -fx-background-color: #187BBE;
     -fx-text-fill: #F8B038;
     -fx-font-size: 24;
     -fx-alignment: center;
