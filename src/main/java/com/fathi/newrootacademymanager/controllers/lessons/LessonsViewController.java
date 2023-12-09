@@ -8,14 +8,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 
 public class LessonsViewController {
+    @FXML
+    public AnchorPane pane;
     @FXML
     private Spinner<Integer> startHourSpinner;
     @FXML
@@ -163,8 +169,18 @@ public class LessonsViewController {
             TableRow<LessonView> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    LessonView selectedLesson = row.getItem();
+                    int lessonId = row.getItem().getId();
                     System.out.println("Lesson Name: " + row.getItem().getLessonName());
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
+                        Parent view = loader.load();
+                        LessonDetailsViewController detailsController = loader.getController();
+                        detailsController.initialize(lessonId);
+                        pane.getChildren().clear();
+                        pane.getChildren().add(view);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             });
             return row;

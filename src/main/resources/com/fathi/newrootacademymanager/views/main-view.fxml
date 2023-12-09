@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
    <BorderPane prefHeight="900.0" prefWidth="1700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
-          <AnchorPane fx:id="topPane" prefHeight="30.0" styleClass="top-part" BorderPane.alignment="CENTER">
+          <AnchorPane fx:id="topPane" styleClass="top-part" BorderPane.alignment="CENTER">
               <Button alignment="CENTER" layoutX="1540.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
                  <graphic>
                      <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="24" />
@@ -26,7 +26,7 @@
           </AnchorPane>
       </top>
       <left>
-          <AnchorPane prefHeight="900.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
+          <AnchorPane prefHeight="828.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
               <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
                   <Image url="@../images/new_root.png" />
               </ImageView>
@@ -91,7 +91,7 @@
           </AnchorPane>
       </left>
       <center>
-         <AnchorPane fx:id="mainPane" prefHeight="860.0" styleClass="right-part" BorderPane.alignment="CENTER" />
+         <AnchorPane fx:id="mainPane" prefHeight="828.0" styleClass="right-part" BorderPane.alignment="CENTER" />
       </center>
       <bottom>
           <AnchorPane prefHeight="40.0" styleClass="bottom-part" BorderPane.alignment="CENTER_LEFT">

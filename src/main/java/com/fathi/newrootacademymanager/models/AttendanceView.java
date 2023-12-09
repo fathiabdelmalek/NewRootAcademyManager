@@ -3,26 +3,41 @@ package com.fathi.newrootacademymanager.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "attendances view")
+@Table(name = "attendances view", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson id", "student id"})})
 public class AttendanceView {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @ManyToOne
+    @JoinColumn(name = "lesson id", nullable = false)
+    private Lesson lesson;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "student id", nullable = false)
+    private Student student;
     @Column(name = "lesson name", nullable = false)
     private String lessonName;
     @Column(name = "student name", nullable = false)
     private String studentName;
     @Column(name = "times present", nullable = false)
     private int timesPresent;
+    @Column(name = "notes")
+    private String notes;
 
     public AttendanceView() {}
 
-    public int getId() {
-        return id;
+    public Lesson getLesson() {
+        return lesson;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public String getLessonName() {
@@ -47,5 +62,13 @@ public class AttendanceView {
 
     public void setTimesPresent(int timesPresent) {
         this.timesPresent = timesPresent;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

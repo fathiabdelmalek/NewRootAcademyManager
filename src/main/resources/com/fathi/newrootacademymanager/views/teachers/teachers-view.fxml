@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="860.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.teachers.TeachersViewController">
+<AnchorPane prefHeight="828.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.teachers.TeachersViewController">
     <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font>
             <Font size="16.0" />
@@ -40,52 +40,52 @@
             </TableColumn>
         </columns>
     </TableView>
-    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="700.0" prefWidth="150.0" text="First Name">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="675.0" prefWidth="150.0" text="First Name">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="750.0" prefWidth="150.0" text="Last Name">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="725.0" prefWidth="150.0" text="Last Name">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="800.0" prefWidth="150.0" text="Phone #">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="775.0" prefWidth="150.0" text="Phone #">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <TextField fx:id="firstNameText" layoutX="440.0" layoutY="700.0" prefHeight="35.0" prefWidth="400.0">
+    <TextField fx:id="firstNameText" layoutX="440.0" layoutY="675.0" prefHeight="35.0" prefWidth="400.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <TextField fx:id="lastNameText" layoutX="440.0" layoutY="750.0" prefHeight="35.0" prefWidth="400.0">
+    <TextField fx:id="lastNameText" layoutX="440.0" layoutY="725.0" prefHeight="35.0" prefWidth="400.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <TextField fx:id="phoneNumberText" layoutX="440.0" layoutY="800.0" prefHeight="35.0" prefWidth="400.0">
+    <TextField fx:id="phoneNumberText" layoutX="440.0" layoutY="775.0" prefHeight="35.0" prefWidth="400.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <Button layoutX="860.0" layoutY="700.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+    <Button layoutX="860.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="860.0" layoutY="775.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+    <Button layoutX="860.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="995.0" layoutY="700.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+    <Button layoutX="995.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="995.0" layoutY="775.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+    <Button layoutX="995.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
         <font>
             <Font size="24.0" />
         </font>

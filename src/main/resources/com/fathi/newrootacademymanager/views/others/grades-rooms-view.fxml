@@ -13,8 +13,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="860.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.GradesRoomsViewController">
-    <Line endY="860.0" layoutX="700.0" stroke="#1f2b51" />
+<AnchorPane prefHeight="828.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.GradesRoomsViewController">
+    <Line endY="827.0" layoutX="700.0" stroke="#1f2b51" />
     <TextField fx:id="searchGradeText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchGradeAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font>
             <Font size="16.0" />
@@ -24,7 +24,7 @@
         </padding>
     </TextField>
     <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
-   <TextField fx:id="searchRoomText" layoutX="715.0" layoutY="15.0" onKeyTyped="#searchRoomAction" prefHeight="30.0" prefWidth="200.0" promptText="Search">
+    <TextField fx:id="searchRoomText" layoutX="715.0" layoutY="15.0" onKeyTyped="#searchRoomAction" prefHeight="30.0" prefWidth="200.0" promptText="Search">
       <font>
          <Font size="16.0" />
       </font>

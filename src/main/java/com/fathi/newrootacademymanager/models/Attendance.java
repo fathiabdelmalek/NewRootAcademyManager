@@ -15,11 +15,20 @@ public class Attendance {
     private Student student;
     @Column(name = "times present", nullable = false)
     private int timesPresent;
+    @Column(name = "notes")
+    private String notes;
 
     public Attendance() {}
 
     public Attendance(int timesPresent, Lesson lesson, Student student) {
         this.timesPresent = timesPresent;
+        this.lesson = lesson;
+        this.student = student;
+    }
+
+    public Attendance(int timesPresent, String notes, Lesson lesson, Student student) {
+        this.timesPresent = timesPresent;
+        this.notes = notes;
         this.lesson = lesson;
         this.student = student;
     }
@@ -46,5 +55,13 @@ public class Attendance {
 
     public void setTimesPresent(int timesPresent) {
         this.timesPresent = timesPresent;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
