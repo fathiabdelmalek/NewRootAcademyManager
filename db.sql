@@ -35,6 +35,7 @@ CREATE TABLE `lessons` (
     `start time` TIME NOT NULL,
     `end time` TIME NOT NULL,
     `price` DECIMAL(38, 2) NOT NULL,
+    `classes number` INTEGER NOT NULL DEFAULT (0),
     `teacher id` INTEGER NOT NULL,
     `room id` INTEGER NOT NULL,
     `grade id` INTEGER,
@@ -111,7 +112,7 @@ FROM `students`
 INNER JOIN `grades` ON `grades`.`id` = `students`.`grade id`;
 
 CREATE OR REPLACE VIEW `lessons view` AS
-SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`price`, `lessons`.`day`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`
+SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`price`, `lessons`.`classes number`, `lessons`.`day`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`
 FROM `lessons`
 INNER JOIN `teachers` ON `teachers`.`id` = `lessons`.`teacher id`
 INNER JOIN `rooms` ON `rooms`.`id` = `lessons`.`room id`

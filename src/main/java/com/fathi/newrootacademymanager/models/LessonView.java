@@ -22,6 +22,8 @@ public class LessonView {
     private LocalTime endTime;
     @Column(nullable = false)
     private float price;
+    @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
+    private int classesNumber;
     @Column(name = "teacher name", nullable = false)
     private String teacherName;
     @Column(name = "room code", nullable = false)
@@ -101,5 +103,13 @@ public class LessonView {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public int getClassesNumber() {
+        return classesNumber;
+    }
+
+    public void setClassesNumber(int classesNumber) {
+        this.classesNumber = classesNumber;
     }
 }

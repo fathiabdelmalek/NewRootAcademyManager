@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class CRUDService {
     private static final DBCManager dbcm = DBCManager.getInstance();
@@ -29,18 +30,16 @@ public class CRUDService {
         }
     }
 
-    public static <T> ObservableList<T> readByParams(Class<T> entityClass, String[] paramNames, String[] paramValues) {
+    public static <T> ObservableList<T> readByCriteria(Class<T> entityClass, Map<String, Object> params) {
         try (EntityManager em = dbcm.getFactory().createEntityManager()) {
             CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<T> cr = cb.createQuery(entityClass);
-            Root<T> root = cr.from(entityClass);
-            List<Predicate> conditions = new ArrayList<>();
-            for (int i = 0; i < paramValues.length; i++) {
-                conditions.add(cb.like(root.get(paramNames[i]), paramValues[i]));
-            }
-            ObservableList<T> result = FXCollections.observableArrayList();
-            result.addAll(em.createQuery(cr.where(cb.and(conditions.toArray(new Predicate[0])))).getResultList());
-            return result;
+            CriteriaQuery<T> query = cb.createQuery(entityClass);
+            Root<T> root = query.from(entityClass);
+            List<Predicate> predicates = new ArrayList<>();
+            for (Map.Entry<String, Object> entry : params.entrySet())
+                predicates.add(cb.equal(root.get(entry.getKey()), entry.getValue()));
+            query.where(predicates.toArray(new Predicate[0]));
+            return FXCollections.observableArrayList(em.createQuery(query).getResultList());
         } catch (Exception e) {
             dbcm.handleTransactionException(e);
             return null;

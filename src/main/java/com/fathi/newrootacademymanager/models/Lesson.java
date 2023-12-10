@@ -23,6 +23,8 @@ public class Lesson {
     private LocalTime endTime;
     @Column(nullable = false)
     private BigDecimal price;
+    @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
+    private int classesNumber;
     @ManyToOne
     @JoinColumn(name = "teacher id", nullable = false)
     private Teacher teacher;
@@ -126,5 +128,13 @@ public class Lesson {
 
     public void setGrade(Grade grade) {
         this.grade = grade;
+    }
+
+    public int getClassesNumber() {
+        return classesNumber;
+    }
+
+    public void setClassesNumber(int classesNumber) {
+        this.classesNumber = classesNumber;
     }
 }
