@@ -1,11 +1,9 @@
 package com.fathi.newrootacademymanager.controllers.lessons;
 
-import com.fathi.newrootacademymanager.models.AttendanceView;
-import com.fathi.newrootacademymanager.models.Grade;
-import com.fathi.newrootacademymanager.models.Lesson;
-import com.fathi.newrootacademymanager.models.Student;
+import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -22,6 +20,8 @@ public class LessonDetailsViewController {
     private TextField teacherNameText;
     @FXML
     private Button teacherPaymentButton;
+    @FXML
+    public Label salaryLabel;
     @FXML
     private TextField classesNumberText;
     @FXML
@@ -40,14 +40,14 @@ public class LessonDetailsViewController {
     private ComboBox<Grade> gradeChoice;
     @FXML
     private ComboBox<Student> studentChoice;
-    Lesson lesson;
-    private int studentId;
+    private Lesson lesson;
 
     @FXML
     void initialize(int lessonId) {
         lesson = CRUDService.readById(Lesson.class, lessonId);
 
         teacherNameText.setText((lesson.getTeacher().getFirstName() + " " + lesson.getTeacher().getLastName()));
+        salaryLabel.setText("0.00");
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
@@ -66,16 +66,10 @@ public class LessonDetailsViewController {
             }
         });
         gradeChoice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            Map<String, Object> params = new HashMap<>();
-            params.put("grade", gradeChoice.getValue());
-            studentChoice.setItems(FXCollections.observableList(CRUDService.readByCriteria(Student.class, params)));
-            studentChoice.getItems().addFirst(null);
+            setStudentChoice();
         });
 
-        Map<String, Object> params = new HashMap<>();
-        params.put("grade", gradeChoice.getValue());
-        studentChoice.setItems(FXCollections.observableList(CRUDService.readByCriteria(Student.class, params)));
-        studentChoice.getItems().addFirst(null);
+        setStudentChoice();
         studentChoice.setConverter(new StringConverter<>() {
             @Override
             public String toString(Student student) {
@@ -92,34 +86,30 @@ public class LessonDetailsViewController {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             studentNameText.setText(newSelection.getStudentName());
             notesText.setText(newSelection.getNotes());
+            gradeChoice.setValue(newSelection.getStudent().getGrade());
             studentChoice.setValue(newSelection.getStudent());
         });
         refreshTable();
     }
 
     @FXML
-    void searchAction(KeyEvent keyEvent) {}
-
-    @FXML
-    void payAction(ActionEvent actionEvent) {
-        refreshTable();
+    void searchAction(KeyEvent keyEvent) {
+        FilteredList<AttendanceView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filter.setPredicate(predicate -> {
+                if (newValue == null || newValue.isEmpty()) return true;
+                String key = newValue.toLowerCase();
+                return predicate.getStudentName().toLowerCase().contains(key) ||
+                        String.valueOf(predicate.getTimesPresent()).contains(key);
+            });
+        });
+        tableView.setItems(filter);
     }
 
     @FXML
-    void addAction(ActionEvent actionEvent) {
-        refreshTable();
+    void payTeacherAction(ActionEvent actionEvent) {
+
     }
-
-    @FXML
-    void deleteAction(ActionEvent actionEvent) {
-        refreshTable();
-    }
-
-    @FXML
-    void clearAction(ActionEvent actionEvent) {}
-
-    @FXML
-    void payTeacherAction(ActionEvent actionEvent) {}
 
     @FXML
     void decreaseAction(ActionEvent actionEvent) {
@@ -135,9 +125,50 @@ public class LessonDetailsViewController {
         CRUDService.update(lesson);
     }
 
+    @FXML
+    void payAction(ActionEvent actionEvent) {
+        refreshTable();
+    }
+
+    @FXML
+    void updateAction(ActionEvent actionEvent) {
+        refreshTable();
+    }
+
+    @FXML
+    void addAction(ActionEvent actionEvent) {
+        refreshTable();
+    }
+
+    @FXML
+    void deleteAction(ActionEvent actionEvent) {
+        CRUDService.delete(CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId()));
+        refreshTable();
+    }
+
+    @FXML
+    void clearAction(ActionEvent actionEvent) {
+        studentNameText.clear();
+        studentPaymentText.clear();
+        notesText.clear();
+        gradeChoice.setValue(lesson.getGrade());
+        studentChoice.getSelectionModel().clearSelection();
+    }
+
     private void refreshTable() {
         Map<String, Object> params = new HashMap<>();
         params.put("lesson", lesson);
         tableView.setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+    }
+
+    private void setStudentChoice() {
+        if (gradeChoice.getValue() == null)
+            studentChoice.setItems(FXCollections.observableList(CRUDService.readAll(Student.class)));
+        else {
+            Map<String, Object> params = new HashMap<>();
+            params.put("grade", gradeChoice.getValue());
+            studentChoice.setItems(FXCollections.observableList(CRUDService.readByCriteria(Student.class, params)));
+        }
+        studentChoice.getItems().addFirst(null);
     }
 }

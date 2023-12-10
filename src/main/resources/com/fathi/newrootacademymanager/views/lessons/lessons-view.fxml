@@ -69,7 +69,11 @@
                <PropertyValueFactory property="teacherName" />
             </cellValueFactory>
          </TableColumn>
-         <TableColumn fx:id="studentsColumn" prefWidth="145.0" text="Students #" />
+         <TableColumn fx:id="studentsColumn" prefWidth="145.0" text="Students #">
+             <cellValueFactory>
+                 <PropertyValueFactory property="studentsNumber" />
+             </cellValueFactory>
+         </TableColumn>
         </columns>
     </TableView>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="670.0" prefWidth="250.0" text="Lesson Name">

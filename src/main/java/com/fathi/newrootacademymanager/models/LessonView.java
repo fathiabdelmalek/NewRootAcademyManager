@@ -24,6 +24,8 @@ public class LessonView {
     private float price;
     @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
     private int classesNumber;
+    @Column(name = "students number")
+    private int studentsNumber;
     @Column(name = "teacher name", nullable = false)
     private String teacherName;
     @Column(name = "room code", nullable = false)
@@ -111,5 +113,13 @@ public class LessonView {
 
     public void setClassesNumber(int classesNumber) {
         this.classesNumber = classesNumber;
+    }
+
+    public int getStudentsNumber() {
+        return studentsNumber;
+    }
+
+    public void setStudentsNumber(int studentsNumber) {
+        this.studentsNumber = studentsNumber;
     }
 }

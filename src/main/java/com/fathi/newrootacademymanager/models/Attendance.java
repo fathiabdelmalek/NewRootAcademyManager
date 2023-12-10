@@ -6,10 +6,11 @@ import jakarta.persistence.*;
 @Table(name = "attendances", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson id", "student id"})})
 public class Attendance {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @ManyToOne
     @JoinColumn(name = "lesson id", nullable = false)
     private Lesson lesson;
-    @Id
     @ManyToOne
     @JoinColumn(name = "student id", nullable = false)
     private Student student;
@@ -31,6 +32,14 @@ public class Attendance {
         this.notes = notes;
         this.lesson = lesson;
         this.student = student;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Lesson getLesson() {

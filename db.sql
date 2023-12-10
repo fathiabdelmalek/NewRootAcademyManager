@@ -81,11 +81,13 @@ CREATE TABLE `expenses` (
 );
 
 CREATE TABLE `attendances` (
+	`id` INTEGER NOT NULL AUTO_INCREMENT,
     `lesson id` INTEGER NOT NULL,
     `student id` INTEGER NOT NULL,
-    `times present` INTEGER NOT NULL,
+    `times present` INTEGER NOT NULL DEFAULT (0),
     `notes` VARCHAR(300),
-    PRIMARY KEY (`lesson id`, `student id`)
+    PRIMARY KEY (`id`),
+    UNIQUE (`lesson id`, `student id`)
 );
 
 ALTER TABLE `students` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
@@ -112,7 +114,7 @@ FROM `students`
 INNER JOIN `grades` ON `grades`.`id` = `students`.`grade id`;
 
 CREATE OR REPLACE VIEW `lessons view` AS
-SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`price`, `lessons`.`classes number`, `lessons`.`day`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`
+SELECT `lessons`.`id`, `lessons`.`lesson name`, `lessons`.`price`, `lessons`.`classes number`, `lessons`.`day`, `lessons`.`start time`, `lessons`.`end time`, CONCAT(`teachers`.`first name`, ' ', `teachers`.`last name`) AS `teacher name`, `rooms`.`code` AS `room code`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`, ( SELECT COUNT(*) FROM `attendances` WHERE `attendances`.`lesson id` = `lessons`.`id` ) AS `students number`
 FROM `lessons`
 INNER JOIN `teachers` ON `teachers`.`id` = `lessons`.`teacher id`
 INNER JOIN `rooms` ON `rooms`.`id` = `lessons`.`room id`
@@ -131,7 +133,7 @@ LEFT JOIN `teachers` ON `teachers`.`id` = `expenses`.`teacher id`
 ORDER BY `create time` DESC;
 
 CREATE OR REPLACE VIEW `attendances view` AS
-SELECT `attendances`.`lesson id`, `attendances`.`student id`, `lessons`.`lesson name`, CONCAT(`students`.`first name`, ' ', `students`.`last name`) AS `student name`, `attendances`.`times present`, `attendances`.`notes`
+SELECT `attendances`.`id`, `attendances`.`lesson id`, `attendances`.`student id`, `lessons`.`lesson name`, CONCAT(`students`.`first name`, ' ', `students`.`last name`) AS `student name`, `attendances`.`times present`, `attendances`.`notes`
 FROM `attendances`
 INNER JOIN `students` ON `students`.`id` = `attendances`.`student id`
 INNER JOIN `lessons` ON `lessons`.`id` = `attendances`.`lesson id`;
