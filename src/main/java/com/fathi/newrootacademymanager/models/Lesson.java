@@ -25,6 +25,8 @@ public class Lesson {
     private BigDecimal price;
     @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
     private int classesNumber;
+    @Column(name = "teacher dues", nullable = false, columnDefinition = "DEFAULT (0.00)")
+    private BigDecimal teacherDues;
     @ManyToOne
     @JoinColumn(name = "teacher id", nullable = false)
     private Teacher teacher;
@@ -106,6 +108,22 @@ public class Lesson {
         this.price = price;
     }
 
+    public int getClassesNumber() {
+        return classesNumber;
+    }
+
+    public void setClassesNumber(int classesNumber) {
+        this.classesNumber = classesNumber;
+    }
+
+    public BigDecimal getTeacherDues() {
+        return teacherDues;
+    }
+
+    public void setTeacherDues(BigDecimal teacherDues) {
+        this.teacherDues = teacherDues;
+    }
+
     public Teacher getTeacher() {
         return teacher;
     }
@@ -128,13 +146,5 @@ public class Lesson {
 
     public void setGrade(Grade grade) {
         this.grade = grade;
-    }
-
-    public int getClassesNumber() {
-        return classesNumber;
-    }
-
-    public void setClassesNumber(int classesNumber) {
-        this.classesNumber = classesNumber;
     }
 }

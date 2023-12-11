@@ -170,7 +170,6 @@ public class LessonsViewController {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     int lessonId = row.getItem().getId();
-                    System.out.println("Lesson Name: " + row.getItem().getLessonName());
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
                         Parent view = loader.load();

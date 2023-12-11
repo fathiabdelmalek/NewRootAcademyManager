@@ -23,17 +23,24 @@ public class Expense {
     @JoinColumn(name = "teacher id")
     private Teacher teacher;
 
-    public Expense() {}
+    public Expense() {
+        this.createTime = LocalDateTime.now();
+        this.updateTime = LocalDateTime.now();
+    }
 
     public Expense(BigDecimal amount, String details) {
         this.amount = amount;
         this.details = details;
+        this.createTime = LocalDateTime.now();
+        this.updateTime = LocalDateTime.now();
     }
 
     public Expense(BigDecimal amount, String details, Teacher teacher) {
         this.amount = amount;
         this.details = details;
         this.teacher = teacher;
+        this.createTime = LocalDateTime.now();
+        this.updateTime = LocalDateTime.now();
     }
 
     public int getId() {

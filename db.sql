@@ -36,6 +36,7 @@ CREATE TABLE `lessons` (
     `end time` TIME NOT NULL,
     `price` DECIMAL(38, 2) NOT NULL,
     `classes number` INTEGER NOT NULL DEFAULT (0),
+    `teacher dues` DECIMAL(38, 2) NOT NULL DEFAULT (0.00),
     `teacher id` INTEGER NOT NULL,
     `room id` INTEGER NOT NULL,
     `grade id` INTEGER,
@@ -64,8 +65,8 @@ CREATE TABLE `incomes` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
-    `create time` DATETIME NOT NULL DEFAULT NOW(),
-    `update time` DATETIME NOT NULL DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP,
+    `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `update time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `student id` INTEGER,
     PRIMARY KEY (`id`)
 );
@@ -74,18 +75,19 @@ CREATE TABLE `expenses` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
-    `create time` DATETIME NOT NULL DEFAULT NOW(),
-    `update time` DATETIME NOT NULL DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP,
+    `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `update time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `teacher id` INTEGER,
     PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `attendances` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT,
-    `lesson id` INTEGER NOT NULL,
-    `student id` INTEGER NOT NULL,
     `times present` INTEGER NOT NULL DEFAULT (0),
     `notes` VARCHAR(300),
+    `dues` DECIMAL(38, 2) NOT NULL DEFAULT (0.00),
+    `lesson id` INTEGER NOT NULL,
+    `student id` INTEGER NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`lesson id`, `student id`)
 );
@@ -133,7 +135,7 @@ LEFT JOIN `teachers` ON `teachers`.`id` = `expenses`.`teacher id`
 ORDER BY `create time` DESC;
 
 CREATE OR REPLACE VIEW `attendances view` AS
-SELECT `attendances`.`id`, `attendances`.`lesson id`, `attendances`.`student id`, `lessons`.`lesson name`, CONCAT(`students`.`first name`, ' ', `students`.`last name`) AS `student name`, `attendances`.`times present`, `attendances`.`notes`
+SELECT `attendances`.`id`, `attendances`.`lesson id`, `attendances`.`student id`, `lessons`.`lesson name`, CONCAT(`students`.`first name`, ' ', `students`.`last name`) AS `student name`, `attendances`.`times present`, `attendances`.`notes`, `attendances`.`dues`
 FROM `attendances`
 INNER JOIN `students` ON `students`.`id` = `attendances`.`student id`
 INNER JOIN `lessons` ON `lessons`.`id` = `attendances`.`lesson id`;

@@ -2,6 +2,8 @@ package com.fathi.newrootacademymanager.models;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "attendances view", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson id", "student id"})})
 public class AttendanceView {
@@ -22,6 +24,8 @@ public class AttendanceView {
     private int timesPresent;
     @Column(name = "notes")
     private String notes;
+    @Column(nullable = false)
+    private BigDecimal dues;
 
     public AttendanceView() {}
 
@@ -79,5 +83,13 @@ public class AttendanceView {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public BigDecimal getDues() {
+        return dues;
+    }
+
+    public void setDues(BigDecimal dues) {
+        this.dues = dues;
     }
 }

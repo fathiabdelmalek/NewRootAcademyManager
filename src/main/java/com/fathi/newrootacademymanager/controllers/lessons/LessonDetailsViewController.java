@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,14 +42,18 @@ public class LessonDetailsViewController {
     @FXML
     private ComboBox<Student> studentChoice;
     private Lesson lesson;
+    private Student student;
+    private int currentClassesNumber;
 
     @FXML
     void initialize(int lessonId) {
         lesson = CRUDService.readById(Lesson.class, lessonId);
+        currentClassesNumber = lesson.getClassesNumber();
 
         teacherNameText.setText((lesson.getTeacher().getFirstName() + " " + lesson.getTeacher().getLastName()));
-        salaryLabel.setText("0.00");
+        salaryLabel.setText(lesson.getTeacherDues().toString());
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+        teacherPaymentButton.setDisable(BigDecimal.valueOf(Double.parseDouble(salaryLabel.getText())).compareTo(BigDecimal.ZERO) <= 0);
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
         gradeChoice.getItems().addFirst(null);
@@ -84,10 +89,11 @@ public class LessonDetailsViewController {
         });
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            studentNameText.setText(newSelection.getStudentName());
-            notesText.setText(newSelection.getNotes());
-            gradeChoice.setValue(newSelection.getStudent().getGrade());
-            studentChoice.setValue(newSelection.getStudent());
+            if (newSelection == null) {
+                updateFromSelection(oldSelection);
+            } else {
+                updateFromSelection(newSelection);
+            }
         });
         refreshTable();
     }
@@ -108,25 +114,50 @@ public class LessonDetailsViewController {
 
     @FXML
     void payTeacherAction(ActionEvent actionEvent) {
-
+        Teacher teacher = lesson.getTeacher();
+        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(salaryLabel.getText()));
+        String details = "pay [" + teacher.getFirstName() + " " + teacher.getLastName() + "] for [" + lesson.getLessonName() + "]";
+        CRUDService.create(new Expense(amount, details, teacher));
+        lesson.setTeacherDues(new BigDecimal("0.00"));
+        CRUDService.update(lesson);
+        salaryLabel.setText(lesson.getTeacherDues().toString());
     }
 
     @FXML
     void decreaseAction(ActionEvent actionEvent) {
         lesson.setClassesNumber(lesson.getClassesNumber() - 1);
-        classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+        if (lesson.getClassesNumber() == 0 ||
+                (lesson.getClassesNumber() % 4 != 0 &&
+                        lesson.getClassesNumber() < currentClassesNumber &&
+                        currentClassesNumber % 4 == 0))
+            lesson.setTeacherDues(lesson.getTeacherDues().subtract(calcTeacherDues()));
         CRUDService.update(lesson);
+        classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+        salaryLabel.setText(lesson.getTeacherDues().toString());
+        currentClassesNumber = lesson.getClassesNumber();
+        System.out.println(currentClassesNumber);
     }
 
     @FXML
     void increaseAction(ActionEvent actionEvent) {
         lesson.setClassesNumber(lesson.getClassesNumber() + 1);
-        classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+        if (lesson.getClassesNumber() % 4 == 0 && lesson.getClassesNumber() > currentClassesNumber)
+            lesson.setTeacherDues(lesson.getTeacherDues().add(calcTeacherDues()));
         CRUDService.update(lesson);
+        classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+        salaryLabel.setText(lesson.getTeacherDues().toString());
+        currentClassesNumber = lesson.getClassesNumber();
+        System.out.println(currentClassesNumber);
     }
 
     @FXML
     void payAction(ActionEvent actionEvent) {
+        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(studentPaymentText.getText()));
+        String details = "[" + student.getFirstName() + " " + student.getLastName() + "] pays for [" + lesson.getLessonName() + "]";
+        CRUDService.create(new Income(amount, details, student));
+        Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
+        attendance.setDues(attendance.getDues().subtract(amount));
+        CRUDService.update(attendance);
         refreshTable();
     }
 
@@ -170,5 +201,25 @@ public class LessonDetailsViewController {
             studentChoice.setItems(FXCollections.observableList(CRUDService.readByCriteria(Student.class, params)));
         }
         studentChoice.getItems().addFirst(null);
+    }
+
+    private void updateFromSelection(AttendanceView oldSelection) {
+        student = oldSelection.getStudent();
+        studentNameText.setText(oldSelection.getStudentName());
+        studentPaymentText.setText(oldSelection.getDues().toString());
+        studentPaymentButton.setDisable(oldSelection.getDues().compareTo(BigDecimal.ZERO) <= 0);
+        notesText.setText(oldSelection.getNotes());
+        gradeChoice.setValue(oldSelection.getStudent().getGrade());
+        studentChoice.setValue(oldSelection.getStudent());
+    }
+
+    private BigDecimal calcTeacherDues() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("lesson", lesson);
+        BigDecimal amount = new BigDecimal("0.00");
+        for (int i = 0; i < CRUDService.readByCriteria(Attendance.class, params).size(); i++) {
+            amount = amount.add(lesson.getPrice());
+        }
+        return amount;
     }
 }

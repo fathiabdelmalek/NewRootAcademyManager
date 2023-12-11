@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.fathi.newrootacademymanager.controllers.grades.GradesViewController"
+            prefHeight="828.0" prefWidth="699.0">
+    <TextField fx:id="searchGradeText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <font>
+            <Font size="16.0" />
+        </font>
+        <padding>
+            <Insets left="32.0" />
+        </padding>
+    </TextField>
+    <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
+    <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="699.0">
+        <columns>
+            <TableColumn prefWidth="350.0" text="Level">
+                <cellValueFactory>
+                    <PropertyValueFactory property="level" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="345.0" text="Year">
+                <cellValueFactory>
+                    <PropertyValueFactory property="year" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="675.0" prefWidth="150.0" text="Level">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <TextField fx:id="levelText" layoutX="170.0" layoutY="675.0" prefHeight="35.0" prefWidth="150.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+    <Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="675.0" prefWidth="150.0" text="Year">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <TextField fx:id="yearText" layoutX="480.0" layoutY="675.0" prefHeight="35.0" prefWidth="150.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+    <Button layoutX="75.0" layoutY="750.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="220.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="365.0" layoutY="750.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="510.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+</AnchorPane>
