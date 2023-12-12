@@ -46,9 +46,9 @@ public class GradesViewController {
     @FXML
     void insertAction() {
         if (levelText.getText().isEmpty() ||
-                yearText.getText().isEmpty()) {
+                yearText.getText().isEmpty())
             System.out.println("You should insert all required data");
-        } else {
+        else {
             CRUDService.create(new Grade(Level.valueOf(levelText.getText()), Integer.parseInt(yearText.getText())));
             refreshTable();
         }
@@ -57,9 +57,9 @@ public class GradesViewController {
     @FXML
     void updateAction() {
         if (levelText.getText().isEmpty() ||
-                yearText.getText().isEmpty()) {
+                yearText.getText().isEmpty())
             System.out.println("You should insert all required data");
-        } else {
+        else {
             Grade grade = CRUDService.readById(Grade.class, id);
             assert grade != null;
             grade.setLevel(Level.valueOf(levelText.getText()));

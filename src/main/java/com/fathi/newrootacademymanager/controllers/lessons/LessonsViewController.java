@@ -211,9 +211,9 @@ public class LessonsViewController {
                 priceText.getText().isEmpty() ||
                 dayChoice.getValue() == null ||
                 roomChoice.getValue() == null ||
-                teacherChoice.getValue() == null) {
+                teacherChoice.getValue() == null)
             System.out.println("You should insert all required data");
-        } else {
+        else {
             CRUDService.create(
                     new Lesson(
                             lessonNameText.getText(),

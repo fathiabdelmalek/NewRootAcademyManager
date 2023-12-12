@@ -48,7 +48,8 @@ public class RoomsViewController {
 
     @FXML
     void insertAction() {
-        if (codeText.getText().isEmpty()) System.out.println("You should insert all required data");
+        if (codeText.getText().isEmpty())
+            System.out.println("You should insert all required data");
         else {
             CRUDService.create(new Room(codeText.getText()));
             refreshTable();
@@ -57,7 +58,8 @@ public class RoomsViewController {
 
     @FXML
     void updateAction() {
-        if (codeText.getText().isEmpty()) System.out.println("You should insert all required data");
+        if (codeText.getText().isEmpty())
+            System.out.println("You should insert all required data");
         else {
             Room room = CRUDService.readById(Room.class, id);
             assert room != null;

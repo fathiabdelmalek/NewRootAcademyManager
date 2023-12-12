@@ -18,24 +18,28 @@ public class Attendance {
     private Student student;
     @Column(name = "times present", nullable = false)
     private int timesPresent;
-    @Column(name = "notes")
-    private String notes;
     @Column(nullable = false)
     private BigDecimal dues;
+    @Column(name = "notes")
+    private String notes;
 
-    public Attendance() {}
-
-    public Attendance(int timesPresent, Lesson lesson, Student student) {
-        this.timesPresent = timesPresent;
-        this.lesson = lesson;
-        this.student = student;
+    public Attendance() {
+        this.timesPresent = 0;
     }
 
-    public Attendance(int timesPresent, String notes, Lesson lesson, Student student) {
-        this.timesPresent = timesPresent;
-        this.notes = notes;
+    public Attendance(Lesson lesson, Student student) {
         this.lesson = lesson;
         this.student = student;
+        this.timesPresent = 0;
+        this.dues = new BigDecimal("0.00");
+    }
+
+    public Attendance(Lesson lesson, Student student, String notes) {
+        this.lesson = lesson;
+        this.student = student;
+        this.timesPresent = 0;
+        this.dues = new BigDecimal("0.00");
+        this.notes = notes;
     }
 
     public int getId() {
@@ -70,19 +74,19 @@ public class Attendance {
         this.timesPresent = timesPresent;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
     public BigDecimal getDues() {
         return dues;
     }
 
     public void setDues(BigDecimal dues) {
         this.dues = dues;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

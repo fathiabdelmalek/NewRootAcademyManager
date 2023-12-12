@@ -54,9 +54,9 @@ public class TeachersViewController {
     public void insertAction(ActionEvent actionEvent) {
         if (firstNameText.getText().isEmpty() ||
                 lastNameText.getText().isEmpty() ||
-                phoneNumberText.getText().isEmpty()) {
+                phoneNumberText.getText().isEmpty())
             System.out.println("You should insert all required data");
-        } else {
+        else {
             CRUDService.create(
                     new Teacher(
                             firstNameText.getText(),
@@ -71,9 +71,9 @@ public class TeachersViewController {
     public void updateAction(ActionEvent actionEvent) {
         if (firstNameText.getText().isEmpty() ||
                 lastNameText.getText().isEmpty() ||
-                phoneNumberText.getText().isEmpty()) {
+                phoneNumberText.getText().isEmpty())
             System.out.println("You should insert all required data");
-        } else {
+        else {
             Teacher teacher = CRUDService.readById(Teacher.class, id);
             assert teacher != null;
             teacher.setFirstName(firstNameText.getText());

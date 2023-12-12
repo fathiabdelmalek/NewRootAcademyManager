@@ -163,12 +163,24 @@ public class LessonDetailsViewController {
 
     @FXML
     void updateAction(ActionEvent actionEvent) {
-        refreshTable();
+        if (studentNameText.getText().isEmpty())
+            System.out.println("You should insert all required data");
+        else {
+            Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
+            attendance.setNotes(notesText.getText());
+            CRUDService.update(attendance);
+            refreshTable();
+        }
     }
 
     @FXML
     void addAction(ActionEvent actionEvent) {
-        refreshTable();
+        if (studentChoice.getValue() == null)
+            System.out.println("You should insert all required data");
+        else {
+            CRUDService.create(new Attendance(lesson, studentChoice.getValue(), notesText.getText()));
+            refreshTable();
+        }
     }
 
     @FXML

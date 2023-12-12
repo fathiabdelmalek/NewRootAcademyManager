@@ -94,9 +94,9 @@ public class StudentsViewController {
                 phoneNumberText.getText().isEmpty() ||
                 !sex.getSelectedToggle().isSelected() ||
                 datePicker.getValue() == null ||
-                gradeChoice.getValue() == null) {
+                gradeChoice.getValue() == null)
             System.out.println("You should insert all required data");
-        } else {
+        else {
             CRUDService.create(
                     new Student(
                             firstNameText.getText(),
@@ -117,9 +117,9 @@ public class StudentsViewController {
                 phoneNumberText.getText().isEmpty() ||
                 !sex.getSelectedToggle().isSelected() ||
                 datePicker.getValue() == null ||
-                gradeChoice.getValue() == null) {
+                gradeChoice.getValue() == null)
             System.out.println("You should insert all required data");
-        } else {
+        else {
             Student student = CRUDService.readById(Student.class, id);
             assert student != null;
             student.setFirstName(firstNameText.getText());
