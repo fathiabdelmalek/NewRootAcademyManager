@@ -168,4 +168,3 @@ INSERT INTO `rooms` (`code`) VALUES ('BT101');
 INSERT INTO `rooms` (`code`) VALUES ('BT103');
 INSERT INTO `rooms` (`code`) VALUES ('BT104');
 INSERT INTO `rooms` (`code`) VALUES ('BT105');
-

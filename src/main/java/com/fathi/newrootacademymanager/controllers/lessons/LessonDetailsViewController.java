@@ -215,14 +215,14 @@ public class LessonDetailsViewController {
         studentChoice.getItems().addFirst(null);
     }
 
-    private void updateFromSelection(AttendanceView oldSelection) {
-        student = oldSelection.getStudent();
-        studentNameText.setText(oldSelection.getStudentName());
-        studentPaymentText.setText(oldSelection.getDues().toString());
-        studentPaymentButton.setDisable(oldSelection.getDues().compareTo(BigDecimal.ZERO) <= 0);
-        notesText.setText(oldSelection.getNotes());
-        gradeChoice.setValue(oldSelection.getStudent().getGrade());
-        studentChoice.setValue(oldSelection.getStudent());
+    private void updateFromSelection(AttendanceView selection) {
+        student = selection.getStudent();
+        studentNameText.setText(selection.getStudentName());
+        studentPaymentText.setText(selection.getDues().toString());
+        studentPaymentButton.setDisable(selection.getDues().compareTo(BigDecimal.ZERO) <= 0);
+        notesText.setText(selection.getNotes());
+        gradeChoice.setValue(selection.getStudent().getGrade());
+        studentChoice.setValue(selection.getStudent());
     }
 
     private BigDecimal calcTeacherDues() {

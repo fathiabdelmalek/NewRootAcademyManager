@@ -37,7 +37,9 @@ public class Lesson {
     @JoinColumn(name = "grade id")
     private Grade grade;
 
-    public Lesson() {}
+    public Lesson() {
+        this.teacherDues = new BigDecimal("0.00");
+    }
 
     public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room) {
         this.lessonName = lessonName;
@@ -45,6 +47,7 @@ public class Lesson {
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
+        this.teacherDues = new BigDecimal("0.00");
         this.teacher = teacher;
         this.room = room;
     }
@@ -55,6 +58,7 @@ public class Lesson {
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
+        this.teacherDues = new BigDecimal("0.00");
         this.teacher = teacher;
         this.room = room;
         this.grade = grade;

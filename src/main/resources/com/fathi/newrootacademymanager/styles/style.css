@@ -41,6 +41,7 @@
 
 .left-part .nav-button {
     -fx-background-color: transparent;
+    /*-fx-text-fill: #F8B038F0;*/
     -fx-text-fill: #DDDDDD;
     -fx-cursor: hand;
 }
@@ -50,10 +51,16 @@
     -fx-border-width: 2;
     -fx-border-radius: 50%;
     -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
 }
 
 .left-part .nav-button:pressed {
     -fx-text-fill: #DDDDDD;
+    -fx-font-size: 24;
+}
+
+.left-part .nav-button:focused {
+    -fx-font-size: 24;
 }
 
 
@@ -98,6 +105,7 @@
 .right-part .table-view .table-row-cell {
     -fx-background-color: #FFFFFF;
     -fx-border-color: transparent transparent #1F2B51 transparent;
+    -fx-text-background-color: #1F2B51;
 }
 
 .right-part .table-view .table-row-cell:hover {
@@ -181,7 +189,15 @@
 
 .bottom-part .label {
     -fx-background-color: #187BBE;
-    -fx-text-fill: #F8B038;
+    -fx-font-family: Ink Free;
+    -fx-font-style: italic;
+    -fx-text-fill: #F8B038F0;
     -fx-font-size: 24;
     -fx-alignment: center;
+}
+
+.bottom-part .label:hover {
+    -fx-text-fill: #F8B038;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
 }

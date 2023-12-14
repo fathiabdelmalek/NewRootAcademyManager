@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
+<AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
    <BorderPane prefHeight="900.0" prefWidth="1700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
           <AnchorPane fx:id="topPane" styleClass="top-part" BorderPane.alignment="CENTER">
               <Button alignment="CENTER" layoutX="1540.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
                  <graphic>
-                     <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="24" />
+                     <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="22" />
                  </graphic>
               </Button>
               <Button alignment="CENTER" layoutX="1480.0" mnemonicParsing="false" onAction="#minimize" prefHeight="30.0" prefWidth="60.0" styleClass="btn-minimize" textAlignment="CENTER" AnchorPane.rightAnchor="60.0">
                  <graphic>
-                     <FontAwesomeIconView caretBias="false" glyphName="MINUS" size="24" />
+                     <FontAwesomeIconView caretBias="false" glyphName="MINUS" size="22" />
                  </graphic>
               </Button>
           </AnchorPane>
@@ -37,7 +34,7 @@
                <graphic>
                </graphic>
                <graphic>
-                  <FontAwesomeIconView glyphName="HOME" />
+                  <FontAwesomeIconView fill="#f8b038" glyphName="HOME" />
                </graphic>
             </Button>
             <Button layoutY="460.0" mnemonicParsing="false" onAction="#openFinancesScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Finances">
@@ -45,7 +42,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView glyphName="MONEY" />
+                  <FontAwesomeIconView fill="#f8b038" glyphName="MONEY" />
                </graphic>
             </Button>
             <Button layoutY="520.0" mnemonicParsing="false" onAction="#openTableBoardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Table Board">
@@ -53,7 +50,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView glyphName="TABLE" />
+                  <FontAwesomeIconView fill="#f8b038" glyphName="TABLE" />
                </graphic>
             </Button>
             <Button layoutY="580.0" mnemonicParsing="false" onAction="#openLessonsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Lessons">
@@ -61,7 +58,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView glyphName="BOOK" />
+                  <FontAwesomeIconView fill="#f8b038" glyphName="BOOK" />
                </graphic>
             </Button>
             <Button layoutY="640.0" mnemonicParsing="false" onAction="#openStudentsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Students">
@@ -69,7 +66,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView />
+                  <FontAwesomeIconView fill="#f8b038" />
                </graphic>
             </Button>
             <Button layoutY="700.0" mnemonicParsing="false" onAction="#openTeachersScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Teachers">
@@ -77,7 +74,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView />
+                  <FontAwesomeIconView fill="#f8b038" />
                </graphic>
             </Button>
             <Button layoutY="760.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Grades &amp; Rooms">
@@ -85,7 +82,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView glyphName="LIST" />
+                  <FontAwesomeIconView fill="#f8b038" glyphName="LIST" />
                </graphic>
             </Button>
           </AnchorPane>
@@ -95,7 +92,10 @@
       </center>
       <bottom>
           <AnchorPane prefHeight="40.0" styleClass="bottom-part" BorderPane.alignment="CENTER_LEFT">
-              <Label prefHeight="40" prefWidth="400.0" text="By Fathi Abdelmalek" />
+              <Label onMouseClicked="#aboutAction" prefHeight="40" prefWidth="400.0" text="By Fathi Abdelmalek">
+               <font>
+                  <Font name="Ink Free" size="12.0" />
+               </font></Label>
           </AnchorPane>
       </bottom>
    </BorderPane>
