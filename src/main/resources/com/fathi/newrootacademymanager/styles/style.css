@@ -5,6 +5,7 @@
 
 .root {
     -fx-font-family: "Arial";
+    -fx-text-fill: #1F2B51;
 }
 
 
@@ -180,6 +181,10 @@
 }
 .right-part .list-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color: #187BBE;
+}
+
+.right-part #totalPane, #filteredPane {
+    -fx-background-color: #4DC2ED;
 }
 
 

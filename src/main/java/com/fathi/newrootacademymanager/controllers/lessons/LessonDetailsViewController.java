@@ -216,13 +216,13 @@ public class LessonDetailsViewController {
     }
 
     private void updateFromSelection(AttendanceView selection) {
-        student = selection.getStudent();
+        student = CRUDService.readById(Student.class, selection.getStudent());
         studentNameText.setText(selection.getStudentName());
         studentPaymentText.setText(selection.getDues().toString());
         studentPaymentButton.setDisable(selection.getDues().compareTo(BigDecimal.ZERO) <= 0);
         notesText.setText(selection.getNotes());
-        gradeChoice.setValue(selection.getStudent().getGrade());
-        studentChoice.setValue(selection.getStudent());
+        gradeChoice.setValue(student.getGrade());
+        studentChoice.setValue(student);
     }
 
     private BigDecimal calcTeacherDues() {

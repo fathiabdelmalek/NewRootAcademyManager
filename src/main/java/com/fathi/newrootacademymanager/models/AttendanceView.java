@@ -10,12 +10,10 @@ public class AttendanceView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "lesson id", nullable = false)
-    private Lesson lesson;
-    @ManyToOne
-    @JoinColumn(name = "student id", nullable = false)
-    private Student student;
+    @Column(name = "lesson id", nullable = false)
+    private int lesson;
+    @Column(name = "student id", nullable = false)
+    private int student;
     @Column(name = "lesson name", nullable = false)
     private String lessonName;
     @Column(name = "student name", nullable = false)
@@ -37,19 +35,19 @@ public class AttendanceView {
         this.id = id;
     }
 
-    public Lesson getLesson() {
+    public int getLesson() {
         return lesson;
     }
 
-    public void setLesson(Lesson lesson) {
+    public void setLesson(int lesson) {
         this.lesson = lesson;
     }
 
-    public Student getStudent() {
+    public int getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(int student) {
         this.student = student;
     }
 
