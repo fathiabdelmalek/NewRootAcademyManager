@@ -10,6 +10,7 @@ import jakarta.persistence.criteria.Root;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -19,6 +20,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FinancesViewController {
     @FXML
@@ -38,7 +42,7 @@ public class FinancesViewController {
     @FXML
     private Label totalProfitLabel;
     @FXML
-    private LineChart<?, ?> chart;
+    private LineChart<String, BigDecimal> chart;
     @FXML
     private DatePicker datePicker;
 
@@ -46,8 +50,13 @@ public class FinancesViewController {
     void initialize() {
         LocalDate filterTime = LocalDate.now().minusMonths(1);
         datePicker.setValue(filterTime);
+        XYChart.Series<String, BigDecimal> incomesData = new XYChart.Series<>();
+        incomesData.setName("Incomes");
+        XYChart.Series<String, BigDecimal> expensesData = new XYChart.Series<>();
+        expensesData.setName("Expenses");
         EntityManagerFactory factory = new Configuration().configure().buildSessionFactory();
         try (EntityManager em = factory.createEntityManager()) {
+
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<BigDecimal> crIncome = cb.createQuery(BigDecimal.class);
             CriteriaQuery<BigDecimal> crExpense = cb.createQuery(BigDecimal.class);
@@ -82,9 +91,50 @@ public class FinancesViewController {
             filteredIncomeLabel.setText(filteredIncome.toString());
             filteredExpenseLabel.setText(filteredExpense.toString());
             filteredProfitLabel.setText(filteredProfit.toString());
+
+
+            CriteriaQuery<Object[]> crChartIncome = cb.createQuery(Object[].class);
+            CriteriaQuery<Object[]> crChartExpense = cb.createQuery(Object[].class);
+            Root<Income> rootChartIncome = crChartIncome.from(Income.class);
+            Root<Expense> rootChartExpense = crChartExpense.from(Expense.class);
+
+            crChartIncome
+                    .multiselect(cb.function("date", LocalDate.class, rootChartIncome.get("createTime")), cb.sum(rootChartIncome.get("amount")))
+                    .groupBy(cb.function("date", LocalDate.class, rootChartIncome.get("createTime")))
+                    .orderBy(cb.desc(cb.function("date", LocalDate.class, rootChartIncome.get("createTime"))));
+            crChartExpense
+                    .multiselect(cb.function("date", LocalDate.class, rootChartExpense.get("createTime")), cb.sum(rootChartExpense.get("amount")))
+                    .groupBy(cb.function("date", LocalDate.class, rootChartExpense.get("createTime")))
+                    .orderBy(cb.desc(cb.function("date", LocalDate.class, rootChartExpense.get("createTime"))));
+
+            List<Object[]> incomeResult = em.createQuery(crChartIncome).setMaxResults(7).getResultList();
+            List<Object[]> expenseResult = em.createQuery(crChartExpense).setMaxResults(7).getResultList();
+
+            Map<LocalDate, BigDecimal> incomeData = incomeResult.stream()
+                    .collect(Collectors.groupingBy(
+                            data -> ((LocalDate) data[0]),
+                            Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
+                    ));
+            Map<LocalDate, BigDecimal> expenseData = expenseResult.stream()
+                    .collect(Collectors.groupingBy(
+                            data -> ((LocalDate) data[0]),
+                            Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
+                    ));
+
+            Set<LocalDate> allDates = Stream.concat(incomeData.keySet().stream(), expenseData.keySet().stream())
+                    .collect(Collectors.toCollection(TreeSet::new));
+            allDates.forEach(time -> {
+                BigDecimal incomeAmount = incomeData.getOrDefault(time, BigDecimal.ZERO);
+                BigDecimal expenseAmount = expenseData.getOrDefault(time, BigDecimal.ZERO);
+
+                incomesData.getData().add(new XYChart.Data<>(String.valueOf(time), incomeAmount));
+                expensesData.getData().add(new XYChart.Data<>(String.valueOf(time), expenseAmount.negate()));
+            });
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        chart.getData().add(expensesData);
+        chart.getData().add(incomesData);
     }
 
     @FXML
