@@ -55,19 +55,20 @@ public class StudentsViewController {
             }
         });
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            firstNameText.setText(newSelection.getFirstName());
-            lastNameText.setText(newSelection.getLastName());
-            phoneNumberText.setText(newSelection.getPhoneNumber());
-            datePicker.setValue(newSelection.getBirthDate());
-            if ("Male".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) maleChoice.setSelected(true);
-            else if ("Female".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) femaleChoice.setSelected(true);
-            String selectedGradeString = newSelection.getGrade();
-            for (Grade grade : gradeChoice.getItems()) {
-                String gradeString = grade.getYear() + " " + grade.getLevel();
-                if (gradeString.equalsIgnoreCase(selectedGradeString)) {
-                    gradeChoice.setValue(grade);
-                    break;
+            if (newSelection != null) {
+                id = newSelection.getId();
+                lastNameText.setText(newSelection.getLastName());
+                phoneNumberText.setText(newSelection.getPhoneNumber());
+                datePicker.setValue(newSelection.getBirthDate());
+                if ("Male".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) maleChoice.setSelected(true);
+                else if ("Female".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) femaleChoice.setSelected(true);
+                String selectedGradeString = newSelection.getGrade();
+                for (Grade grade : gradeChoice.getItems()) {
+                    String gradeString = grade.getYear() + " " + grade.getLevel();
+                    if (gradeString.equalsIgnoreCase(selectedGradeString)) {
+                        gradeChoice.setValue(grade);
+                        break;
+                    }
                 }
             }
         });
@@ -121,7 +122,6 @@ public class StudentsViewController {
             System.out.println("You should insert all required data");
         else {
             Student student = CRUDService.readById(Student.class, id);
-            assert student != null;
             student.setFirstName(firstNameText.getText());
             student.setLastName(lastNameText.getText());
             student.setPhoneNumber(phoneNumberText.getText());

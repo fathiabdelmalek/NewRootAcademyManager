@@ -29,10 +29,12 @@ public class TeachersViewController {
         Platform.runLater(() -> searchText.requestFocus());
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            firstNameText.setText(newSelection.getFirstName());
-            lastNameText.setText(newSelection.getLastName());
-            phoneNumberText.setText(newSelection.getPhoneNumber());
+            if (newSelection != null) {
+                id = newSelection.getId();
+                firstNameText.setText(newSelection.getFirstName());
+                lastNameText.setText(newSelection.getLastName());
+                phoneNumberText.setText(newSelection.getPhoneNumber());
+            }
         });
         refreshTable();
     }

@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.lessons;
 
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ public class LessonDetailsViewController {
     @FXML
     private Button teacherPaymentButton;
     @FXML
-    public Label salaryLabel;
+    public TextField salaryText;
     @FXML
     private TextField classesNumberText;
     @FXML
@@ -47,13 +48,15 @@ public class LessonDetailsViewController {
 
     @FXML
     void initialize(int lessonId) {
+        Platform.runLater(() -> searchText.requestFocus());
+
         lesson = CRUDService.readById(Lesson.class, lessonId);
         currentClassesNumber = lesson.getClassesNumber();
 
         teacherNameText.setText((lesson.getTeacher().getFirstName() + " " + lesson.getTeacher().getLastName()));
-        salaryLabel.setText(lesson.getTeacherDues().toString());
+        salaryText.setText(lesson.getTeacherDues().toString());
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
-        teacherPaymentButton.setDisable(BigDecimal.valueOf(Double.parseDouble(salaryLabel.getText())).compareTo(BigDecimal.ZERO) <= 0);
+        teacherPaymentButton.setDisable(BigDecimal.valueOf(Double.parseDouble(salaryText.getText())).compareTo(BigDecimal.ZERO) <= 0);
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
         gradeChoice.getItems().addFirst(null);
@@ -115,12 +118,13 @@ public class LessonDetailsViewController {
     @FXML
     void payTeacherAction(ActionEvent actionEvent) {
         Teacher teacher = lesson.getTeacher();
-        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(salaryLabel.getText()));
-        String details = "pay [" + teacher.getFirstName() + " " + teacher.getLastName() + "] for [" + lesson.getLessonName() + "]";
+        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(salaryText.getText()));
+        BigDecimal rest = lesson.getTeacherDues().subtract(amount);
+        String details = "pay [" + teacher.getFirstName() + " " + teacher.getLastName() + "] for [" + lesson.getLessonName() + "] | rest is [" + rest + " DA]";
         CRUDService.create(new Expense(amount, details, teacher));
-        lesson.setTeacherDues(new BigDecimal("0.00"));
+        lesson.setTeacherDues(rest);
         CRUDService.update(lesson);
-        salaryLabel.setText(lesson.getTeacherDues().toString());
+        salaryText.setText(lesson.getTeacherDues().toString());
     }
 
     @FXML
@@ -133,7 +137,7 @@ public class LessonDetailsViewController {
             lesson.setTeacherDues(lesson.getTeacherDues().subtract(calcTeacherDues()));
         CRUDService.update(lesson);
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
-        salaryLabel.setText(lesson.getTeacherDues().toString());
+        salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
         System.out.println(currentClassesNumber);
     }
@@ -145,7 +149,7 @@ public class LessonDetailsViewController {
             lesson.setTeacherDues(lesson.getTeacherDues().add(calcTeacherDues()));
         CRUDService.update(lesson);
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
-        salaryLabel.setText(lesson.getTeacherDues().toString());
+        salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
         System.out.println(currentClassesNumber);
     }
@@ -200,7 +204,7 @@ public class LessonDetailsViewController {
 
     private void refreshTable() {
         Map<String, Object> params = new HashMap<>();
-        params.put("lesson", lesson);
+        params.put("lesson", lesson.getId());
         tableView.setItems(CRUDService.readByCriteria(AttendanceView.class, params));
     }
 

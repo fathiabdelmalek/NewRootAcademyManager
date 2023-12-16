@@ -28,8 +28,10 @@ public class RoomsViewController {
             }
         });
         listView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            codeText.setText(newSelection.getCode());
+            if (newSelection != null) {
+                id = newSelection.getId();
+                codeText.setText(newSelection.getCode());
+            }
         });
     }
 

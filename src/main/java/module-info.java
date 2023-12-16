@@ -14,8 +14,8 @@ module com.fathi.newrootacademymanager {
     opens com.fathi.newrootacademymanager.controllers.students to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.teachers to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.lessons to javafx.fxml, org.hibernate.orm.core;
-//    opens com.fathi.newrootacademymanager.controllers.incomes to javafx.fxml, org.hibernate.orm.core;
-//    opens com.fathi.newrootacademymanager.controllers.expenses to javafx.fxml, org.hibernate.orm.core;
+    opens com.fathi.newrootacademymanager.controllers.incomes to javafx.fxml, org.hibernate.orm.core;
+    opens com.fathi.newrootacademymanager.controllers.expenses to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.grades to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.rooms to javafx.fxml, org.hibernate.orm.core;
     opens com.fathi.newrootacademymanager.controllers.others to javafx.fxml, org.hibernate.orm.core;

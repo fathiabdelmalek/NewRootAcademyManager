@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.fathi.newrootacademymanager.controllers.expenses.ExpensesViewController"
+            prefHeight="830.0" prefWidth="1400.0">
+    <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <font>
+            <Font size="16.0" />
+        </font>
+        <padding>
+            <Insets left="32.0" />
+        </padding>
+    </TextField>
+    <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
+    <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="1400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+        <columns>
+            <TableColumn prefWidth="250.0" text="Amount">
+                <cellValueFactory>
+                    <PropertyValueFactory property="amount" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="250.0" text="Date and Time">
+                <cellValueFactory>
+                    <PropertyValueFactory property="time" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="250.0" text="Teacher">
+                <cellValueFactory>
+                    <PropertyValueFactory property="teacherName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="645.0" text="Details">
+                <cellValueFactory>
+                    <PropertyValueFactory property="details" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="675.0" prefWidth="250.0" text="Amount" textFill="#1f2b51">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="725.0" prefWidth="250.0" text="Details">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="775.0" prefWidth="250.0" text="Student">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+    <TextField fx:id="amountText" layoutX="280.0" layoutY="675.0" prefHeight="35.0" prefWidth="250.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+    <TextField fx:id="detailsText" layoutX="280.0" layoutY="725.0" prefHeight="35.0" prefWidth="250.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </TextField>
+    <ComboBox fx:id="teacherChoice" layoutX="280.0" layoutY="775.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
+    <Button layoutX="1120.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="1120.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="1255.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" AnchorPane.rightAnchor="25.0">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+    <Button layoutX="1255.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" AnchorPane.rightAnchor="25.0">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
+</AnchorPane>

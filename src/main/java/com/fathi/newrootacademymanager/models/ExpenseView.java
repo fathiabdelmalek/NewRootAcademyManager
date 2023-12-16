@@ -12,8 +12,8 @@ public class ExpenseView {
     @Column
     private int amount;
     private String details;
-    @Column(name = "create time", nullable = false)
-    private String createTime;
+    @Column(name = "time", nullable = false)
+    private String time;
     @Column(name = "teacher name")
     private String teacherName;
 
@@ -44,12 +44,12 @@ public class ExpenseView {
         this.details = details;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getTeacherName() {

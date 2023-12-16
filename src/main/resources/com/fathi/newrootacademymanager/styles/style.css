@@ -13,7 +13,7 @@
     -fx-background-color: linear-gradient(to right, #1F2B51 23.5%, #187BBE 45%, #4DC2ED 65%, #FFFFFF 95%);
 }
 
-.top-part .button {
+.top-part .btn-close, .btn-minimize {
     -fx-background-color: transparent;
     -fx-border-radius: 0;
 }
@@ -27,7 +27,6 @@
     -fx-background-color: #1F2B5111;
     -fx-cursor: hand;
 }
-
 
 .left-part {
     -fx-background-color: linear-gradient(to bottom, #1F2B51, #187BBE);
@@ -65,125 +64,125 @@
 }
 
 
-.right-part {
+.center-part {
     -fx-background-color: #FFFFFF;
 }
 
-.right-part .table-view {
+.center-part .table-view {
     -fx-background-color: transparent;
 }
 
-.right-part .table-view .table-column {
+.center-part .table-view .table-column {
     -fx-alignment: center;
 }
 
-.right-part .table-view .column-header-background {
+.center-part .table-view .column-header-background {
     -fx-background-color: #187BBE;
 }
 
-.right-part .table-view .column-header-background .filler {
+.center-part .table-view .column-header-background .filler {
     -fx-background-color: transparent;
 }
 
-.right-part .table-view .corner {
+.center-part .table-view .corner {
     -fx-background-color: transparent;
 }
 
-.right-part .table-view .column-header, .filter {
+.center-part .table-view .column-header, .filter {
     -fx-background-color: transparent;
     -fx-font-size: 20;
 }
 
-.right-part .table-view .column-header .label {
+.center-part .table-view .column-header .label {
     -fx-text-fill: #FFFFFF;
 }
 
-.right-part .table-view .table-cell {
+.center-part .table-view .table-cell {
     -fx-border-color: #FFFFFF;
     -fx-font-size: 16;
 }
 
-.right-part .table-view .table-row-cell {
+.center-part .table-view .table-row-cell {
     -fx-background-color: #FFFFFF;
     -fx-border-color: transparent transparent #1F2B51 transparent;
     -fx-text-background-color: #1F2B51;
 }
 
-.right-part .table-view .table-row-cell:hover {
+.center-part .table-view .table-row-cell:hover {
     -fx-background-color: #4DC2ED11;
     -fx-text-background-color: #187BBE;
 }
 
-.right-part .table-view .table-row-cell:selected {
+.center-part .table-view .table-row-cell:selected {
     -fx-background-color: #4DC2ED;
     -fx-text-background-color: #FFFFFF;
 }
 
-.right-part .table-view .virtual-flow .scroll-bar:vertical,
-.right-part .table-view .virtual-flow .scroll-bar:vertical .track,
-.right-part .table-view .virtual-flow .scroll-bar:vertical .track-background,
-.right-part .table-view .virtual-flow .scroll-bar:horizontal,
-.right-part .table-view .virtual-flow .scroll-bar:horizontal .track,
-.right-part .table-view .virtual-flow .scroll-bar:horizontal .track-background {
+.center-part .table-view .virtual-flow .scroll-bar:vertical,
+.center-part .table-view .virtual-flow .scroll-bar:vertical .track,
+.center-part .table-view .virtual-flow .scroll-bar:vertical .track-background,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .track,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .track-background {
     -fx-background-color: #FFFFFF;
 }
 
-.right-part .table-view .virtual-flow .scroll-bar .increment-button,
-.right-part .table-view .virtual-flow .scroll-bar .decrement-button {
+.center-part .table-view .virtual-flow .scroll-bar .increment-button,
+.center-part .table-view .virtual-flow .scroll-bar .decrement-button {
     -fx-opacity: 0;
     -fx-padding: 2;
 }
 
-.right-part .table-view .virtual-flow .scroll-bar:vertical .thumb{
+.center-part .table-view .virtual-flow .scroll-bar:vertical .thumb{
     -fx-background-color: #187BBE;
 }
-.right-part .table-view .virtual-flow .scroll-bar:horizontal .thumb {
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color: #187BBE;
 }
 
-.right-part .list-view {
+.center-part .list-view {
     -fx-background-color: #FFFFFF;
 }
 
-.right-part .list-view .list-cell {
+.center-part .list-view .list-cell {
     -fx-background-color: #FFFFFF;
     -fx-border-color: transparent transparent #1F2B51 transparent;
     -fx-font-size: 16;
 }
 
-.right-part .list-view .list-cell:hover {
+.center-part .list-view .list-cell:hover {
     -fx-background-color: #4DC2ED11;
     -fx-text-background-color: #187BBE;
 }
 
-.right-part .list-view .list-cell:selected {
+.center-part .list-view .list-cell:selected {
     -fx-background-color: #4DC2ED;
     -fx-text-background-color: #FFFFFF;
 }
 
-.right-part .list-view .virtual-flow .scroll-bar:vertical,
-.right-part .list-view .virtual-flow .scroll-bar:vertical .track,
-.right-part .list-view .virtual-flow .scroll-bar:vertical .track-background,
-.right-part .list-view .virtual-flow .scroll-bar:horizontal,
-.right-part .list-view .virtual-flow .scroll-bar:horizontal .track,
-.right-part .list-view .virtual-flow .scroll-bar:horizontal .track-background {
+.center-part .list-view .virtual-flow .scroll-bar:vertical,
+.center-part .list-view .virtual-flow .scroll-bar:vertical .track,
+.center-part .list-view .virtual-flow .scroll-bar:vertical .track-background,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .track,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .track-background {
     -fx-background-color: #FFFFFF;
 }
 
-.right-part .list-view .virtual-flow .scroll-bar .increment-button,
-.right-part .list-view .virtual-flow .scroll-bar .decrement-button {
+.center-part .list-view .virtual-flow .scroll-bar .increment-button,
+.center-part .list-view .virtual-flow .scroll-bar .decrement-button {
     -fx-opacity: 0;
     -fx-padding: 2;
 }
 
-.right-part .list-view .virtual-flow .scroll-bar:vertical .thumb{
+.center-part .list-view .virtual-flow .scroll-bar:vertical .thumb{
     -fx-background-color: #187BBE;
 }
-.right-part .list-view .virtual-flow .scroll-bar:horizontal .thumb {
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color: #187BBE;
 }
 
-.right-part #totalPane, #filteredPane {
+.center-part #totalPane, #filteredPane {
     -fx-background-color: #4DC2ED;
 }
 

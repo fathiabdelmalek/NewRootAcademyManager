@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.icons525.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="500.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.AboutViewController">
+    <top>
+        <AnchorPane fx:id="topPane" prefHeight="30.0" prefWidth="530.0" styleClass="top-part" BorderPane.alignment="CENTER">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <graphic>
+                    <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="22" />
+                </graphic>
+            </Button>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="470.0" prefWidth="530.0" styleClass="center-part">
+            <ImageView fitHeight="470.0" fitWidth="530.0" opacity="0.3">
+                <Image url="@../../images/wallpaper.png" />
+            </ImageView>
+            <Label alignment="CENTER" layoutX="15.0" layoutY="30.0" prefHeight="100.0" prefWidth="500.0" text="Fathi Abdelmalek" textFill="#f8b038">
+                <font>
+                    <Font name="Cambria Bold" size="60.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="125.0" layoutY="130.0" prefHeight="110.0" prefWidth="280.0" text="Innovative Entrepreneur Software Engineer Full-Stack Web Developer" textAlignment="CENTER" textFill="#187bbe" wrapText="true">
+                <font>
+                    <Font name="Verdana" size="21.0" />
+                </font>
+            </Label>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="240.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="PHONE" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="+213669474058" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="275.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="GMAIL" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="abdelmalek.fathi.2001@gmail.com" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="310.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="GITHUB" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmalek" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="345.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="LINKEDIN" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="in/fathi-abdelmalek" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="380.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="TWITTER" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmale1" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="80.0" layoutY="415.0" prefHeight="35.0" prefWidth="370.0">
+                <Icons525View fill="#4dc2ed" glyphName="FACEBOOK" size="22" />
+                <Label alignment="CENTER" prefWidth="350.0" text="fathi.abdelmalek.01" textFill="#1f2b51">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+        </AnchorPane>
+    </center>
+</BorderPane>

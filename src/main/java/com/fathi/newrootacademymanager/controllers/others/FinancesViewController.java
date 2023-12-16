@@ -5,12 +5,15 @@ import com.fathi.newrootacademymanager.models.Income;
 import com.fathi.newrootacademymanager.services.CalculationsService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
@@ -18,6 +21,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FinancesViewController {
+    @FXML
+    private AnchorPane pane;
     @FXML
     private Pane filteredPane;
     @FXML
@@ -64,11 +69,25 @@ public class FinancesViewController {
     }
 
     @FXML
-    void openExpenseAction(ActionEvent event) {
+    void openIncomeAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml"));
+            pane.getChildren().clear();
+            pane.getChildren().add(loader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
-    void openIncomeAction(ActionEvent event) {
+    void openExpenseAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml"));
+            pane.getChildren().clear();
+            pane.getChildren().add(loader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void getTotalProfitData() {

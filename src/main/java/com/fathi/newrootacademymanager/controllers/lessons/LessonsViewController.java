@@ -125,43 +125,45 @@ public class LessonsViewController {
         });
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            lessonNameText.setText(newSelection.getLessonName());
-            priceText.setText(String.valueOf(newSelection.getPrice()));
-            for (Grade grade : gradeChoice.getItems()) {
-                if (newSelection.getGrade() == null) {
-                    gradeChoice.getSelectionModel().clearSelection();
-                    break;
+            if (newSelection != null) {
+                id = newSelection.getId();
+                lessonNameText.setText(newSelection.getLessonName());
+                priceText.setText(String.valueOf(newSelection.getPrice()));
+                for (Grade grade : gradeChoice.getItems()) {
+                    if (newSelection.getGrade() == null) {
+                        gradeChoice.getSelectionModel().clearSelection();
+                        break;
+                    }
+                    if (grade == null) continue;
+                    if ((grade.getYear() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade())) {
+                        gradeChoice.setValue(grade);
+                        break;
+                    }
                 }
-                if (grade == null) continue;
-                if ((grade.getYear() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade())) {
-                    gradeChoice.setValue(grade);
-                    break;
+                for (WeekDay day : dayChoice.getItems()) {
+                    if (day == null) continue;
+                    if (String.valueOf(day).equalsIgnoreCase(String.valueOf(newSelection.getDay()))) {
+                        dayChoice.setValue(day);
+                        break;
+                    }
                 }
-            }
-            for (WeekDay day : dayChoice.getItems()) {
-                if (day == null) continue;
-                if (String.valueOf(day).equalsIgnoreCase(String.valueOf(newSelection.getDay()))) {
-                    dayChoice.setValue(day);
-                    break;
+                startHourSpinner.getValueFactory().setValue(newSelection.getStartTime().getHour());
+                startMinuteSpinner.getValueFactory().setValue(newSelection.getStartTime().getMinute());
+                endHourSpinner.getValueFactory().setValue(newSelection.getEndTime().getHour());
+                endMinuteSpinner.getValueFactory().setValue(newSelection.getEndTime().getMinute());
+                for (Room room : roomChoice.getItems()) {
+                    if (room == null) continue;
+                    if (room.getCode().equalsIgnoreCase(newSelection.getRoomCode())) {
+                        roomChoice.setValue(room);
+                        break;
+                    }
                 }
-            }
-            startHourSpinner.getValueFactory().setValue(newSelection.getStartTime().getHour());
-            startMinuteSpinner.getValueFactory().setValue(newSelection.getStartTime().getMinute());
-            endHourSpinner.getValueFactory().setValue(newSelection.getEndTime().getHour());
-            endMinuteSpinner.getValueFactory().setValue(newSelection.getEndTime().getMinute());
-            for (Room room : roomChoice.getItems()) {
-                if (room == null) continue;
-                if (room.getCode().equalsIgnoreCase(newSelection.getRoomCode())) {
-                    roomChoice.setValue(room);
-                    break;
-                }
-            }
-            for (Teacher teacher : teacherChoice.getItems()) {
-                if (teacher == null) continue;
-                if ((teacher.getFirstName() + " " + teacher.getLastName()).equalsIgnoreCase(newSelection.getTeacherName())) {
-                    teacherChoice.setValue(teacher);
-                    break;
+                for (Teacher teacher : teacherChoice.getItems()) {
+                    if (teacher == null) continue;
+                    if ((teacher.getFirstName() + " " + teacher.getLastName()).equalsIgnoreCase(newSelection.getTeacherName())) {
+                        teacherChoice.setValue(teacher);
+                        break;
+                    }
                 }
             }
         });

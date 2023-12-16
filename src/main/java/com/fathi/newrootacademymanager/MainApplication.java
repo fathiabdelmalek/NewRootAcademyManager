@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class MainApplication extends Application {
-    private double x = 0, y = 0;
     @Override
     public void start(Stage stage) throws IOException {
         DBCManager.getInstance();

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.FinancesViewController">
+<AnchorPane fx:id="pane" prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.FinancesViewController">
    <Pane fx:id="totalPane" layoutX="25.0" layoutY="25.0" prefHeight="300.0" prefWidth="630.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
       <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="125.0" prefHeight="50.0" prefWidth="250.0" text="Total Income">
          <font>

@@ -1,12 +1,15 @@
 package com.fathi.newrootacademymanager.controllers;
 
+import com.fathi.newrootacademymanager.MainApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -71,6 +74,18 @@ public class MainViewController {
 
     @FXML
     void aboutAction(MouseEvent mouseEvent) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("/com/fathi/newrootacademymanager/views/others/about-view.fxml"));
+            Scene scene = new Scene(loader.load());
+            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/style.css").toExternalForm());
+            stage.setTitle("About Me");
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

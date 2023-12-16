@@ -7,7 +7,6 @@ import com.fathi.newrootacademymanager.models.Income;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
-import org.hibernate.sql.ComparisonRestriction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -189,6 +188,7 @@ public class CalculationsService {
             throw new RuntimeException(e);
         }
     }
+
     public static Map<LocalDate, BigDecimal> getIncomeChartData(int maxResults) {
         try (EntityManager em = dbcm.getFactory().createEntityManager()) {
             CriteriaBuilder cb = em.getCriteriaBuilder();

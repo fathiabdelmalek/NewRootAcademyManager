@@ -3,12 +3,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="828.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.GradesRoomsViewController">
-   <AnchorPane prefHeight="828.0" prefWidth="699.0">
+<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.GradesRoomsViewController">
+   <AnchorPane prefHeight="830.0" prefWidth="699.0">
       <fx:include source="../grades/grades-view.fxml" />
    </AnchorPane>
-   <Line endY="827.0" layoutX="700.0" stroke="#1F2B51" />
-   <AnchorPane layoutX="701.0" prefHeight="828.0" prefWidth="699.0">
+   <Line endY="829.0" layoutX="700.0" stroke="#1F2B51" />
+   <AnchorPane layoutX="701.0" prefHeight="830.0" prefWidth="699.0">
       <fx:include source="../rooms/rooms-view.fxml" />
    </AnchorPane>
 </AnchorPane>

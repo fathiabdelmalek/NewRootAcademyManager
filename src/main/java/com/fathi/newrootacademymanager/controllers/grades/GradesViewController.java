@@ -3,6 +3,7 @@ package com.fathi.newrootacademymanager.controllers.grades;
 import com.fathi.newrootacademymanager.helpers.enums.Level;
 import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import javafx.application.Platform;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -10,7 +11,7 @@ import javafx.scene.control.TextField;
 
 public class GradesViewController {
     @FXML
-    public TextField searchGradeText;
+    public TextField searchText;
     @FXML
     public TableView<Grade> tableView;
     @FXML
@@ -22,9 +23,11 @@ public class GradesViewController {
     @FXML
     void initialize() {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            id = newSelection.getId();
-            levelText.setText(newSelection.getLevel().toString());
-            yearText.setText(String.valueOf(newSelection.getYear()));
+            if (newSelection != null) {
+                id = newSelection.getId();
+                levelText.setText(newSelection.getLevel().toString());
+                yearText.setText(String.valueOf(newSelection.getYear()));
+            }
         });
         refreshTable();
     }
@@ -32,7 +35,7 @@ public class GradesViewController {
     @FXML
     void searchAction() {
         FilteredList<Grade> filter = new FilteredList<>(tableView.getItems(), e -> true);
-        searchGradeText.textProperty().addListener((Observable, oldValue, newValue) -> {
+        searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
                 if (newValue == null || newValue.isEmpty()) return true;
                 String key = newValue.toLowerCase();
