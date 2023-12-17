@@ -10,8 +10,8 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.fathi.newrootacademymanager.controllers.others.TableBoardViewController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label prefHeight="830" prefWidth="1200" alignment="CENTER" text="Table Board View">
+            prefHeight="830.0" prefWidth="1400.0">
+    <Label prefHeight="830" prefWidth="1400" alignment="CENTER" text="Table Board View">
         <font>
             <Font size="60" />
         </font>

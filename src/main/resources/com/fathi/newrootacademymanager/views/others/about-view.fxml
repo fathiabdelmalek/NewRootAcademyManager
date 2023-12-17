@@ -19,10 +19,7 @@
         </AnchorPane>
     </top>
     <center>
-        <AnchorPane prefHeight="470.0" prefWidth="530.0" styleClass="center-part">
-            <ImageView fitHeight="470.0" fitWidth="530.0" opacity="0.3">
-                <Image url="@../../images/wallpaper.png" />
-            </ImageView>
+        <AnchorPane prefHeight="470.0" prefWidth="530.0" styleClass="center-part, with-border">
             <Label alignment="CENTER" layoutX="15.0" layoutY="30.0" prefHeight="100.0" prefWidth="500.0" text="Fathi Abdelmalek" textFill="#f8b038">
                 <font>
                     <Font name="Cambria Bold" size="60.0" />
@@ -35,7 +32,7 @@
             </Label>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="240.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="PHONE" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="+213669474058" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="+213669474058">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -46,7 +43,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="275.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="GMAIL" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="abdelmalek.fathi.2001@gmail.com" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="abdelmalek.fathi.2001@gmail.com">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -57,7 +54,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="310.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="GITHUB" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmalek" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmalek">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -68,7 +65,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="345.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="LINKEDIN" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="in/fathi-abdelmalek" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="in/fathi-abdelmalek">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -79,7 +76,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="380.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="TWITTER" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmale1" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="fathiabdelmale1">
                     <font>
                         <Font size="22.0" />
                     </font>
@@ -90,7 +87,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="80.0" layoutY="415.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="FACEBOOK" size="22" />
-                <Label alignment="CENTER" prefWidth="350.0" text="fathi.abdelmalek.01" textFill="#1f2b51">
+                <Label alignment="CENTER" prefWidth="350.0" text="fathi.abdelmalek.01">
                     <font>
                         <Font size="22.0" />
                     </font>

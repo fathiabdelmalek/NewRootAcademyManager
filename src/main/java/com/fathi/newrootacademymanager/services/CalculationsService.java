@@ -1,9 +1,8 @@
 package com.fathi.newrootacademymanager.services;
 
 import com.fathi.newrootacademymanager.helpers.DBCManager;
-import com.fathi.newrootacademymanager.models.Attendance;
-import com.fathi.newrootacademymanager.models.Expense;
-import com.fathi.newrootacademymanager.models.Income;
+import com.fathi.newrootacademymanager.helpers.enums.Level;
+import com.fathi.newrootacademymanager.models.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
@@ -11,6 +10,7 @@ import jakarta.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -184,6 +184,30 @@ public class CalculationsService {
                     .where(cb.greaterThanOrEqualTo(root.get(filterValue), (Comparable) operator))
                     .select((Selection<T>) cb.sum(root.get(column)));
             return em.createQuery(query).getSingleResult();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static int getStudentsWithGrade(Grade grade) {
+        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Long> query = cb.createQuery(Long.class);
+            Root<Student> root = query.from(Student.class);
+            query.select(cb.count(root)).where(cb.equal(root.get("grade"), grade));
+            return em.createQuery(query).getSingleResult().intValue();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static int getStudentsWithLevel(Level level) {
+        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Long> query = cb.createQuery(Long.class);
+            Root<Student> root = query.from(Student.class);
+            query.select(cb.count(root)).where(cb.equal(root.get("grade").get("level"), level));
+            return em.createQuery(query).getSingleResult().intValue();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

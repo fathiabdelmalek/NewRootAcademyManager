@@ -24,10 +24,6 @@ public class FinancesViewController {
     @FXML
     private AnchorPane pane;
     @FXML
-    private Pane filteredPane;
-    @FXML
-    private Pane totalPane;
-    @FXML
     private Label filteredExpenseLabel;
     @FXML
     private Label filteredIncomeLabel;

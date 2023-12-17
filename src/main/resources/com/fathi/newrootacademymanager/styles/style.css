@@ -182,8 +182,17 @@
     -fx-background-color: #187BBE;
 }
 
-.center-part #totalPane, #filteredPane {
+.center-part .custom-pane {
     -fx-background-color: #4DC2ED;
+}
+
+.center-part .custom-pane .number {
+    -fx-text-fill: #187BBE;
+}
+
+.with-border {
+    -fx-border-color: #1F2B51;
+    -fx-border-width: 0 2 2 2;
 }
 
 

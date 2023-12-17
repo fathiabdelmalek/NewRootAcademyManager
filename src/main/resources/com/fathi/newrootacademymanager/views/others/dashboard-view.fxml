@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label prefHeight="830" prefWidth="1200" alignment="CENTER" text="Dashboard View">
-        <font>
-            <Font size="60" />
-        </font>
-    </Label>
+
+<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController">
+   <Pane layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label fx:id="totalStudentsLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Students #">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#f8b038" glyphName="GRADUATION_CAP" layoutX="50.0" layoutY="100.0" size="60" text="" />
+   </Pane>
+   <Pane layoutX="500.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label fx:id="totalTeachersLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Teachers #">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#f8b038" glyphName="USER" layoutX="50.0" layoutY="100.0" size="60" />
+   </Pane>
+   <Pane layoutX="950.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label fx:id="totalLessonsLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Lessons #">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#f8b038" glyphName="BOOK" layoutX="50.0" layoutY="100.0" size="60" />
+   </Pane>
+   <BarChart fx:id="chart" layoutX="50.0" layoutY="300.0" prefHeight="480.0" prefWidth="600.0">
+     <xAxis>
+       <CategoryAxis side="BOTTOM" />
+     </xAxis>
+     <yAxis>
+       <NumberAxis side="LEFT" />
+     </yAxis>
+   </BarChart>
 </AnchorPane>

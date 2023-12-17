@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
+<AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
     <BorderPane prefHeight="900.0" prefWidth="1700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
             <AnchorPane fx:id="topPane" styleClass="top-part" BorderPane.alignment="CENTER">
@@ -64,7 +67,7 @@
                         <Font size="24.0" />
                     </font>
                     <graphic>
-                        <FontAwesomeIconView fill="#f8b038" />
+                        <FontAwesomeIconView fill="#f8b038" glyphName="GRADUATION_CAP" />
                     </graphic>
                 </Button>
                 <Button layoutY="700.0" mnemonicParsing="false" onAction="#openTeachersScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Teachers">
@@ -72,7 +75,7 @@
                         <Font size="24.0" />
                     </font>
                     <graphic>
-                        <FontAwesomeIconView fill="#f8b038" />
+                        <FontAwesomeIconView fill="#f8b038" glyphName="USER" />
                     </graphic>
                 </Button>
                 <Button layoutY="760.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Grades &amp; Rooms">
@@ -86,7 +89,7 @@
             </AnchorPane>
         </left>
         <center>
-            <AnchorPane fx:id="mainPane" styleClass="center-part" BorderPane.alignment="CENTER" prefHeight="828.0" />
+            <AnchorPane fx:id="mainPane" prefHeight="828.0" styleClass="center-part" BorderPane.alignment="CENTER" />
         </center>
         <bottom>
             <AnchorPane prefHeight="40.0" styleClass="bottom-part" BorderPane.alignment="CENTER_LEFT">

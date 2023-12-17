@@ -41,7 +41,7 @@
             </TableColumn>
         </columns>
     </TableView>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="675.0" prefWidth="250.0" text="Amount" textFill="#1f2b51">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="675.0" prefWidth="250.0" text="Amount">
         <font>
             <Font size="24.0" />
         </font>
