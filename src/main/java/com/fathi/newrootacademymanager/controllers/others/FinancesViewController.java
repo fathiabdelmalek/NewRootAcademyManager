@@ -103,13 +103,13 @@ public class FinancesViewController {
         filteredProfitLabel.setText(filteredProfit.toString());
     }
 
-    private void getProfitData(Label filteredIncomeLabel, Label filteredExpenseLabel, Label filteredProfitLabel) {
+    private void getProfitData(Label incomeLabel, Label expenseLabel, Label profitLabel) {
         BigDecimal totalIncome = CalculationsService.sum(BigDecimal.class, Income.class, "amount");
         BigDecimal totalExpense = CalculationsService.sum(BigDecimal.class, Expense.class, "amount");
         BigDecimal totalProfit = totalIncome.subtract(totalExpense);
-        filteredIncomeLabel.setText(totalIncome.toString());
-        filteredExpenseLabel.setText(totalExpense.toString());
-        filteredProfitLabel.setText(totalProfit.toString());
+        incomeLabel.setText(totalIncome.toString());
+        expenseLabel.setText(totalExpense.toString());
+        profitLabel.setText(totalProfit.toString());
     }
 
     private void fillChart() {
