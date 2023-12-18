@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.rooms;
 
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -19,14 +20,6 @@ public class RoomsViewController {
 
     @FXML
     void initialize() {
-        listView.setCellFactory(param -> new ListCell<>() {
-            @Override
-            protected void updateItem(Room room, boolean empty) {
-                super.updateItem(room, empty);
-                if (room == null || empty) setText(null);
-                else setText(room.getCode());
-            }
-        });
         listView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 id = newSelection.getId();
@@ -51,30 +44,35 @@ public class RoomsViewController {
     @FXML
     void insertAction() {
         if (codeText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(new Room(codeText.getText()));
+            Room room = new Room(codeText.getText());
+            CRUDService.create(room);
             refreshTable();
+            LoggingService.add(room + " have been added");
         }
     }
 
     @FXML
     void updateAction() {
         if (codeText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Room room = CRUDService.readById(Room.class, id);
-            assert room != null;
+            String oldCode = room.toString();
             room.setCode(codeText.getText());
             CRUDService.update(room);
             refreshTable();
+            LoggingService.update("Room code have been changed from " + oldCode + " to " + room);
         }
     }
 
     @FXML
     void deleteAction() {
-        CRUDService.delete(CRUDService.readById(Room.class, id));
+        Room room = CRUDService.readById(Room.class, id);
+        CRUDService.delete(room);
         refreshTable();
+        LoggingService.delete(room + " have been deleted");
     }
 
     @FXML

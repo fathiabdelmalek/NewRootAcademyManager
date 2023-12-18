@@ -18,81 +18,7 @@ import java.util.stream.Collectors;
 public class CalculationsService {
     private static final DBCManager dbcm = DBCManager.getInstance();
 
-    public static <T> int sumOfStudents(int lessonId) {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            String jpqlQuery = "SELECT COUNT(a) FROM Attendance a WHERE a.lesson.id = :lessonId";
-            TypedQuery<Long> query = em.createQuery(jpqlQuery, Long.class);
-            query.setParameter("lessonId", lessonId);
-            Long result = query.getSingleResult();
-            return result.intValue();
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
-
-    public static int count(String table) {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            String jpqlQuery = "SELECT COUNT(t) FROM " + table + " t";
-            TypedQuery<Long> query = em.createQuery(jpqlQuery, Long.class);
-            Long result = query.getSingleResult();
-            return result.intValue();
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
-
-    public static int countStudents(int lessonId) {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Long> query = cb.createQuery(Long.class);
-            Root<Attendance> attendanceRoot = query.from(Attendance.class);
-            Predicate condition = cb.equal(attendanceRoot.get("lesson").get("id"), lessonId);
-            query.select(cb.count(attendanceRoot)).where(condition);
-            Long result = em.createQuery(query).getSingleResult();
-            return result != null ? result.intValue() : 0;
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
-
-    public static <T> double totalIncome() {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            String jpqlQuery = "SELECT SUM(i.amount) FROM Income i";
-            TypedQuery<Double> query = em.createQuery(jpqlQuery, Double.class);
-            Double result = query.getSingleResult();
-            return result != null ? result : 0.0;
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
-
-    public static <T> double totalExpense() {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            String jpqlQuery = "SELECT SUM(e.amount) FROM Expense e";
-            TypedQuery<Double> query = em.createQuery(jpqlQuery, Double.class);
-            Double result = query.getSingleResult();
-            return result != null ? result : 0.0;
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
-
-    public static double sum(String column, String table) {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            String jpqlQuery = "SELECT SUM(t." + column + ") FROM" + table + " t";
-            TypedQuery<Double> query = em.createQuery(jpqlQuery, Double.class);
-            Double result = query.getSingleResult();
-            return result != null ? result : 0.0;
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return -1;
-        }
-    }
+    private CalculationsService() {}
 
     public static <T> int count(Class<T> entityClass) {
         try (EntityManager em = dbcm.getFactory().createEntityManager()) {
@@ -122,44 +48,6 @@ public class CalculationsService {
         } catch (Exception e) {
             dbcm.handleTransactionException(e);
             return -1;
-        }
-    }
-
-    public static <T> BigDecimal sum(Class<T> entityClass, String column) {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<BigDecimal> query = cb.createQuery(BigDecimal.class);
-            Root<T> root = query.from(entityClass);
-            query.select(cb.sum(root.get(column)));
-            BigDecimal result = em.createQuery(query).getSingleResult();
-            return result != null ? result : BigDecimal.ZERO;
-        } catch (Exception e) {
-            dbcm.handleTransactionException(e);
-            return BigDecimal.ZERO;
-        }
-    }
-
-    public static BigDecimal calculateTotalIncome() {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<BigDecimal> query = cb.createQuery(BigDecimal.class);
-            Root<Income> root = query.from(Income.class);
-            query.select(cb.sum(root.get("amount")));
-            return em.createQuery(query).getSingleResult();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static BigDecimal calculateTotalExpense() {
-        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<BigDecimal> query = cb.createQuery(BigDecimal.class);
-            Root<Expense> root = query.from(Expense.class);
-            query.select(cb.sum(root.get("amount")));
-            return em.createQuery(query).getSingleResult();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 

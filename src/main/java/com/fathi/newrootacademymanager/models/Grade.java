@@ -51,4 +51,9 @@ public class Grade {
             throw new IllegalArgumentException("Invalid combination of level and year");
         }
     }
+
+    @Override
+    public String toString() {
+        return level.toString() + " " + year;
+    }
 }

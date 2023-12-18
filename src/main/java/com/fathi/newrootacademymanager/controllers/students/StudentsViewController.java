@@ -5,6 +5,7 @@ import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.models.Student;
 import com.fathi.newrootacademymanager.models.StudentView;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -42,21 +43,10 @@ public class StudentsViewController {
         Platform.runLater(() -> searchText.requestFocus());
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
-        gradeChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Grade grade) {
-                if (grade == null) return null;
-                return grade.getLevel() + " " + grade.getYear();
-            }
-
-            @Override
-            public Grade fromString(String s) {
-                return null;
-            }
-        });
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 id = newSelection.getId();
+                firstNameText.setText(newSelection.getFirstName());
                 lastNameText.setText(newSelection.getLastName());
                 phoneNumberText.setText(newSelection.getPhoneNumber());
                 datePicker.setValue(newSelection.getBirthDate());
@@ -96,19 +86,19 @@ public class StudentsViewController {
                 !sex.getSelectedToggle().isSelected() ||
                 datePicker.getValue() == null ||
                 gradeChoice.getValue() == null)
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(
-                    new Student(
-                            firstNameText.getText(),
-                            lastNameText.getText(),
-                            phoneNumberText.getText(),
-                            Sex.valueOf(((RadioButton) sex.getSelectedToggle()).getText()),
-                            datePicker.getValue(),
-                            gradeChoice.getValue()
-                    )
+            Student student = new Student(
+                    firstNameText.getText(),
+                    lastNameText.getText(),
+                    phoneNumberText.getText(),
+                    Sex.valueOf(((RadioButton) sex.getSelectedToggle()).getText()),
+                    datePicker.getValue(),
+                    gradeChoice.getValue()
             );
+            CRUDService.create(student);
             refreshTable();
+            LoggingService.add("Student " + student + " have been added");
         }
     }
 
@@ -119,7 +109,7 @@ public class StudentsViewController {
                 !sex.getSelectedToggle().isSelected() ||
                 datePicker.getValue() == null ||
                 gradeChoice.getValue() == null)
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Student student = CRUDService.readById(Student.class, id);
             student.setFirstName(firstNameText.getText());
@@ -130,12 +120,15 @@ public class StudentsViewController {
             student.setGrade(gradeChoice.getValue());
             CRUDService.update(student);
             refreshTable();
+            LoggingService.update(student + " have been updated");
         }
     }
 
     public void deleteAction(ActionEvent actionEvent) {
-        CRUDService.delete(CRUDService.readById(Student.class, id));
+        Student student = CRUDService.readById(Student.class, id);
+        CRUDService.delete(student);
         refreshTable();
+        LoggingService.delete(student + " have been removed");
     }
 
     public void clearAction(ActionEvent actionEvent) {

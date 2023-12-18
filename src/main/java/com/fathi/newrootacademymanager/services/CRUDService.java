@@ -16,13 +16,32 @@ import java.util.Map;
 public class CRUDService {
     private static final DBCManager dbcm = DBCManager.getInstance();
 
+    private CRUDService() {}
+
     public static <T> ObservableList<T> readAll(Class<T> entityClass) {
         try (EntityManager em = dbcm.getFactory().createEntityManager()) {
             CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<T> cr = cb.createQuery(entityClass);
-            cr.from(entityClass);
+            CriteriaQuery<T> query = cb.createQuery(entityClass);
+            query.from(entityClass);
             ObservableList<T> result = FXCollections.observableArrayList();
-            result.addAll(em.createQuery(cr).getResultList());
+            result.addAll(em.createQuery(query).getResultList());
+            return result;
+        } catch (Exception e) {
+            dbcm.handleTransactionException(e);
+            return null;
+        }
+    }
+
+    public static <T> ObservableList<T> readAll(Class<T> entityClass, int maxResults, String order) {
+        try (EntityManager em = dbcm.getFactory().createEntityManager()) {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<T> query = cb.createQuery(entityClass);
+            Root<T> root = query.from(entityClass);
+            if (order.equals("ASC")) query.orderBy(cb.asc(root));
+            else if (order.equals("DESC")) query.orderBy(cb.desc(root));
+            else throw new Exception("Order must be 'ASC' or 'DESC' only");
+            ObservableList<T> result = FXCollections.observableArrayList();
+            result.addAll(em.createQuery(query).setMaxResults(maxResults).getResultList());
             return result;
         } catch (Exception e) {
             dbcm.handleTransactionException(e);
@@ -49,9 +68,9 @@ public class CRUDService {
     public static <T> T readById(Class<T> entityClass, int id) {
         try (EntityManager em = dbcm.getFactory().createEntityManager()) {
             CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<T> cr = cb.createQuery(entityClass);
-            Root<T> root = cr.from(entityClass);
-            return em.createQuery(cr.where(cb.equal(root.get("id"), id))).getSingleResult();
+            CriteriaQuery<T> query = cb.createQuery(entityClass);
+            Root<T> root = query.from(entityClass);
+            return em.createQuery(query.where(cb.equal(root.get("id"), id))).getSingleResult();
         } catch (Exception e) {
             dbcm.handleTransactionException(e);
             return null;

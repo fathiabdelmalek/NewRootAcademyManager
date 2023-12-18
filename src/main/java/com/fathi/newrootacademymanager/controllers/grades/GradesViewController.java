@@ -3,6 +3,7 @@ package com.fathi.newrootacademymanager.controllers.grades;
 import com.fathi.newrootacademymanager.helpers.enums.Level;
 import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
@@ -50,10 +51,12 @@ public class GradesViewController {
     void insertAction() {
         if (levelText.getText().isEmpty() ||
                 yearText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(new Grade(Level.valueOf(levelText.getText()), Integer.parseInt(yearText.getText())));
+            Grade grade = new Grade(Level.valueOf(levelText.getText()), Integer.parseInt(yearText.getText()));
+            CRUDService.create(grade);
             refreshTable();
+            LoggingService.add(grade + " have been added");
         }
     }
 
@@ -61,21 +64,24 @@ public class GradesViewController {
     void updateAction() {
         if (levelText.getText().isEmpty() ||
                 yearText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Grade grade = CRUDService.readById(Grade.class, id);
-            assert grade != null;
+            String oldGrade = grade.toString();
             grade.setLevel(Level.valueOf(levelText.getText()));
             grade.setYear(Integer.parseInt(yearText.getText()));
             CRUDService.update(grade);
             refreshTable();
+            LoggingService.update(oldGrade + "have been change to " + grade);
         }
     }
 
     @FXML
     void deleteAction() {
-        CRUDService.delete(CRUDService.readById(Grade.class, id));
+        Grade grade = CRUDService.readById(Grade.class, id);
+        CRUDService.delete(grade);
         refreshTable();
+        LoggingService.delete(grade + " have been deleted");
     }
 
     @FXML

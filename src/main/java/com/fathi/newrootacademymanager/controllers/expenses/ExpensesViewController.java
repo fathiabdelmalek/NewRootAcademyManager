@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.expenses;
 
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -35,18 +36,6 @@ public class ExpensesViewController {
 
         teacherChoice.setItems(FXCollections.observableList(CRUDService.readAll(Teacher.class)));
         teacherChoice.getItems().addFirst(null);
-        teacherChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Teacher teacher) {
-                if (teacher == null) return null;
-                return teacher.getFirstName() + " " + teacher.getLastName();
-            }
-
-            @Override
-            public Teacher fromString(String string) {
-                return null;
-            }
-        });
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 id = newSelection.getId();
@@ -87,38 +76,42 @@ public class ExpensesViewController {
     @FXML
     void insertAction(ActionEvent actionEvent) {
         if (amountText.getText().isEmpty() || detailsText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(
-                    new Expense(
-                            new BigDecimal(amountText.getText()),
-                            detailsText.getText(),
-                            teacherChoice.getValue()
-                    )
+            Expense expense = new Expense(
+                    new BigDecimal(amountText.getText()),
+                    detailsText.getText(),
+                    teacherChoice.getValue()
             );
+            CRUDService.create(expense);
             refreshTable();
+            LoggingService.add("Added an expense of " + expense.getAmount() + " DA");
         }
     }
 
     @FXML
     void updateAction(ActionEvent actionEvent) {
         if (amountText.getText().isEmpty() || detailsText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Expense expense = CRUDService.readById(Expense.class, id);
+            BigDecimal oldAmount = expense.getAmount();
             expense.setAmount(new BigDecimal(amountText.getText()));
             expense.setDetails(detailsText.getText());
             expense.setTeacher(teacherChoice.getValue());
             expense.setUpdateTime(LocalDateTime.now());
             CRUDService.update(expense);
             refreshTable();
+            LoggingService.update("Changed an expense amount from " + oldAmount + " DA to " + expense.getAmount() + " DA");
         }
     }
 
     @FXML
     void deleteAction(ActionEvent actionEvent) {
-        CRUDService.delete(CRUDService.readById(Expense.class, id));
+        Expense expense = CRUDService.readById(Expense.class, id);
+        CRUDService.delete(expense);
         refreshTable();
+        LoggingService.delete("Remove an expense of " + expense.getAmount() + " DA");
     }
 
     @FXML

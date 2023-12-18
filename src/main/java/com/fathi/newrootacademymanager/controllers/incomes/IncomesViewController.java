@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.incomes;
 
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -35,18 +36,6 @@ public class IncomesViewController {
 
         studentChoice.setItems(FXCollections.observableList(CRUDService.readAll(Student.class)));
         studentChoice.getItems().addFirst(null);
-        studentChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Student student) {
-                if (student == null) return null;
-                return student.getFirstName() + " " + student.getLastName();
-            }
-
-            @Override
-            public Student fromString(String string) {
-                return null;
-            }
-        });
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 id = newSelection.getId();
@@ -87,38 +76,42 @@ public class IncomesViewController {
     @FXML
     void insertAction(ActionEvent actionEvent) {
         if (amountText.getText().isEmpty() || detailsText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(
-                    new Income(
-                            new BigDecimal(amountText.getText()),
-                            detailsText.getText(),
-                            studentChoice.getValue()
-                    )
+            Income income = new Income(
+                    new BigDecimal(amountText.getText()),
+                    detailsText.getText(),
+                    studentChoice.getValue()
             );
+            CRUDService.create(income);
             refreshTable();
+            LoggingService.add("Added an income of " + income.getAmount() + " DA");
         }
     }
 
     @FXML
     void updateAction(ActionEvent actionEvent) {
         if (amountText.getText().isEmpty() || detailsText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Income income = CRUDService.readById(Income.class, id);
+            BigDecimal oldAmount = income.getAmount();
             income.setAmount(new BigDecimal(amountText.getText()));
             income.setDetails(detailsText.getText());
             income.setStudent(studentChoice.getValue());
             income.setUpdateTime(LocalDateTime.now());
             CRUDService.update(income);
             refreshTable();
+            LoggingService.update("Changed an income amount from " + oldAmount + " DA to " + income.getAmount() + " DA");
         }
     }
 
     @FXML
     void deleteAction(ActionEvent actionEvent) {
-        CRUDService.delete(CRUDService.readById(Income.class, id));
+        Income income = CRUDService.readById(Income.class, id);
+        CRUDService.delete(income);
         refreshTable();
+        LoggingService.delete("Remove an income of " + income.getAmount() + " DA");
     }
 
     @FXML

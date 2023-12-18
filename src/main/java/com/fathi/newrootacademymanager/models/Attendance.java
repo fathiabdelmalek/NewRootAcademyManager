@@ -89,4 +89,9 @@ public class Attendance {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    @Override
+    public String toString() {
+        return "student " + student.toString() + " on lesson " + lesson.toString();
+    }
 }

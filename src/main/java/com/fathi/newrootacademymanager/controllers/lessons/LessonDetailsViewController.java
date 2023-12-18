@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.lessons;
 
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -61,18 +62,6 @@ public class LessonDetailsViewController {
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
         gradeChoice.getItems().addFirst(null);
         gradeChoice.setValue(lesson.getGrade());
-        gradeChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Grade grade) {
-                if (grade == null) return null;
-                return grade.getLevel() + " " + grade.getYear();
-            }
-
-            @Override
-            public Grade fromString(String s) {
-                return null;
-            }
-        });
         gradeChoice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setStudentChoice();
         });
@@ -120,11 +109,12 @@ public class LessonDetailsViewController {
         Teacher teacher = lesson.getTeacher();
         BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(salaryText.getText()));
         BigDecimal rest = lesson.getTeacherDues().subtract(amount);
-        String details = "pay [" + teacher.getFirstName() + " " + teacher.getLastName() + "] for [" + lesson.getLessonName() + "] | rest is [" + rest + " DA]";
+        String details = "payed [" + teacher + "] " + amount + " DA for [" + lesson + "] | rest is [" + rest + " DA]";
         CRUDService.create(new Expense(amount, details, teacher));
         lesson.setTeacherDues(rest);
         CRUDService.update(lesson);
         salaryText.setText(lesson.getTeacherDues().toString());
+        LoggingService.pay(details);
     }
 
     @FXML
@@ -139,7 +129,7 @@ public class LessonDetailsViewController {
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
         salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
-        System.out.println(currentClassesNumber);
+        LoggingService.update(lesson + " number of lessons decreased by one and become " + lesson.getClassesNumber());
     }
 
     @FXML
@@ -151,18 +141,20 @@ public class LessonDetailsViewController {
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
         salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
-        System.out.println(currentClassesNumber);
+        LoggingService.update(lesson + " number of lessons increased by one and become " + lesson.getClassesNumber());
     }
 
     @FXML
     void payAction(ActionEvent actionEvent) {
-        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(studentPaymentText.getText()));
-        String details = "[" + student.getFirstName() + " " + student.getLastName() + "] pays for [" + lesson.getLessonName() + "]";
-        CRUDService.create(new Income(amount, details, student));
         Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
+        BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(studentPaymentText.getText()));
+        BigDecimal rest = attendance.getDues().subtract(amount);
+        String details = "[" + student + "] pays " + amount + " DA for [" + lesson + "] | rest is [" + rest + " DA]";
+        CRUDService.create(new Income(amount, details, student));
         attendance.setDues(attendance.getDues().subtract(amount));
         CRUDService.update(attendance);
         refreshTable();
+        LoggingService.receive(details);
     }
 
     @FXML
@@ -174,6 +166,7 @@ public class LessonDetailsViewController {
             attendance.setNotes(notesText.getText());
             CRUDService.update(attendance);
             refreshTable();
+            LoggingService.update(lesson + " have been updated");
         }
     }
 
@@ -182,15 +175,19 @@ public class LessonDetailsViewController {
         if (studentChoice.getValue() == null)
             System.out.println("You should insert all required data");
         else {
-            CRUDService.create(new Attendance(lesson, studentChoice.getValue(), notesText.getText()));
+            Attendance attendance = new Attendance(lesson, studentChoice.getValue(), notesText.getText());
+            CRUDService.create(attendance);
             refreshTable();
+            LoggingService.enroll(attendance.getStudent() + " enrolled the lesson " + attendance.getLesson());
         }
     }
 
     @FXML
     void deleteAction(ActionEvent actionEvent) {
-        CRUDService.delete(CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId()));
+        Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
+        CRUDService.delete(attendance);
         refreshTable();
+        LoggingService.leave(attendance.getStudent() + " leaved the lesson " + attendance.getLesson());
     }
 
     @FXML

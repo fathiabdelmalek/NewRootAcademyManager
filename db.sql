@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS `grades`;
 DROP TABLE IF EXISTS `incomes`;
 DROP TABLE IF EXISTS `expenses`;
 DROP TABLE IF EXISTS `attendances`;
+DROP TABLE IF EXISTS `activities`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `students` (
@@ -90,6 +91,14 @@ CREATE TABLE `attendances` (
     `student id` INTEGER NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`lesson id`, `student id`)
+);
+
+CREATE TABLE `activities` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `type` ENUM('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error') NOT NULL,
+    `details` VARCHAR(300) NOT NULL,
+    PRIMARY KEY (`id`)
 );
 
 ALTER TABLE `students` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;

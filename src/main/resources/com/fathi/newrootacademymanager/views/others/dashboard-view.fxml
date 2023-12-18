@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -67,64 +68,75 @@
        <NumberAxis side="LEFT" />
      </yAxis>
    </BarChart>
-   <Pane layoutX="775.0" layoutY="275.0" prefHeight="265.0" prefWidth="500.0" styleClass="custom-pane">
+   <Pane layoutX="700.0" layoutY="275.0" prefHeight="265.0" prefWidth="650.0" styleClass="custom-pane">
+      <Label alignment="CENTER_RIGHT" layoutY="100.0" prefHeight="50.0" prefWidth="325.0" text="Total Income">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" prefWidth="650.0" text="Total Finances">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </Label>
+      <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="100.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+         <font>
+            <Font size="34.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </Label>
+      <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+         <font>
+            <Font size="34.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </Label>
+      <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="200.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+         <font>
+            <Font size="34.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="50.0" prefWidth="325.0" text="Total Profit">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutY="150.0" prefHeight="50.0" prefWidth="325.0" text="Total Expense">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+   </Pane>
+   <Pane layoutX="700.0" layoutY="545.0" prefHeight="265.0" prefWidth="650.0" styleClass="custom-pane">
       <children>
-         <Label alignment="CENTER_RIGHT" layoutY="100.0" prefHeight="50.0" prefWidth="250.0" text="Total Income">
-            <font>
-               <Font size="34.0" />
-            </font>
-         </Label>
-         <Label alignment="CENTER" prefWidth="500.0" text="Total Finances">
+         <Label alignment="CENTER" prefWidth="650.0" text="Last 5 Activities">
             <font>
                <Font size="48.0" />
             </font>
             <padding>
-               <Insets top="15.0" />
+               <Insets top="10.0" />
             </padding>
          </Label>
-         <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="250.0" layoutY="100.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
-            <font>
-               <Font size="34.0" />
-            </font>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <padding>
-               <Insets right="50.0" />
-            </padding>
-         </Label>
-         <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="250.0" layoutY="150.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
-            <font>
-               <Font size="34.0" />
-            </font>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <padding>
-               <Insets right="50.0" />
-            </padding>
-         </Label>
-         <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="250.0" layoutY="200.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
-            <font>
-               <Font size="34.0" />
-            </font>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <padding>
-               <Insets right="50.0" />
-            </padding>
-         </Label>
-         <Label alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="50.0" prefWidth="250.0" text="Total Profit">
-            <font>
-               <Font size="34.0" />
-            </font>
-         </Label>
-         <Label alignment="CENTER_RIGHT" layoutY="150.0" prefHeight="50.0" prefWidth="250.0" text="Total Expense">
-            <font>
-               <Font size="34.0" />
-            </font>
-         </Label>
+         <ListView fx:id="activitiesList" layoutX="5.0" layoutY="80.0" prefHeight="180.0" prefWidth="640.0" />
       </children>
    </Pane>
 </AnchorPane>

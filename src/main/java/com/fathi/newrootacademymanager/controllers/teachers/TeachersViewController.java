@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.teachers;
 
 import com.fathi.newrootacademymanager.models.Teacher;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -57,16 +58,16 @@ public class TeachersViewController {
         if (firstNameText.getText().isEmpty() ||
                 lastNameText.getText().isEmpty() ||
                 phoneNumberText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(
-                    new Teacher(
-                            firstNameText.getText(),
-                            lastNameText.getText(),
-                            phoneNumberText.getText()
-                    )
+            Teacher teacher = new Teacher(
+                    firstNameText.getText(),
+                    lastNameText.getText(),
+                    phoneNumberText.getText()
             );
+            CRUDService.create(teacher);
             refreshTable();
+            LoggingService.add("Teacher " + teacher + " have been added");
         }
     }
 
@@ -74,21 +75,23 @@ public class TeachersViewController {
         if (firstNameText.getText().isEmpty() ||
                 lastNameText.getText().isEmpty() ||
                 phoneNumberText.getText().isEmpty())
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
             Teacher teacher = CRUDService.readById(Teacher.class, id);
-            assert teacher != null;
             teacher.setFirstName(firstNameText.getText());
             teacher.setLastName(lastNameText.getText());
             teacher.setPhoneNumber(phoneNumberText.getText());
             CRUDService.update(teacher);
             refreshTable();
+            LoggingService.update(teacher + " have been updated");
         }
     }
 
     public void deleteAction(ActionEvent actionEvent) {
-        CRUDService.delete(CRUDService.readById(Teacher.class, id));
+        Teacher teacher = CRUDService.readById(Teacher.class, id);
+        CRUDService.delete(teacher);
         refreshTable();
+        LoggingService.delete(teacher + " have been removed");
     }
 
     public void clearAction(ActionEvent actionEvent) {

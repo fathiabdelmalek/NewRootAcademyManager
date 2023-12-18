@@ -3,6 +3,7 @@ package com.fathi.newrootacademymanager.controllers.lessons;
 import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -70,18 +71,6 @@ public class LessonsViewController {
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
         gradeChoice.getItems().addFirst(null);
-        gradeChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Grade grade) {
-                if (grade == null) return null;
-                return grade.getLevel() + " " + grade.getYear();
-            }
-
-            @Override
-            public Grade fromString(String s) {
-                return null;
-            }
-        });
 
         dayChoice.setItems(FXCollections.observableArrayList(WeekDay.values()));
         dayChoice.getItems().addFirst(null);
@@ -214,21 +203,21 @@ public class LessonsViewController {
                 dayChoice.getValue() == null ||
                 roomChoice.getValue() == null ||
                 teacherChoice.getValue() == null)
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         else {
-            CRUDService.create(
-                    new Lesson(
-                            lessonNameText.getText(),
-                            dayChoice.getValue(),
-                            LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()),
-                            LocalTime.of(endHourSpinner.getValue(), endMinuteSpinner.getValue()),
-                            BigDecimal.valueOf(Double.parseDouble(priceText.getText())),
-                            teacherChoice.getValue(),
-                            roomChoice.getValue(),
-                            gradeChoice.getValue()
-                    )
+            Lesson lesson = new Lesson(
+                    lessonNameText.getText(),
+                    dayChoice.getValue(),
+                    LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()),
+                    LocalTime.of(endHourSpinner.getValue(), endMinuteSpinner.getValue()),
+                    BigDecimal.valueOf(Double.parseDouble(priceText.getText())),
+                    teacherChoice.getValue(),
+                    roomChoice.getValue(),
+                    gradeChoice.getValue()
             );
+            CRUDService.create(lesson);
             refreshTable();
+            LoggingService.add(lesson + " have been added");
         }
     }
 
@@ -239,10 +228,9 @@ public class LessonsViewController {
                 dayChoice.getValue() == null ||
                 roomChoice.getValue() == null ||
                 teacherChoice.getValue() == null) {
-            System.out.println("You should insert all required data");
+            LoggingService.error("You should insert all required fields");
         } else {
             Lesson lesson = CRUDService.readById(Lesson.class, id);
-            assert lesson != null;
             lesson.setLessonName(lessonNameText.getText());
             lesson.setDay(dayChoice.getValue());
             lesson.setStartTime(LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()));
@@ -253,13 +241,16 @@ public class LessonsViewController {
             lesson.setGrade(gradeChoice.getValue());
             CRUDService.update(lesson);
             refreshTable();
+            LoggingService.update(lesson + " have been updated");
         }
     }
 
     @FXML
     void deleteAction(ActionEvent event) {
-        CRUDService.delete(CRUDService.readById(Lesson.class, id));
+        Lesson lesson = CRUDService.readById(Lesson.class, id);
+        CRUDService.delete(lesson);
         refreshTable();
+        LoggingService.delete(lesson + " have been deleted");
     }
 
     @FXML
