@@ -1,5 +1,6 @@
 package com.fathi.newrootacademymanager.controllers.lessons;
 
+import com.fathi.newrootacademymanager.helpers.AttendanceActions;
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
@@ -30,7 +31,7 @@ public class LessonDetailsViewController {
     @FXML
     private TableView<AttendanceView> tableView;
     @FXML
-    private TableColumn attendancesColumn;
+    private TableColumn<AttendanceView, String> attendancesColumn;
     @FXML
     private TextField studentNameText;
     @FXML
@@ -86,8 +87,10 @@ public class LessonDetailsViewController {
             } else {
                 updateFromSelection(newSelection);
             }
+            System.out.println(tableView.getSelectionModel().getSelectedItem().getId());
         });
         refreshTable();
+        attendancesColumn.setCellFactory(new AttendanceActions());
     }
 
     @FXML

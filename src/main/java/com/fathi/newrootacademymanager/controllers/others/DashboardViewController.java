@@ -4,16 +4,15 @@ import com.fathi.newrootacademymanager.helpers.enums.Level;
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.CalculationsService;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 public class DashboardViewController {
 
@@ -25,7 +24,15 @@ public class DashboardViewController {
     @FXML
     private Label totalLessonsLabel;
     @FXML
-    private BarChart<String, Integer> chart;
+    private BarChart<String, Integer> byLevelsChart;
+    @FXML
+    private BarChart<String, Integer> byGradesChart;
+    @FXML
+    private RadioButton levelsChoice;
+    @FXML
+    private RadioButton gradesChoice;
+    @FXML
+    private ToggleGroup chart;
     @FXML
     private Label totalIncomeLabel;
     @FXML
@@ -38,7 +45,9 @@ public class DashboardViewController {
     @FXML
     void initialize() {
         countData();
-        fillChart();
+        fillLevelsChart();
+        fillGradesChart();
+        getChartChoice();
         getProfitData();
         getLastActivities();
     }
@@ -49,8 +58,8 @@ public class DashboardViewController {
         totalLessonsLabel.setText(String.valueOf(CalculationsService.count(Lesson.class)));
     }
 
-    private void fillChart() {
-        chart.setLegendVisible(false);
+    private void fillLevelsChart() {
+        byLevelsChart.setLegendVisible(false);
         XYChart.Series<String, Integer> data = new XYChart.Series<>();
         int primaryStudents = CalculationsService.getStudentsWithLevel(Level.Primary);
         int middleStudents = CalculationsService.getStudentsWithLevel(Level.Middle);
@@ -58,7 +67,33 @@ public class DashboardViewController {
         data.getData().add(new XYChart.Data<>("Primary", primaryStudents));
         data.getData().add(new XYChart.Data<>("Middle", middleStudents));
         data.getData().add(new XYChart.Data<>("Secondary", secondaryStudents));
-        chart.getData().add(data);
+        byLevelsChart.getData().add(data);
+    }
+
+    private void fillGradesChart() {
+        byGradesChart.setLegendVisible(false);
+        XYChart.Series<String, Integer> data = new XYChart.Series<>();
+        int[] grades = new int[12];
+        for (int id = 1; id <= 12; id++) {
+            Grade grade = CRUDService.readById(Grade.class, id);
+            grades[id-1] = CalculationsService.getStudentsWithGrade(grade);
+            data.getData().add(new XYChart.Data<>(grade.toString(), grades[id-1]));
+        }
+        byGradesChart.getData().add(data);
+    }
+
+    private void getChartChoice() {
+        chart.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue instanceof RadioButton selected) {
+                if (selected.getText().equals("By Level")) {
+                    byLevelsChart.setVisible(true);
+                    byGradesChart.setVisible(false);
+                } else if (selected.getText().equals("By Grade")) {
+                    byLevelsChart.setVisible(false);
+                    byGradesChart.setVisible(true);
+                }
+            }
+        });
     }
 
     private void getProfitData() {
