@@ -87,7 +87,6 @@ public class LessonDetailsViewController {
             } else {
                 updateFromSelection(newSelection);
             }
-            System.out.println(tableView.getSelectionModel().getSelectedItem().getId());
         });
         refreshTable();
         attendancesColumn.setCellFactory(new AttendanceActions());

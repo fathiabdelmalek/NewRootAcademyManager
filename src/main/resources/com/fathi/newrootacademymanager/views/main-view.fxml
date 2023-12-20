@@ -26,7 +26,7 @@
             </AnchorPane>
         </top>
         <left>
-            <AnchorPane prefHeight="828.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="830.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
                 <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
                     <Image url="@../images/new_root.png" />
                 </ImageView>
@@ -86,19 +86,15 @@
                         <FontAwesomeIconView fill="#f8b038" glyphName="LIST" />
                     </graphic>
                 </Button>
-            </AnchorPane>
-        </left>
-        <center>
-            <AnchorPane fx:id="mainPane" prefHeight="828.0" styleClass="center-part" BorderPane.alignment="CENTER" />
-        </center>
-        <bottom>
-            <AnchorPane prefHeight="40.0" styleClass="bottom-part" BorderPane.alignment="CENTER_LEFT">
-                <Label onMouseClicked="#aboutAction" prefHeight="40" prefWidth="400.0" text="By Fathi Abdelmalek">
+                <Label layoutY="830.0" onMouseClicked="#aboutAction" prefHeight="40" prefWidth="400.0" text="By Fathi Abdelmalek">
                     <font>
                         <Font name="Ink Free" size="12.0" />
                     </font>
                 </Label>
             </AnchorPane>
-        </bottom>
+        </left>
+        <center>
+            <AnchorPane fx:id="mainPane" prefHeight="828.0" styleClass="center-part" BorderPane.alignment="CENTER" />
+        </center>
     </BorderPane>
 </AnchorPane>

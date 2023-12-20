@@ -195,12 +195,7 @@
     -fx-border-width: 0 2 2 2;
 }
 
-
-.bottom-part {
-    -fx-background-color: #FFFFFF;
-}
-
-.bottom-part .label {
+.left-part .label {
     -fx-background-color: #187BBE;
     -fx-font-family: Ink Free;
     -fx-font-style: italic;
@@ -209,7 +204,7 @@
     -fx-alignment: center;
 }
 
-.bottom-part .label:hover {
+.left-part .label:hover {
     -fx-text-fill: #F8B038;
     -fx-font-weight: bold;
     -fx-cursor: hand;

@@ -5,6 +5,9 @@ module com.fathi.newrootacademymanager {
     requires mysql.connector.j;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.fontawesome5;
 
     opens com.fathi.newrootacademymanager to javafx.fxml;
     opens com.fathi.newrootacademymanager.models to javafx.fxml, org.hibernate.orm.core;
