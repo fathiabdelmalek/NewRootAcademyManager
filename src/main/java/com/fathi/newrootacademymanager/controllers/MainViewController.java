@@ -31,7 +31,8 @@ public class MainViewController {
             stage.setX(event.getScreenX() - xOffset);
             stage.setY(event.getScreenY() - yOffset);
         });
-        loadView("/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml");
+//        loadView("/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml");
+        loadView("/com/fathi/newrootacademymanager/views/others/table-board-view.fxml");
     }
 
     @FXML

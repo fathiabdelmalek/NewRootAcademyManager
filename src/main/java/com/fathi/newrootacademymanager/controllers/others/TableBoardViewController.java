@@ -1,160 +1,104 @@
 package com.fathi.newrootacademymanager.controllers.others;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
+import com.fathi.newrootacademymanager.models.LessonView;
+import com.fathi.newrootacademymanager.models.Room;
+import com.fathi.newrootacademymanager.services.CRUDService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TableBoardViewController {
-//    @FXML
-//    private ComboBox<?> roomChoice;
     @FXML
-    private Label f5;
+    private ComboBox<Room> roomChoice;
     @FXML
-    private Label fr0;
-    @FXML
-    private Label fr1;
-    @FXML
-    private Label fr2;
-    @FXML
-    private Label fr3;
-    @FXML
-    private Label fr4;
-    @FXML
-    private Label fr6;
-    @FXML
-    private Label fr7;
-    @FXML
-    private Label fr8;
-    @FXML
-    private Label fr9;
-    @FXML
-    private Label mn0;
-    @FXML
-    private Label mn1;
-    @FXML
-    private Label mn2;
-    @FXML
-    private Label mn3;
-    @FXML
-    private Label mn4;
-    @FXML
-    private Label mn5;
-    @FXML
-    private Label mn6;
-    @FXML
-    private Label mn7;
-    @FXML
-    private Label mn8;
-    @FXML
-    private Label mn9;
-    @FXML
-    private Label sn0;
-    @FXML
-    private Label sn1;
-    @FXML
-    private Label sn2;
-    @FXML
-    private Label sn3;
-    @FXML
-    private Label sn4;
-    @FXML
-    private Label sn5;
-    @FXML
-    private Label sn6;
-    @FXML
-    private Label sn7;
-    @FXML
-    private Label sn8;
-    @FXML
-    private Label sn9;
-    @FXML
-    private Label st0;
-    @FXML
-    private Label st1;
-    @FXML
-    private Label st2;
-    @FXML
-    private Label st3;
-    @FXML
-    private Label st4;
-    @FXML
-    private Label st5;
-    @FXML
-    private Label st6;
-    @FXML
-    private Label st7;
-    @FXML
-    private Label st8;
-    @FXML
-    private Label st9;
-    @FXML
-    private Label te0;
-    @FXML
-    private Label te1;
-    @FXML
-    private Label te2;
-    @FXML
-    private Label te3;
-    @FXML
-    private Label te4;
-    @FXML
-    private Label te5;
-    @FXML
-    private Label te6;
-    @FXML
-    private Label te7;
-    @FXML
-    private Label te8;
-    @FXML
-    private Label tt6;
-    @FXML
-    private Label tu0;
-    @FXML
-    private Label tu1;
-    @FXML
-    private Label tu2;
-    @FXML
-    private Label tu3;
-    @FXML
-    private Label tu4;
-    @FXML
-    private Label tu5;
-    @FXML
-    private Label tu7;
-    @FXML
-    private Label tu8;
-    @FXML
-    private Label tu9;
-    @FXML
-    private Label wd0;
-    @FXML
-    private Label wd1;
-    @FXML
-    private Label wd2;
-    @FXML
-    private Label wd3;
-    @FXML
-    private Label wd4;
-    @FXML
-    private Label wd5;
-    @FXML
-    private Label wd6;
-    @FXML
-    private Label wd7;
-    @FXML
-    private Label wd8;
-    @FXML
-    private Label wd9;
+    private GridPane grid;
 
     @FXML
     void initialize() {
+        roomChoice.setItems(FXCollections.observableArrayList(CRUDService.readAll(Room.class)));
+        roomChoice.setValue(roomChoice.getItems().get(4));
+        resetTimetable();
+        refreshTable();
     }
 
     @FXML
     void changeRoomAction(ActionEvent event) {
+        resetTimetable();
+        refreshTable();
+    }
 
+    private void refreshTable() {
+        Map<String, Object> params = new HashMap<>();
+        params.put("roomCode", roomChoice.getValue().getCode());
+        ObservableList<LessonView> lessons = CRUDService.readByCriteria(LessonView.class, params);
+        for (LessonView lesson : lessons) {
+            String lessonName = lesson.getLessonName();
+            String grade = lesson.getGrade();
+            int day = getIndexFromDay(lesson.getDay());
+            int start = getIndexFromTime(lesson.getStartTime());
+            int end = getIndexFromTime(lesson.getEndTime());
+            Label label = new Label();
+            if (grade == null) label.setText(lessonName);
+            else label.setText(lessonName + "\n" + grade);
+            label.getStyleClass().add("grid-label");
+            clearCell(day, start, end - start);
+            grid.add(label, day, start, 1, end - start);
+        }
+    }
+
+    private void resetTimetable() {
+        grid.getChildren().clear();
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 10; j++) {
+                Label label = new Label("N/A");
+                label.getStyleClass().add("grid-label");
+                grid.add(label, i, j);
+            }
+        }
+    }
+
+    private int getIndexFromDay(WeekDay day) {
+        if (day.equals(WeekDay.Saturday)) return 0;
+        if (day.equals(WeekDay.Sunday)) return 1;
+        if (day.equals(WeekDay.Monday)) return 2;
+        if (day.equals(WeekDay.Tuesday)) return 3;
+        if (day.equals(WeekDay.Wednesday)) return 4;
+        if (day.equals(WeekDay.Thursday)) return 5;
+        if (day.equals(WeekDay.Friday)) return 6;
+        return -1;
+    }
+
+    private int getIndexFromTime(LocalTime time) {
+        if (time.equals(LocalTime.of(9, 0))) return 0;
+        if (time.equals(LocalTime.of(10, 0))) return 1;
+        if (time.equals(LocalTime.of(11, 0))) return 2;
+        if (time.equals(LocalTime.of(12, 0))) return 3;
+        if (time.equals(LocalTime.of(13, 0))) return 4;
+        if (time.equals(LocalTime.of(14, 0))) return 5;
+        if (time.equals(LocalTime.of(15, 0))) return 6;
+        if (time.equals(LocalTime.of(16, 0))) return 7;
+        if (time.equals(LocalTime.of(17, 0))) return 8;
+        if (time.equals(LocalTime.of(18, 0))) return 9;
+        return -1;
+    }
+
+    private void clearCell(int col, int row, int rowspan) {
+        for (int i = 0; i < rowspan; i++) {
+            for (int j = 0; j < grid.getChildren().size(); j++) {
+                if (GridPane.getColumnIndex(grid.getChildren().get(j)) == col &&
+                        GridPane.getRowIndex(grid.getChildren().get(j)) == row + i) {
+                    grid.getChildren().remove(j);
+                    break;
+                }
+            }
+        }
     }
 }

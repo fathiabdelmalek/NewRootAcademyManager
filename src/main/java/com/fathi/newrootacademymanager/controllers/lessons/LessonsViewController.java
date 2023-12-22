@@ -86,32 +86,9 @@ public class LessonsViewController {
 
         roomChoice.setItems(FXCollections.observableArrayList(CRUDService.readAll(Room.class)));
         roomChoice.getItems().addFirst(null);
-        roomChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Room room) {
-                return room.getCode();
-            }
-
-            @Override
-            public Room fromString(String s) {
-                return null;
-            }
-        });
 
         teacherChoice.setItems(FXCollections.observableList(CRUDService.readAll(Teacher.class)));
         teacherChoice.getItems().addFirst(null);
-        teacherChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Teacher teacher) {
-                if (teacher == null) return null;
-                return teacher.getFirstName() + " " + teacher.getLastName();
-            }
-
-            @Override
-            public Teacher fromString(String s) {
-                return null;
-            }
-        });
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
