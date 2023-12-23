@@ -75,9 +75,9 @@ public class AttendanceActions implements Callback<TableColumn<AttendanceView, S
                     number.setText(String.valueOf(CRUDService.readById(AttendanceView.class, getTableRow().getItem().getId()).getTimesPresent()));
                     HBox actions = new HBox(decreaseIcon, number, increaseIcon);
                     actions.setStyle("-fx-alignment:center");
-                    HBox.setMargin(decreaseIcon, new Insets(2, 2, 0, 3));
-                    HBox.setMargin(number, new Insets(2, 2, 0, 3));
-                    HBox.setMargin(increaseIcon, new Insets(2, 2, 0, 3));
+                    HBox.setMargin(decreaseIcon, new Insets(0, 0, 0, 0));
+                    HBox.setMargin(number, new Insets(0, 50, 0, 50));
+                    HBox.setMargin(increaseIcon, new Insets(0, 0, 0, 0));
                     setGraphic(actions);
                     setText(null);
                 }

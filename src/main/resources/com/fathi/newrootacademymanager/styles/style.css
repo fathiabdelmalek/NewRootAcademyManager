@@ -191,13 +191,13 @@
 }
 
 .center-part .grid-label {
-    -fx-font-size: 18;
-    -fx-pref-width: 175.0;
-    -fx-pref-height: 75.0;
-    -fx-alignment: CENTER;
-    -fx-text-alignment: CENTER;
     -fx-border-color: #1F2B51;
     -fx-border-insets: 1 1 1 1;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 20;
+    -fx-pref-width: 175.0;
+    -fx-pref-height: 75.0;
 }
 
 .with-border {

@@ -49,7 +49,7 @@ public class LessonDetailsViewController {
     private int currentClassesNumber;
 
     @FXML
-    void initialize(int lessonId) {
+    public void initialize(int lessonId) {
         Platform.runLater(() -> searchText.requestFocus());
 
         lesson = CRUDService.readById(Lesson.class, lessonId);
