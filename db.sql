@@ -11,18 +11,19 @@ DROP TABLE IF EXISTS `activities`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `students` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `first name` VARCHAR(25) NOT NULL,
     `last name` VARCHAR(25) NOT NULL,
     `phone number` VARCHAR(10) NOT NULL,
-    `sex` ENUM('Male', 'Female') NOT NULL,
+    `sex` VARCHAR(6) NOT NULL,
     `birth date` DATE NOT NULL,
     `grade id` INTEGER NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    CHECK (`sex` IN ('Male', 'Female'))
 );
 
 CREATE TABLE `teachers` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `first name` VARCHAR(25) NOT NULL,
     `last name` VARCHAR(25) NOT NULL,
     `phone number` VARCHAR(10) NOT NULL,
@@ -30,9 +31,9 @@ CREATE TABLE `teachers` (
 );
 
 CREATE TABLE `lessons` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `lesson name` VARCHAR(25) NOT NULL,
-    `day` ENUM('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday') NOT NULL,
+    `day` VARCHAR(8) NOT NULL,
     `start time` TIME NOT NULL,
     `end time` TIME NOT NULL,
     `price` DECIMAL(38, 2) NOT NULL,
@@ -41,18 +42,19 @@ CREATE TABLE `lessons` (
     `teacher id` INTEGER NOT NULL,
     `room id` INTEGER NOT NULL,
     `grade id` INTEGER,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    CHECK (`day` in ('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'))
 );
 
 CREATE TABLE `rooms` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `code` VARCHAR(5) NOT NULL UNIQUE,
     PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `grades` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `level` ENUM('Primary', 'Middle', 'Secondary') NOT NULL,
+    `id` INTEGER AUTOINCREMENT,
+    `level` VARCHAR(10) NOT NULL,
     `year` INTEGER NOT NULL,
     PRIMARY KEY (`id`),
     CHECK (
@@ -63,7 +65,7 @@ CREATE TABLE `grades` (
 );
 
 CREATE TABLE `incomes` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
     `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -73,7 +75,7 @@ CREATE TABLE `incomes` (
 );
 
 CREATE TABLE `expenses` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
     `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -83,7 +85,7 @@ CREATE TABLE `expenses` (
 );
 
 CREATE TABLE `attendances` (
-	`id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `times present` INTEGER NOT NULL DEFAULT (0),
     `notes` VARCHAR(300),
     `dues` DECIMAL(38, 2) NOT NULL DEFAULT (0.00),
@@ -94,30 +96,31 @@ CREATE TABLE `attendances` (
 );
 
 CREATE TABLE `activities` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id` INTEGER AUTOINCREMENT,
     `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `type` ENUM('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error') NOT NULL,
+    `type` VARCHAR(8) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    CHECK (`type` IN ('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error'))
 );
 
-ALTER TABLE `students` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD FOREIGN KEY (`room id`) REFERENCES `rooms`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `incomes` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `expenses` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendances` ADD FOREIGN KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendances` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `students` ADD "FOREIGN" KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD "FOREIGN" KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD "FOREIGN" KEY (`room id`) REFERENCES `rooms`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD "FOREIGN" KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `incomes` ADD "FOREIGN" KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `expenses` ADD "FOREIGN" KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD "FOREIGN" KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD "FOREIGN" KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE `students` ADD INDEX `idx_grade_id` (`grade id`);
-ALTER TABLE `lessons` ADD INDEX `idx_teacher_id` (`teacher id`);
-ALTER TABLE `lessons` ADD INDEX `idx_room_id` (`room id`);
-ALTER TABLE `lessons` ADD INDEX `idx_grade_id` (`grade id`);
-ALTER TABLE `incomes` ADD INDEX `idx_student_id` (`student id`);
-ALTER TABLE `expenses` ADD INDEX `idx_teacher_id` (`teacher id`);
-ALTER TABLE `attendances` ADD INDEX `idx_lesson_id` (`lesson id`);
-ALTER TABLE `attendances` ADD INDEX `idx_student_id` (`student id`);
+ALTER TABLE `students` ADD "INDEX" `idx_grade_id` (`grade id`);
+ALTER TABLE `lessons` ADD "INDEX" `idx_teacher_id` (`teacher id`);
+ALTER TABLE `lessons` ADD "INDEX" `idx_room_id` (`room id`);
+ALTER TABLE `lessons` ADD "INDEX" `idx_grade_id` (`grade id`);
+ALTER TABLE `incomes` ADD "INDEX" `idx_student_id` (`student id`);
+ALTER TABLE `expenses` ADD "INDEX" `idx_teacher_id` (`teacher id`);
+ALTER TABLE `attendances` ADD "INDEX" `idx_lesson_id` (`lesson id`);
+ALTER TABLE `attendances` ADD "INDEX" `idx_student_id` (`student id`);
 
 CREATE OR REPLACE VIEW `students view` AS
 SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`

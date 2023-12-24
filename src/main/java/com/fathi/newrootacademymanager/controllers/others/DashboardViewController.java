@@ -4,6 +4,7 @@ import com.fathi.newrootacademymanager.helpers.enums.Level;
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.CalculationsService;
+import jakarta.persistence.NoResultException;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
