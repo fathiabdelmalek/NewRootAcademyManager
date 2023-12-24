@@ -46,7 +46,7 @@
          <Font size="24.0" />
       </font>
    </Label>
-   <Button layoutX="1205.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#decreaseAction" prefWidth="50.0">
+   <Button layoutX="1205.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#decreaseAction" prefWidth="50.0" styleClass="small-size">
       <graphic>
          <FontAwesomeIconView glyphName="MINUS">
             <font>
@@ -60,7 +60,7 @@
          <Font size="16.0" />
       </font>
    </TextField>
-   <Button layoutX="1330.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#increaseAction" prefWidth="50.0">
+   <Button layoutX="1330.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#increaseAction" prefWidth="50.0" styleClass="small-size">
       <graphic>
          <FontAwesomeIconView glyphName="PLUS">
             <font>
@@ -135,22 +135,22 @@
       </font>
    </Label>
    <ComboBox fx:id="studentChoice" layoutX="1100.0" layoutY="675.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
-   <Button layoutX="725.0" layoutY="745.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+   <Button layoutX="725.0" layoutY="745.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update" styleClass="small-size">
       <font>
          <Font size="24.0" />
       </font>
    </Button>
-   <Button layoutX="870.0" layoutY="745.0" mnemonicParsing="false" onAction="#addAction" prefHeight="60.0" prefWidth="120.0" text="Add">
+   <Button layoutX="870.0" layoutY="745.0" mnemonicParsing="false" onAction="#addAction" prefHeight="60.0" prefWidth="120.0" text="Add" styleClass="small-size">
       <font>
          <Font size="24.0" />
       </font>
    </Button>
-   <Button layoutX="1015.0" layoutY="745.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+   <Button layoutX="1015.0" layoutY="745.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" styleClass="small-size">
       <font>
          <Font size="24.0" />
       </font>
    </Button>
-   <Button layoutX="1160.0" layoutY="745.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+   <Button layoutX="1160.0" layoutY="745.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" styleClass="small-size">
       <font>
          <Font size="24.0" />
       </font>

@@ -42,17 +42,17 @@
             </TableColumn>
          <TableColumn prefWidth="300.0" text="Day &amp; Time">
             <columns>
-                  <TableColumn prefWidth="100.0" text="Week Day">
+                  <TableColumn prefWidth="120.0" text="Week Day">
                       <cellValueFactory>
                           <PropertyValueFactory property="day" />
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="100.0" text="Start In">
+                  <TableColumn prefWidth="90.0" text="Start In">
                       <cellValueFactory>
                           <PropertyValueFactory property="startTime" />
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="100.0" text="End In">
+                  <TableColumn prefWidth="90.0" text="End In">
                       <cellValueFactory>
                           <PropertyValueFactory property="endTime" />
                       </cellValueFactory>
@@ -154,22 +154,22 @@
     <Spinner fx:id="endMinuteSpinner" editable="true" layoutX="965.0" layoutY="770.0" prefHeight="35.0" prefWidth="75.0" />
     <ComboBox fx:id="roomChoice" layoutX="280.0" layoutY="820.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
     <ComboBox fx:id="teacherChoice" layoutX="790.0" layoutY="820.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
-    <Button layoutX="1120.0" layoutY="695.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+    <Button layoutX="1120.0" layoutY="695.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="695.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+    <Button layoutX="1255.0" layoutY="695.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1120.0" layoutY="770.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+    <Button layoutX="1120.0" layoutY="770.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="770.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+    <Button layoutX="1255.0" layoutY="770.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>

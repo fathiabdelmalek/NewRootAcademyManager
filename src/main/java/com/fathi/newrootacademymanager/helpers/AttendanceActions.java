@@ -27,41 +27,38 @@ public class AttendanceActions implements Callback<TableColumn<AttendanceView, S
             final FontIcon decreaseIcon = FontIcon.of(FontAwesomeSolid.MINUS);
             final FontIcon increaseIcon = FontIcon.of(FontAwesomeSolid.PLUS);
             {
-
-
-                decreaseIcon.setIconColor(Color.valueOf("#E61744"));
-                decreaseIcon.setCursor(Cursor.HAND);
-                decreaseIcon.setIconSize(24);
-
-                increaseIcon.setIconSize(24);
-                increaseIcon.setIconColor(Color.valueOf("#0076E6"));
-                increaseIcon.setCursor(Cursor.HAND);
+                decreaseIcon.getStyleClass().add("decrease-action-button");
+                increaseIcon.getStyleClass().add("increase-action-button");
 
                 decreaseIcon.setOnMouseClicked((MouseEvent event) -> {
                     Attendance attendance = CRUDService.readById(Attendance.class, getTableView().getSelectionModel().getSelectedItem().getId());
                     attendance.setTimesPresent(attendance.getTimesPresent() - 1);
-                    if (attendance.getTimesPresent() == 0 ||
-                            (attendance.getTimesPresent() % 4 != 0 &&
-                                    attendance.getTimesPresent() < currentAttendancesNumber &&
-                                    currentAttendancesNumber % 4 == 0))
-                        attendance.setDues(attendance.getDues().subtract(attendance.getLesson().getPrice()));
-                    CRUDService.update(attendance);
-                    currentAttendancesNumber = attendance.getTimesPresent();
-                    Map<String, Object> params = new HashMap<>();
-                    params.put("lesson", attendance.getLesson().getId());
-                    getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                    if (attendance.getTimesPresent() >= 0) {
+                        if (attendance.getTimesPresent() == 0 ||
+                                (attendance.getTimesPresent() % 4 != 0 &&
+                                        attendance.getTimesPresent() < currentAttendancesNumber &&
+                                        currentAttendancesNumber % 4 == 0))
+                            attendance.setDues(attendance.getDues().subtract(attendance.getLesson().getPrice()));
+                        CRUDService.update(attendance);
+                        currentAttendancesNumber = attendance.getTimesPresent();
+                        Map<String, Object> params = new HashMap<>();
+                        params.put("lesson", attendance.getLesson().getId());
+                        getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                    }
                 });
 
                 increaseIcon.setOnMouseClicked((MouseEvent event) -> {
                     Attendance attendance = CRUDService.readById(Attendance.class, getTableView().getSelectionModel().getSelectedItem().getId());
                     attendance.setTimesPresent(attendance.getTimesPresent() + 1);
-                    if (attendance.getTimesPresent() % 4 == 0 && attendance.getTimesPresent() > currentAttendancesNumber)
-                        attendance.setDues(attendance.getDues().add(attendance.getLesson().getPrice()));
-                    CRUDService.update(attendance);
-                    currentAttendancesNumber = attendance.getTimesPresent();
-                    Map<String, Object> params = new HashMap<>();
-                    params.put("lesson", attendance.getLesson().getId());
-                    getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                    if (attendance.getTimesPresent() <= attendance.getLesson().getClassesNumber()) {
+                        if (attendance.getTimesPresent() % 4 == 0 && attendance.getTimesPresent() > currentAttendancesNumber)
+                            attendance.setDues(attendance.getDues().add(attendance.getLesson().getPrice()));
+                        CRUDService.update(attendance);
+                        currentAttendancesNumber = attendance.getTimesPresent();
+                        Map<String, Object> params = new HashMap<>();
+                        params.put("lesson", attendance.getLesson().getId());
+                        getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                    }
                 });
             }
 

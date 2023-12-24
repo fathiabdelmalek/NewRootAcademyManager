@@ -20,16 +20,8 @@
     </top>
     <center>
         <AnchorPane prefHeight="470.0" prefWidth="530.0" styleClass="center-part, with-border">
-            <Label alignment="CENTER" layoutX="15.0" layoutY="30.0" prefHeight="100.0" prefWidth="500.0" text="Fathi Abdelmalek" textFill="#f8b038">
-                <font>
-                    <Font name="Cambria Bold" size="60.0" />
-                </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="125.0" layoutY="130.0" prefHeight="110.0" prefWidth="280.0" text="Innovative Entrepreneur Software Engineer Full-Stack Web Developer" textAlignment="CENTER" textFill="#187bbe" wrapText="true">
-                <font>
-                    <Font name="Verdana" size="21.0" />
-                </font>
-            </Label>
+            <Label alignment="CENTER" layoutX="15.0" layoutY="30.0" prefHeight="100.0" prefWidth="500.0" text="Fathi Abdelmalek" styleClass="about-title" />
+            <Label alignment="CENTER" layoutX="125.0" layoutY="130.0" prefHeight="110.0" prefWidth="280.0" text="Innovative Entrepreneur Software Engineer Full-Stack Web Developer" styleClass="about-desc" />
             <HBox alignment="CENTER" layoutX="80.0" layoutY="240.0" prefHeight="35.0" prefWidth="370.0">
                 <Icons525View fill="#4dc2ed" glyphName="PHONE" size="22" />
                 <Label alignment="CENTER" prefWidth="350.0" text="+213669474058">

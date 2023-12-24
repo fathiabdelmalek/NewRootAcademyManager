@@ -68,18 +68,6 @@ public class LessonDetailsViewController {
         });
 
         setStudentChoice();
-        studentChoice.setConverter(new StringConverter<>() {
-            @Override
-            public String toString(Student student) {
-                if (student == null) return null;
-                return student.getFirstName() + " " + student.getLastName();
-            }
-
-            @Override
-            public Student fromString(String s) {
-                return null;
-            }
-        });
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection == null) {

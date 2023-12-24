@@ -30,22 +30,22 @@
             <Font size="18.0" />
         </font>
     </TextField>
-    <Button layoutX="76.0" layoutY="750.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+    <Button layoutX="76.0" layoutY="750.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="221.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+    <Button layoutX="221.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="366.0" layoutY="750.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete">
+    <Button layoutX="366.0" layoutY="750.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="511.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear">
+    <Button layoutX="511.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>

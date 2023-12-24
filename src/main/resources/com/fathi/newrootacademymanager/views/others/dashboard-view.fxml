@@ -78,7 +78,7 @@
          <NumberAxis side="LEFT" />
       </yAxis>
    </BarChart>
-   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" selected="true" text="By Level">
+   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" selected="true" text="By Level" styleClass="large-size">
       <font>
          <Font size="36.0" />
       </font>
@@ -86,7 +86,7 @@
          <ToggleGroup fx:id="chart" />
       </toggleGroup>
    </RadioButton>
-   <RadioButton fx:id="gradesChoice" layoutX="375.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" text="By Grade" toggleGroup="$chart">
+   <RadioButton fx:id="gradesChoice" layoutX="375.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" text="By Grade" toggleGroup="$chart" styleClass="large-size">
       <font>
          <Font size="36.0" />
       </font>

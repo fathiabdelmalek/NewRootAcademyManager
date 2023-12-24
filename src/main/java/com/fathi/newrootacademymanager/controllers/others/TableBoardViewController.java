@@ -79,7 +79,7 @@ public class TableBoardViewController {
         grid.getChildren().clear();
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 10; j++) {
-                Label label = new Label("N/A");
+                Label label = new Label("/");
                 label.getStyleClass().add("grid-label");
                 grid.add(label, i, j);
             }

@@ -60,11 +60,6 @@ public class FinancesViewController {
     }
 
     @FXML
-    void clearAction(ActionEvent event) {
-        datePicker.setValue(null);
-    }
-
-    @FXML
     void openIncomeAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml"));
@@ -128,7 +123,7 @@ public class FinancesViewController {
             incomesData.getData().add(new XYChart.Data<>(String.valueOf(time), incomeAmount));
             expensesData.getData().add(new XYChart.Data<>(String.valueOf(time), expenseAmount.negate()));
         });
-        chart.getData().add(expensesData);
         chart.getData().add(incomesData);
+        chart.getData().add(expensesData);
     }
 }
