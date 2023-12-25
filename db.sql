@@ -110,14 +110,14 @@ ALTER TABLE `expenses` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`
 ALTER TABLE `attendances` ADD FOREIGN KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `attendances` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE `students` ADD INDEX `idx_grade_id` (`grade id`);
-ALTER TABLE `lessons` ADD INDEX `idx_teacher_id` (`teacher id`);
-ALTER TABLE `lessons` ADD INDEX `idx_room_id` (`room id`);
-ALTER TABLE `lessons` ADD INDEX `idx_grade_id` (`grade id`);
-ALTER TABLE `incomes` ADD INDEX `idx_student_id` (`student id`);
-ALTER TABLE `expenses` ADD INDEX `idx_teacher_id` (`teacher id`);
-ALTER TABLE `attendances` ADD INDEX `idx_lesson_id` (`lesson id`);
-ALTER TABLE `attendances` ADD INDEX `idx_student_id` (`student id`);
+ALTER TABLE `students` ADD INDEX `idx_students_grade_id` (`grade id`);
+ALTER TABLE `lessons` ADD INDEX `idx_lessons_teacher_id` (`teacher id`);
+ALTER TABLE `lessons` ADD INDEX `idx_lessons_room_id` (`room id`);
+ALTER TABLE `lessons` ADD INDEX `idx_lessons_grade_id` (`grade id`);
+ALTER TABLE `incomes` ADD INDEX `idx_incomes_student_id` (`student id`);
+ALTER TABLE `expenses` ADD INDEX `idx_expenses_teacher_id` (`teacher id`);
+ALTER TABLE `attendances` ADD INDEX `idx_attendances_lesson_id` (`lesson id`);
+ALTER TABLE `attendances` ADD INDEX `idx_attendances_student_id` (`student id`);
 
 CREATE OR REPLACE VIEW `students view` AS
 SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`

@@ -1,14 +1,19 @@
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS `students`;
-DROP TABLE IF EXISTS `teachers`;
-DROP TABLE IF EXISTS `lessons`;
-DROP TABLE IF EXISTS `rooms`;
-DROP TABLE IF EXISTS `grades`;
+SET REFERENTIAL_INTEGRITY FALSE;
+DROP TABLE IF EXISTS `students view`;
+DROP TABLE IF EXISTS `lessons view`;
+DROP TABLE IF EXISTS `incomes view`;
+DROP TABLE IF EXISTS `expenses view`;
+DROP TABLE IF EXISTS `attendances view`;
+DROP TABLE IF EXISTS `activities`;
+DROP TABLE IF EXISTS `attendances`;
 DROP TABLE IF EXISTS `incomes`;
 DROP TABLE IF EXISTS `expenses`;
-DROP TABLE IF EXISTS `attendances`;
-DROP TABLE IF EXISTS `activities`;
-SET FOREIGN_KEY_CHECKS = 1;
+DROP TABLE IF EXISTS `lessons`;
+DROP TABLE IF EXISTS `students`;
+DROP TABLE IF EXISTS `teachers`;
+DROP TABLE IF EXISTS `rooms`;
+DROP TABLE IF EXISTS `grades`;
+SET REFERENTIAL_INTEGRITY TRUE;
 
 CREATE TABLE `students` (
                             `id` INTEGER AUTO_INCREMENT,
@@ -110,14 +115,14 @@ ALTER TABLE `expenses` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`
 ALTER TABLE `attendances` ADD FOREIGN KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `attendances` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
-CREATE INDEX `idx_grade_id` ON `students`(`grade id`);
-CREATE INDEX `idx_teacher_id` ON `lessons`(`teacher id`);
-CREATE INDEX `idx_room_id` ON `lessons`(`room id`);
-CREATE INDEX `idx_grade_id` ON `lessons`(`grade id`);
-CREATE INDEX `idx_student_id` ON `incomes`(`student id`);
-CREATE INDEX `idx_teacher_id` ON `expenses`(`teacher id`);
-CREATE INDEX `idx_lesson_id` ON `attendances`(`lesson id`);
-CREATE  INDEX `idx_student_id` ON `attendances`(`student id`);
+CREATE INDEX `idx_students_grade_id` ON `students`(`grade id`);
+CREATE INDEX `idx_lessons_teacher_id` ON `lessons`(`teacher id`);
+CREATE INDEX `idx_lessons_room_id` ON `lessons`(`room id`);
+CREATE INDEX `idx_lessons_grade_id` ON `lessons`(`grade id`);
+CREATE INDEX `idx_incomes_student_id` ON `incomes`(`student id`);
+CREATE INDEX `idx_expenses_teacher_id` ON `expenses`(`teacher id`);
+CREATE INDEX `idx_attendances_lesson_id` ON `attendances`(`lesson id`);
+CREATE INDEX `idx_attendances_student_id` ON `attendances`(`student id`);
 
 CREATE OR REPLACE VIEW `students view` AS
 SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`

@@ -6,9 +6,13 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hbm2ddl.auto">update</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/new_root_academy_manager_db</property>
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:./db</property>
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+<!--        <property name="hbm2ddl.auto">update</property>-->
+<!--        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/new_root_academy_manager_db</property>-->
+        <!--        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
         <property name="connection.username">fathi</property>
         <property name="connection.password">2211</property>
         <property name="show_sql">true</property>

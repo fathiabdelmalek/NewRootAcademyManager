@@ -1031,7 +1031,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="290" parent="1" name="new_root_academy_manager_db">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-24.23:37:33</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-12-25.00:42:17</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="291" parent="1" name="performance_schema">
@@ -1207,11 +1207,11 @@ student id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="328" parent="299" name="idx_lesson_id">
+    <index id="328" parent="299" name="idx_attendances_lesson_id">
       <ColNames>lesson id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="329" parent="299" name="idx_student_id">
+    <index id="329" parent="299" name="idx_attendances_student_id">
       <ColNames>student id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1268,7 +1268,7 @@ student id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="340" parent="300" name="idx_teacher_id">
+    <index id="340" parent="300" name="idx_expenses_teacher_id">
       <ColNames>teacher id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1352,7 +1352,7 @@ student id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="356" parent="302" name="idx_student_id">
+    <index id="356" parent="302" name="idx_incomes_student_id">
       <ColNames>student id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1444,15 +1444,15 @@ student id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="373" parent="303" name="idx_teacher_id">
+    <index id="373" parent="303" name="idx_lessons_teacher_id">
       <ColNames>teacher id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="374" parent="303" name="idx_room_id">
+    <index id="374" parent="303" name="idx_lessons_room_id">
       <ColNames>room id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="375" parent="303" name="idx_grade_id">
+    <index id="375" parent="303" name="idx_lessons_grade_id">
       <ColNames>grade id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1538,7 +1538,7 @@ student id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="392" parent="305" name="idx_grade_id">
+    <index id="392" parent="305" name="idx_students_grade_id">
       <ColNames>grade id</ColNames>
       <Type>btree</Type>
     </index>
