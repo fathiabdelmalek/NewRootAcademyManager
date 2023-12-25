@@ -19,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TableBoardViewController {
@@ -31,8 +32,11 @@ public class TableBoardViewController {
 
     @FXML
     void initialize() {
-        roomChoice.setItems(FXCollections.observableArrayList(CRUDService.readAll(Room.class)));
-        roomChoice.setValue(roomChoice.getItems().get(4));
+        List<Room> rooms = CRUDService.readAll(Room.class);
+        if (rooms != null && !rooms.isEmpty()) {
+            roomChoice.setItems(FXCollections.observableArrayList(rooms));
+            roomChoice.setValue(roomChoice.getItems().get(4));
+        }
         refreshTable();
     }
 
@@ -43,35 +47,37 @@ public class TableBoardViewController {
 
     private void refreshTable() {
         resetTimetable();
-        Map<String, Object> params = new HashMap<>();
-        params.put("roomCode", roomChoice.getValue().getCode());
-        ObservableList<LessonView> lessons = CRUDService.readByCriteria(LessonView.class, params);
-        for (LessonView lesson : lessons) {
-            String lessonName = lesson.getLessonName();
-            String grade = lesson.getGrade();
-            int day = getIndexFromDay(lesson.getDay());
-            int start = getIndexFromTime(lesson.getStartTime());
-            int end = getIndexFromTime(lesson.getEndTime());
-            Label label = new Label();
-            if (grade == null) label.setText(lessonName);
-            else label.setText(lessonName + "\n" + grade);
-            label.getStyleClass().add("grid-label");
-            String style = label.getStyle();
-            label.setStyle(style + "-fx-pref-height: " + (75.0 * (end - start)) + "; -fx-cursor: hand;");
-            label.setOnMouseClicked(event -> {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
-                    Parent view = loader.load();
-                    LessonDetailsViewController detailsController = loader.getController();
-                    detailsController.initialize(lesson.getId());
-                    pane.getChildren().clear();
-                    pane.getChildren().add(view);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-            clearCell(day, start, end - start);
-            grid.add(label, day, start, 1, end - start);
+        if (!roomChoice.getSelectionModel().isEmpty()) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("roomCode", roomChoice.getValue().getCode());
+            ObservableList<LessonView> lessons = CRUDService.readByCriteria(LessonView.class, params);
+            for (LessonView lesson : lessons) {
+                String lessonName = lesson.getLessonName();
+                String grade = lesson.getGrade();
+                int day = getIndexFromDay(lesson.getDay());
+                int start = getIndexFromTime(lesson.getStartTime());
+                int end = getIndexFromTime(lesson.getEndTime());
+                Label label = new Label();
+                if (grade == null) label.setText(lessonName);
+                else label.setText(lessonName + "\n" + grade);
+                label.getStyleClass().add("grid-label");
+                String style = label.getStyle();
+                label.setStyle(style + "-fx-pref-height: " + (75.0 * (end - start)) + "; -fx-cursor: hand;");
+                label.setOnMouseClicked(event -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
+                        Parent view = loader.load();
+                        LessonDetailsViewController detailsController = loader.getController();
+                        detailsController.initialize(lesson.getId());
+                        pane.getChildren().clear();
+                        pane.getChildren().add(view);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                clearCell(day, start, end - start);
+                grid.add(label, day, start, 1, end - start);
+            }
         }
     }
 

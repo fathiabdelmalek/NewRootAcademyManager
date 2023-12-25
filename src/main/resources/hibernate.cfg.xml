@@ -5,13 +5,10 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hbm2ddl.auto">create-drop</property>
-        <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <property name="dialect">org.hibernate.community.dialect.SQLiteDialect</property>
-        <property name="connection.url">jdbc:sqlite:db.db</property>
-<!--        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
-        <!--        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
-<!--        <property name="connection.url">jdbc:mysql://localhost:3306/new_root_academy_manager_db</property>-->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/new_root_academy_manager_db</property>
         <property name="connection.username">fathi</property>
         <property name="connection.password">2211</property>
         <property name="show_sql">true</property>

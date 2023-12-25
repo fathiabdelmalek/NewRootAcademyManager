@@ -11,19 +11,18 @@ DROP TABLE IF EXISTS `activities`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `students` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `first name` VARCHAR(25) NOT NULL,
     `last name` VARCHAR(25) NOT NULL,
     `phone number` VARCHAR(10) NOT NULL,
-    `sex` VARCHAR(6) NOT NULL,
+    `sex` ENUM('Male', 'Female') NOT NULL,
     `birth date` DATE NOT NULL,
     `grade id` INTEGER NOT NULL,
-    PRIMARY KEY (`id`),
-    CHECK (`sex` IN ('Male', 'Female'))
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `teachers` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `first name` VARCHAR(25) NOT NULL,
     `last name` VARCHAR(25) NOT NULL,
     `phone number` VARCHAR(10) NOT NULL,
@@ -31,9 +30,9 @@ CREATE TABLE `teachers` (
 );
 
 CREATE TABLE `lessons` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `lesson name` VARCHAR(25) NOT NULL,
-    `day` VARCHAR(8) NOT NULL,
+    `day` ENUM('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday') NOT NULL,
     `start time` TIME NOT NULL,
     `end time` TIME NOT NULL,
     `price` DECIMAL(38, 2) NOT NULL,
@@ -42,30 +41,29 @@ CREATE TABLE `lessons` (
     `teacher id` INTEGER NOT NULL,
     `room id` INTEGER NOT NULL,
     `grade id` INTEGER,
-    PRIMARY KEY (`id`),
-    CHECK (`day` in ('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'))
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `rooms` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `code` VARCHAR(5) NOT NULL UNIQUE,
     PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `grades` (
-    `id` INTEGER AUTOINCREMENT,
-    `level` VARCHAR(10) NOT NULL,
+    `id` INTEGER AUTO_INCREMENT,
+    `level` ENUM('Primary', 'Middle', 'Secondary') NOT NULL,
     `year` INTEGER NOT NULL,
     PRIMARY KEY (`id`),
     CHECK (
-    	(`level` = 'Primary' AND year BETWEEN 1 AND 5) OR
-    	(`level` = 'Middle' AND year BETWEEN 1 AND 4) OR
-    	(`level` = 'Secondary' AND year BETWEEN 1 AND 3)
+    	(`level` = 'Primary' AND `year` BETWEEN 1 AND 5) OR
+    	(`level` = 'Middle' AND `year` BETWEEN 1 AND 4) OR
+    	(`level` = 'Secondary' AND `year` BETWEEN 1 AND 3)
     )
 );
 
 CREATE TABLE `incomes` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
     `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -75,7 +73,7 @@ CREATE TABLE `incomes` (
 );
 
 CREATE TABLE `expenses` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `amount` DECIMAL(38, 2) NOT NULL,
     `details` VARCHAR(300) NOT NULL,
     `create time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -85,7 +83,7 @@ CREATE TABLE `expenses` (
 );
 
 CREATE TABLE `attendances` (
-    `id` INTEGER AUTOINCREMENT,
+	`id` INTEGER AUTO_INCREMENT,
     `times present` INTEGER NOT NULL DEFAULT (0),
     `notes` VARCHAR(300),
     `dues` DECIMAL(38, 2) NOT NULL DEFAULT (0.00),
@@ -96,31 +94,30 @@ CREATE TABLE `attendances` (
 );
 
 CREATE TABLE `activities` (
-    `id` INTEGER AUTOINCREMENT,
+    `id` INTEGER AUTO_INCREMENT,
     `timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `type` VARCHAR(8) NOT NULL,
+    `type` ENUM('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error') NOT NULL,
     `details` VARCHAR(300) NOT NULL,
-    PRIMARY KEY (`id`),
-    CHECK (`type` IN ('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error'))
+    PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `students` ADD "FOREIGN" KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD "FOREIGN" KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD "FOREIGN" KEY (`room id`) REFERENCES `rooms`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `lessons` ADD "FOREIGN" KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `incomes` ADD "FOREIGN" KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `expenses` ADD "FOREIGN" KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendances` ADD "FOREIGN" KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE `attendances` ADD "FOREIGN" KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `students` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD FOREIGN KEY (`room id`) REFERENCES `rooms`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lessons` ADD FOREIGN KEY (`grade id`) REFERENCES `grades`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `incomes` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `expenses` ADD FOREIGN KEY (`teacher id`) REFERENCES `teachers`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD FOREIGN KEY (`lesson id`) REFERENCES `lessons`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `attendances` ADD FOREIGN KEY (`student id`) REFERENCES `students`(`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
-ALTER TABLE `students` ADD "INDEX" `idx_grade_id` (`grade id`);
-ALTER TABLE `lessons` ADD "INDEX" `idx_teacher_id` (`teacher id`);
-ALTER TABLE `lessons` ADD "INDEX" `idx_room_id` (`room id`);
-ALTER TABLE `lessons` ADD "INDEX" `idx_grade_id` (`grade id`);
-ALTER TABLE `incomes` ADD "INDEX" `idx_student_id` (`student id`);
-ALTER TABLE `expenses` ADD "INDEX" `idx_teacher_id` (`teacher id`);
-ALTER TABLE `attendances` ADD "INDEX" `idx_lesson_id` (`lesson id`);
-ALTER TABLE `attendances` ADD "INDEX" `idx_student_id` (`student id`);
+ALTER TABLE `students` ADD INDEX `idx_grade_id` (`grade id`);
+ALTER TABLE `lessons` ADD INDEX `idx_teacher_id` (`teacher id`);
+ALTER TABLE `lessons` ADD INDEX `idx_room_id` (`room id`);
+ALTER TABLE `lessons` ADD INDEX `idx_grade_id` (`grade id`);
+ALTER TABLE `incomes` ADD INDEX `idx_student_id` (`student id`);
+ALTER TABLE `expenses` ADD INDEX `idx_teacher_id` (`teacher id`);
+ALTER TABLE `attendances` ADD INDEX `idx_lesson_id` (`lesson id`);
+ALTER TABLE `attendances` ADD INDEX `idx_student_id` (`student id`);
 
 CREATE OR REPLACE VIEW `students view` AS
 SELECT `students`.`id`, `students`.`first name`, `students`.`last name`, `students`.`phone number`, `students`.`sex`, `students`.`birth date`, CONCAT(`grades`.`year`, ' ', `grades`.`level`) AS `grade`
@@ -152,31 +149,31 @@ FROM `attendances`
 INNER JOIN `students` ON `students`.`id` = `attendances`.`student id`
 INNER JOIN `lessons` ON `lessons`.`id` = `attendances`.`lesson id`;
 
-INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 1);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 2);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 3);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 4);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 5);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 1);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 2);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 3);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 4);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 1);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 2);
-INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 3);
-
-INSERT INTO `rooms` (`code`) VALUES ('CH101');
-INSERT INTO `rooms` (`code`) VALUES ('CH102');
-INSERT INTO `rooms` (`code`) VALUES ('CH103');
-INSERT INTO `rooms` (`code`) VALUES ('CH104');
-INSERT INTO `rooms` (`code`) VALUES ('CH105');
-INSERT INTO `rooms` (`code`) VALUES ('CH201');
-INSERT INTO `rooms` (`code`) VALUES ('CH202');
-INSERT INTO `rooms` (`code`) VALUES ('CH203');
-INSERT INTO `rooms` (`code`) VALUES ('CH204');
-INSERT INTO `rooms` (`code`) VALUES ('CH205');
-INSERT INTO `rooms` (`code`) VALUES ('CH206');
-INSERT INTO `rooms` (`code`) VALUES ('BT101');
-INSERT INTO `rooms` (`code`) VALUES ('BT103');
-INSERT INTO `rooms` (`code`) VALUES ('BT104');
-INSERT INTO `rooms` (`code`) VALUES ('BT105');
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 1);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 2);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 3);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 4);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Primary', 5);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 1);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 2);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 3);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Middle', 4);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 1);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 2);
+# INSERT INTO `grades` (`level`, `year`) VALUES ('Secondary', 3);
+#
+# INSERT INTO `rooms` (`code`) VALUES ('CH101');
+# INSERT INTO `rooms` (`code`) VALUES ('CH102');
+# INSERT INTO `rooms` (`code`) VALUES ('CH103');
+# INSERT INTO `rooms` (`code`) VALUES ('CH104');
+# INSERT INTO `rooms` (`code`) VALUES ('CH105');
+# INSERT INTO `rooms` (`code`) VALUES ('CH201');
+# INSERT INTO `rooms` (`code`) VALUES ('CH202');
+# INSERT INTO `rooms` (`code`) VALUES ('CH203');
+# INSERT INTO `rooms` (`code`) VALUES ('CH204');
+# INSERT INTO `rooms` (`code`) VALUES ('CH205');
+# INSERT INTO `rooms` (`code`) VALUES ('CH206');
+# INSERT INTO `rooms` (`code`) VALUES ('BT101');
+# INSERT INTO `rooms` (`code`) VALUES ('BT103');
+# INSERT INTO `rooms` (`code`) VALUES ('BT104');
+# INSERT INTO `rooms` (`code`) VALUES ('BT105');

@@ -1,9 +1,6 @@
 package com.fathi.newrootacademymanager.controllers;
 
 import com.fathi.newrootacademymanager.MainApplication;
-import com.fathi.newrootacademymanager.helpers.enums.Level;
-import com.fathi.newrootacademymanager.models.Grade;
-import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,22 +31,7 @@ public class MainViewController {
             stage.setX(event.getScreenX() - xOffset);
             stage.setY(event.getScreenY() - yOffset);
         });
-        if (CRUDService.readAll(Grade.class).isEmpty()) {
-            CRUDService.create(new Grade(Level.Primary, 1));
-            CRUDService.create(new Grade(Level.Primary, 2));
-            CRUDService.create(new Grade(Level.Primary, 3));
-            CRUDService.create(new Grade(Level.Primary, 4));
-            CRUDService.create(new Grade(Level.Primary, 5));
-            CRUDService.create(new Grade(Level.Middle, 1));
-            CRUDService.create(new Grade(Level.Middle, 2));
-            CRUDService.create(new Grade(Level.Middle, 3));
-            CRUDService.create(new Grade(Level.Middle, 4));
-            CRUDService.create(new Grade(Level.Secondary, 1));
-            CRUDService.create(new Grade(Level.Secondary, 2));
-            CRUDService.create(new Grade(Level.Secondary, 3));
-        }
         loadView("/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml");
-//        loadView("/com/fathi/newrootacademymanager/views/students/students-view.fxml");
     }
 
     @FXML
@@ -115,8 +97,7 @@ public class MainViewController {
         stage.setIconified(true);
     }
 
-    @FXML
-    void loadView(String viewFXML) {
+    private void loadView(String viewFXML) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(viewFXML));
             Parent view = loader.load();

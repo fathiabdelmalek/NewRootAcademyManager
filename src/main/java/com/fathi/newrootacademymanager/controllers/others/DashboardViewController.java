@@ -14,6 +14,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class DashboardViewController {
 
@@ -62,24 +63,18 @@ public class DashboardViewController {
     private void fillLevelsChart() {
         byLevelsChart.setLegendVisible(false);
         XYChart.Series<String, Integer> data = new XYChart.Series<>();
-        int primaryStudents = CalculationsService.getStudentsWithLevel(Level.Primary);
-        int middleStudents = CalculationsService.getStudentsWithLevel(Level.Middle);
-        int secondaryStudents = CalculationsService.getStudentsWithLevel(Level.Secondary);
-        data.getData().add(new XYChart.Data<>("Primary", primaryStudents));
-        data.getData().add(new XYChart.Data<>("Middle", middleStudents));
-        data.getData().add(new XYChart.Data<>("Secondary", secondaryStudents));
+        Level[] levels = Level.values();
+        for (Level level : levels)
+            data.getData().add(new XYChart.Data<>(level.toString(), CalculationsService.getStudentsWithLevel(level)));
         byLevelsChart.getData().add(data);
     }
 
     private void fillGradesChart() {
         byGradesChart.setLegendVisible(false);
         XYChart.Series<String, Integer> data = new XYChart.Series<>();
-        int[] grades = new int[12];
-        for (int id = 1; id <= 12; id++) {
-            Grade grade = CRUDService.readById(Grade.class, id);
-            grades[id-1] = CalculationsService.getStudentsWithGrade(grade);
-            data.getData().add(new XYChart.Data<>(grade.toString(), grades[id-1]));
-        }
+        List<Grade> grades = CRUDService.readAll(Grade.class);
+        for (Grade grade : grades)
+            data.getData().add(new XYChart.Data<>(grade.toString(), CalculationsService.getStudentsWithGrade(grade)));
         byGradesChart.getData().add(data);
     }
 
@@ -100,10 +95,16 @@ public class DashboardViewController {
     private void getProfitData() {
         BigDecimal totalIncome = CalculationsService.sum(BigDecimal.class, Income.class, "amount");
         BigDecimal totalExpense = CalculationsService.sum(BigDecimal.class, Expense.class, "amount");
-        BigDecimal totalProfit = totalIncome.subtract(totalExpense);
-        totalIncomeLabel.setText(totalIncome.toString());
-        totalExpenseLabel.setText(totalExpense.toString());
-        totalProfitLabel.setText(totalProfit.toString());
+        if (totalIncome != null && totalExpense != null) {
+            BigDecimal totalProfit = totalIncome.subtract(totalExpense);
+            totalIncomeLabel.setText(totalIncome.toString());
+            totalExpenseLabel.setText(totalExpense.toString());
+            totalProfitLabel.setText(totalProfit.toString());
+        } else {
+            totalIncomeLabel.setText("0.00");
+            totalExpenseLabel.setText("0.00");
+            totalProfitLabel.setText("0.00");
+        }
     }
 
     public void getLastActivities() {
