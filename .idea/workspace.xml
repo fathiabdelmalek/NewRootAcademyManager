@@ -5,38 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/768b84dc-c883-459f-b57f-e56e3952594c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/768b84dc-c883-459f-b57f-e56e3952594c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c53ef4-4154-431a-baa6-9bb815098f47.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c53ef4-4154-431a-baa6-9bb815098f47/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/new_root_academy_manager_db.YWZZ0A.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/new_root_academy_manager_db.YWZZ0A.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11b57dd0-8703-4dd1-ae94-bde137e7b759.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11b57dd0-8703-4dd1-ae94-bde137e7b759/storage_v2/_src_/database/DATA.qucfAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11b57dd0-8703-4dd1-ae94-bde137e7b759/storage_v2/_src_/database/DATA.qucfAA/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11b57dd0-8703-4dd1-ae94-bde137e7b759/storage_v2/_src_/database/DATA.qucfAA/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/11b57dd0-8703-4dd1-ae94-bde137e7b759/storage_v2/_src_/database/DATA.qucfAA/schema/PUBLIC.aaZQjQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/512510aa-b117-4a4e-9e5e-e21dd1fb29c3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/512510aa-b117-4a4e-9e5e-e21dd1fb29c3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a07c8e0a-33cc-4cff-8208-a38c40dae941.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a07c8e0a-33cc-4cff-8208-a38c40dae941/storage_v2/_src_/database/DB.fggAAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a07c8e0a-33cc-4cff-8208-a38c40dae941/storage_v2/_src_/database/DB.fggAAA/schema/INFORMATION_SCHEMA.NBgcMw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a07c8e0a-33cc-4cff-8208-a38c40dae941/storage_v2/_src_/database/DB.fggAAA/schema/PUBLIC.aaZQjQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a07c8e0a-33cc-4cff-8208-a38c40dae941/storage_v2/_src_/database/DB.fggAAA/schema/PUBLIC.aaZQjQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.mv.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_mysql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.trace.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbh2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_h2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_root_logo_colors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pop.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/FinancesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/FinancesViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/rooms/RoomsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/rooms/RoomsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/students/StudentsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/students/StudentsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Grade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Lesson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/LessonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/LessonView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_h2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_h2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_mysql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_mysql.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +75,7 @@
     "Maven.newrootacademymanager [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "h2",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -130,7 +121,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-920bfa72" />
       </set>
     </attachedChunks>
   </component>
@@ -151,6 +142,7 @@
       <workItem from="1703447674060" duration="676000" />
       <workItem from="1703456115960" duration="9105000" />
       <workItem from="1703531555117" duration="16343000" />
+      <workItem from="1703617978084" duration="733000" />
     </task>
     <servers />
   </component>
