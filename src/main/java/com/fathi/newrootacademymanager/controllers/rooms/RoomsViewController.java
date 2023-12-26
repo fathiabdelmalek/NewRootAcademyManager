@@ -5,7 +5,6 @@ import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -26,6 +25,7 @@ public class RoomsViewController {
                 codeText.setText(newSelection.getCode());
             }
         });
+        refreshTable();
     }
 
     @FXML

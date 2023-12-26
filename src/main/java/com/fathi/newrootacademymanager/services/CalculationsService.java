@@ -9,6 +9,7 @@ import jakarta.persistence.criteria.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -107,14 +108,13 @@ public class CalculationsService {
             CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
             Root<Income> root = query.from(Income.class);
             query
-                    .multiselect(cb.function("date", LocalDate.class, root.get("createTime")), cb.sum(root.get("amount")))
-                    .groupBy(cb.function("date", LocalDate.class, root.get("createTime")))
-                    .orderBy(cb.desc(cb.function("date", LocalDate.class, root.get("createTime"))));
-            return em.createQuery(query).setMaxResults(maxResults).getResultList().stream()
-                    .collect(Collectors.groupingBy(
-                            data -> ((LocalDate) data[0]),
-                            Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
-                    ));
+                    .multiselect(root.get("createTime"), cb.sum(root.get("amount")))
+                    .groupBy(root.get("createTime"))
+                    .orderBy(cb.desc(root.get("createTime")));
+            return em.createQuery(query).setMaxResults(maxResults).getResultList().stream().collect(Collectors.groupingBy(
+                    data -> ((LocalDateTime) data[0]).toLocalDate(),
+                    Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
+            ));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -126,14 +126,13 @@ public class CalculationsService {
             CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
             Root<Expense> root = query.from(Expense.class);
             query
-                    .multiselect(cb.function("date", LocalDate.class, root.get("createTime")), cb.sum(root.get("amount")))
-                    .groupBy(cb.function("date", LocalDate.class, root.get("createTime")))
-                    .orderBy(cb.desc(cb.function("date", LocalDate.class, root.get("createTime"))));
-            return em.createQuery(query).setMaxResults(maxResults).getResultList().stream()
-                    .collect(Collectors.groupingBy(
-                            data -> ((LocalDate) data[0]),
-                            Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
-                    ));
+                    .multiselect(root.get("createTime"), cb.sum(root.get("amount")))
+                    .groupBy(root.get("createTime"))
+                    .orderBy(cb.desc(root.get("createTime")));
+            return em.createQuery(query).setMaxResults(maxResults).getResultList().stream().collect(Collectors.groupingBy(
+                    data -> ((LocalDateTime) data[0]).toLocalDate(),
+                    Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
+            ));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

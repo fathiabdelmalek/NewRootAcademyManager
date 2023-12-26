@@ -133,7 +133,7 @@ public class FinancesViewController {
             BigDecimal expenseAmount = expenseData.getOrDefault(time, BigDecimal.ZERO);
 
             incomesData.getData().add(new XYChart.Data<>(String.valueOf(time), incomeAmount));
-            expensesData.getData().add(new XYChart.Data<>(String.valueOf(time), expenseAmount.negate()));
+            expensesData.getData().add(new XYChart.Data<>(String.valueOf(time), expenseAmount));
         });
         chart.getData().add(incomesData);
         chart.getData().add(expensesData);

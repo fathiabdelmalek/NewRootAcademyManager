@@ -15,17 +15,17 @@ public class Lesson {
     @Column(name = "lesson name", nullable = false)
     private String lessonName;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private WeekDay day;
+    @Column(name = "day of week", nullable = false)
+    private WeekDay dayOfWeek;
     @Column(name = "start time", nullable = false)
     private LocalTime startTime;
     @Column(name = "end time", nullable = false)
     private LocalTime endTime;
     @Column(nullable = false)
     private BigDecimal price;
-    @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
+    @Column(name = "classes number", nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private int classesNumber;
-    @Column(name = "teacher dues", nullable = false, columnDefinition = "DEFAULT (0.00)")
+    @Column(name = "teacher dues", nullable = false, columnDefinition = "DECIMAL(38, 2)")
     private BigDecimal teacherDues;
     @ManyToOne
     @JoinColumn(name = "teacher id", nullable = false)
@@ -41,9 +41,9 @@ public class Lesson {
         this.teacherDues = new BigDecimal("0.00");
     }
 
-    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room) {
+    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room) {
         this.lessonName = lessonName;
-        this.day = day;
+        this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
@@ -52,9 +52,9 @@ public class Lesson {
         this.room = room;
     }
 
-    public Lesson(String lessonName, WeekDay day, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room, Grade grade) {
+    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room, Grade grade) {
         this.lessonName = lessonName;
-        this.day = day;
+        this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
@@ -80,12 +80,12 @@ public class Lesson {
         this.lessonName = lessonName;
     }
 
-    public WeekDay getDay() {
-        return day;
+    public WeekDay getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setDay(WeekDay day) {
-        this.day = day;
+    public void setDayOfWeek(WeekDay dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
     public LocalTime getStartTime() {

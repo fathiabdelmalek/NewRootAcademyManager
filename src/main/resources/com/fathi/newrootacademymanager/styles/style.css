@@ -155,12 +155,9 @@
 .center-part .table-view .virtual-flow .scroll-bar:vertical .thumb{
     -fx-background-color: -fx-primary-color;
 }
+
 .center-part .table-view .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color: -fx-primary-color;
-}
-
-.center-part .list-view {
-    -fx-background-color: -fx-white-color;
 }
 
 .center-part .list-view .list-cell {
@@ -185,7 +182,7 @@
 .center-part .list-view .virtual-flow .scroll-bar:horizontal,
 .center-part .list-view .virtual-flow .scroll-bar:horizontal .track,
 .center-part .list-view .virtual-flow .scroll-bar:horizontal .track-background {
-    -fx-background-color: -fx-white-color;
+    -fx-background-color: transparent;
 }
 
 .center-part .list-view .virtual-flow .scroll-bar .increment-button,

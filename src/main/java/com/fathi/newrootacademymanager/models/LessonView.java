@@ -14,15 +14,15 @@ public class LessonView {
     @Column(name = "lesson name", nullable = false)
     private String lessonName;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private WeekDay day;
+    @Column(name = "day of week", nullable = false)
+    private WeekDay dayOfWeek;
     @Column(name = "start time", nullable = false)
     private LocalTime startTime;
     @Column(name = "end time", nullable = false)
     private LocalTime endTime;
     @Column(nullable = false)
     private float price;
-    @Column(name = "classes number", nullable = false, columnDefinition = "DEFAULT (0)")
+    @Column(name = "classes number", nullable = false)
     private int classesNumber;
     @Column(name = "students number")
     private int studentsNumber;
@@ -51,12 +51,12 @@ public class LessonView {
         this.lessonName = lessonName;
     }
 
-    public WeekDay getDay() {
-        return day;
+    public WeekDay getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setDay(WeekDay day) {
-        this.day = day;
+    public void setDayOfWeek(WeekDay dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
     public LocalTime getStartTime() {

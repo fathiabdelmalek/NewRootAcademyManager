@@ -2,6 +2,7 @@ package com.fathi.newrootacademymanager.controllers.others;
 
 import com.fathi.newrootacademymanager.controllers.lessons.LessonDetailsViewController;
 import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
+import com.fathi.newrootacademymanager.models.Lesson;
 import com.fathi.newrootacademymanager.models.LessonView;
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
@@ -35,7 +36,7 @@ public class TableBoardViewController {
         List<Room> rooms = CRUDService.readAll(Room.class);
         if (rooms != null && !rooms.isEmpty()) {
             roomChoice.setItems(FXCollections.observableArrayList(rooms));
-            roomChoice.setValue(roomChoice.getItems().get(4));
+            roomChoice.setValue(roomChoice.getItems().get(0));
         }
         refreshTable();
     }
@@ -49,17 +50,16 @@ public class TableBoardViewController {
         resetTimetable();
         if (!roomChoice.getSelectionModel().isEmpty()) {
             Map<String, Object> params = new HashMap<>();
-            params.put("roomCode", roomChoice.getValue().getCode());
-            ObservableList<LessonView> lessons = CRUDService.readByCriteria(LessonView.class, params);
-            for (LessonView lesson : lessons) {
+            params.put("room", roomChoice.getValue());
+            ObservableList<Lesson> lessons = CRUDService.readByCriteria(Lesson.class, params);
+            for (Lesson lesson : lessons) {
                 String lessonName = lesson.getLessonName();
-                String grade = lesson.getGrade();
-                int day = getIndexFromDay(lesson.getDay());
+                int day = getIndexFromDay(lesson.getDayOfWeek());
                 int start = getIndexFromTime(lesson.getStartTime());
                 int end = getIndexFromTime(lesson.getEndTime());
                 Label label = new Label();
-                if (grade == null) label.setText(lessonName);
-                else label.setText(lessonName + "\n" + grade);
+                if (lesson.getGrade() != null) label.setText(lessonName + "\n" + lesson.getGrade().toString());
+                else label.setText(lessonName);
                 label.getStyleClass().add("grid-label");
                 String style = label.getStyle();
                 label.setStyle(style + "-fx-pref-height: " + (75.0 * (end - start)) + "; -fx-cursor: hand;");

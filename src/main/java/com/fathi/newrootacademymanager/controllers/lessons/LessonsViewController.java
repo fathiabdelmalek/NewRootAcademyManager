@@ -14,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -101,14 +100,14 @@ public class LessonsViewController {
                         break;
                     }
                     if (grade == null) continue;
-                    if ((grade.getYear() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade())) {
+                    if ((grade.getYearOfGrade() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade())) {
                         gradeChoice.setValue(grade);
                         break;
                     }
                 }
                 for (WeekDay day : dayChoice.getItems()) {
                     if (day == null) continue;
-                    if (String.valueOf(day).equalsIgnoreCase(String.valueOf(newSelection.getDay()))) {
+                    if (String.valueOf(day).equalsIgnoreCase(String.valueOf(newSelection.getDayOfWeek()))) {
                         dayChoice.setValue(day);
                         break;
                     }
@@ -164,7 +163,7 @@ public class LessonsViewController {
                 String key = newValue.toLowerCase();
                 return predicate.getLessonName().toLowerCase().contains(key) ||
                         (predicate.getGrade() != null && predicate.getGrade().toLowerCase().contains(key)) ||
-                        predicate.getDay().toString().toLowerCase().contains(key) ||
+                        predicate.getDayOfWeek().toString().toLowerCase().contains(key) ||
                         String.valueOf(predicate.getPrice()).contains(key) ||
                         predicate.getRoomCode().toLowerCase().contains(key) ||
                         predicate.getTeacherName().toLowerCase().contains(key);
@@ -209,7 +208,7 @@ public class LessonsViewController {
         } else {
             Lesson lesson = CRUDService.readById(Lesson.class, id);
             lesson.setLessonName(lessonNameText.getText());
-            lesson.setDay(dayChoice.getValue());
+            lesson.setDayOfWeek(dayChoice.getValue());
             lesson.setStartTime(LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()));
             lesson.setEndTime(LocalTime.of(endHourSpinner.getValue(), endMinuteSpinner.getValue()));
             lesson.setPrice(BigDecimal.valueOf(Double.parseDouble(priceText.getText())));

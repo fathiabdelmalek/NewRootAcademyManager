@@ -70,22 +70,22 @@
         </font>
     </TextField>
     <ComboBox fx:id="teacherChoice" layoutX="280.0" layoutY="775.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
-    <Button layoutX="1120.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert">
+    <Button layoutX="1120.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Insert">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1120.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update">
+    <Button layoutX="1120.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Update">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" AnchorPane.rightAnchor="25.0">
+    <Button layoutX="1255.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Delete" AnchorPane.rightAnchor="25.0">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" AnchorPane.rightAnchor="25.0">
+    <Button layoutX="1255.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Clear" AnchorPane.rightAnchor="25.0">
         <font>
             <Font size="24.0" />
         </font>

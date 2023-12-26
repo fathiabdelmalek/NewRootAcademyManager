@@ -12,14 +12,14 @@ public class Grade {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Level level;
-    @Column(nullable = false)
-    private int year;
+    @Column(name = "year of grade", nullable = false)
+    private int yearOfGrade;
 
     public Grade() {}
 
-    public Grade(Level level, int year) {
+    public Grade(Level level, int yearOfGrade) {
         this.level = level;
-        this.year = year;
+        this.yearOfGrade = yearOfGrade;
     }
 
     public int getId() {
@@ -38,26 +38,26 @@ public class Grade {
         this.level = level;
     }
 
-    public int getYear() {
-        return year;
+    public int getYearOfGrade() {
+        return yearOfGrade;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setYearOfGrade(int yearOfGrade) {
+        this.yearOfGrade = yearOfGrade;
     }
 
     @PrePersist
     @PreUpdate
     private void check() {
-        if ((level == Level.Primary && (year < 1 || year > 5)) ||
-                (level == Level.Middle && (year < 1 || year > 4)) ||
-                (level == Level.Secondary && (year < 1 || year > 3))) {
+        if ((level == Level.Primary && (yearOfGrade < 1 || yearOfGrade > 5)) ||
+                (level == Level.Middle && (yearOfGrade < 1 || yearOfGrade > 4)) ||
+                (level == Level.Secondary && (yearOfGrade < 1 || yearOfGrade > 3))) {
             throw new IllegalArgumentException("Invalid combination of level and year");
         }
     }
 
     @Override
     public String toString() {
-        return level.toString() + " " + year;
+        return level.toString() + " " + yearOfGrade;
     }
 }

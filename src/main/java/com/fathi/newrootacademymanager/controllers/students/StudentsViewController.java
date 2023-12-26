@@ -54,7 +54,7 @@ public class StudentsViewController {
                 else if ("Female".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) femaleChoice.setSelected(true);
                 String selectedGradeString = newSelection.getGrade();
                 for (Grade grade : gradeChoice.getItems()) {
-                    String gradeString = grade.getYear() + " " + grade.getLevel();
+                    String gradeString = grade.getYearOfGrade() + " " + grade.getLevel();
                     if (gradeString.equalsIgnoreCase(selectedGradeString)) {
                         gradeChoice.setValue(grade);
                         break;

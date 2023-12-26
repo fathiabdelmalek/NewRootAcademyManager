@@ -5,6 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0dff2e8b-9868-4d88-9127-eedd6ef22427.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/768b84dc-c883-459f-b57f-e56e3952594c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/768b84dc-c883-459f-b57f-e56e3952594c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c53ef4-4154-431a-baa6-9bb815098f47.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c53ef4-4154-431a-baa6-9bb815098f47/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbh2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_h2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_root_logo_colors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pop.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/FinancesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/FinancesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/rooms/RoomsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/rooms/RoomsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/students/StudentsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/students/StudentsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Grade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/LessonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/LessonView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +52,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -45,9 +81,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main Application.executor": "Run",
+    "Maven.newrootacademymanager [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "h2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -71,7 +108,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main Application">
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
@@ -79,6 +116,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="db_h2.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/db_h2.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.db_h2.sql" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -102,7 +149,8 @@
       <workItem from="1703289170240" duration="1472000" />
       <workItem from="1703359433041" duration="18521000" />
       <workItem from="1703447674060" duration="676000" />
-      <workItem from="1703456115960" duration="9063000" />
+      <workItem from="1703456115960" duration="9105000" />
+      <workItem from="1703531555117" duration="16343000" />
     </task>
     <servers />
   </component>

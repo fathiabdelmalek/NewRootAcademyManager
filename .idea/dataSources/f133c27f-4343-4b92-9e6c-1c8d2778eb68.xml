@@ -1031,7 +1031,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="290" parent="1" name="new_root_academy_manager_db">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2023-12-25.21:02:00</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-12-25.23:21:15</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="291" parent="1" name="performance_schema">
@@ -1112,11 +1112,11 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </view>
     <view id="310" parent="290" name="lessons view">
       <Definer>fathi@%</Definer>
-      <SourceTextLength>1467</SourceTextLength>
+      <SourceTextLength>1492</SourceTextLength>
     </view>
     <view id="311" parent="290" name="students view">
       <Definer>fathi@%</Definer>
-      <SourceTextLength>710</SourceTextLength>
+      <SourceTextLength>719</SourceTextLength>
     </view>
     <column id="312" parent="298" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -1279,7 +1279,7 @@ student id</ColNames>
     </key>
     <check id="342" parent="301" name="grades_chk_1">
       <NameSurrogate>1</NameSurrogate>
-      <Predicate>((`level` = _utf8mb4\&apos;Primary\&apos;) and (`year` between 1 and 5)) or ((`level` = _utf8mb4\&apos;Middle\&apos;) and (`year` between 1 and 4)) or ((`level` = _utf8mb4\&apos;Secondary\&apos;) and (`year` between 1 and 3))</Predicate>
+      <Predicate>((`level` = _utf8mb4\&apos;Primary\&apos;) and (`year of grade` between 1 and 5)) or ((`level` = _utf8mb4\&apos;Middle\&apos;) and (`year of grade` between 1 and 4)) or ((`level` = _utf8mb4\&apos;Secondary\&apos;) and (`year of grade` between 1 and 3))</Predicate>
     </check>
     <column id="343" parent="301" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -1292,7 +1292,7 @@ student id</ColNames>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="345" parent="301" name="year">
+    <column id="345" parent="301" name="year of grade">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
@@ -1372,7 +1372,7 @@ student id</ColNames>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="360" parent="303" name="day">
+    <column id="360" parent="303" name="day of week">
       <DasType>enum(&apos;Saturday&apos;, &apos;Sunday&apos;, &apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;, &apos;Thursday&apos;, &apos;Friday&apos;)|0e</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
@@ -1680,7 +1680,7 @@ student id</ColNames>
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="422" parent="310" name="day">
+    <column id="422" parent="310" name="day of week">
       <DasType>enum(&apos;Saturday&apos;, &apos;Sunday&apos;, &apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;, &apos;Thursday&apos;, &apos;Friday&apos;)|0e</DasType>
       <Position>5</Position>
     </column>
