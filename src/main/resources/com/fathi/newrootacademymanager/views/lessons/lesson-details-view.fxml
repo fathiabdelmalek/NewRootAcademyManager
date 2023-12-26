@@ -73,7 +73,7 @@
         <columns>
             <TableColumn prefWidth="300" text="Student Name">
                 <cellValueFactory>
-                    <PropertyValueFactory property="studentName" />
+                    <PropertyValueFactory property="student" />
                 </cellValueFactory>
             </TableColumn>
          <TableColumn fx:id="attendancesColumn" prefWidth="300.0" text="Attendances #" />

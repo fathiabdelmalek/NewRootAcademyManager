@@ -6,21 +6,21 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "students view")
+@Table(name = "students_view")
 public class StudentView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "first name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "phone number", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Sex sex;
-    @Column(name = "birth date", nullable = false)
+    @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
     @Column(nullable = false)
     private String grade;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "incomes view")
+@Table(name = "incomes_view")
 public class IncomeView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class IncomeView {
     private String details;
     @Column(name = "time", nullable = false)
     private String time;
-    @Column(name = "student name")
+    @Column(name = "student_name")
     private String studentName;
 
     public IncomeView() {

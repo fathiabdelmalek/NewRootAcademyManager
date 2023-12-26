@@ -6,29 +6,29 @@ import jakarta.persistence.*;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "lessons view")
+@Table(name = "lessons_view")
 public class LessonView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "lesson name", nullable = false)
+    @Column(name = "lesson_name", nullable = false)
     private String lessonName;
     @Enumerated(EnumType.STRING)
-    @Column(name = "day of week", nullable = false)
+    @Column(name = "day_of_week", nullable = false)
     private WeekDay dayOfWeek;
-    @Column(name = "start time", nullable = false)
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
-    @Column(name = "end time", nullable = false)
+    @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
     @Column(nullable = false)
     private float price;
-    @Column(name = "classes number", nullable = false)
+    @Column(name = "classes_number", nullable = false)
     private int classesNumber;
-    @Column(name = "students number")
+    @Column(name = "students_number")
     private int studentsNumber;
-    @Column(name = "teacher name", nullable = false)
+    @Column(name = "teacher_name", nullable = false)
     private String teacherName;
-    @Column(name = "room code", nullable = false)
+    @Column(name = "room_code", nullable = false)
     private String roomCode;
     @Column(nullable = false)
     private String grade;

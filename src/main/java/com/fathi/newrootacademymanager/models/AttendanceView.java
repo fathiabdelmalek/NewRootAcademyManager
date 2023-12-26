@@ -5,20 +5,20 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "attendances view")
+@Table(name = "attendances_view")
 public class AttendanceView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "lesson id", nullable = false)
+    @Column(name = "lesson_id", nullable = false)
     private int lesson;
-    @Column(name = "student id", nullable = false)
+    @Column(name = "student_id", nullable = false)
     private int student;
-    @Column(name = "lesson name", nullable = false)
+    @Column(name = "lesson_name", nullable = false)
     private String lessonName;
-    @Column(name = "student name", nullable = false)
+    @Column(name = "student_name", nullable = false)
     private String studentName;
-    @Column(name = "times present", nullable = false)
+    @Column(name = "times_present", nullable = false)
     private int timesPresent;
     @Column(name = "notes")
     private String notes;

@@ -8,11 +8,11 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "first name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "phone number", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
     public Teacher() {}

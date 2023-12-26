@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.ToggleGroup?>
-<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController">
+<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController">
    <Pane layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
       <Label fx:id="totalStudentsLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
          <font>
@@ -78,7 +72,7 @@
          <NumberAxis side="LEFT" />
       </yAxis>
    </BarChart>
-   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" selected="true" text="By Level" styleClass="large-size">
+   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" selected="true" styleClass="large-size" text="By Level">
       <font>
          <Font size="36.0" />
       </font>
@@ -86,7 +80,7 @@
          <ToggleGroup fx:id="chart" />
       </toggleGroup>
    </RadioButton>
-   <RadioButton fx:id="gradesChoice" layoutX="375.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" text="By Grade" toggleGroup="$chart" styleClass="large-size">
+   <RadioButton fx:id="gradesChoice" layoutX="375.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" styleClass="large-size" text="By Grade" toggleGroup="$chart">
       <font>
          <Font size="36.0" />
       </font>
@@ -159,7 +153,7 @@
                <Insets top="10.0" />
             </padding>
          </Label>
-         <ListView fx:id="activitiesList" layoutX="5.0" layoutY="80.0" prefHeight="180.0" prefWidth="640.0" />
+         <ListView fx:id="activitiesList" layoutX="5.0" layoutY="90.0" prefHeight="160.0" prefWidth="640.0" />
       </children>
    </Pane>
 </AnchorPane>

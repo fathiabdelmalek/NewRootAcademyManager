@@ -12,29 +12,29 @@ public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "lesson name", nullable = false)
+    @Column(name = "lesson_name", nullable = false)
     private String lessonName;
     @Enumerated(EnumType.STRING)
-    @Column(name = "day of week", nullable = false)
+    @Column(name = "day_of_week", nullable = false)
     private WeekDay dayOfWeek;
-    @Column(name = "start time", nullable = false)
+    @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
-    @Column(name = "end time", nullable = false)
+    @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
     @Column(nullable = false)
     private BigDecimal price;
-    @Column(name = "classes number", nullable = false, columnDefinition = "INTEGER DEFAULT 0")
+    @Column(name = "classes_number", nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private int classesNumber;
-    @Column(name = "teacher dues", nullable = false, columnDefinition = "DECIMAL(38, 2)")
+    @Column(name = "teacher_dues", nullable = false, columnDefinition = "DECIMAL(38, 2)")
     private BigDecimal teacherDues;
     @ManyToOne
-    @JoinColumn(name = "teacher id", nullable = false)
+    @JoinColumn(name = "teacher_id", nullable = false)
     private Teacher teacher;
     @ManyToOne
-    @JoinColumn(name = "room id", nullable = false)
+    @JoinColumn(name = "room_id", nullable = false)
     private Room room;
     @ManyToOne
-    @JoinColumn(name = "grade id")
+    @JoinColumn(name = "grade_id")
     private Grade grade;
 
     public Lesson() {

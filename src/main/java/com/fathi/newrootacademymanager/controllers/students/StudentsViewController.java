@@ -3,7 +3,6 @@ package com.fathi.newrootacademymanager.controllers.students;
 import com.fathi.newrootacademymanager.helpers.enums.Sex;
 import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.models.Student;
-import com.fathi.newrootacademymanager.models.StudentView;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
@@ -13,13 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.util.StringConverter;
 
 public class StudentsViewController {
     @FXML
     private TextField searchText;
     @FXML
-    private TableView<StudentView> tableView;
+    private TableView<Student> tableView;
     @FXML
     private TextField firstNameText;
     @FXML
@@ -52,7 +50,7 @@ public class StudentsViewController {
                 datePicker.setValue(newSelection.getBirthDate());
                 if ("Male".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) maleChoice.setSelected(true);
                 else if ("Female".equalsIgnoreCase(String.valueOf(newSelection.getSex()))) femaleChoice.setSelected(true);
-                String selectedGradeString = newSelection.getGrade();
+                String selectedGradeString = newSelection.getGrade().toString();
                 for (Grade grade : gradeChoice.getItems()) {
                     String gradeString = grade.getYearOfGrade() + " " + grade.getLevel();
                     if (gradeString.equalsIgnoreCase(selectedGradeString)) {
@@ -66,7 +64,7 @@ public class StudentsViewController {
     }
 
     public void searchAction(KeyEvent keyEvent) {
-        FilteredList<StudentView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        FilteredList<Student> filter = new FilteredList<>(tableView.getItems(), e -> true);
         searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
                 if (newValue == null || newValue.isEmpty()) return true;
@@ -142,6 +140,6 @@ public class StudentsViewController {
     }
 
     private void refreshTable() {
-        tableView.setItems(CRUDService.readAll(StudentView.class));
+        tableView.setItems(CRUDService.readAll(Student.class));
     }
 }

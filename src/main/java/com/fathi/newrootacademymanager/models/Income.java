@@ -15,12 +15,12 @@ public class Income {
     private BigDecimal amount;
     @Column(nullable = false)
     private String details;
-    @Column(name = "create time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "create_time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createTime;
-    @Column(name = "update time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    @Column(name = "update_time", nullable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private LocalDateTime updateTime;
     @ManyToOne
-    @JoinColumn(name = "student id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     public Income() {

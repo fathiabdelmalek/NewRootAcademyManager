@@ -117,32 +117,32 @@ CREATE INDEX idx_expenses_teacher_id ON expenses(teacher_id);
 CREATE INDEX idx_attendances_lesson_id ON attendances(lesson_id);
 CREATE INDEX idx_attendances_student_id ON attendances(student_id);
 
-CREATE OR REPLACE VIEW students view AS
+CREATE OR REPLACE VIEW students_view AS
 SELECT students.id, students.first_name, students.last_name, students.phone_number, students.sex, students.birth_date, CONCAT(grades.year_of_grade, ' ', grades.level) AS grade
 FROM students
          INNER JOIN grades ON grades.id = students.grade_id;
 
-CREATE OR REPLACE VIEW lessons view AS
-SELECT lessons.id, lessons.lesson_name, lessons.price, lessons.classes_number, lessons.day_of_week, lessons.start_time, lessons.end_time, CONCAT(teachers.first_name, ' ', teachers.last_name) AS teacher name, rooms.code AS room code, CONCAT(grades.year_of_grade, ' ', grades.level) AS grade, ( SELECT COUNT(*) FROM attendances WHERE attendances.lesson_id = lessons.id ) AS students number
+CREATE OR REPLACE VIEW lessons_view AS
+SELECT lessons.id, lessons.lesson_name, lessons.price, lessons.classes_number, lessons.day_of_week, lessons.start_time, lessons.end_time, CONCAT(teachers.first_name, ' ', teachers.last_name) AS teacher_name, rooms.code AS room_code, CONCAT(grades.year_of_grade, ' ', grades.level) AS grade, ( SELECT COUNT(*) FROM attendances WHERE attendances.lesson_id = lessons.id ) AS students_number
 FROM lessons
          INNER JOIN teachers ON teachers.id = lessons.teacher_id
          INNER JOIN rooms ON rooms.id = lessons.room_id
          LEFT JOIN grades ON grades.id = lessons.grade_id;
 
-CREATE OR REPLACE VIEW incomes view AS
-SELECT incomes.id, incomes.amount, incomes.details, incomes.create_time AS time, CONCAT(students.first_name, ' ', students.last_name) AS student name
+CREATE OR REPLACE VIEW incomes_view AS
+SELECT incomes.id, incomes.amount, incomes.details, incomes.create_time AS time, CONCAT(students.first_name, ' ', students.last_name) AS student_name
 FROM incomes
          LEFT JOIN students ON students.id = incomes.student_id
 ORDER BY create_time DESC;
 
-CREATE OR REPLACE VIEW expenses view AS
-SELECT expenses.id, expenses.amount, expenses.details, expenses.create_time AS time, CONCAT(teachers.first_name, ' ', teachers.last_name) AS teacher name
+CREATE OR REPLACE VIEW expenses_view AS
+SELECT expenses.id, expenses.amount, expenses.details, expenses.create_time AS time, CONCAT(teachers.first_name, ' ', teachers.last_name) AS teacher_name
 FROM expenses
          LEFT JOIN teachers ON teachers.id = expenses.teacher_id
 ORDER BY create_time DESC;
 
-CREATE OR REPLACE VIEW attendances view AS
-SELECT attendances.id, attendances.lesson_id, attendances.student_id, lessons.lesson_name, CONCAT(students.first_name, ' ', students.last_name) AS student name, attendances.times_present, attendances.notes, attendances.dues
+CREATE OR REPLACE VIEW attendances_view AS
+SELECT attendances.id, attendances.lesson_id, attendances.student_id, lessons.lesson_name, CONCAT(students.first_name, ' ', students.last_name) AS student_name, attendances.times_present, attendances.notes, attendances.dues
 FROM attendances
          INNER JOIN students ON students.id = attendances.student_id
          INNER JOIN lessons ON lessons.id = attendances.lesson_id;

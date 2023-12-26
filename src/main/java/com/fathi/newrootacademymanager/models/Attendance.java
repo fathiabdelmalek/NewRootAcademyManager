@@ -5,18 +5,18 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "attendances", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson id", "student id"})})
+@Table(name = "attendances", uniqueConstraints = {@UniqueConstraint(columnNames = {"lesson_id", "student_id"})})
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "lesson id", nullable = false)
+    @JoinColumn(name = "lesson_id", nullable = false)
     private Lesson lesson;
     @ManyToOne
-    @JoinColumn(name = "student id", nullable = false)
+    @JoinColumn(name = "student_id", nullable = false)
     private Student student;
-    @Column(name = "times present", nullable = false)
+    @Column(name = "times_present", nullable = false)
     private int timesPresent;
     @Column(nullable = false)
     private BigDecimal dues;

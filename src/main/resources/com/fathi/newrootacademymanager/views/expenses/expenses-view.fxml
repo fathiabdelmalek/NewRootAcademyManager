@@ -27,14 +27,14 @@
                     <PropertyValueFactory property="amount" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="250.0" text="Date and Time">
+            <TableColumn fx:id="timeColumn" prefWidth="250.0" text="Date and Time">
                 <cellValueFactory>
-                    <PropertyValueFactory property="time" />
+                    <PropertyValueFactory property="createTime" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="250.0" text="Teacher">
                 <cellValueFactory>
-                    <PropertyValueFactory property="teacherName" />
+                    <PropertyValueFactory property="teacher" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="645.0" text="Details">
@@ -54,7 +54,7 @@
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="775.0" prefWidth="250.0" text="Student">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="775.0" prefWidth="250.0" text="Teacher">
         <font>
             <Font size="24.0" />
         </font>

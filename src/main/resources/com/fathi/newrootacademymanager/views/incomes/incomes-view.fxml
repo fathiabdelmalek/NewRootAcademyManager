@@ -24,14 +24,14 @@
                     <PropertyValueFactory property="amount" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="250.0" text="Date and Time">
+            <TableColumn fx:id="timeColumn" prefWidth="250.0" text="Date and Time">
                 <cellValueFactory>
-                    <PropertyValueFactory property="time" />
+                    <PropertyValueFactory property="createTime" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="250.0" text="Student">
                 <cellValueFactory>
-                    <PropertyValueFactory property="studentName" />
+                    <PropertyValueFactory property="student" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="645.0" text="Details">

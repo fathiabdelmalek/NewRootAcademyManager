@@ -44,7 +44,7 @@
             <columns>
                   <TableColumn prefWidth="120.0" text="Week Day">
                       <cellValueFactory>
-                          <PropertyValueFactory property="day" />
+                          <PropertyValueFactory property="dayOfWeek" />
                       </cellValueFactory>
                   </TableColumn>
                   <TableColumn prefWidth="90.0" text="Start In">
@@ -61,19 +61,15 @@
          </TableColumn>
          <TableColumn prefWidth="190.0" text="Room">
             <cellValueFactory>
-               <PropertyValueFactory property="roomCode" />
+               <PropertyValueFactory property="room" />
             </cellValueFactory>
          </TableColumn>
          <TableColumn prefWidth="190.0" text="Teacher">
             <cellValueFactory>
-               <PropertyValueFactory property="teacherName" />
+               <PropertyValueFactory property="teacher" />
             </cellValueFactory>
          </TableColumn>
-         <TableColumn fx:id="studentsColumn" prefWidth="145.0" text="Students #">
-             <cellValueFactory>
-                 <PropertyValueFactory property="studentsNumber" />
-             </cellValueFactory>
-         </TableColumn>
+         <TableColumn fx:id="studentsColumn" prefWidth="145.0" text="Students #" />
         </columns>
     </TableView>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="670.0" prefWidth="250.0" text="Lesson Name">

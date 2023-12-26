@@ -120,6 +120,7 @@ public class FinancesViewController {
     }
 
     private void fillChart() {
+        chart.setLegendVisible(false);
         XYChart.Series<String, BigDecimal> incomesData = new XYChart.Series<>();
         incomesData.setName("Incomes");
         XYChart.Series<String, BigDecimal> expensesData = new XYChart.Series<>();

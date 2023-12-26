@@ -1,7 +1,6 @@
 package com.fathi.newrootacademymanager.helpers;
 
 import com.fathi.newrootacademymanager.models.Attendance;
-import com.fathi.newrootacademymanager.models.AttendanceView;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
@@ -18,9 +17,9 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AttendanceActions implements Callback<TableColumn<AttendanceView, String>, TableCell<AttendanceView, String>> {
+public class AttendanceActions implements Callback<TableColumn<Attendance, String>, TableCell<Attendance, String>> {
     @Override
-    public TableCell<AttendanceView, String> call(TableColumn<AttendanceView, String> param) {
+    public TableCell<Attendance, String> call(TableColumn<Attendance, String> param) {
         return new TableCell<>() {
             int currentAttendancesNumber;
             final Label number = new Label();
@@ -42,8 +41,8 @@ public class AttendanceActions implements Callback<TableColumn<AttendanceView, S
                         CRUDService.update(attendance);
                         currentAttendancesNumber = attendance.getTimesPresent();
                         Map<String, Object> params = new HashMap<>();
-                        params.put("lesson", attendance.getLesson().getId());
-                        getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                        params.put("lesson", attendance.getLesson());
+                        getTableView().setItems(CRUDService.readByCriteria(Attendance.class, params));
                     }
                 });
 
@@ -56,8 +55,8 @@ public class AttendanceActions implements Callback<TableColumn<AttendanceView, S
                         CRUDService.update(attendance);
                         currentAttendancesNumber = attendance.getTimesPresent();
                         Map<String, Object> params = new HashMap<>();
-                        params.put("lesson", attendance.getLesson().getId());
-                        getTableView().setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+                        params.put("lesson", attendance.getLesson());
+                        getTableView().setItems(CRUDService.readByCriteria(Attendance.class, params));
                     }
                 });
             }
@@ -69,7 +68,7 @@ public class AttendanceActions implements Callback<TableColumn<AttendanceView, S
                     setGraphic(null);
                     setText(null);
                 } else {
-                    number.setText(String.valueOf(CRUDService.readById(AttendanceView.class, getTableRow().getItem().getId()).getTimesPresent()));
+                    number.setText(String.valueOf(CRUDService.readById(Attendance.class, getTableRow().getItem().getId()).getTimesPresent()));
                     HBox actions = new HBox(decreaseIcon, number, increaseIcon);
                     actions.setStyle("-fx-alignment:center");
                     HBox.setMargin(decreaseIcon, new Insets(0, 0, 0, 0));

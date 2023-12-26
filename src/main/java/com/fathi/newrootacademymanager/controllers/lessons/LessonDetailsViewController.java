@@ -1,7 +1,13 @@
 package com.fathi.newrootacademymanager.controllers.lessons;
 
 import com.fathi.newrootacademymanager.helpers.AttendanceActions;
-import com.fathi.newrootacademymanager.models.*;
+import com.fathi.newrootacademymanager.models.Attendance;
+import com.fathi.newrootacademymanager.models.Lesson;
+import com.fathi.newrootacademymanager.models.Student;
+import com.fathi.newrootacademymanager.models.Teacher;
+import com.fathi.newrootacademymanager.models.Grade;
+import com.fathi.newrootacademymanager.models.Expense;
+import com.fathi.newrootacademymanager.models.Income;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
@@ -11,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -29,9 +34,9 @@ public class LessonDetailsViewController {
     @FXML
     private TextField classesNumberText;
     @FXML
-    private TableView<AttendanceView> tableView;
+    private TableView<Attendance> tableView;
     @FXML
-    private TableColumn<AttendanceView, String> attendancesColumn;
+    private TableColumn<Attendance, String> attendancesColumn;
     @FXML
     private TextField studentNameText;
     @FXML
@@ -44,6 +49,7 @@ public class LessonDetailsViewController {
     private ComboBox<Grade> gradeChoice;
     @FXML
     private ComboBox<Student> studentChoice;
+    private Attendance latestSelection;
     private Lesson lesson;
     private Student student;
     private int currentClassesNumber;
@@ -72,8 +78,10 @@ public class LessonDetailsViewController {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection == null) {
                 updateFromSelection(oldSelection);
+                latestSelection = newSelection;
             } else {
                 updateFromSelection(newSelection);
+                latestSelection = newSelection;
             }
         });
         refreshTable();
@@ -82,12 +90,12 @@ public class LessonDetailsViewController {
 
     @FXML
     void searchAction(KeyEvent keyEvent) {
-        FilteredList<AttendanceView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        FilteredList<Attendance> filter = new FilteredList<>(tableView.getItems(), e -> true);
         searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
                 if (newValue == null || newValue.isEmpty()) return true;
                 String key = newValue.toLowerCase();
-                return predicate.getStudentName().toLowerCase().contains(key) ||
+                return predicate.getStudent().toString().toLowerCase().contains(key) ||
                         String.valueOf(predicate.getTimesPresent()).contains(key);
             });
         });
@@ -136,7 +144,7 @@ public class LessonDetailsViewController {
 
     @FXML
     void payAction(ActionEvent actionEvent) {
-        Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
+        Attendance attendance = CRUDService.readById(Attendance.class, latestSelection.getId());
         BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(studentPaymentText.getText()));
         BigDecimal rest = attendance.getDues().subtract(amount);
         String details = "[" + student + "] pays " + amount + " DA for [" + lesson + "] | rest is [" + rest + " DA]";
@@ -144,6 +152,7 @@ public class LessonDetailsViewController {
         attendance.setDues(attendance.getDues().subtract(amount));
         CRUDService.update(attendance);
         refreshTable();
+        updateFromSelection(latestSelection);
         LoggingService.receive(details);
     }
 
@@ -191,8 +200,8 @@ public class LessonDetailsViewController {
 
     private void refreshTable() {
         Map<String, Object> params = new HashMap<>();
-        params.put("lesson", lesson.getId());
-        tableView.setItems(CRUDService.readByCriteria(AttendanceView.class, params));
+        params.put("lesson", lesson);
+        tableView.setItems(CRUDService.readByCriteria(Attendance.class, params));
     }
 
     private void setStudentChoice() {
@@ -206,9 +215,9 @@ public class LessonDetailsViewController {
         studentChoice.getItems().addFirst(null);
     }
 
-    private void updateFromSelection(AttendanceView selection) {
-        student = CRUDService.readById(Student.class, selection.getStudent());
-        studentNameText.setText(selection.getStudentName());
+    private void updateFromSelection(Attendance selection) {
+        student = CRUDService.readById(Student.class, selection.getStudent().getId());
+        studentNameText.setText(selection.getStudent().toString());
         studentPaymentText.setText(selection.getDues().toString());
         studentPaymentButton.setDisable(selection.getDues().compareTo(BigDecimal.ZERO) <= 0);
         notesText.setText(selection.getNotes());

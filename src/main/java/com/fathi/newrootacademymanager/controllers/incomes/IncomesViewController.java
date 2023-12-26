@@ -1,6 +1,8 @@
 package com.fathi.newrootacademymanager.controllers.incomes;
 
-import com.fathi.newrootacademymanager.models.*;
+import com.fathi.newrootacademymanager.models.Expense;
+import com.fathi.newrootacademymanager.models.Income;
+import com.fathi.newrootacademymanager.models.Student;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
@@ -8,20 +10,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class IncomesViewController {
     @FXML
     private TextField searchText;
     @FXML
-    private TableView<IncomeView> tableView;
+    private TableView<Income> tableView;
+    @FXML
+    private TableColumn<Expense, LocalDateTime> timeColumn;
     @FXML
     private TextField amountText;
     @FXML
@@ -36,12 +38,25 @@ public class IncomesViewController {
 
         studentChoice.setItems(FXCollections.observableList(CRUDService.readAll(Student.class)));
         studentChoice.getItems().addFirst(null);
+
+        timeColumn.setCellFactory(column -> {
+            TableCell<Expense, LocalDateTime> cell = new TableCell<>() {
+                @Override
+                protected void updateItem(LocalDateTime item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) setText(null);
+                    else setText(item.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                }
+            };
+            return cell;
+        });
+
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 id = newSelection.getId();
                 amountText.setText(String.valueOf(newSelection.getAmount()));
                 detailsText.setText(newSelection.getDetails());
-                String selectedStudent = newSelection.getStudentName();
+                String selectedStudent = newSelection.getStudent().toString();
                 for (Student student : studentChoice.getItems()) {
                     if (student == null) continue;
                     String studentName = student.getFirstName() + " " + student.getLastName();
@@ -57,17 +72,17 @@ public class IncomesViewController {
 
     @FXML
     void searchAction(KeyEvent keyEvent) {
-        FilteredList<IncomeView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        FilteredList<Income> filter = new FilteredList<>(tableView.getItems(), e -> true);
         searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
                 if (newValue == null || newValue.isEmpty()) return true;
                 String key = newValue.toLowerCase();
-                if (predicate.getStudentName() != null)
+                if (predicate.getStudent() != null)
                     return String.valueOf(predicate.getAmount()).contains(key) ||
-                            predicate.getTime().toLowerCase().contains(key) ||
-                            predicate.getStudentName().toLowerCase().contains(key);
+                            predicate.getCreateTime().toString().toLowerCase().contains(key) ||
+                            predicate.getStudent().toString().toLowerCase().contains(key);
                 return String.valueOf(predicate.getAmount()).contains(key) ||
-                        predicate.getTime().toLowerCase().contains(key);
+                        predicate.getCreateTime().toString().toLowerCase().contains(key);
             });
         });
         tableView.setItems(filter);
@@ -122,6 +137,6 @@ public class IncomesViewController {
     }
 
     private void refreshTable() {
-        tableView.setItems(CRUDService.readAll(IncomeView.class));
+        tableView.setItems(CRUDService.readAll(Income.class));
     }
 }

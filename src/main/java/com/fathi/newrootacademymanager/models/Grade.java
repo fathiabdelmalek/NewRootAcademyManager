@@ -12,7 +12,7 @@ public class Grade {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Level level;
-    @Column(name = "year of grade", nullable = false)
+    @Column(name = "year_of_grade", nullable = false)
     private int yearOfGrade;
 
     public Grade() {}

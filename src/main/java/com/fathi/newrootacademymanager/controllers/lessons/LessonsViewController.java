@@ -3,9 +3,12 @@ package com.fathi.newrootacademymanager.controllers.lessons;
 import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.CalculationsService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LessonsViewController {
     @FXML
@@ -33,11 +38,11 @@ public class LessonsViewController {
     @FXML
     private TextField searchText;
     @FXML
-    private TableView<LessonView> tableView;
+    private TableView<Lesson> tableView;
     @FXML
-    private TableColumn priceColumn;
+    private TableColumn<Lesson, BigDecimal> priceColumn;
     @FXML
-    private TableColumn studentsColumn;
+    private TableColumn<Lesson, Integer> studentsColumn;
     @FXML
     private TextField lessonNameText;
     @FXML
@@ -57,9 +62,9 @@ public class LessonsViewController {
         Platform.runLater(() -> searchText.requestFocus());
 
         priceColumn.setCellFactory(column -> {
-            TableCell<LessonView, Float> cell = new TableCell<LessonView, Float>() {
+            TableCell<Lesson, BigDecimal> cell = new TableCell<>() {
                 @Override
-                protected void updateItem(Float item, boolean empty) {
+                protected void updateItem(BigDecimal item, boolean empty) {
                     super.updateItem(item, empty);
                     if (empty || item == null) setText(null);
                     else setText(String.format("%.2f", item));
@@ -100,7 +105,7 @@ public class LessonsViewController {
                         break;
                     }
                     if (grade == null) continue;
-                    if ((grade.getYearOfGrade() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade())) {
+                    if ((grade.getYearOfGrade() + " " + grade.getLevel()).equalsIgnoreCase(newSelection.getGrade().toString())) {
                         gradeChoice.setValue(grade);
                         break;
                     }
@@ -118,14 +123,14 @@ public class LessonsViewController {
                 endMinuteSpinner.getValueFactory().setValue(newSelection.getEndTime().getMinute());
                 for (Room room : roomChoice.getItems()) {
                     if (room == null) continue;
-                    if (room.getCode().equalsIgnoreCase(newSelection.getRoomCode())) {
+                    if (room.getCode().equalsIgnoreCase(newSelection.getRoom().toString())) {
                         roomChoice.setValue(room);
                         break;
                     }
                 }
                 for (Teacher teacher : teacherChoice.getItems()) {
                     if (teacher == null) continue;
-                    if ((teacher.getFirstName() + " " + teacher.getLastName()).equalsIgnoreCase(newSelection.getTeacherName())) {
+                    if ((teacher.getFirstName() + " " + teacher.getLastName()).equalsIgnoreCase(newSelection.getTeacher().toString())) {
                         teacherChoice.setValue(teacher);
                         break;
                     }
@@ -133,7 +138,7 @@ public class LessonsViewController {
             }
         });
         tableView.setRowFactory(tx -> {
-            TableRow<LessonView> row = new TableRow<>();
+            TableRow<Lesson> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     int lessonId = row.getItem().getId();
@@ -156,17 +161,17 @@ public class LessonsViewController {
 
     @FXML
     void searchAction(KeyEvent event) {
-        FilteredList<LessonView> filter = new FilteredList<>(tableView.getItems(), e -> true);
+        FilteredList<Lesson> filter = new FilteredList<>(tableView.getItems(), e -> true);
         searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicate -> {
                 if (newValue == null || newValue.isEmpty()) return true;
                 String key = newValue.toLowerCase();
                 return predicate.getLessonName().toLowerCase().contains(key) ||
-                        (predicate.getGrade() != null && predicate.getGrade().toLowerCase().contains(key)) ||
+                        (predicate.getGrade() != null && predicate.getGrade().toString().toLowerCase().contains(key)) ||
                         predicate.getDayOfWeek().toString().toLowerCase().contains(key) ||
                         String.valueOf(predicate.getPrice()).contains(key) ||
-                        predicate.getRoomCode().toLowerCase().contains(key) ||
-                        predicate.getTeacherName().toLowerCase().contains(key);
+                        predicate.getRoom().toString().toLowerCase().contains(key) ||
+                        predicate.getTeacher().toString().toLowerCase().contains(key);
             });
         });
         tableView.setItems(filter);
@@ -243,6 +248,12 @@ public class LessonsViewController {
     }
 
     private void refreshTable() {
-        tableView.setItems(CRUDService.readAll(LessonView.class));
+        tableView.setItems(CRUDService.readAll(Lesson.class));
+        studentsColumn.setCellValueFactory(data -> {
+            Map<String, Object> params = new HashMap<>();
+            params.put("lesson", data.getValue());
+            int numberOfStudents = CalculationsService.count(Attendance.class, params);
+            return new SimpleObjectProperty<>(numberOfStudents);
+        });
     }
 }
