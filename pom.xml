@@ -10,6 +10,7 @@
     <name>New Root Academy Manager</name>
 
     <properties>
+        <project.name>New Root Academy Manager</project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
     </properties>
@@ -99,9 +100,10 @@
                             <mainClass>
                                 com.fathi.newrootacademymanager/com.fathi.newrootacademymanager.Main
                             </mainClass>
-                            <launcher>name</launcher>
-                            <jlinkZipName>name</jlinkZipName>
-                            <jlinkImageName>name</jlinkImageName>
+                            <executable>C:\Program Files\Java\jdk-21\bin\java</executable>
+                            <launcher>${project.name}</launcher>
+                            <jlinkZipName>${project.name}</jlinkZipName>
+                            <jlinkImageName>${project.name}</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
