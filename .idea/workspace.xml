@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_h2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_mysql.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +159,9 @@
       <workItem from="1703617978084" duration="733000" />
       <workItem from="1703686365547" duration="1147000" />
       <workItem from="1703698206070" duration="5452000" />
+      <workItem from="1703716996238" duration="822000" />
+      <workItem from="1703723716863" duration="1137000" />
+      <workItem from="1703726044500" duration="920000" />
     </task>
     <servers />
   </component>
