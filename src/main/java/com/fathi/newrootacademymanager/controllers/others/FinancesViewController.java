@@ -92,26 +92,21 @@ public class FinancesViewController {
     private void getFilteredProfitData(LocalDate filterTime) {
         BigDecimal filteredIncome = CalculationsService.gte(BigDecimal.class, Income.class, "amount", "createTime", filterTime);
         BigDecimal filteredExpense = CalculationsService.gte(BigDecimal.class, Expense.class, "amount", "createTime", filterTime);
-        if (filteredIncome != null && filteredExpense != null) {
-            BigDecimal filteredProfit = filteredIncome.subtract(filteredExpense);
-            filteredIncomeLabel.setText(filteredIncome.toString());
-            filteredExpenseLabel.setText(filteredExpense.toString());
-            filteredProfitLabel.setText(filteredProfit.toString());
-        } else {
-            filteredIncomeLabel.setText("0.00");
-            filteredExpenseLabel.setText("0.00");
-            filteredProfitLabel.setText("0.00");
-        }
+        fillLabels(filteredIncome, filteredExpense, filteredIncomeLabel, filteredExpenseLabel, filteredProfitLabel);
     }
 
     private void getProfitData(Label incomeLabel, Label expenseLabel, Label profitLabel) {
         BigDecimal totalIncome = CalculationsService.sum(BigDecimal.class, Income.class, "amount");
         BigDecimal totalExpense = CalculationsService.sum(BigDecimal.class, Expense.class, "amount");
-        if (totalIncome != null && totalExpense != null) {
-            BigDecimal totalProfit = totalIncome.subtract(totalExpense);
-            incomeLabel.setText(totalIncome.toString());
-            expenseLabel.setText(totalExpense.toString());
-            profitLabel.setText(totalProfit.toString());
+        fillLabels(totalIncome, totalExpense, incomeLabel, expenseLabel, profitLabel);
+    }
+
+    private void fillLabels(BigDecimal income, BigDecimal expense, Label incomeLabel, Label expenseLabel, Label profitLabel) {
+        if (income != null && expense != null) {
+            BigDecimal filteredProfit = income.subtract(expense);
+            incomeLabel.setText(income.toString());
+            expenseLabel.setText(expense.toString());
+            profitLabel.setText(filteredProfit.toString());
         } else {
             incomeLabel.setText("0.00");
             expenseLabel.setText("0.00");

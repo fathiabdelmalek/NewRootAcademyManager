@@ -50,13 +50,14 @@ CREATE TABLE rooms (
 
 CREATE TABLE grades (
     id INTEGER AUTO_INCREMENT,
-    level ENUM('Primary', 'Middle', 'Secondary') NOT NULL,
+    level ENUM('Primary', 'Middle', 'Secondary', 'University') NOT NULL,
     year_of_grade INTEGER NOT NULL,
     PRIMARY KEY (id),
     CHECK (
         (level = 'Primary' AND year_of_grade BETWEEN 1 AND 5) OR
         (level = 'Middle' AND year_of_grade BETWEEN 1 AND 4) OR
-        (level = 'Secondary' AND year_of_grade BETWEEN 1 AND 3)
+        (level = 'Secondary' AND year_of_grade BETWEEN 1 AND 3) OR
+        (level = 'University' AND year_of_grade BETWEEN 1 AND 5)
         )
 );
 
@@ -94,7 +95,7 @@ CREATE TABLE attendances (
 CREATE TABLE activities (
     id INTEGER AUTO_INCREMENT,
     timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    type ENUM('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive', 'Error') NOT NULL,
+    type ENUM('Add', 'Update', 'Delete', 'Enroll', 'Leave', 'Pay', 'Receive') NOT NULL,
     details VARCHAR(300) NOT NULL,
     PRIMARY KEY (id)
 );

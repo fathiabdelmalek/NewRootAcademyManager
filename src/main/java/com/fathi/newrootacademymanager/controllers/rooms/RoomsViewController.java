@@ -49,7 +49,7 @@ public class RoomsViewController {
             Room room = new Room(codeText.getText());
             CRUDService.create(room);
             refreshTable();
-            LoggingService.add(room + " have been added");
+            LoggingService.add("Room " + room + " have been added");
         }
     }
 
@@ -63,7 +63,7 @@ public class RoomsViewController {
             room.setCode(codeText.getText());
             CRUDService.update(room);
             refreshTable();
-            LoggingService.update("Room code have been changed from " + oldCode + " to " + room);
+            LoggingService.update("Room " + oldCode + " changed to " + room);
         }
     }
 
@@ -72,7 +72,7 @@ public class RoomsViewController {
         Room room = CRUDService.readById(Room.class, id);
         CRUDService.delete(room);
         refreshTable();
-        LoggingService.delete(room + " have been deleted");
+        LoggingService.delete("Room " + room + " have been deleted");
     }
 
     @FXML

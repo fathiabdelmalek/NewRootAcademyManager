@@ -118,7 +118,7 @@ public class StudentsViewController {
             student.setGrade(gradeChoice.getValue());
             CRUDService.update(student);
             refreshTable();
-            LoggingService.update(student + " have been updated");
+            LoggingService.update("Student " + student + " have been updated");
         }
     }
 
@@ -126,7 +126,7 @@ public class StudentsViewController {
         Student student = CRUDService.readById(Student.class, id);
         CRUDService.delete(student);
         refreshTable();
-        LoggingService.delete(student + " have been removed");
+        LoggingService.delete("Student " + student + " have been removed");
     }
 
     public void clearAction(ActionEvent actionEvent) {

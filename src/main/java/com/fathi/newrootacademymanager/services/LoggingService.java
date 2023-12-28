@@ -40,8 +40,6 @@ public class LoggingService {
 
     public static void error(String msg) {
         logger.severe(msg);
-        Activity activity = new Activity(ActivityType.Error, msg);
-        CRUDService.create(activity);
     }
 
     private static void log(String msg, ActivityType type) {

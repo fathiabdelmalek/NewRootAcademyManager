@@ -198,7 +198,7 @@ public class LessonsViewController {
             );
             CRUDService.create(lesson);
             refreshTable();
-            LoggingService.add(lesson + " have been added");
+            LoggingService.add("Lesson " + lesson + " have been added");
         }
     }
 
@@ -222,7 +222,7 @@ public class LessonsViewController {
             lesson.setGrade(gradeChoice.getValue());
             CRUDService.update(lesson);
             refreshTable();
-            LoggingService.update(lesson + " have been updated");
+            LoggingService.update("Lesson " + lesson + " have been updated");
         }
     }
 
@@ -231,7 +231,7 @@ public class LessonsViewController {
         Lesson lesson = CRUDService.readById(Lesson.class, id);
         CRUDService.delete(lesson);
         refreshTable();
-        LoggingService.delete(lesson + " have been deleted");
+        LoggingService.delete("Lesson " + lesson + " have been deleted");
     }
 
     @FXML

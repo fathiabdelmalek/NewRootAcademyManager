@@ -91,14 +91,12 @@ public class LessonDetailsViewController {
     @FXML
     void searchAction(KeyEvent keyEvent) {
         FilteredList<Attendance> filter = new FilteredList<>(tableView.getItems(), e -> true);
-        searchText.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filter.setPredicate(predicate -> {
-                if (newValue == null || newValue.isEmpty()) return true;
-                String key = newValue.toLowerCase();
-                return predicate.getStudent().toString().toLowerCase().contains(key) ||
-                        String.valueOf(predicate.getTimesPresent()).contains(key);
-            });
-        });
+        searchText.textProperty().addListener((Observable, oldValue, newValue) -> filter.setPredicate(predicate -> {
+            if (newValue == null || newValue.isEmpty()) return true;
+            String key = newValue.toLowerCase();
+            return predicate.getStudent().toString().toLowerCase().contains(key) ||
+                    String.valueOf(predicate.getTimesPresent()).contains(key);
+        }));
         tableView.setItems(filter);
     }
 
@@ -107,7 +105,7 @@ public class LessonDetailsViewController {
         Teacher teacher = lesson.getTeacher();
         BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(salaryText.getText()));
         BigDecimal rest = lesson.getTeacherDues().subtract(amount);
-        String details = "payed [" + teacher + "] " + amount + " DA for [" + lesson + "] | rest is [" + rest + " DA]";
+        String details = "payed " + teacher + " [" + amount + " DA] for " + lesson + " | rest is [" + rest + " DA]";
         CRUDService.create(new Expense(amount, details, teacher));
         lesson.setTeacherDues(rest);
         CRUDService.update(lesson);
@@ -127,7 +125,7 @@ public class LessonDetailsViewController {
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
         salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
-        LoggingService.update(lesson + " number of lessons decreased by one and become " + lesson.getClassesNumber());
+        LoggingService.update("Lesson " + lesson + " number of lessons decreased by one and become " + lesson.getClassesNumber());
     }
 
     @FXML
@@ -139,7 +137,7 @@ public class LessonDetailsViewController {
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
         salaryText.setText(lesson.getTeacherDues().toString());
         currentClassesNumber = lesson.getClassesNumber();
-        LoggingService.update(lesson + " number of lessons increased by one and become " + lesson.getClassesNumber());
+        LoggingService.update("Lesson " + lesson + " number of lessons increased by one and become " + lesson.getClassesNumber());
     }
 
     @FXML
@@ -147,7 +145,7 @@ public class LessonDetailsViewController {
         Attendance attendance = CRUDService.readById(Attendance.class, latestSelection.getId());
         BigDecimal amount = BigDecimal.valueOf(Double.parseDouble(studentPaymentText.getText()));
         BigDecimal rest = attendance.getDues().subtract(amount);
-        String details = "[" + student + "] pays " + amount + " DA for [" + lesson + "] | rest is [" + rest + " DA]";
+        String details = "Student " + student + " pays [" + amount + " DA] for Lesson " + lesson + " | rest is [" + rest + " DA]";
         CRUDService.create(new Income(amount, details, student));
         attendance.setDues(attendance.getDues().subtract(amount));
         CRUDService.update(attendance);
@@ -165,7 +163,7 @@ public class LessonDetailsViewController {
             attendance.setNotes(notesText.getText());
             CRUDService.update(attendance);
             refreshTable();
-            LoggingService.update(lesson + " have been updated");
+            LoggingService.update("Lesson " + lesson + " have been updated");
         }
     }
 
@@ -177,7 +175,7 @@ public class LessonDetailsViewController {
             Attendance attendance = new Attendance(lesson, studentChoice.getValue(), notesText.getText());
             CRUDService.create(attendance);
             refreshTable();
-            LoggingService.enroll(attendance.getStudent() + " enrolled the lesson " + attendance.getLesson());
+            LoggingService.enroll("Student " + attendance.getStudent() + " enrolled the lesson " + attendance.getLesson());
         }
     }
 
@@ -186,7 +184,7 @@ public class LessonDetailsViewController {
         Attendance attendance = CRUDService.readById(Attendance.class, tableView.getSelectionModel().getSelectedItem().getId());
         CRUDService.delete(attendance);
         refreshTable();
-        LoggingService.leave(attendance.getStudent() + " leaved the lesson " + attendance.getLesson());
+        LoggingService.leave("Student " + attendance.getStudent() + " leaved the lesson " + attendance.getLesson());
     }
 
     @FXML

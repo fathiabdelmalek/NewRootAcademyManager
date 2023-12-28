@@ -51,7 +51,8 @@ public class Grade {
     private void check() {
         if ((level == Level.Primary && (yearOfGrade < 1 || yearOfGrade > 5)) ||
                 (level == Level.Middle && (yearOfGrade < 1 || yearOfGrade > 4)) ||
-                (level == Level.Secondary && (yearOfGrade < 1 || yearOfGrade > 3))) {
+                (level == Level.Secondary && (yearOfGrade < 1 || yearOfGrade > 3)) ||
+                (level == Level.University && (yearOfGrade < 1 || yearOfGrade > 5))) {
             throw new IllegalArgumentException("Invalid combination of level and year");
         }
     }

@@ -101,7 +101,7 @@ public class ExpensesViewController {
             );
             CRUDService.create(expense);
             refreshTable();
-            LoggingService.add("Added an expense of " + expense.getAmount() + " DA");
+            LoggingService.add("Added an expense of [" + expense.getAmount() + " DA]");
         }
     }
 
@@ -118,7 +118,7 @@ public class ExpensesViewController {
             expense.setUpdateTime(LocalDateTime.now());
             CRUDService.update(expense);
             refreshTable();
-            LoggingService.update("Changed an expense amount from " + oldAmount + " DA to " + expense.getAmount() + " DA");
+            LoggingService.update("Changed an expense amount from [" + oldAmount + " DA] to [" + expense.getAmount() + " DA]");
         }
     }
 
@@ -127,7 +127,7 @@ public class ExpensesViewController {
         Expense expense = CRUDService.readById(Expense.class, id);
         CRUDService.delete(expense);
         refreshTable();
-        LoggingService.delete("Remove an expense of " + expense.getAmount() + " DA");
+        LoggingService.delete("Remove an expense of [" + expense.getAmount() + " DA]");
     }
 
     @FXML

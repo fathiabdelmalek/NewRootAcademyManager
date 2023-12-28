@@ -100,7 +100,7 @@ public class IncomesViewController {
             );
             CRUDService.create(income);
             refreshTable();
-            LoggingService.add("Added an income of " + income.getAmount() + " DA");
+            LoggingService.add("Added an income of [" + income.getAmount() + " DA]");
         }
     }
 
@@ -117,7 +117,7 @@ public class IncomesViewController {
             income.setUpdateTime(LocalDateTime.now());
             CRUDService.update(income);
             refreshTable();
-            LoggingService.update("Changed an income amount from " + oldAmount + " DA to " + income.getAmount() + " DA");
+            LoggingService.update("Changed an income amount from [" + oldAmount + " DA] to [" + income.getAmount() + " DA]");
         }
     }
 
@@ -126,7 +126,7 @@ public class IncomesViewController {
         Income income = CRUDService.readById(Income.class, id);
         CRUDService.delete(income);
         refreshTable();
-        LoggingService.delete("Remove an income of " + income.getAmount() + " DA");
+        LoggingService.delete("Remove an income of [" + income.getAmount() + " DA]");
     }
 
     @FXML

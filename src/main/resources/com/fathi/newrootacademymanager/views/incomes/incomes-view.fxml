@@ -41,48 +41,48 @@
             </TableColumn>
         </columns>
     </TableView>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="675.0" prefWidth="250.0" text="Amount">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="675.0" prefWidth="150.0" text="Amount">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="725.0" prefWidth="250.0" text="Details">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="725.0" prefWidth="150.0" text="Details">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="775.0" prefWidth="250.0" text="Student">
+    <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="775.0" prefWidth="150.0" text="Student">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <TextField fx:id="amountText" layoutX="280.0" layoutY="675.0" prefHeight="35.0" prefWidth="250.0">
+    <TextField fx:id="amountText" layoutX="440.0" layoutY="675.0" prefHeight="35.0" prefWidth="400.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <TextField fx:id="detailsText" layoutX="280.0" layoutY="725.0" prefHeight="35.0" prefWidth="250.0">
+    <TextField fx:id="detailsText" layoutX="440.0" layoutY="725.0" prefHeight="35.0" prefWidth="400.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <ComboBox fx:id="studentChoice" layoutX="280.0" layoutY="775.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
-    <Button layoutX="1120.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Insert">
+    <ComboBox fx:id="studentChoice" layoutX="440.0" layoutY="775.0" prefHeight="35.0" prefWidth="400.0" promptText="Choose" />
+    <Button layoutX="860.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1120.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Update">
+    <Button layoutX="860.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Delete" AnchorPane.rightAnchor="25.0">
+    <Button layoutX="995.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Clear" AnchorPane.rightAnchor="25.0">
+    <Button layoutX="995.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" styleClass="small-size">
         <font>
             <Font size="24.0" />
         </font>

@@ -83,7 +83,7 @@ public class TeachersViewController {
             teacher.setPhoneNumber(phoneNumberText.getText());
             CRUDService.update(teacher);
             refreshTable();
-            LoggingService.update(teacher + " have been updated");
+            LoggingService.update("Teacher " + teacher + " have been updated");
         }
     }
 
@@ -91,7 +91,7 @@ public class TeachersViewController {
         Teacher teacher = CRUDService.readById(Teacher.class, id);
         CRUDService.delete(teacher);
         refreshTable();
-        LoggingService.delete(teacher + " have been removed");
+        LoggingService.delete("Teacher " + teacher + " have been removed");
     }
 
     public void clearAction(ActionEvent actionEvent) {

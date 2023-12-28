@@ -59,7 +59,7 @@ public class GradesViewController {
             Grade grade = new Grade(levelChoice.getValue(), Integer.parseInt(yearText.getText()));
             CRUDService.create(grade);
             refreshTable();
-            LoggingService.add(grade + " have been added");
+            LoggingService.add("Grade " + grade + " have been added");
         }
     }
 
@@ -75,7 +75,7 @@ public class GradesViewController {
             grade.setYearOfGrade(Integer.parseInt(yearText.getText()));
             CRUDService.update(grade);
             refreshTable();
-            LoggingService.update(oldGrade + "have been change to " + grade);
+            LoggingService.update("Grade " + oldGrade + "have been change to " + grade);
         }
     }
 
@@ -84,7 +84,7 @@ public class GradesViewController {
         Grade grade = CRUDService.readById(Grade.class, id);
         CRUDService.delete(grade);
         refreshTable();
-        LoggingService.delete(grade + " have been deleted");
+        LoggingService.delete("Grade " + grade + " have been deleted");
     }
 
     @FXML

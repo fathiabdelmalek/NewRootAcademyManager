@@ -7,6 +7,5 @@ public enum ActivityType {
     Enroll,
     Leave,
     Pay,
-    Receive,
-    Error
+    Receive
 }
