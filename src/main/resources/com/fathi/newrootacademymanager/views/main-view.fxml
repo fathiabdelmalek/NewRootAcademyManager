@@ -28,7 +28,7 @@
         <left>
             <AnchorPane prefHeight="830.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
                 <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
-                    <Image url="@../images/new_root.png" />
+                    <Image url="@../images/logo.png" />
                 </ImageView>
                 <Button layoutY="400.0" mnemonicParsing="false" onAction="#openDashboardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Dashboard">
                     <font>
