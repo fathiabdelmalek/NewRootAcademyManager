@@ -78,7 +78,7 @@
                         <FontAwesomeIconView fill="#f8b038" glyphName="USER" />
                     </graphic>
                 </Button>
-                <Button layoutY="500.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Grades &amp; Rooms">
+                <Button layoutY="500.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Grades/Rooms">
                     <font>
                         <Font size="20.0" />
                     </font>

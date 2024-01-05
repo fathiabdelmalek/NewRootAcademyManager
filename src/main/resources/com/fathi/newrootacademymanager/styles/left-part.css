@@ -13,7 +13,7 @@
     -fx-background-color: transparent;
     -fx-text-fill: -fx-grey-color;
     -fx-cursor: hand;
-    -fx-font-size: 24;
+    -fx-font-size: 20;
 }
 
 .left-part .nav-button:hover {
@@ -33,7 +33,7 @@
     -fx-font-family: Ink Free;
     -fx-font-style: italic;
     -fx-text-fill: -fx-secondary-color;
-    -fx-font-size: 24;
+    -fx-font-size: 20;
     -fx-alignment: center;
 }
 

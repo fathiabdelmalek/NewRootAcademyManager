@@ -20,7 +20,7 @@ public class SplashScreen {
         splashStage.setTitle("New Root Academy Manager");
         splashStage.getIcons().add(new Image(getClass().getResourceAsStream("images/logo.png")));
         StackPane splashPane = new StackPane(splashImage);
-        Scene splashScene = new Scene(splashPane, 400, 400);
+        Scene splashScene = new Scene(splashPane, 300, 300);
         splashStage.setScene(splashScene);
         splashStage.show();
     }

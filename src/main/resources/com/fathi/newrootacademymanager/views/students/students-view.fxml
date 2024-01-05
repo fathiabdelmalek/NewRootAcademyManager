@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.students.StudentsViewController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.students.StudentsViewController">
     <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font>
           <Font size="16.0" />
@@ -25,116 +25,116 @@
         </padding>
     </TextField>
     <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
-    <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="1400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+    <TableView fx:id="tableView" layoutY="60.0" prefHeight="400.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
       <columns>
-          <TableColumn prefWidth="230.0" text="First Name">
+          <TableColumn prefWidth="165.0" text="First Name">
               <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="230.0" text="Last Name">
+          <TableColumn prefWidth="165.0" text="Last Name">
               <cellValueFactory>
                   <PropertyValueFactory property="lastName" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="230.0" text="Phone Number">
+          <TableColumn prefWidth="165.0" text="Phone Number">
               <cellValueFactory>
                   <PropertyValueFactory property="phoneNumber" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="230.0" text="Sex">
+          <TableColumn prefWidth="165.0" text="Sex">
               <cellValueFactory>
                   <PropertyValueFactory property="sex" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="230.0" text="Birth Date">
+          <TableColumn prefWidth="165.0" text="Birth Date">
               <cellValueFactory>
                   <PropertyValueFactory property="birthDate" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="230.0" text="Grade">
+          <TableColumn prefWidth="160.0" text="Grade">
               <cellValueFactory>
                   <PropertyValueFactory property="grade" />
               </cellValueFactory>
           </TableColumn>
       </columns>
     </TableView>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="675.0" prefWidth="250.0" text="First Name">
+    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="465.0" prefWidth="150.0" text="First Name">
         <font>
           <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="535.0" layoutY="675.0" prefWidth="250.0" text="Last Name">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="725.0" prefWidth="250.0" text="Phone #">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="535.0" layoutY="725.0" prefWidth="250.0" text="Birth Date">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="775.0" prefWidth="250.0" text="Sex">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="535.0" layoutY="775.0" prefWidth="250.0" text="Grade">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <TextField fx:id="firstNameText" layoutX="280.0" layoutY="675.0" prefHeight="35.0" prefWidth="250.0">
+    <TextField fx:id="firstNameText" layoutX="170.0" layoutY="465.0" prefHeight="35.0" prefWidth="200.0">
         <font>
           <Font size="18.0" />
         </font>
     </TextField>
-    <TextField fx:id="lastNameText" layoutX="790.0" layoutY="675.0" prefHeight="35.0" prefWidth="250.0">
-        <font>
-          <Font size="18.0" />
-        </font>
-    </TextField>
-    <TextField fx:id="phoneNumberText" layoutX="280.0" layoutY="725.0" prefHeight="35.0" prefWidth="250.0">
-        <font>
-          <Font size="18.0" />
-        </font>
-    </TextField>
-    <DatePicker fx:id="datePicker" layoutX="790.0" layoutY="725.0" prefHeight="35.0" prefWidth="250.0" />
-    <RadioButton fx:id="maleChoice" layoutX="280.0" layoutY="775.0" mnemonicParsing="false" prefWidth="100.0" selected="true" text="Male" styleClass="small-size">
+    <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="465.0" prefWidth="150.0" text="Last Name">
         <font>
           <Font size="24.0" />
         </font>
+    </Label>
+    <TextField fx:id="lastNameText" layoutX="530.0" layoutY="465.0" prefHeight="35.0" prefWidth="200.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </TextField>
+    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="510.0" prefWidth="150.0" text="Phone #">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <TextField fx:id="phoneNumberText" layoutX="170.0" layoutY="510.0" prefHeight="35.0" prefWidth="200.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+    </TextField>
+    <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="510.0" prefWidth="150.0" text="Birth Date">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <DatePicker fx:id="datePicker" layoutX="530.0" layoutY="510.0" prefHeight="35.0" prefWidth="200.0" />
+    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="550.0" prefWidth="150.0" text="Sex">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <RadioButton fx:id="maleChoice" layoutX="170.0" layoutY="550.0" mnemonicParsing="false" prefWidth="80.0" selected="true" styleClass="small-size" text="Male">
       <toggleGroup>
          <ToggleGroup fx:id="sex" />
       </toggleGroup>
+      <font>
+         <Font size="20.0" />
+      </font>
     </RadioButton>
-    <RadioButton fx:id="femaleChoice" layoutX="400.0" layoutY="775.0" mnemonicParsing="false" prefWidth="130.0" text="Female" toggleGroup="$sex" styleClass="small-size">
-        <font>
-          <Font size="24.0" />
-        </font>
+    <RadioButton fx:id="femaleChoice" layoutX="270.0" layoutY="550.0" mnemonicParsing="false" prefWidth="100.0" styleClass="small-size" text="Female" toggleGroup="$sex">
+      <font>
+         <Font size="20.0" />
+      </font>
     </RadioButton>
-    <ComboBox fx:id="gradeChoice" layoutX="790.0" layoutY="775.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose" />
-    <Button layoutX="1120.0" layoutY="675.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" text="Insert" styleClass="small-size">
+    <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="550.0" prefWidth="150.0" text="Grade">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <ComboBox fx:id="gradeChoice" layoutX="530.0" layoutY="550.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose" />
+    <Button layoutX="755.0" layoutY="472.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Insert">
         <font>
           <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1120.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" text="Update" styleClass="small-size">
+    <Button layoutX="755.0" layoutY="537.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Update">
         <font>
           <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" text="Delete" AnchorPane.rightAnchor="25.0" styleClass="small-size">
+    <Button layoutX="870.0" layoutY="472.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Delete">
         <font>
           <Font size="24.0" />
         </font>
     </Button>
-    <Button layoutX="1255.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" text="Clear" AnchorPane.rightAnchor="25.0" styleClass="small-size">
+    <Button layoutX="870.0" layoutY="537.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Clear">
         <font>
           <Font size="24.0" />
         </font>

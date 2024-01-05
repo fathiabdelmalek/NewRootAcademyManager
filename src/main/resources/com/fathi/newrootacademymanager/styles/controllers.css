@@ -19,11 +19,11 @@
 }
 
 .center-part .button.small-size {
-    -fx-font-size: 24;
+    -fx-font-size: 20;
 }
 
 .center-part .button.large-size {
-    -fx-font-size: 36;
+    -fx-font-size: 30;
 }
 
 .center-part .button:disabled {
@@ -50,7 +50,7 @@
 }
 
 .center-part .radio-button.small-size {
-    -fx-font-size: 12;
+    -fx-font-size: 18;
 }
 
 .center-part .radio-button.large-size {

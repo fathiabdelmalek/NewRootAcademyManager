@@ -10,17 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/grades/GradesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/DashboardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/DashboardViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/controllers.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/controllers.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/left-part.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/left-part.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/styles/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/expenses/expenses-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/grades/grades-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/incomes/incomes-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lessons-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lessons-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/dashboard-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/finances-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/finances-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/table-board-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/table-board-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/grades-rooms-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/grades-rooms-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/rooms/rooms-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/rooms/rooms-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/students/students-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/students/students-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/teachers/teachers-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/teachers/teachers-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +108,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/abdel/new_root_academy_manager.mv.db",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -195,7 +204,9 @@
       <workItem from="1703802280543" duration="12040000" />
       <workItem from="1704113610627" duration="1239000" />
       <workItem from="1704145891056" duration="70000" />
-      <workItem from="1704394970250" duration="10046000" />
+      <workItem from="1704394970250" duration="10232000" />
+      <workItem from="1704482991721" duration="6075000" />
+      <workItem from="1704493049897" duration="3236000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,6 @@ import com.fathi.newrootacademymanager.services.LoggingService;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,10 +78,10 @@ public class LessonsViewController {
         dayChoice.setItems(FXCollections.observableArrayList(WeekDay.values()));
         dayChoice.getItems().addFirst(null);
 
-        SpinnerValueFactory<Integer> startHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 10);
-        SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0);
-        SpinnerValueFactory<Integer> endHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 11);
-        SpinnerValueFactory<Integer> endMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0);
+        SpinnerValueFactory<Integer> startHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(8, 16, 8);
+        SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 0, 15);
+        SpinnerValueFactory<Integer> endHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 18, 9);
+        SpinnerValueFactory<Integer> endMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 30, 15);
         startHourSpinner.setValueFactory(startHoursRange);
         startMinuteSpinner.setValueFactory(startMinutesRange);
         endHourSpinner.setValueFactory(endHoursRange);
@@ -240,10 +239,10 @@ public class LessonsViewController {
         priceText.clear();
         gradeChoice.getSelectionModel().clearSelection();
         dayChoice.getSelectionModel().clearSelection();
-        startHourSpinner.getValueFactory().setValue(10);
+        startHourSpinner.getValueFactory().setValue(8);
         startMinuteSpinner.getValueFactory().setValue(0);
-        endHourSpinner.getValueFactory().setValue(10);
-        endMinuteSpinner.getValueFactory().setValue(0);
+        endHourSpinner.getValueFactory().setValue(9);
+        endMinuteSpinner.getValueFactory().setValue(30);
         teacherChoice.getSelectionModel().clearSelection();
     }
 

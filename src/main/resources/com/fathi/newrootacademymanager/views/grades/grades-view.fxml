@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="830.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.grades.GradesViewController">
+<AnchorPane prefHeight="600.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.grades.GradesViewController">
     <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font>
             <Font size="16.0" />
@@ -22,54 +22,54 @@
         </padding>
     </TextField>
     <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
-    <TableView fx:id="tableView" layoutY="60.0" prefHeight="600.0" prefWidth="699.0">
+    <TableView fx:id="tableView" layoutY="60.0" prefHeight="400.0" prefWidth="499.0">
         <columns>
-            <TableColumn prefWidth="350.0" text="Level">
+            <TableColumn prefWidth="240.0" text="Level">
                 <cellValueFactory>
                     <PropertyValueFactory property="level" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="345.0" text="Year">
+            <TableColumn prefWidth="240.0" text="Year">
                 <cellValueFactory>
                     <PropertyValueFactory property="yearOfGrade" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
-    <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="675.0" prefWidth="150.0" text="Level">
+    <Label alignment="CENTER_RIGHT" layoutX="17.0" layoutY="465.0" prefWidth="75.0" text="Level">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="675.0" prefWidth="150.0" text="Year">
+   <ComboBox fx:id="levelChoice" layoutX="97.0" layoutY="465.0" prefHeight="35.0" prefWidth="150.0" promptText="Choose" />
+    <Label alignment="CENTER_RIGHT" layoutX="252.0" layoutY="465.0" prefWidth="75.0" text="Year">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-    <TextField fx:id="yearText" layoutX="480.0" layoutY="675.0" prefHeight="35.0" prefWidth="150.0">
+    <TextField fx:id="yearText" layoutX="332.0" layoutY="465.0" prefHeight="35.0" prefWidth="150.0">
         <font>
             <Font size="18.0" />
         </font>
     </TextField>
-    <Button layoutX="75.0" layoutY="750.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Insert">
+    <Button layoutX="27.0" layoutY="515.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Insert">
         <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
         </font>
     </Button>
-    <Button layoutX="220.0" layoutY="750.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Update">
+    <Button layoutX="142.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Update">
         <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
         </font>
     </Button>
-    <Button layoutX="365.0" layoutY="750.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Delete">
+    <Button layoutX="257.0" layoutY="515.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Delete">
         <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
         </font>
     </Button>
-    <Button layoutX="510.0" layoutY="750.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="60.0" prefWidth="120.0" styleClass="small-size" text="Clear">
+    <Button layoutX="372.0" layoutY="515.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Clear">
         <font>
-            <Font size="24.0" />
+            <Font size="20.0" />
         </font>
     </Button>
-   <ComboBox fx:id="levelChoice" layoutX="170.0" layoutY="675.0" prefHeight="35.0" prefWidth="150.0" promptText="Choose" />
 </AnchorPane>

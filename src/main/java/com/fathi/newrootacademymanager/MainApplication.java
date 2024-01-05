@@ -38,7 +38,7 @@ public class MainApplication extends Application {
                 scene.getStylesheets().add(getClass().getResource("styles/controllers.css").toExternalForm());
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("images/logo.png")));
                 stage.setTitle("New Root Academy Manager");
-//                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.initStyle(StageStyle.TRANSPARENT);
                 stage.setScene(scene);
                 stage.show();
                 splashScreen.close();

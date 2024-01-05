@@ -20,7 +20,7 @@
 
 .center-part .table-view .column-header, .filter {
     -fx-background-color: transparent;
-    -fx-font-size: 20;
+    -fx-font-size: 16;
 }
 
 .center-part .table-view .column-header .label {
@@ -29,7 +29,7 @@
 
 .center-part .table-view .table-cell {
     -fx-border-color: -fx-white-color;
-    -fx-font-size: 16;
+    -fx-font-size: 14;
 }
 
 .center-part .table-view .table-row-cell {

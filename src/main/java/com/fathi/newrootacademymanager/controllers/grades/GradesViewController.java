@@ -4,7 +4,6 @@ import com.fathi.newrootacademymanager.helpers.enums.Level;
 import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
