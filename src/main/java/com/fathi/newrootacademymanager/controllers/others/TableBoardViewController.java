@@ -57,12 +57,13 @@ public class TableBoardViewController {
                 int day = getIndexFromDay(lesson.getDayOfWeek());
                 int start = getIndexFromTime(lesson.getStartTime());
                 int end = getIndexFromTime(lesson.getEndTime());
+                System.out.println(end - start);
                 Label label = new Label();
                 if (lesson.getGrade() != null) label.setText(lessonName + "\n" + lesson.getGrade().toString());
                 else label.setText(lessonName);
                 label.getStyleClass().add("grid-label");
                 String style = label.getStyle();
-                label.setStyle(style + "-fx-pref-height: " + (75.0 * (end - start)) + "; -fx-cursor: hand;");
+                label.setStyle(style + "-fx-pref-height: " + (100.0 * (end - start)) + "; -fx-cursor: hand;");
                 label.setOnMouseClicked(event -> {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
@@ -75,8 +76,8 @@ public class TableBoardViewController {
                         throw new RuntimeException(e);
                     }
                 });
-                clearCell(day, start, end - start);
-                grid.add(label, day, start, 1, end - start);
+                clearCell(day, start, (end - start));
+                grid.add(label, day, start, 1, (end - start));
             }
         }
     }
@@ -104,16 +105,20 @@ public class TableBoardViewController {
     }
 
     private int getIndexFromTime(LocalTime time) {
-        if (time.equals(LocalTime.of(9, 0))) return 0;
-        if (time.equals(LocalTime.of(10, 0))) return 1;
+        if (time.equals(LocalTime.of(8, 0))) return 0;
+        if (time.equals(LocalTime.of(8, 30))) return 0;
+        if (time.equals(LocalTime.of(9, 0))) return 1;
+        if (time.equals(LocalTime.of(9, 30))) return 1;
         if (time.equals(LocalTime.of(11, 0))) return 2;
+        if (time.equals(LocalTime.of(11, 30))) return 2;
         if (time.equals(LocalTime.of(12, 0))) return 3;
+        if (time.equals(LocalTime.of(12, 30))) return 3;
         if (time.equals(LocalTime.of(13, 0))) return 4;
+        if (time.equals(LocalTime.of(13, 30))) return 4;
         if (time.equals(LocalTime.of(14, 0))) return 5;
+        if (time.equals(LocalTime.of(14, 30))) return 5;
         if (time.equals(LocalTime.of(15, 0))) return 6;
-        if (time.equals(LocalTime.of(16, 0))) return 7;
-        if (time.equals(LocalTime.of(17, 0))) return 8;
-        if (time.equals(LocalTime.of(18, 0))) return 9;
+        if (time.equals(LocalTime.of(15, 30))) return 6;
         return -1;
     }
 

@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
-    <BorderPane prefHeight="900.0" prefWidth="1700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="630.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.MainViewController">
+    <BorderPane prefHeight="630.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
             <AnchorPane fx:id="topPane" styleClass="top-part" BorderPane.alignment="CENTER">
-                <Button alignment="CENTER" layoutX="1540.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
+                <Button alignment="CENTER" layoutX="940.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="60.0" styleClass="btn-close" textAlignment="CENTER" AnchorPane.rightAnchor="0.0">
                     <graphic>
                         <FontAwesomeIconView caretBias="false" glyphName="CLOSE" size="22" />
                     </graphic>
                 </Button>
-                <Button alignment="CENTER" layoutX="1480.0" mnemonicParsing="false" onAction="#minimize" prefHeight="30.0" prefWidth="60.0" styleClass="btn-minimize" textAlignment="CENTER" AnchorPane.rightAnchor="60.0">
+                <Button alignment="CENTER" layoutX="880.0" mnemonicParsing="false" onAction="#minimize" prefHeight="30.0" prefWidth="60.0" styleClass="btn-minimize" textAlignment="CENTER" AnchorPane.rightAnchor="60.0">
                     <graphic>
                         <FontAwesomeIconView caretBias="false" glyphName="MINUS" size="22" />
                     </graphic>
@@ -26,67 +26,67 @@
             </AnchorPane>
         </top>
         <left>
-            <AnchorPane prefHeight="830.0" prefWidth="400.0" styleClass="left-part" BorderPane.alignment="CENTER">
-                <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="700.0" prefWidth="200.0" styleClass="left-part" BorderPane.alignment="CENTER">
+                <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
                     <Image url="@../images/logo.png" />
                 </ImageView>
-                <Button layoutY="400.0" mnemonicParsing="false" onAction="#openDashboardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Dashboard">
+                <Button layoutY="200.0" mnemonicParsing="false" onAction="#openDashboardScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Dashboard">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="HOME" />
                     </graphic>
                 </Button>
-                <Button layoutY="460.0" mnemonicParsing="false" onAction="#openFinancesScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Finances">
+                <Button layoutY="250.0" mnemonicParsing="false" onAction="#openFinancesScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Finances">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="MONEY" />
                     </graphic>
                 </Button>
-                <Button layoutY="520.0" mnemonicParsing="false" onAction="#openTableBoardScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Table Board">
+                <Button layoutY="300.0" mnemonicParsing="false" onAction="#openTableBoardScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Table Board">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="TABLE" />
                     </graphic>
                 </Button>
-                <Button layoutY="580.0" mnemonicParsing="false" onAction="#openLessonsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Lessons">
+                <Button layoutY="350.0" mnemonicParsing="false" onAction="#openLessonsScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Lessons">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="BOOK" />
                     </graphic>
                 </Button>
-                <Button layoutY="640.0" mnemonicParsing="false" onAction="#openStudentsScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Students">
+                <Button layoutY="400.0" mnemonicParsing="false" onAction="#openStudentsScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Students">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="GRADUATION_CAP" />
                     </graphic>
                 </Button>
-                <Button layoutY="700.0" mnemonicParsing="false" onAction="#openTeachersScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Teachers">
+                <Button layoutY="450.0" mnemonicParsing="false" onAction="#openTeachersScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Teachers">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="USER" />
                     </graphic>
                 </Button>
-                <Button layoutY="760.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="60.0" prefWidth="400.0" styleClass="nav-button" text="Grades &amp; Rooms">
+                <Button layoutY="500.0" mnemonicParsing="false" onAction="#openGRScene" prefHeight="50.0" prefWidth="200.0" styleClass="nav-button" text="Grades &amp; Rooms">
                     <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                     </font>
                     <graphic>
                         <FontAwesomeIconView fill="#f8b038" glyphName="LIST" />
                     </graphic>
                 </Button>
-                <Label layoutY="830.0" onMouseClicked="#aboutAction" prefHeight="40" prefWidth="400.0" text="By Fathi Abdelmalek">
+                <Label layoutY="625.0" onMouseClicked="#aboutAction" prefHeight="45.0" prefWidth="200.0" text="By Fathi Abdelmalek" AnchorPane.bottomAnchor="0.0">
                     <font>
                         <Font name="Ink Free" size="12.0" />
                     </font>
@@ -94,7 +94,7 @@
             </AnchorPane>
         </left>
         <center>
-            <AnchorPane fx:id="mainPane" prefHeight="828.0" styleClass="center-part" BorderPane.alignment="CENTER" />
+            <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1000.0" styleClass="center-part" BorderPane.alignment="CENTER" />
         </center>
     </BorderPane>
 </AnchorPane>

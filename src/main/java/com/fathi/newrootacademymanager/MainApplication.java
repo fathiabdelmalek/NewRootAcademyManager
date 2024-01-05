@@ -28,10 +28,17 @@ public class MainApplication extends Application {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("views/main-view.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
-                scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
-                stage.setTitle("New Root Academy Manager");
+                scene.getStylesheets().add(getClass().getResource("styles/main.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/list.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/table.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/chart.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/top-part.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/left-part.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/center-part.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("styles/controllers.css").toExternalForm());
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("images/logo.png")));
-                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setTitle("New Root Academy Manager");
+//                stage.initStyle(StageStyle.TRANSPARENT);
                 stage.setScene(scene);
                 stage.show();
                 splashScreen.close();

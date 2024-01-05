@@ -1,62 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController">
-   <Pane layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
-      <Label fx:id="totalStudentsLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.DashboardViewController">
+   <Pane layoutX="25.0" layoutY="25.0" prefHeight="100.0" prefWidth="300.0" styleClass="custom-pane">
+      <Label fx:id="totalStudentsLabel" alignment="CENTER_RIGHT" layoutY="5.0" prefWidth="300.0" styleClass="number" text="0">
          <font>
-            <Font size="48.0" />
+            <Font size="42.0" />
          </font>
          <padding>
             <Insets right="25.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Students #">
+      <Label alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="300.0" text="Total Students #">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <FontAwesomeIconView fill="#f8b038" glyphName="GRADUATION_CAP" layoutX="50.0" layoutY="100.0" size="60" text="" />
+      <FontAwesomeIconView fill="#f8b038" glyphName="GRADUATION_CAP" layoutX="25.0" layoutY="50.0" size="50" text="" />
    </Pane>
-   <Pane layoutX="500.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
-      <Label fx:id="totalTeachersLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+   <Pane layoutX="350.0" layoutY="25.0" prefHeight="100.0" prefWidth="300.0" styleClass="custom-pane">
+      <Label fx:id="totalTeachersLabel" alignment="CENTER_RIGHT" layoutY="5.0" prefWidth="300.0" styleClass="number" text="0">
          <font>
-            <Font size="48.0" />
+            <Font size="42.0" />
          </font>
          <padding>
             <Insets right="25.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Teachers #">
+      <Label alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="300.0" text="Total Teachers #">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <FontAwesomeIconView fill="#f8b038" glyphName="USER" layoutX="50.0" layoutY="100.0" size="60" />
+      <FontAwesomeIconView fill="#f8b038" glyphName="USER" layoutX="25.0" layoutY="50.0" size="50" />
    </Pane>
-   <Pane layoutX="950.0" layoutY="50.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
-      <Label fx:id="totalLessonsLabel" alignment="CENTER_RIGHT" layoutY="15.0" prefWidth="400.0" styleClass="number" text="0">
+   <Pane layoutX="675.0" layoutY="25.0" prefHeight="100.0" prefWidth="300.0" styleClass="custom-pane">
+      <Label fx:id="totalLessonsLabel" alignment="CENTER_RIGHT" layoutY="5.0" prefWidth="300.0" styleClass="number" text="0">
          <font>
-            <Font size="48.0" />
+            <Font size="42.0" />
          </font>
          <padding>
             <Insets right="25.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER" layoutY="125.0" prefHeight="50.0" prefWidth="400.0" text="Total Lessons #">
+      <Label alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="300.0" text="Total Lessons #">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <FontAwesomeIconView fill="#f8b038" glyphName="BOOK" layoutX="50.0" layoutY="100.0" size="60" />
+      <FontAwesomeIconView fill="#f8b038" glyphName="BOOK" layoutX="25.0" layoutY="50.0" size="50" />
    </Pane>
-   <BarChart fx:id="byLevelsChart" layoutX="50.0" layoutY="275.0" prefHeight="450.0" prefWidth="600.0">
+   <BarChart fx:id="byLevelsChart" layoutX="25.0" layoutY="150.0" prefHeight="350.0" prefWidth="525.0">
      <xAxis>
        <CategoryAxis side="BOTTOM" />
      </xAxis>
@@ -64,7 +70,7 @@
        <NumberAxis side="LEFT" />
      </yAxis>
    </BarChart>
-   <BarChart fx:id="byGradesChart" layoutX="50.0" layoutY="275.0" prefHeight="450.0" prefWidth="600.0" visible="false">
+   <BarChart fx:id="byGradesChart" layoutX="25.0" layoutY="150.0" prefHeight="350.0" prefWidth="525.0" visible="false">
       <xAxis>
          <CategoryAxis side="BOTTOM" />
       </xAxis>
@@ -72,88 +78,88 @@
          <NumberAxis side="LEFT" />
       </yAxis>
    </BarChart>
-   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" selected="true" styleClass="large-size" text="By Level">
+   <RadioButton fx:id="levelsChoice" layoutX="100.0" layoutY="525.0" mnemonicParsing="false" prefWidth="175.0" selected="true" styleClass="large-size" text="By Level">
       <font>
-         <Font size="36.0" />
+         <Font size="26.0" />
       </font>
       <toggleGroup>
          <ToggleGroup fx:id="chart" />
       </toggleGroup>
    </RadioButton>
-   <RadioButton fx:id="gradesChoice" layoutX="375.0" layoutY="750.0" mnemonicParsing="false" prefWidth="250.0" styleClass="large-size" text="By Grade" toggleGroup="$chart">
+   <RadioButton fx:id="gradesChoice" layoutX="300.0" layoutY="525.0" mnemonicParsing="false" prefWidth="175.0" styleClass="large-size" text="By Grade" toggleGroup="$chart">
       <font>
-         <Font size="36.0" />
+         <Font size="26.0" />
       </font>
    </RadioButton>
-   <Pane layoutX="700.0" layoutY="275.0" prefHeight="265.0" prefWidth="650.0" styleClass="custom-pane">
-      <Label alignment="CENTER_RIGHT" layoutY="100.0" prefHeight="50.0" prefWidth="325.0" text="Total Income">
+   <Pane layoutX="575.0" layoutY="150.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label alignment="CENTER" prefHeight="75.0" prefWidth="400.0" text="Total Finances">
          <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefWidth="650.0" text="Total Finances">
-         <font>
-            <Font size="48.0" />
+            <Font size="40.0" />
          </font>
          <padding>
             <Insets top="10.0" />
          </padding>
       </Label>
-      <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="100.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="Total Income">
          <font>
-            <Font size="34.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets right="50.0" />
+            <Insets right="25.0" />
          </padding>
       </Label>
-      <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="Total Expense">
          <font>
-            <Font size="34.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets right="50.0" />
+            <Insets right="25.0" />
          </padding>
       </Label>
-      <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="200.0" prefHeight="50.0" prefWidth="325.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="Total Profit">
          <font>
-            <Font size="34.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets right="50.0" />
+            <Insets right="25.0" />
          </padding>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="50.0" prefWidth="325.0" text="Total Profit">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutY="150.0" prefHeight="50.0" prefWidth="325.0" text="Total Expense">
-         <font>
-            <Font size="34.0" />
-         </font>
       </Label>
    </Pane>
-   <Pane layoutX="700.0" layoutY="545.0" prefHeight="265.0" prefWidth="650.0" styleClass="custom-pane">
+   <Pane layoutX="575.0" layoutY="375.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
       <children>
-         <Label alignment="CENTER" prefWidth="650.0" text="Last 5 Activities">
+         <Label alignment="CENTER" prefHeight="75.0" prefWidth="400.0" text="Last 5 Activities">
             <font>
-               <Font size="48.0" />
+               <Font size="40.0" />
             </font>
             <padding>
                <Insets top="10.0" />
             </padding>
          </Label>
-         <ListView fx:id="activitiesList" layoutX="5.0" layoutY="90.0" prefHeight="160.0" prefWidth="640.0" />
+         <ListView fx:id="activitiesList" layoutX="5.0" layoutY="75.0" prefHeight="120.0" prefWidth="390.0" />
       </children>
    </Pane>
 </AnchorPane>

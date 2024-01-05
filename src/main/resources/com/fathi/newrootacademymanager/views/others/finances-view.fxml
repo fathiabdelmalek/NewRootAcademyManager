@@ -1,105 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.FinancesViewController">
-   <Pane layoutX="25.0" layoutY="25.0" prefHeight="300.0" prefWidth="630.0" styleClass="custom-pane" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="125.0" prefHeight="50.0" prefWidth="250.0" text="Total Income">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.FinancesViewController">
+   <Pane layoutX="75.0" layoutY="25.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label alignment="CENTER" prefHeight="75.0" prefWidth="400.0" text="Total Finances">
          <font>
-            <Font size="36.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutY="15.0" prefWidth="630.0" text="Total Finances">
+      <Label alignment="CENTER_RIGHT" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="Total Income">
          <font>
-            <Font size="48.0" />
+            <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="125.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label fx:id="totalIncomeLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
-      <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="175.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="Total Expense">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalExpenseLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
-      <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="225.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="Total Profit">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalProfitLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="225.0" prefHeight="50.0" prefWidth="250.0" text="Total Profit">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="175.0" prefHeight="50.0" prefWidth="250.0" text="Total Expense">
-         <font>
-            <Font size="36.0" />
-         </font>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
    </Pane>
-   <Pane layoutX="775.0" layoutY="25.0" prefHeight="300.0" prefWidth="630.0" styleClass="custom-pane" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="125.0" prefHeight="50.0" prefWidth="250.0" text="Total Income">
+   <Pane layoutX="525.0" layoutY="25.0" prefHeight="200.0" prefWidth="400.0" styleClass="custom-pane">
+      <Label alignment="CENTER" prefHeight="75.0" prefWidth="400.0" text="Total Filtered Incomes">
          <font>
-            <Font size="36.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutY="15.0" prefWidth="630.0" text="Total Filtered Incomes">
+      <Label alignment="CENTER_RIGHT" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="Total Income">
          <font>
-            <Font size="48.0" />
+            <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="filteredIncomeLabel" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="125.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label fx:id="filteredIncomeLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="75.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
-      <Label fx:id="filteredExpenseLabel" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="175.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="Total Expense">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="filteredExpenseLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="115.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
-      <Label fx:id="filteredProfitLabel" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="225.0" prefHeight="50.0" prefWidth="250.0" text="000.00">
+      <Label alignment="CENTER_RIGHT" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="Total Profit">
          <font>
-            <Font size="36.0" />
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="filteredProfitLabel" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="155.0" prefHeight="40.0" prefWidth="200.0" text="000.00">
+         <font>
+            <Font size="28.0" />
          </font>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="225.0" prefHeight="50.0" prefWidth="250.0" text="Total Profit">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="175.0" prefHeight="50.0" prefWidth="250.0" text="Total Expense">
-         <font>
-            <Font size="36.0" />
-         </font>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
       </Label>
    </Pane>
-    <LineChart fx:id="chart" layoutX="23.0" layoutY="350.0" prefHeight="455.0" prefWidth="630.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="23.0">
+    <LineChart fx:id="chart" layoutX="25.0" layoutY="250.0" prefHeight="350.0" prefWidth="525.0">
       <xAxis>
           <CategoryAxis label="Days" side="BOTTOM" />
       </xAxis>
@@ -107,20 +130,20 @@
           <NumberAxis label="Total Income" side="LEFT" />
       </yAxis>
     </LineChart>
-    <Label alignment="CENTER_RIGHT" layoutX="750.0" layoutY="350.0" prefHeight="35.0" prefWidth="275.0" text="Calculate From">
+    <Label alignment="CENTER_RIGHT" layoutX="575.0" layoutY="250.0" prefHeight="35.0" prefWidth="195.0" text="Calculate From">
         <font>
-          <Font size="24.0" />
+          <Font size="20.0" />
         </font>
     </Label>
-    <DatePicker fx:id="datePicker" layoutX="1030.0" layoutY="350.0" onAction="#filterAction" prefHeight="35.0" prefWidth="275.0" />
-   <Button layoutX="750.0" layoutY="450.0" mnemonicParsing="false" onAction="#openIncomeAction" prefWidth="555.0" prefHeight="100" text="Open Income Details" styleClass="large-size">
+    <DatePicker fx:id="datePicker" layoutX="775.0" layoutY="250.0" onAction="#filterAction" prefHeight="35.0" prefWidth="200.0" />
+   <Button layoutX="575.0" layoutY="300.0" mnemonicParsing="false" onAction="#openIncomeAction" prefHeight="100" prefWidth="400.0" styleClass="large-size" text="Open Income Details">
       <font>
-         <Font size="46.0" />
+         <Font size="36.0" />
       </font>
    </Button>
-   <Button layoutX="750.0" layoutY="600.0" mnemonicParsing="false" onAction="#openExpenseAction" prefWidth="555.0" prefHeight="100" text="Open Expense Details" styleClass="large-size">
+   <Button layoutX="575.0" layoutY="450.0" mnemonicParsing="false" onAction="#openExpenseAction" prefHeight="100" prefWidth="400.0" styleClass="large-size" text="Open Expense Details">
       <font>
-         <Font size="46.0" />
+         <Font size="36.0" />
       </font>
    </Button>
 </AnchorPane>

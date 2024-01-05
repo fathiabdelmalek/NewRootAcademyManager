@@ -1,0 +1,18 @@
+.top-part {
+    -fx-background-color: linear-gradient(to right, -fx-dark-color 23.5%, -fx-primary-color 45%, -fx-light-color 65%, -fx-white-color 95%);
+}
+
+.top-part .btn-close, .btn-minimize {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0;
+}
+
+.top-part .btn-close:hover {
+    -fx-background-color: -fx-red-color;
+    -fx-cursor: hand;
+}
+
+.top-part .btn-minimize:hover {
+    -fx-background-color: -fx-dark-grey-color;
+    -fx-cursor: hand;
+}

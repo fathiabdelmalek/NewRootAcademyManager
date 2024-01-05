@@ -1,0 +1,72 @@
+.center-part .table-view {
+    -fx-background-color: transparent;
+}
+
+.center-part .table-view .table-column {
+    -fx-alignment: center;
+}
+
+.center-part .table-view .column-header-background {
+    -fx-background-color: -fx-primary-color;
+}
+
+.center-part .table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.center-part .table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.center-part .table-view .column-header, .filter {
+    -fx-background-color: transparent;
+    -fx-font-size: 20;
+}
+
+.center-part .table-view .column-header .label {
+    -fx-text-fill: -fx-white-color;
+}
+
+.center-part .table-view .table-cell {
+    -fx-border-color: -fx-white-color;
+    -fx-font-size: 16;
+}
+
+.center-part .table-view .table-row-cell {
+    -fx-background-color: -fx-white-color;
+    -fx-border-color: transparent transparent -fx-dark-color transparent;
+    -fx-text-background-color: -fx-dark-color;
+}
+
+.center-part .table-view .table-row-cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+    -fx-text-background-color: -fx-primary-color;
+}
+
+.center-part .table-view .table-row-cell:selected {
+    -fx-background-color: -fx-light-color;
+    -fx-text-background-color: -fx-white-color;
+}
+
+.center-part .table-view .virtual-flow .scroll-bar:vertical,
+.center-part .table-view .virtual-flow .scroll-bar:vertical .track,
+.center-part .table-view .virtual-flow .scroll-bar:vertical .track-background,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .track,
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: -fx-white-color;
+}
+
+.center-part .table-view .virtual-flow .scroll-bar .increment-button,
+.center-part .table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.center-part .table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: -fx-primary-color;
+}
+
+.center-part .table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-primary-color;
+}

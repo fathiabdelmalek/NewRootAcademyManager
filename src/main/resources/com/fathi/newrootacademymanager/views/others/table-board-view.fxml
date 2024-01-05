@@ -6,104 +6,82 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="830.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.fathi.newrootacademymanager.controllers.others.TableBoardViewController">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.others.TableBoardViewController">
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="25.0" prefWidth="150.0" text="Room">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
     <ComboBox fx:id="roomChoice" layoutX="180.0" layoutY="25.0" onAction="#changeRoomAction" prefHeight="35.0" prefWidth="150.0" promptText="Choose" />
-    <Label alignment="CENTER" layoutX="175.0" layoutY="75.0" prefWidth="175.0" text="Saturday">
+    <Label alignment="CENTER" layoutX="100.0" layoutY="100.0" prefWidth="125.0" text="Saturday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="350.0" layoutY="75.0" prefWidth="175.0" text="Sunday">
+    <Label alignment="CENTER" layoutX="225.0" layoutY="100.0" prefWidth="125.0" text="Sunday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="525.0" layoutY="75.0" prefWidth="175.0" text="Monday">
+    <Label alignment="CENTER" layoutX="350.0" layoutY="100.0" prefWidth="125.0" text="Monday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="700.0" layoutY="75.0" prefWidth="175.0" text="Tuesday">
+    <Label alignment="CENTER" layoutX="475.0" layoutY="100.0" prefWidth="125.0" text="Tuesday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="875.0" layoutY="75.0" prefWidth="175.0" text="Wednesday">
+    <Label alignment="CENTER" layoutX="600.0" layoutY="100.0" prefWidth="125.0" text="Wednesday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="1050.0" layoutY="75.0" prefWidth="175.0" text="Thursday">
+    <Label alignment="CENTER" layoutX="725.0" layoutY="100.0" prefWidth="125.0" text="Thursday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="1225.0" layoutY="75.0" prefWidth="175.0" text="Friday">
+    <Label alignment="CENTER" layoutX="850.0" layoutY="100.0" prefWidth="125.0" text="Friday">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="100.0" text="09:00 AM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="125.0" prefWidth="80.0" text="08:00 AM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="170.0" text="10:00 AM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="200.0" prefWidth="80.0" text="09:30 AM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="240.0" text="11:00 AM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="275.0" prefWidth="80.0" text="11:00 AM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="310.0" text="12:00 PM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="350.0" prefWidth="80.0" text="12:30 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="380.0" text="01:00 PM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="425.0" prefWidth="80.0" text="02:00 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="450.0" text="02:00 PM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="500.0" prefWidth="80.0" text="03:30 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="520.0" text="03:00 PM">
+    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="575.0" prefWidth="80.0" text="05:00 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="75.0" layoutY="590.0" text="04:00 PM">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
-    <Label layoutX="75.0" layoutY="660.0" text="05:00 PM">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
-    <Label layoutX="75.0" layoutY="730.0" text="06:00 PM">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
-    <Label layoutX="75.0" layoutY="800.0" text="07:00 PM">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
-    <GridPane fx:id="grid" alignment="CENTER" prefHeight="700.0" prefWidth="1225.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="0.0" />
+    <GridPane fx:id="grid" alignment="CENTER" layoutX="120.0" layoutY="130.0" prefHeight="450.0" prefWidth="850.0" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="30.0" />
 </AnchorPane>

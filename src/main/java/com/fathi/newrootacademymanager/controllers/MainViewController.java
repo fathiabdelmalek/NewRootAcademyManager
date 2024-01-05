@@ -76,7 +76,10 @@ public class MainViewController {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("/com/fathi/newrootacademymanager/views/others/about-view.fxml"));
             Scene scene = new Scene(loader.load());
-            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/style.css").toExternalForm());
+            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/main.css").toExternalForm());
+            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/about.css").toExternalForm());
+            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/top-part.css").toExternalForm());
+            scene.getStylesheets().add(MainViewController.class.getResource("/com/fathi/newrootacademymanager/styles/center-part.css").toExternalForm());
             stage.setTitle("About Me");
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);

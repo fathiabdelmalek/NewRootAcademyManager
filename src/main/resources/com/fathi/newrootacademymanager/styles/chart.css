@@ -1,0 +1,21 @@
+.center-part .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.center-part .chart-vertical-grid-lines,
+.center-part .chart-horizontal-grid-lines {
+    -fx-stroke: -fx-dark-color;
+}
+
+.center-part .chart-alternative-row-fill {
+    -fx-fill: -fx-light-grey-color;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+
+.center-part .default-color0.chart-bar { -fx-bar-fill: -fx-primary-color; }
+.center-part .default-color1.chart-bar { -fx-bar-fill: -fx-secondary-color; }
+.center-part .default-color0.chart-series-line { -fx-stroke: -fx-primary-color; }
+.center-part .default-color1.chart-series-line { -fx-stroke: -fx-secondary-color; }
+.center-part .default-color0.chart-line-symbol { -fx-background-color: transparent, transparent; }
+.center-part .default-color1.chart-line-symbol { -fx-background-color: transparent, transparent; }

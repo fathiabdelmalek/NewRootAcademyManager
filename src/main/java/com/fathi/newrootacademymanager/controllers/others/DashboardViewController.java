@@ -108,6 +108,6 @@ public class DashboardViewController {
     }
 
     public void getLastActivities() {
-        activitiesList.setItems(CRUDService.readAll(Activity.class, 5, "DESC"));
+        activitiesList.setItems(CRUDService.readAll(Activity.class, 4, "DESC"));
     }
 }

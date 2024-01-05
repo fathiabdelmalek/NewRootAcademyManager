@@ -1,0 +1,155 @@
+.center-part .text-field {
+    -fx-font-size: 18;
+}
+
+
+.center-part .button {
+    -fx-background-color: -fx-secondary-color;
+    -fx-text-fill: -fx-dark-color;
+    -fx-cursor: hand;
+}
+
+.center-part .button:hover {
+    -fx-background-color: #FFD966;
+    -fx-font-weight: bold;
+}
+
+.center-part .button:pressed {
+    -fx-background-color: #D89D38;
+}
+
+.center-part .button.small-size {
+    -fx-font-size: 24;
+}
+
+.center-part .button.large-size {
+    -fx-font-size: 36;
+}
+
+.center-part .button:disabled {
+    -fx-opacity: 0.5;
+}
+
+
+.center-part .radio-button .radio {
+    -fx-border-color: -fx-dark-color;
+    -fx-border-radius: 50%;
+    -fx-background-color: transparent;
+}
+
+.center-part .radio-button:hover .radio {
+    -fx-background-color: -fx-light-grey-color;
+}
+
+.center-part .radio-button:selected .radio {
+    -fx-border-color: -fx-primary-color;
+}
+
+.center-part .radio-button:selected .radio .dot {
+    -fx-background-color: -fx-dark-color;
+}
+
+.center-part .radio-button.small-size {
+    -fx-font-size: 12;
+}
+
+.center-part .radio-button.large-size {
+    -fx-font-size: 24;
+}
+
+
+.center-part .combo-box {
+    -fx-background-color: -fx-dark-grey-color;
+    -fx-border-color: -fx-dark-color;
+    -fx-font-size: 18;
+}
+
+.center-part .combo-box:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+
+
+.center-part .date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-dark-color;
+    -fx-font-size: 18;
+}
+
+.center-part .date-picker .arrow-button {
+    -fx-background-color: -fx-secondary-color;
+    -fx-border-radius: 0;
+}
+
+.center-part .date-picker .arrow-button:hover {
+    -fx-background-color: -fx-primary-color;
+}
+
+.center-part .date-picker .arrow-button .arrow {
+    -fx-background-color: -fx-white-color;
+}
+
+.center-part .date-picker .cell {
+    -fx-background-color: -fx-white-color;
+}
+
+.center-part .date-picker .cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+    -fx-text-fill: -fx-primary-color;
+}
+
+.center-part .date-picker .cell:focused {
+    -fx-background-color: -fx-light-color;
+    -fx-text-fill: -fx-white-color;
+}
+
+.center-part .date-picker .selected {
+    -fx-background-color: -fx-light-color;
+    -fx-text-fill: -fx-white-color;
+}
+
+.center-part .date-picker .selected:focused {
+    -fx-background-color: -fx-light-color;
+    -fx-text-fill: -fx-white-color;
+}
+
+.center-part .date-picker-popup {
+    -fx-border-color: transparent;
+}
+
+.center-part .date-picker-popup .month-year-pane {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.center-part .date-picker-popup .month-year-pane .label {
+    -fx-text-fill: -fx-dark-color;
+}
+
+.center-part .date-picker-popup .week-number-cell {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.center-part .date-picker-popup .spinner .button .left-arrow,
+.center-part .date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: -fx-primary-color;
+}
+
+
+.center-part .spinner .increment-arrow-button,
+.center-part .spinner .decrement-arrow-button {
+    -fx-background-color: -fx-light-grey-color;
+}
+
+.center-part .spinner .increment-arrow-button:focused,
+.center-part .spinner .decrement-arrow-button:focused {
+    -fx-background-color: -fx-dark-grey-color;
+}
+
+.center-part .spinner .increment-arrow-button:hover,
+.center-part .spinner .decrement-arrow-button:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+
+.center-part .spinner .increment-arrow-button:pressed,
+.center-part .spinner .decrement-arrow-button:pressed {
+    -fx-background-color: -fx-light-color;
+}

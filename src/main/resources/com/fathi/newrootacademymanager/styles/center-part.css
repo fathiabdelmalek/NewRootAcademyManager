@@ -1,0 +1,33 @@
+.center-part {
+    -fx-background-color: -fx-white-color;
+}
+
+.center-part .custom-pane {
+    -fx-background-color: -fx-light-color;
+    -fx-background-radius: 8;
+}
+
+.center-part .custom-pane .number {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-weight: bold;
+}
+
+.center-part .grid-label {
+    -fx-border-color: -fx-dark-color;
+    -fx-border-insets: 1 1 1 1;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-size: 14;
+    -fx-pref-width: 175.0;
+    -fx-pref-height: 100.0;
+}
+
+.center-part .decrease-action-button,
+.center-part .increase-action-button {
+    -fx-cursor: hand;
+    -fx-font-size: 24;
+}
+
+.center-part .decrease-action-button { -fx-fill: -fx-red-color; }
+
+.center-part .increase-action-button { -fx-fill: -fx-primary-color; }

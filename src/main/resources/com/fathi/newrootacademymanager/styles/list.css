@@ -1,0 +1,38 @@
+.center-part .list-view .list-cell {
+    -fx-background-color: -fx-white-color;
+    -fx-border-color: transparent transparent -fx-dark-color transparent;
+    -fx-font-size: 12;
+}
+
+.center-part .list-view .list-cell:hover {
+    -fx-background-color: -fx-light-grey-color;
+    -fx-text-background-color: -fx-primary-color;
+}
+
+.center-part .list-view .list-cell:selected {
+    -fx-background-color: -fx-light-color;
+    -fx-text-fill: -fx-white-color;
+}
+
+.center-part .list-view .virtual-flow .scroll-bar:vertical,
+.center-part .list-view .virtual-flow .scroll-bar:vertical .track,
+.center-part .list-view .virtual-flow .scroll-bar:vertical .track-background,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .track,
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.center-part .list-view .virtual-flow .scroll-bar .increment-button,
+.center-part .list-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.center-part .list-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: -fx-primary-color;
+}
+
+.center-part .list-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: -fx-primary-color;
+}

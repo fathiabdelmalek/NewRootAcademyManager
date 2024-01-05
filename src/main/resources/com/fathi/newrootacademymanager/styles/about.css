@@ -1,0 +1,20 @@
+.with-border {
+    -fx-border-color: -fx-dark-color;
+    -fx-border-width: 0 2 2 2;
+}
+
+.about-title {
+    -fx-font-size: 60;
+    -fx-font-weight: bold;
+    -fx-font-family: Cambria;
+    -fx-text-fill: -fx-primary-color;
+}
+
+.about-desc {
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+    -fx-font-family: Verdana;
+    -fx-text-fill: -fx-secondary-color;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}

@@ -1,0 +1,13 @@
+* {
+    -fx-primary-color: #187BBE;
+    -fx-secondary-color: #F8B038;
+    -fx-dark-color: #1F2B51;
+    -fx-light-color: #4DC2ED;
+    -fx-grey-color: #DDDDDD;
+    -fx-white-color: #FFFFFF;
+    -fx-red-color: #FF0000;
+    -fx-dark-grey-color: #1F2B5111;
+    -fx-light-grey-color: #4DC2ED11;
+    -fx-font-family: "Arial";
+    -fx-text-fill: -fx-dark-color;
+}
