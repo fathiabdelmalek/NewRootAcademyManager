@@ -52,14 +52,12 @@ public class LessonDetailsViewController {
     private Attendance latestSelection;
     private Lesson lesson;
     private Student student;
-    private int currentClassesNumber;
 
     @FXML
     public void initialize(int lessonId) {
         Platform.runLater(() -> searchText.requestFocus());
 
         lesson = CRUDService.readById(Lesson.class, lessonId);
-        currentClassesNumber = lesson.getClassesNumber();
 
         teacherNameText.setText((lesson.getTeacher().getFirstName() + " " + lesson.getTeacher().getLastName()));
         salaryText.setText(lesson.getTeacherDues().toString());
@@ -78,7 +76,7 @@ public class LessonDetailsViewController {
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection == null) {
                 updateFromSelection(oldSelection);
-                latestSelection = newSelection;
+                latestSelection = oldSelection;
             } else {
                 updateFromSelection(newSelection);
                 latestSelection = newSelection;
@@ -115,28 +113,19 @@ public class LessonDetailsViewController {
 
     @FXML
     void decreaseAction(ActionEvent actionEvent) {
-        lesson.setClassesNumber(lesson.getClassesNumber() - 1);
-        if (lesson.getClassesNumber() == 0 ||
-                (lesson.getClassesNumber() % 4 != 0 &&
-                        lesson.getClassesNumber() < currentClassesNumber &&
-                        currentClassesNumber % 4 == 0))
-            lesson.setTeacherDues(lesson.getTeacherDues().subtract(calcTeacherDues()));
-        CRUDService.update(lesson);
-        classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
-        salaryText.setText(lesson.getTeacherDues().toString());
-        currentClassesNumber = lesson.getClassesNumber();
-        LoggingService.update("Lesson " + lesson + " number of lessons decreased by one and become " + lesson.getClassesNumber());
+        if (lesson.getClassesNumber() > 0) {
+            lesson.setClassesNumber(lesson.getClassesNumber() - 1);
+            CRUDService.update(lesson);
+            classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
+            LoggingService.update("Lesson " + lesson + " number of lessons decreased by one and become " + lesson.getClassesNumber());
+        }
     }
 
     @FXML
     void increaseAction(ActionEvent actionEvent) {
         lesson.setClassesNumber(lesson.getClassesNumber() + 1);
-        if (lesson.getClassesNumber() % 4 == 0 && lesson.getClassesNumber() > currentClassesNumber)
-            lesson.setTeacherDues(lesson.getTeacherDues().add(calcTeacherDues()));
         CRUDService.update(lesson);
         classesNumberText.setText(String.valueOf(lesson.getClassesNumber()));
-        salaryText.setText(lesson.getTeacherDues().toString());
-        currentClassesNumber = lesson.getClassesNumber();
         LoggingService.update("Lesson " + lesson + " number of lessons increased by one and become " + lesson.getClassesNumber());
     }
 
@@ -150,6 +139,9 @@ public class LessonDetailsViewController {
         attendance.setDues(attendance.getDues().subtract(amount));
         CRUDService.update(attendance);
         refreshTable();
+        lesson.setTeacherDues(lesson.getTeacherDues().add(BigDecimal.valueOf(amount.longValue() * lesson.getPercentage() / 100)));
+        CRUDService.update(lesson);
+        salaryText.setText(lesson.getTeacherDues().toString());
         updateFromSelection(latestSelection);
         LoggingService.receive(details);
     }
@@ -227,8 +219,10 @@ public class LessonDetailsViewController {
         Map<String, Object> params = new HashMap<>();
         params.put("lesson", lesson);
         BigDecimal amount = new BigDecimal("0.00");
-        for (int i = 0; i < CRUDService.readByCriteria(Attendance.class, params).size(); i++) {
-            amount = amount.add(lesson.getPrice());
+        for (Attendance attendance : CRUDService.readByCriteria(Attendance.class, params)) {
+            if (attendance.getDues().equals(BigDecimal.ZERO)) {
+                amount = amount.add(lesson.getPrice());
+            }
         }
         return amount;
     }

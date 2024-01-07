@@ -121,35 +121,24 @@
       </font>
    </Label>
     <Spinner fx:id="startMinuteSpinner" editable="true" layoutX="300.0" layoutY="510.0" prefHeight="35.0" prefWidth="70.0" />
-    <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="510.0" prefWidth="150.0" text="End Time">
+   <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="510.0" prefWidth="150.0" text="Room">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+    <ComboBox fx:id="roomChoice" layoutX="530.0" layoutY="510.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose" />
+   <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="550.0" prefWidth="150.0" text="Teacher">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+    <ComboBox fx:id="teacherChoice" layoutX="170.0" layoutY="550.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose" />
+    <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="550.0" prefWidth="150.0" text="Percentage">
         <font>
             <Font size="24.0" />
         </font>
     </Label>
-   <Label alignment="CENTER_RIGHT" layoutX="530.0" layoutY="510.0" prefHeight="35.0" prefWidth="30.0" text="H:">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-    <Spinner fx:id="endHourSpinner" editable="true" layoutX="560.0" layoutY="510.0" prefHeight="35.0" prefWidth="70.0" />
-   <Label alignment="CENTER_RIGHT" layoutX="630.0" layoutY="510.0" prefHeight="35.0" prefWidth="30.0" text="M:">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-    <Spinner fx:id="endMinuteSpinner" editable="true" layoutX="660.0" layoutY="510.0" prefHeight="35.0" prefWidth="70.0" />
-   <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="550.0" prefWidth="150.0" text="Room">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-    <ComboBox fx:id="roomChoice" layoutX="170.0" layoutY="550.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose" />
-   <Label alignment="CENTER_RIGHT" layoutX="375.0" layoutY="550.0" prefWidth="150.0" text="Teacher">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-    <ComboBox fx:id="teacherChoice" layoutX="530.0" layoutY="550.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose" />
+   <Spinner fx:id="percentageSpinner" editable="true" layoutX="530.0" layoutY="550.0" prefHeight="35.0" prefWidth="200.0" />
     <Button layoutX="745.0" layoutY="450.0" mnemonicParsing="false" onAction="#insertAction" prefHeight="50.0" prefWidth="100.0" styleClass="small-size" text="Insert">
         <font>
             <Font size="20.0" />

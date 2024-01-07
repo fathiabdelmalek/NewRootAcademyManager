@@ -31,10 +31,6 @@ public class LessonsViewController {
     @FXML
     private Spinner<Integer> startMinuteSpinner;
     @FXML
-    private Spinner<Integer> endHourSpinner;
-    @FXML
-    private Spinner<Integer> endMinuteSpinner;
-    @FXML
     private TextField searchText;
     @FXML
     private TableView<Lesson> tableView;
@@ -54,6 +50,8 @@ public class LessonsViewController {
     private ComboBox<Room> roomChoice;
     @FXML
     private ComboBox<Teacher> teacherChoice;
+    @FXML
+    private Spinner<Integer> percentageSpinner;
     private int id;
 
     @FXML
@@ -80,18 +78,17 @@ public class LessonsViewController {
 
         SpinnerValueFactory<Integer> startHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(8, 16, 8);
         SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 0, 15);
-        SpinnerValueFactory<Integer> endHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(9, 18, 9);
-        SpinnerValueFactory<Integer> endMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 30, 15);
         startHourSpinner.setValueFactory(startHoursRange);
         startMinuteSpinner.setValueFactory(startMinutesRange);
-        endHourSpinner.setValueFactory(endHoursRange);
-        endMinuteSpinner.setValueFactory(endMinutesRange);
 
         roomChoice.setItems(FXCollections.observableArrayList(CRUDService.readAll(Room.class)));
         roomChoice.getItems().addFirst(null);
 
         teacherChoice.setItems(FXCollections.observableList(CRUDService.readAll(Teacher.class)));
         teacherChoice.getItems().addFirst(null);
+
+        SpinnerValueFactory<Integer> percentageRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(40, 70, 50, 5);
+        percentageSpinner.setValueFactory(percentageRange);
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -118,8 +115,6 @@ public class LessonsViewController {
                 }
                 startHourSpinner.getValueFactory().setValue(newSelection.getStartTime().getHour());
                 startMinuteSpinner.getValueFactory().setValue(newSelection.getStartTime().getMinute());
-                endHourSpinner.getValueFactory().setValue(newSelection.getEndTime().getHour());
-                endMinuteSpinner.getValueFactory().setValue(newSelection.getEndTime().getMinute());
                 for (Room room : roomChoice.getItems()) {
                     if (room == null) continue;
                     if (room.getCode().equalsIgnoreCase(newSelection.getRoom().toString())) {
@@ -134,6 +129,7 @@ public class LessonsViewController {
                         break;
                     }
                 }
+                percentageSpinner.getValueFactory().setValue(newSelection.getPercentage());
             }
         });
         tableView.setRowFactory(tx -> {
@@ -189,8 +185,9 @@ public class LessonsViewController {
                     lessonNameText.getText(),
                     dayChoice.getValue(),
                     LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()),
-                    LocalTime.of(endHourSpinner.getValue(), endMinuteSpinner.getValue()),
+                    LocalTime.of(startHourSpinner.getValue() + 1, startMinuteSpinner.getValue() + 30),
                     BigDecimal.valueOf(Double.parseDouble(priceText.getText())),
+                    percentageSpinner.getValue(),
                     teacherChoice.getValue(),
                     roomChoice.getValue(),
                     gradeChoice.getValue()
@@ -214,11 +211,12 @@ public class LessonsViewController {
             lesson.setLessonName(lessonNameText.getText());
             lesson.setDayOfWeek(dayChoice.getValue());
             lesson.setStartTime(LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()));
-            lesson.setEndTime(LocalTime.of(endHourSpinner.getValue(), endMinuteSpinner.getValue()));
+            LocalTime.of(startHourSpinner.getValue() + 1, startMinuteSpinner.getValue() + 30);
             lesson.setPrice(BigDecimal.valueOf(Double.parseDouble(priceText.getText())));
-            lesson.setTeacher(teacherChoice.getValue());
-            lesson.setRoom(roomChoice.getValue());
             lesson.setGrade(gradeChoice.getValue());
+            lesson.setRoom(roomChoice.getValue());
+            lesson.setTeacher(teacherChoice.getValue());
+            lesson.setPercentage(percentageSpinner.getValue());
             CRUDService.update(lesson);
             refreshTable();
             LoggingService.update("Lesson " + lesson + " have been updated");
@@ -241,9 +239,9 @@ public class LessonsViewController {
         dayChoice.getSelectionModel().clearSelection();
         startHourSpinner.getValueFactory().setValue(8);
         startMinuteSpinner.getValueFactory().setValue(0);
-        endHourSpinner.getValueFactory().setValue(9);
-        endMinuteSpinner.getValueFactory().setValue(30);
+        roomChoice.getSelectionModel().clearSelection();
         teacherChoice.getSelectionModel().clearSelection();
+        percentageSpinner.getValueFactory().setValue(50);
     }
 
     private void refreshTable() {

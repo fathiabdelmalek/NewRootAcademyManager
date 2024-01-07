@@ -3,7 +3,6 @@ package com.fathi.newrootacademymanager.controllers.others;
 import com.fathi.newrootacademymanager.controllers.lessons.LessonDetailsViewController;
 import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import com.fathi.newrootacademymanager.models.Lesson;
-import com.fathi.newrootacademymanager.models.LessonView;
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import javafx.collections.FXCollections;

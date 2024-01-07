@@ -29,13 +29,9 @@ public class AttendanceActions implements Callback<TableColumn<Attendance, Strin
 
                 decreaseIcon.setOnMouseClicked((MouseEvent event) -> {
                     Attendance attendance = CRUDService.readById(Attendance.class, getTableView().getSelectionModel().getSelectedItem().getId());
-                    attendance.setTimesPresent(attendance.getTimesPresent() - 1);
-                    if (attendance.getTimesPresent() >= 0) {
-                        if (attendance.getTimesPresent() == 0 ||
-                                (attendance.getTimesPresent() % 4 != 0 &&
-                                        attendance.getTimesPresent() < currentAttendancesNumber &&
-                                        currentAttendancesNumber % 4 == 0))
-                            attendance.setDues(attendance.getDues().subtract(attendance.getLesson().getPrice()));
+                    if (attendance.getTimesPresent() > 0) {
+                        attendance.setTimesPresent(attendance.getTimesPresent() - 1);
+                        attendance.setDues(attendance.getDues().subtract(attendance.getLesson().getPrice()));
                         CRUDService.update(attendance);
                         currentAttendancesNumber = attendance.getTimesPresent();
                         Map<String, Object> params = new HashMap<>();
@@ -46,10 +42,9 @@ public class AttendanceActions implements Callback<TableColumn<Attendance, Strin
 
                 increaseIcon.setOnMouseClicked((MouseEvent event) -> {
                     Attendance attendance = CRUDService.readById(Attendance.class, getTableView().getSelectionModel().getSelectedItem().getId());
-                    attendance.setTimesPresent(attendance.getTimesPresent() + 1);
-                    if (attendance.getTimesPresent() <= attendance.getLesson().getClassesNumber()) {
-                        if (attendance.getTimesPresent() % 4 == 0 && attendance.getTimesPresent() > currentAttendancesNumber)
-                            attendance.setDues(attendance.getDues().add(attendance.getLesson().getPrice()));
+                    if (attendance.getTimesPresent() < attendance.getLesson().getClassesNumber()) {
+                        attendance.setTimesPresent(attendance.getTimesPresent() + 1);
+                        attendance.setDues(attendance.getDues().add(attendance.getLesson().getPrice()));
                         CRUDService.update(attendance);
                         currentAttendancesNumber = attendance.getTimesPresent();
                         Map<String, Object> params = new HashMap<>();

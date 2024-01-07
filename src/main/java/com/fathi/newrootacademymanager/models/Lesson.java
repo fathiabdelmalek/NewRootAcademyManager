@@ -23,6 +23,8 @@ public class Lesson {
     private LocalTime endTime;
     @Column(nullable = false)
     private BigDecimal price;
+    @Column(nullable = false)
+    private int percentage;
     @Column(name = "classes_number", nullable = false, columnDefinition = "INTEGER DEFAULT 0")
     private int classesNumber;
     @Column(name = "teacher_dues", nullable = false, columnDefinition = "DECIMAL(38, 2)")
@@ -41,23 +43,25 @@ public class Lesson {
         this.teacherDues = new BigDecimal("0.00");
     }
 
-    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room) {
+    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, int percentage, Teacher teacher, Room room) {
         this.lessonName = lessonName;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
+        this.percentage = percentage;
         this.teacherDues = new BigDecimal("0.00");
         this.teacher = teacher;
         this.room = room;
     }
 
-    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, Teacher teacher, Room room, Grade grade) {
+    public Lesson(String lessonName, WeekDay dayOfWeek, LocalTime startTime, LocalTime endTime, BigDecimal price, int percentage, Teacher teacher, Room room, Grade grade) {
         this.lessonName = lessonName;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
+        this.percentage = percentage;
         this.teacherDues = new BigDecimal("0.00");
         this.teacher = teacher;
         this.room = room;
@@ -110,6 +114,14 @@ public class Lesson {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
     }
 
     public int getClassesNumber() {

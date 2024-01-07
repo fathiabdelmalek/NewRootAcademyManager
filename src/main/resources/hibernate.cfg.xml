@@ -21,10 +21,5 @@
         <mapping class="com.fathi.newrootacademymanager.models.Expense"/>
         <mapping class="com.fathi.newrootacademymanager.models.Attendance"/>
         <mapping class="com.fathi.newrootacademymanager.models.Activity"/>
-        <mapping class="com.fathi.newrootacademymanager.models.StudentView"/>
-        <mapping class="com.fathi.newrootacademymanager.models.LessonView"/>
-        <mapping class="com.fathi.newrootacademymanager.models.IncomeView"/>
-        <mapping class="com.fathi.newrootacademymanager.models.ExpenseView"/>
-        <mapping class="com.fathi.newrootacademymanager.models.AttendanceView"/>
     </session-factory>
 </hibernate-configuration>
