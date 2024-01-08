@@ -84,8 +84,8 @@ public class TableBoardViewController {
     private void resetTimetable() {
         grid.getChildren().clear();
         for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 10; j++) {
-                Label label = new Label("/");
+            for (int j = 0; j < 18; j++) {
+                Label label = new Label("");
                 label.getStyleClass().add("grid-label");
                 grid.add(label, i, j);
             }
@@ -105,19 +105,21 @@ public class TableBoardViewController {
 
     private int getIndexFromTime(LocalTime time) {
         if (time.equals(LocalTime.of(8, 0))) return 0;
-        if (time.equals(LocalTime.of(8, 30))) return 0;
-        if (time.equals(LocalTime.of(9, 0))) return 1;
-        if (time.equals(LocalTime.of(9, 30))) return 1;
-        if (time.equals(LocalTime.of(11, 0))) return 2;
-        if (time.equals(LocalTime.of(11, 30))) return 2;
-        if (time.equals(LocalTime.of(12, 0))) return 3;
-        if (time.equals(LocalTime.of(12, 30))) return 3;
-        if (time.equals(LocalTime.of(13, 0))) return 4;
-        if (time.equals(LocalTime.of(13, 30))) return 4;
-        if (time.equals(LocalTime.of(14, 0))) return 5;
-        if (time.equals(LocalTime.of(14, 30))) return 5;
-        if (time.equals(LocalTime.of(15, 0))) return 6;
-        if (time.equals(LocalTime.of(15, 30))) return 6;
+        if (time.equals(LocalTime.of(8, 30))) return 1;
+        if (time.equals(LocalTime.of(9, 0))) return 2;
+        if (time.equals(LocalTime.of(9, 30))) return 3;
+        if (time.equals(LocalTime.of(10, 0))) return 4;
+        if (time.equals(LocalTime.of(10, 30))) return 5;
+        if (time.equals(LocalTime.of(11, 0))) return 6;
+        if (time.equals(LocalTime.of(11, 30))) return 7;
+        if (time.equals(LocalTime.of(12, 0))) return 8;
+        if (time.equals(LocalTime.of(12, 30))) return 9;
+        if (time.equals(LocalTime.of(13, 0))) return 10;
+        if (time.equals(LocalTime.of(13, 30))) return 11;
+        if (time.equals(LocalTime.of(14, 0))) return 12;
+        if (time.equals(LocalTime.of(14, 30))) return 13;
+        if (time.equals(LocalTime.of(15, 0))) return 14;
+        if (time.equals(LocalTime.of(15, 30))) return 15;
         return -1;
     }
 

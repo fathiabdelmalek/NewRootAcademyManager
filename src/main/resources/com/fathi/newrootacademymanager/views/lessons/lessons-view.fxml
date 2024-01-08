@@ -30,17 +30,22 @@
                     <PropertyValueFactory property="lessonName" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="110.0" text="Grade">
+            <TableColumn prefWidth="100.0" text="Grade">
                 <cellValueFactory>
                     <PropertyValueFactory property="grade" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="priceColumn" prefWidth="110.0" text="Price">
+            <TableColumn prefWidth="70.0" text="Price">
                 <cellValueFactory>
                     <PropertyValueFactory property="price" />
                 </cellValueFactory>
             </TableColumn>
-         <TableColumn prefWidth="-1.0" text="Day &amp; Time">
+            <TableColumn prefWidth="90" text="\%">
+                <cellValueFactory>
+                    <PropertyValueFactory property="percentage" />
+                </cellValueFactory>
+            </TableColumn>
+         <TableColumn text="Day &amp; Time">
             <columns>
                   <TableColumn prefWidth="85.0" text="Week Day">
                       <cellValueFactory>
@@ -59,7 +64,7 @@
                   </TableColumn>
             </columns>
          </TableColumn>
-         <TableColumn prefWidth="110.0" text="Room">
+         <TableColumn text="Room">
             <cellValueFactory>
                <PropertyValueFactory property="room" />
             </cellValueFactory>

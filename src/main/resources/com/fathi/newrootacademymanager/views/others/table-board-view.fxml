@@ -53,35 +53,95 @@
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="150.0" prefWidth="80.0" text="08:30 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="175.0" prefWidth="80.0" text="09:00 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="200.0" prefWidth="80.0" text="09:30 AM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="225.0" prefWidth="80.0" text="10:00 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="250.0" prefWidth="80.0" text="10:30 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="275.0" prefWidth="80.0" text="11:00 AM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="300.0" prefWidth="80.0" text="11:30 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="325.0" prefWidth="80.0" text="12:00 AM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="350.0" prefWidth="80.0" text="12:30 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="375.0" prefWidth="80.0" text="01:00 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="400.0" prefWidth="80.0" text="01:30 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="425.0" prefWidth="80.0" text="02:00 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="450.0" prefWidth="80.0" text="02:30 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="475.0" prefWidth="80.0" text="03:00 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="500.0" prefWidth="80.0" text="03:30 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="525.0" prefWidth="80.0" text="04:00 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="550.0" prefWidth="80.0" text="04:30 PM">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
     <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="575.0" prefWidth="80.0" text="05:00 PM">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
-    <GridPane fx:id="grid" alignment="CENTER" layoutX="120.0" layoutY="130.0" prefHeight="450.0" prefWidth="850.0" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="30.0" />
+    <GridPane fx:id="grid" alignment="CENTER" layoutX="120.0" layoutY="135.0" prefHeight="450.0" prefWidth="850.0" />
 </AnchorPane>

@@ -35,8 +35,6 @@ public class LessonsViewController {
     @FXML
     private TableView<Lesson> tableView;
     @FXML
-    private TableColumn<Lesson, BigDecimal> priceColumn;
-    @FXML
     private TableColumn<Lesson, Integer> studentsColumn;
     @FXML
     private TextField lessonNameText;
@@ -58,18 +56,6 @@ public class LessonsViewController {
     void initialize() {
         Platform.runLater(() -> searchText.requestFocus());
 
-        priceColumn.setCellFactory(column -> {
-            TableCell<Lesson, BigDecimal> cell = new TableCell<>() {
-                @Override
-                protected void updateItem(BigDecimal item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty || item == null) setText(null);
-                    else setText(String.format("%.2f", item));
-                }
-            };
-            return cell;
-        });
-
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
         gradeChoice.getItems().addFirst(null);
 
@@ -77,7 +63,7 @@ public class LessonsViewController {
         dayChoice.getItems().addFirst(null);
 
         SpinnerValueFactory<Integer> startHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(8, 16, 8);
-        SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 45, 0, 15);
+        SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 30, 0, 30);
         startHourSpinner.setValueFactory(startHoursRange);
         startMinuteSpinner.setValueFactory(startMinutesRange);
 
