@@ -32,7 +32,7 @@
          <Font size="16.0" />
       </font>
    </TextField>
-   <Button fx:id="teacherPaymentButton" layoutX="605.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#payTeacherAction" prefHeight="35.0" prefWidth="60.0">
+   <Button fx:id="teacherPaymentButton" layoutX="555.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#payTeacherAction" prefHeight="35.0" prefWidth="60.0">
       <graphic>
          <FontAwesomeIconView glyphName="MONEY">
             <font>
@@ -41,17 +41,17 @@
          </FontAwesomeIconView>
       </graphic>
    </Button>
-   <TextField fx:id="salaryText" alignment="CENTER_RIGHT" layoutX="455.0" layoutY="15.0" prefHeight="35.0" prefWidth="150.0">
+   <TextField fx:id="salaryText" alignment="CENTER_RIGHT" layoutX="455.0" layoutY="15.0" prefHeight="35.0" prefWidth="100.0">
       <font>
          <Font size="16.0" />
       </font>
    </TextField>
-   <Label alignment="CENTER_RIGHT" layoutX="665.0" layoutY="15.0" prefWidth="200.0" text="Number of classes">
+   <Label alignment="CENTER_RIGHT" layoutX="615.0" layoutY="15.0" prefWidth="200.0" text="Number of classes">
       <font>
          <Font size="24.0" />
       </font>
    </Label>
-   <Button layoutX="870.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#decreaseAction" prefWidth="35.0" styleClass="small-size">
+   <Button layoutX="820.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#decreaseAction" prefWidth="35.0" styleClass="small-size">
       <graphic>
          <FontAwesomeIconView glyphName="MINUS">
             <font>
@@ -60,12 +60,12 @@
          </FontAwesomeIconView>
       </graphic>
    </Button>
-   <TextField fx:id="classesNumberText" alignment="CENTER" disable="true" layoutX="910.0" layoutY="15.0" prefHeight="35.0" prefWidth="50.0">
+   <TextField fx:id="classesNumberText" alignment="CENTER" disable="true" layoutX="860.0" layoutY="15.0" prefHeight="35.0" prefWidth="50.0">
       <font>
          <Font size="16.0" />
       </font>
    </TextField>
-   <Button layoutX="960.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#increaseAction" prefWidth="35.0" styleClass="small-size">
+   <Button layoutX="910.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#increaseAction" prefWidth="35.0" styleClass="small-size">
       <graphic>
          <FontAwesomeIconView glyphName="PLUS">
             <font>
@@ -159,5 +159,14 @@
       <font>
          <Font size="24.0" />
       </font>
+   </Button>
+   <Button layoutX="960.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#printAction" prefWidth="35.0" styleClass="small-size">
+      <graphic>
+         <FontAwesomeIconView glyphName="PRINT" size="18">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </FontAwesomeIconView>
+      </graphic>
    </Button>
 </AnchorPane>

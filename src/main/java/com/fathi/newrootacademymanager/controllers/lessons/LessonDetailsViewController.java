@@ -10,6 +10,7 @@ import com.fathi.newrootacademymanager.models.Expense;
 import com.fathi.newrootacademymanager.models.Income;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
+import com.fathi.newrootacademymanager.services.PrintService;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
@@ -17,6 +18,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -30,7 +36,7 @@ public class LessonDetailsViewController {
     @FXML
     private Button teacherPaymentButton;
     @FXML
-    public TextField salaryText;
+    private TextField salaryText;
     @FXML
     private TextField classesNumberText;
     @FXML
@@ -186,6 +192,21 @@ public class LessonDetailsViewController {
         notesText.clear();
         gradeChoice.setValue(lesson.getGrade());
         studentChoice.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    void printAction(ActionEvent actionEvent) {
+        PrintService.printContent(new VBox(
+                new HBox(
+                        new TextFlow(
+                                new Text(lesson.getTeacherDues().toString()),
+                                new Region(),
+                                new Text(teacherNameText.getText()),
+                                new Region(),
+                                new Text(lesson.getLessonName())
+                        )
+                )
+        ));
     }
 
     private void refreshTable() {
