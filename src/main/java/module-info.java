@@ -1,9 +1,11 @@
 module com.fathi.newrootacademymanager {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
     requires java.sql;
     requires com.h2database;
     requires jakarta.persistence;
+    requires thymeleaf;
     requires org.hibernate.orm.core;
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;

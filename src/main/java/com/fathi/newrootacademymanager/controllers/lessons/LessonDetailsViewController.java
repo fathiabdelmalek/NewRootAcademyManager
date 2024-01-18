@@ -23,6 +23,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import org.thymeleaf.context.Context;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -196,17 +197,9 @@ public class LessonDetailsViewController {
 
     @FXML
     void printAction(ActionEvent actionEvent) {
-        PrintService.printContent(new VBox(
-                new HBox(
-                        new TextFlow(
-                                new Text(lesson.getTeacherDues().toString()),
-                                new Region(),
-                                new Text(teacherNameText.getText()),
-                                new Region(),
-                                new Text(lesson.getLessonName())
-                        )
-                )
-        ));
+        Context context = new Context();
+        context.setVariable("lesson", lesson);
+        PrintService.printContent(context, getClass().getResourceAsStream("/com/fathi/newrootacademymanager/templates/lesson-template.html"));
     }
 
     private void refreshTable() {
