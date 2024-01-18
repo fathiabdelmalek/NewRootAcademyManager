@@ -10,11 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f133c27f-4343-4b92-9e6c-1c8d2778eb68.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f133c27f-4343-4b92-9e6c-1c8d2778eb68.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams.mdj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +95,7 @@
     "Maven.newrootacademymanager [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "h2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/abdel/new_root_academy_manager.mv.db",
@@ -158,13 +160,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -201,6 +196,7 @@
       <workItem from="1705178844570" duration="36000" />
       <workItem from="1705180733520" duration="4123000" />
       <workItem from="1705605536178" duration="2458000" />
+      <workItem from="1705609192645" duration="3852000" />
     </task>
     <servers />
   </component>
