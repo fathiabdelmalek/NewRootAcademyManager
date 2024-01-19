@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .info table tr td {
+            flex: 1;
+            margin: 2px;
+            font-size: 11px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h1 th:text="${lesson.getLessonName}"></h1>
+<header>
+    <h1>New Root Academy</h1>
+</header>
+<section class="info">
+    <table>
+        <tr>
+            <td>المجموع</td>
+            <td>حق الحصة</td>
+            <td>نسبة الأستاذ</td>
+            <td>الأستاذ</td>
+            <td>عدد المحاظرات</td>
+            <td>سعر الحصة</td>
+            <td>المادة</td>
+        </tr>
+        <tr>
+            <td th:text="${lesson.getTeacherDues()}"></td>
+            <td th:text="${lesson.getPrice() * lesson.getPercentage() / 100}"></td>
+            <td th:text="${lesson.getPercentage()}"></td>
+            <td th:text="${lesson.getTeacher().toString()}"></td>
+            <td th:text="${lesson.getClassesNumber()}"></td>
+            <td th:text="${lesson.getPrice()}"></td>
+            <td th:text="${lesson.getLessonName()}"></td>
+        </tr>
+    </table>
+</section>
+<section>
+    <table border="1">
+        <tr>
+            <th>ملاحظات</th>
+            <th>باقي الدين</th>
+            <th>عدد مرات الحظور</th>
+            <th>التلميذ</th>
+        </tr>
+        <tr th:each="attendance : ${attendances}">
+            <td th:text="${attendance.getNotes()}"></td>
+            <td th:text="${attendance.getDues()}"></td>
+            <td th:text="${attendance.getTimesPresent()}"></td>
+            <td th:text="${attendance.getStudent().toString()}"></td>
+        </tr>
+    </table>
+</section>
+<footer>
+    <p>المدير</p>
+</footer>
 </body>
 </html>

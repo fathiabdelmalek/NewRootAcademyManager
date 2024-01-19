@@ -199,6 +199,7 @@ public class LessonDetailsViewController {
     void printAction(ActionEvent actionEvent) {
         Context context = new Context();
         context.setVariable("lesson", lesson);
+        context.setVariable("attendances", tableView.getItems());
         PrintService.printContent(context, getClass().getResourceAsStream("/com/fathi/newrootacademymanager/templates/lesson-template.html"));
     }
 
@@ -227,17 +228,5 @@ public class LessonDetailsViewController {
         notesText.setText(selection.getNotes());
         gradeChoice.setValue(student.getGrade());
         studentChoice.setValue(student);
-    }
-
-    private BigDecimal calcTeacherDues() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("lesson", lesson);
-        BigDecimal amount = new BigDecimal("0.00");
-        for (Attendance attendance : CRUDService.readByCriteria(Attendance.class, params)) {
-            if (attendance.getDues().equals(BigDecimal.ZERO)) {
-                amount = amount.add(lesson.getPrice());
-            }
-        }
-        return amount;
     }
 }
