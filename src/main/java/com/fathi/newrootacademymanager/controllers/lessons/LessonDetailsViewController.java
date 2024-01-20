@@ -8,6 +8,7 @@ import com.fathi.newrootacademymanager.models.Teacher;
 import com.fathi.newrootacademymanager.models.Grade;
 import com.fathi.newrootacademymanager.models.Expense;
 import com.fathi.newrootacademymanager.models.Income;
+//import com.fathi.newrootacademymanager.reports.LessonReport;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.LoggingService;
 import com.fathi.newrootacademymanager.services.PrintService;
@@ -195,6 +196,7 @@ public class LessonDetailsViewController {
 
     @FXML
     void printAction(ActionEvent actionEvent) {
+//        LessonReport report = new LessonReport();
         Context context = new Context();
         context.setVariable("lesson", lesson);
         context.setVariable("attendances", tableView.getItems());

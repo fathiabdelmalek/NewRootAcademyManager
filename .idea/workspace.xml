@@ -11,10 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/templates/lesson-template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/templates/lesson-template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,6 +85,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.LessonReport.executor": "Run",
     "Application.Main Application.executor": "Run",
     "Application.MyPrinter.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -123,7 +123,20 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main Application">
+  <component name="RunManager" selected="Application.LessonReport">
+    <configuration name="LessonReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.reports.LessonReport" />
+      <module name="newrootacademymanager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fathi.newrootacademymanager.reports.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
@@ -153,6 +166,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LessonReport" />
         <item itemvalue="Shell Script.script.sh" />
         <item itemvalue="Database Script.db_h2.sql" />
         <item itemvalue="Database Script.db_h2.sql" />
@@ -204,7 +218,9 @@
       <workItem from="1705605536178" duration="2458000" />
       <workItem from="1705609192645" duration="3852000" />
       <workItem from="1705676112877" duration="42000" />
-      <workItem from="1705691381199" duration="16203000" />
+      <workItem from="1705691381199" duration="16342000" />
+      <workItem from="1705756594989" duration="4900000" />
+      <workItem from="1705779222597" duration="6928000" />
     </task>
     <servers />
   </component>

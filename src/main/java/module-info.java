@@ -6,6 +6,8 @@ module com.fathi.newrootacademymanager {
     requires com.h2database;
     requires jakarta.persistence;
     requires thymeleaf;
+    requires jasperreports;
+//    requires dynamicreports.core;
     requires org.hibernate.orm.core;
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
