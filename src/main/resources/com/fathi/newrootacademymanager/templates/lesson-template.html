@@ -11,14 +11,40 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            width: 131mm;
             font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        footer {
+            page-break-before: always;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header img, header h1 {
+            display: inline;
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+        }
+
+        header h1 {
+            color: #1F2B51;
         }
 
         .info {
             display: flex;
             flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
         .info table tr td {
@@ -27,48 +53,83 @@
             font-size: 11px;
             text-align: center;
         }
+
+        .students table {
+            border-collapse: collapse;
+        }
+
+        .students table, .students td, .students th {
+            border: 1px solid;
+        }
+
+        .students table td {
+            text-align: right;
+        }
+
+        .students .name{
+            width: 20%;
+        }
+
+        .students .present {
+            width: 10%;
+            text-align: center;
+        }
+
+        .students .dues {
+            width: 15%;
+        }
     </style>
 </head>
 <body>
 <header>
+    <img th:src="${image}" alt="School Logo">
     <h1>New Root Academy</h1>
+    <img th:src="${image}" alt="School Logo">
 </header>
 <section class="info">
     <table>
-        <tr>
-            <td>المجموع</td>
-            <td>حق الحصة</td>
-            <td>نسبة الأستاذ</td>
-            <td>الأستاذ</td>
-            <td>عدد المحاظرات</td>
-            <td>سعر الحصة</td>
-            <td>المادة</td>
-        </tr>
-        <tr>
-            <td th:text="${lesson.getTeacherDues()}"></td>
-            <td th:text="${lesson.getPrice() * lesson.getPercentage() / 100}"></td>
-            <td th:text="${lesson.getPercentage()}"></td>
-            <td th:text="${lesson.getTeacher().toString()}"></td>
-            <td th:text="${lesson.getClassesNumber()}"></td>
-            <td th:text="${lesson.getPrice()}"></td>
-            <td th:text="${lesson.getLessonName()}"></td>
-        </tr>
+        <thead>
+            <tr>
+                <th>المجموع</th>
+                <th>حق الحصة</th>
+                <th>نسبة الأستاذ</th>
+                <th>الأستاذ</th>
+                <th>عدد المحاظرات</th>
+                <th>سعر الحصة</th>
+                <th>المادة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${lesson.getTeacherDues()}"></td>
+                <td th:text="${lesson.getPrice() * lesson.getPercentage() / 100}"></td>
+                <td th:text="${lesson.getPercentage()}"></td>
+                <td th:text="${lesson.getTeacher().toString()}"></td>
+                <td th:text="${lesson.getClassesNumber()}"></td>
+                <td th:text="${lesson.getPrice()}"></td>
+                <td th:text="${lesson.getLessonName()}"></td>
+            </tr>
+        </tbody>
     </table>
 </section>
-<section>
-    <table border="1">
-        <tr>
-            <th>ملاحظات</th>
-            <th>باقي الدين</th>
-            <th>عدد مرات الحظور</th>
-            <th>التلميذ</th>
-        </tr>
-        <tr th:each="attendance : ${attendances}">
-            <td th:text="${attendance.getNotes()}"></td>
-            <td th:text="${attendance.getDues()}"></td>
-            <td th:text="${attendance.getTimesPresent()}"></td>
-            <td th:text="${attendance.getStudent().toString()}"></td>
-        </tr>
+<section class="students">
+    <table>
+        <thead>
+            <tr>
+                <th>ملاحظات</th>
+                <th>باقي الدين</th>
+                <th>عدد مرات الحظور</th>
+                <th>التلميذ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="attendance : ${attendances}">
+                <td class="notes" th:text="${attendance.getNotes()}"></td>
+                <td class="dues" th:text="${attendance.getDues()}"></td>
+                <td class="present" th:text="${attendance.getTimesPresent()}"></td>
+                <td class="name" th:text="${attendance.getStudent().toString()}"></td>
+            </tr>
+        </tbody>
     </table>
 </section>
 <footer>

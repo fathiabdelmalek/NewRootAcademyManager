@@ -18,12 +18,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import org.thymeleaf.context.Context;
+import org.w3c.dom.Node;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -200,6 +198,7 @@ public class LessonDetailsViewController {
         Context context = new Context();
         context.setVariable("lesson", lesson);
         context.setVariable("attendances", tableView.getItems());
+        context.setVariable("image", getClass().getResource("/com/fathi/newrootacademymanager/images/logo.png"));
         PrintService.printContent(context, getClass().getResourceAsStream("/com/fathi/newrootacademymanager/templates/lesson-template.html"));
     }
 

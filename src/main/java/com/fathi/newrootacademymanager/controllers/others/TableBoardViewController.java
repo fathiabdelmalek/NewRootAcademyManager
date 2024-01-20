@@ -56,7 +56,6 @@ public class TableBoardViewController {
                 int day = getIndexFromDay(lesson.getDayOfWeek());
                 int start = getIndexFromTime(lesson.getStartTime());
                 int end = getIndexFromTime(lesson.getEndTime());
-                System.out.println(end - start);
                 Label label = new Label();
                 if (lesson.getGrade() != null) label.setText(lessonName + "\n" + lesson.getGrade().toString());
                 else label.setText(lessonName);
