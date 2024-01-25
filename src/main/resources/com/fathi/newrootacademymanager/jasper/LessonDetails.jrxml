@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b42d1aaa-2741-4de0-a622-5da18e731357">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IkFUVEVOREFOQ0VTIiAsMTc0LDI3LDhhYTRlMjFmLTYzMzAtNGIzMS04MWY3LWUwODQ4NGIyYWEz
+NTsiU1RVREVOVFMiICwxNSwxNSwzOWQyZjY1NS0wYzY1LTQ4ZjEtOTgwOS1mOTcxODk3OGQzOGI7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 JDBC"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT ("STUDENTS"."FIRST_NAME" || ' ' || "STUDENTS"."LAST_NAME") AS "Student Name", 
+	"ATTENDANCES"."TIMES_PRESENT" AS "Times Present",
+	"ATTENDANCES"."DUES" AS "Dues",
+	"ATTENDANCES"."NOTES" AS "Notes",
+	"LESSONS"."LESSON_NAME" AS "Lesson Name",
+	"LESSONS"."PRICE" AS "Price",
+	("TEACHERS"."FIRST_NAME" || ' ' || "TEACHERS"."LAST_NAME") AS "Teacher Name",
+	"LESSONS"."PERCENTAGE" AS "Percentage",
+	"LESSONS"."TEACHER_DUES" AS "Teacher Dues",
+FROM "ATTENDANCES"
+	INNER JOIN "STUDENTS" ON 
+	 "STUDENTS"."ID" = "ATTENDANCES"."STUDENT_ID"
+	INNER JOIN "LESSONS" ON 
+	 "LESSONS"."ID" = "ATTENDANCES"."LESSON_ID"
+	INNER JOIN "TEACHERS" ON
+	 "TEACHERS"."ID" = "LESSONS"."TEACHER_ID"
+WHERE "LESSONS"."ID" = 1]]>
+	</queryString>
+	<field name="Student Name" class="java.lang.String"/>
+	<field name="Times Present" class="java.lang.Integer"/>
+	<field name="Dues" class="java.math.BigDecimal"/>
+	<field name="Notes" class="java.lang.String"/>
+	<field name="Lesson Name" class="java.lang.String"/>
+	<field name="Teacher Name" class="java.lang.String"/>
+	<field name="Percentage" class="java.lang.Integer"/>
+	<field name="Teacher Dues" class="java.math.BigDecimal"/>
+	<field name="Price" class="java.math.BigDecimal"/>
+	<variable name="Teacher Dues1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{Teacher Dues}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="400" height="79" forecolor="#187BBE" uuid="f9bd3443-07be-4b0d-ab6e-275cc288a3dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[New Root Academy]]></text>
+			</staticText>
+			<image>
+				<reportElement x="480" y="0" width="80" height="79" uuid="00e211d9-580f-462c-a1f8-5d400aa76fd7"/>
+				<imageExpression><![CDATA["C:/Users/abdel/OneDrive/Documents/NewRootAcademyManager/src/main/resources/com/fathi/newrootacademymanager/images/logo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="80" height="79" uuid="9abcf7f4-e4a7-48ff-a76a-79a60c5952c1"/>
+				<imageExpression><![CDATA["C:/Users/abdel/OneDrive/Documents/NewRootAcademyManager/src/main/resources/com/fathi/newrootacademymanager/images/logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="25" y="0" width="100" height="30" forecolor="#1F2B51" uuid="cdb5973b-d273-4ff2-a1b9-1bfa00178179"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[حق الأستاذ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="100" height="30" forecolor="#1F2B51" uuid="5add53fd-9e01-4777-9c81-ea4c5903b8e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[نسبة الأستاذ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="0" width="100" height="30" forecolor="#1F2B51" uuid="9d3580bc-f3b1-4e7d-90ac-08eac3e43e38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الأستاذ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="0" width="100" height="30" forecolor="#1F2B51" uuid="428e6d90-d526-4e57-bcf8-a893b544051b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[السعر]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="0" width="100" height="30" forecolor="#1F2B51" uuid="820e6d7c-7e3d-4c96-8d73-bd258f91d7e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[المادة]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="30" width="100" height="60" forecolor="#187BBE" uuid="5234a709-6a07-4632-8b7b-f891d55d82e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Teacher Dues}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="30" width="100" height="60" forecolor="#187BBE" uuid="b3725529-4f03-4b7b-8655-ab7b527851b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Teacher Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="30" width="100" height="60" forecolor="#187BBE" uuid="0491d0fc-94b7-4fc4-a49d-f16b992c8879"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="30" width="55" height="60" forecolor="#187BBE" uuid="d88e1250-a0d1-47aa-bf43-770f5abfe3fa"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="30" width="100" height="60" forecolor="#187BBE" uuid="9f2e69fd-de59-4bcf-b9f2-e761af54999d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Lesson Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="30" width="44" height="60" forecolor="#187BBE" uuid="3d05cdff-a065-499c-b2ef-bc2d217f4a3a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="385" y="0" width="181" height="30" forecolor="#1F2B51" uuid="a5df990e-cedd-4cdc-bdef-d2dd4e81f02b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07d77391-ad60-4ed2-930b-80c5d559c13c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[التلميذ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="0" width="90" height="30" forecolor="#1F2B51" uuid="74cecabd-721d-4c7c-a5cf-facaafe7ec0b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a53c7a80-7893-414f-bade-8c345f37c2dc"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[مرات الحضور]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="0" width="80" height="30" forecolor="#1F2B51" uuid="3921178e-0de9-4007-bf32-39795e001347">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72a2b79d-bd51-41a2-9ece-d2180a478998"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[باقي الدين]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-15" y="0" width="230" height="30" forecolor="#1F2B51" uuid="59f93b66-a002-4152-a3a0-53717f047730">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85e44c1a-1a07-4f6a-9eb2-5121d79c07d5"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ملاحظات]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="385" y="0" width="181" height="35" forecolor="#1F2B51" uuid="5240220a-d850-4965-b067-65d7b7e13efa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07d77391-ad60-4ed2-930b-80c5d559c13c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Student Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="90" height="35" forecolor="#1F2B51" uuid="4094be57-74ad-4eb5-b090-d56f166b9c64">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a53c7a80-7893-414f-bade-8c345f37c2dc"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Times Present}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="0" width="80" height="35" forecolor="#1F2B51" uuid="617d8e2a-21f7-4b24-b60a-a5a3ce3aaa73">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72a2b79d-bd51-41a2-9ece-d2180a478998"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Dues}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-15" y="0" width="230" height="35" forecolor="#1F2B51" uuid="0c65a895-ce8d-4f55-8af9-5ccbc320ab08">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85e44c1a-1a07-4f6a-9eb2-5121d79c07d5"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0" lineColor="#F8B038"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#F8B038"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Notes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="61" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="370" y="10" width="100" height="30" forecolor="#1F2B51" uuid="f302343f-7681-4860-8196-23502ba80595"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="10" width="100" height="30" forecolor="#1F2B51" uuid="e783268d-424f-43b0-9749-c0dfd35bdf4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[السيد المدير]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="10" width="84" height="30" forecolor="#1F2B51" uuid="8f1fdc41-1946-428e-8ee4-47d2fd2f0cf8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[حرر بتاريخ]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="295" y="0" width="45" height="30" forecolor="#1F2B51" uuid="15837bc8-09d2-4878-9970-7f27753836fd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[صفحة رقم]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="0" width="10" height="30" forecolor="#1F2B51" uuid="fc690728-fc04-4563-9078-918b2af313f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="265" y="0" width="19" height="30" forecolor="#1F2B51" uuid="60e3c4a4-0950-43b3-8d59-47ba1a4be7e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[من]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="245" y="0" width="20" height="30" forecolor="#1F2B51" uuid="9e82d8d0-646f-461f-a3bd-8a5754b42afb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
