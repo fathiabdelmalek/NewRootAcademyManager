@@ -1,41 +1,54 @@
 package com.fathi.newrootacademymanager.services;
 
-import javafx.print.*;
-import javafx.scene.Node;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.web.WebView;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
+import com.fathi.newrootacademymanager.helpers.DBCManager;
+import jakarta.persistence.EntityManager;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import org.hibernate.Session;
 
 public class PrintService {
-    private static final TemplateEngine engine = new TemplateEngine();
+    private static final DBCManager dbcm = DBCManager.getInstance();
 
     private PrintService() {}
 
-    public static void printContent(Context context, InputStream template) {
-        try (InputStream inputStream = template;
-             Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8)) {
-            String htmlContent = scanner.useDelimiter("\\A").next();
-            WebView webView = new WebView();
-            webView.getEngine().loadContent(engine.process(htmlContent, context));
-            PrinterJob printerJob = PrinterJob.createPrinterJob();
-            if (printerJob != null) {
-                if (printerJob.showPrintDialog(null)) {
-                    printerJob.printPage(webView);
-                    printerJob.endJob();
+    public static void printLessonDetailsReport(int id) {
+        try (EntityManager em = dbcm.getFactory().createEntityManager();
+            Session session = em.unwrap(Session.class)) {
+            session.doWork(connection -> {
+                try {
+                    String path = PrintService.class.getResource("/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml").getFile();
+                    String sql = "SELECT (\"STUDENTS\".\"FIRST_NAME\" || ' ' || \"STUDENTS\".\"LAST_NAME\") AS \"Student Name\", \n" +
+                            "\t\"ATTENDANCES\".\"TIMES_PRESENT\" AS \"Times Present\",\n" +
+                            "\t\"ATTENDANCES\".\"DUES\" AS \"Dues\",\n" +
+                            "\t\"ATTENDANCES\".\"NOTES\" AS \"Notes\",\n" +
+                            "\t\"LESSONS\".\"LESSON_NAME\" AS \"Lesson Name\",\n" +
+                            "\t\"LESSONS\".\"PRICE\" AS \"Price\",\n" +
+                            "\t(\"TEACHERS\".\"FIRST_NAME\" || ' ' || \"TEACHERS\".\"LAST_NAME\") AS \"Teacher Name\",\n" +
+                            "\t\"LESSONS\".\"PERCENTAGE\" AS \"Percentage\",\n" +
+                            "\t\"LESSONS\".\"TEACHER_DUES\" AS \"Teacher Dues\",\n" +
+                            "FROM \"ATTENDANCES\"\n" +
+                            "\tINNER JOIN \"STUDENTS\" ON \n" +
+                            "\t \"STUDENTS\".\"ID\" = \"ATTENDANCES\".\"STUDENT_ID\"\n" +
+                            "\tINNER JOIN \"LESSONS\" ON \n" +
+                            "\t \"LESSONS\".\"ID\" = \"ATTENDANCES\".\"LESSON_ID\"\n" +
+                            "\tINNER JOIN \"TEACHERS\" ON\n" +
+                            "\t \"TEACHERS\".\"ID\" = \"LESSONS\".\"TEACHER_ID\"\n" +
+                            "WHERE \"LESSONS\".\"ID\" = " + id;
+
+                    JasperDesign jd = JRXmlLoader.load(path);
+                    JRDesignQuery query = new JRDesignQuery();
+                    query.setText(sql);
+                    jd.setQuery(query);
+                    JasperReport jr = JasperCompileManager.compileReport(jd);
+                    JasperPrint jp = JasperFillManager.fillReport(jr, null, connection);
+                    JasperPrintManager.printReport(jp, true);
+                } catch (JRException e) {
+                    throw new RuntimeException(e);
                 }
-            }
-        } catch (IOException e) {
+            });
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
