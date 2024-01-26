@@ -5,13 +5,11 @@ module com.fathi.newrootacademymanager {
     requires java.sql;
     requires com.h2database;
     requires jakarta.persistence;
-    requires thymeleaf;
-    requires jasperreports;
-//    requires dynamicreports.core;
     requires org.hibernate.orm.core;
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome5;
+    requires jasperreports;
 
     opens com.fathi.newrootacademymanager to javafx.fxml;
     opens com.fathi.newrootacademymanager.models to javafx.fxml, org.hibernate.orm.core;

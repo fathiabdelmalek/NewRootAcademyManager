@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/reports/LessonReport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/Lesson.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/Lesson.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jasper" beforeDir="false" />
-    </list>
+    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,19 +119,6 @@
   }
 }</component>
   <component name="RunManager" selected="Application.Main Application">
-    <configuration name="LessonReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.reports.LessonReport" />
-      <module name="newrootacademymanager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fathi.newrootacademymanager.reports.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
@@ -169,7 +148,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LessonReport" />
         <item itemvalue="Shell Script.script.sh" />
         <item itemvalue="Database Script.db_h2.sql" />
         <item itemvalue="Database Script.db_h2.sql" />
@@ -232,7 +210,7 @@
       <workItem from="1706131959216" duration="3348000" />
       <workItem from="1706209802518" duration="7534000" />
       <workItem from="1706303229970" duration="1202000" />
-      <workItem from="1706304456882" duration="2466000" />
+      <workItem from="1706304456882" duration="2528000" />
     </task>
     <servers />
   </component>
