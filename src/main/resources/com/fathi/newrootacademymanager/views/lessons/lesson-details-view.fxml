@@ -24,7 +24,7 @@
     <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
    <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="15.0" prefWidth="85.0" text="Teacher">
       <font>
-         <Font size="24.0" />
+         <Font size="20.0" />
       </font>
    </Label>
    <TextField fx:id="teacherNameText" disable="true" layoutX="305.0" layoutY="15.0" prefHeight="35.0" prefWidth="150.0">

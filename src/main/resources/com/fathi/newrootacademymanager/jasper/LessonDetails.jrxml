@@ -143,7 +143,7 @@ WHERE "LESSONS"."ID" = 1]]>
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement x="385" y="0" width="181" height="30" forecolor="#1F2B51" uuid="a5df990e-cedd-4cdc-bdef-d2dd4e81f02b">
+				<reportElement x="440" y="0" width="130" height="30" forecolor="#1F2B51" uuid="a5df990e-cedd-4cdc-bdef-d2dd4e81f02b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07d77391-ad60-4ed2-930b-80c5d559c13c"/>
 				</reportElement>
 				<box>
@@ -159,7 +159,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<text><![CDATA[التلميذ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="295" y="0" width="90" height="30" forecolor="#1F2B51" uuid="74cecabd-721d-4c7c-a5cf-facaafe7ec0b">
+				<reportElement x="343" y="0" width="97" height="30" forecolor="#1F2B51" uuid="74cecabd-721d-4c7c-a5cf-facaafe7ec0b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a53c7a80-7893-414f-bade-8c345f37c2dc"/>
 				</reportElement>
 				<box>
@@ -175,7 +175,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<text><![CDATA[مرات الحضور]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="0" width="80" height="30" forecolor="#1F2B51" uuid="3921178e-0de9-4007-bf32-39795e001347">
+				<reportElement x="263" y="0" width="80" height="30" forecolor="#1F2B51" uuid="3921178e-0de9-4007-bf32-39795e001347">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72a2b79d-bd51-41a2-9ece-d2180a478998"/>
 				</reportElement>
 				<box>
@@ -191,7 +191,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<text><![CDATA[باقي الدين]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-15" y="0" width="230" height="30" forecolor="#1F2B51" uuid="59f93b66-a002-4152-a3a0-53717f047730">
+				<reportElement x="-15" y="0" width="278" height="30" forecolor="#1F2B51" uuid="59f93b66-a002-4152-a3a0-53717f047730">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85e44c1a-1a07-4f6a-9eb2-5121d79c07d5"/>
 				</reportElement>
 				<box>
@@ -211,7 +211,7 @@ WHERE "LESSONS"."ID" = 1]]>
 	<detail>
 		<band height="35" splitType="Stretch">
 			<textField>
-				<reportElement x="385" y="0" width="181" height="35" forecolor="#1F2B51" uuid="5240220a-d850-4965-b067-65d7b7e13efa">
+				<reportElement x="440" y="0" width="130" height="35" forecolor="#1F2B51" uuid="5240220a-d850-4965-b067-65d7b7e13efa">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07d77391-ad60-4ed2-930b-80c5d559c13c"/>
 				</reportElement>
 				<box>
@@ -227,7 +227,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<textFieldExpression><![CDATA[$F{Student Name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="295" y="0" width="90" height="35" forecolor="#1F2B51" uuid="4094be57-74ad-4eb5-b090-d56f166b9c64">
+				<reportElement x="343" y="0" width="97" height="35" forecolor="#1F2B51" uuid="4094be57-74ad-4eb5-b090-d56f166b9c64">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a53c7a80-7893-414f-bade-8c345f37c2dc"/>
 				</reportElement>
 				<box>
@@ -243,7 +243,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<textFieldExpression><![CDATA[$F{Times Present}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="215" y="0" width="80" height="35" forecolor="#1F2B51" uuid="617d8e2a-21f7-4b24-b60a-a5a3ce3aaa73">
+				<reportElement x="263" y="0" width="80" height="35" forecolor="#1F2B51" uuid="617d8e2a-21f7-4b24-b60a-a5a3ce3aaa73">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72a2b79d-bd51-41a2-9ece-d2180a478998"/>
 				</reportElement>
 				<box>
@@ -259,7 +259,7 @@ WHERE "LESSONS"."ID" = 1]]>
 				<textFieldExpression><![CDATA[$F{Dues}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="-15" y="0" width="230" height="35" forecolor="#1F2B51" uuid="0c65a895-ce8d-4f55-8af9-5ccbc320ab08">
+				<reportElement x="-15" y="0" width="278" height="35" forecolor="#1F2B51" uuid="0c65a895-ce8d-4f55-8af9-5ccbc320ab08">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85e44c1a-1a07-4f6a-9eb2-5121d79c07d5"/>
 				</reportElement>
 				<box>
@@ -277,29 +277,7 @@ WHERE "LESSONS"."ID" = 1]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="61" splitType="Stretch">
-			<textField pattern="yyyy/MM/dd">
-				<reportElement x="370" y="10" width="100" height="30" forecolor="#1F2B51" uuid="f302343f-7681-4860-8196-23502ba80595"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="16"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="80" y="10" width="100" height="30" forecolor="#1F2B51" uuid="e783268d-424f-43b0-9749-c0dfd35bdf4d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="16"/>
-				</textElement>
-				<text><![CDATA[السيد المدير]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="470" y="10" width="84" height="30" forecolor="#1F2B51" uuid="8f1fdc41-1946-428e-8ee4-47d2fd2f0cf8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="16"/>
-				</textElement>
-				<text><![CDATA[حرر بتاريخ]]></text>
-			</staticText>
-		</band>
+		<band height="61" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="30" splitType="Stretch">
@@ -334,6 +312,28 @@ WHERE "LESSONS"."ID" = 1]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="470" y="40" width="84" height="30" forecolor="#1F2B51" uuid="8f1fdc41-1946-428e-8ee4-47d2fd2f0cf8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[حرر بتاريخ]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="370" y="40" width="100" height="30" forecolor="#1F2B51" uuid="f302343f-7681-4860-8196-23502ba80595"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="40" width="100" height="30" forecolor="#1F2B51" uuid="e783268d-424f-43b0-9749-c0dfd35bdf4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[السيد المدير]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>

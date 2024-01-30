@@ -1,15 +1,14 @@
 module com.fathi.newrootacademymanager {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
     requires java.sql;
+    requires jasperreports;
     requires com.h2database;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome5;
-    requires jasperreports;
 
     opens com.fathi.newrootacademymanager to javafx.fxml;
     opens com.fathi.newrootacademymanager.models to javafx.fxml, org.hibernate.orm.core;
