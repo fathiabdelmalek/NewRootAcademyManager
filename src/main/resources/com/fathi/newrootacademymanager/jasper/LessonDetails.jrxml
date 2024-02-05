@@ -7,6 +7,7 @@ NTsiU1RVREVOVFMiICwxNSwxNSwzOWQyZjY1NS0wYzY1LTQ4ZjEtOTgwOS1mOTcxODk3OGQzOGI7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 JDBC"/>
 	<parameter name="logoPath" class="java.io.InputStream"/>
+	<parameter name="id" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT ("STUDENTS"."FIRST_NAME" || ' ' || "STUDENTS"."LAST_NAME") AS "Student Name", 
 	"ATTENDANCES"."TIMES_PRESENT" AS "Times Present",
@@ -24,7 +25,7 @@ FROM "ATTENDANCES"
 	 "LESSONS"."ID" = "ATTENDANCES"."LESSON_ID"
 	INNER JOIN "TEACHERS" ON
 	 "TEACHERS"."ID" = "LESSONS"."TEACHER_ID"
-WHERE "LESSONS"."ID" = 1]]>
+WHERE "LESSONS"."ID" = $P{id}]]>
 	</queryString>
 	<field name="Student Name" class="java.lang.String"/>
 	<field name="Times Present" class="java.lang.Integer"/>

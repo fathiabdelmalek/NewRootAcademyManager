@@ -13,15 +13,15 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fathi.newrootacademymanager.controllers.lessons.LessonDetailsViewController">
-    <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
-        <font>
-            <Font size="16.0" />
-        </font>
-        <padding>
-            <Insets left="32.0" />
-        </padding>
-    </TextField>
-    <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
+   <TextField fx:id="searchText" layoutX="15.0" layoutY="15.0" onKeyTyped="#searchAction" prefHeight="30.0" prefWidth="200.0" promptText="Search" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <font>
+         <Font size="16.0" />
+      </font>
+      <padding>
+         <Insets left="32.0" />
+      </padding>
+   </TextField>
+   <FontAwesomeIconView fill="#0000007f" glyphName="SEARCH" layoutX="21.0" layoutY="37.0" size="24" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="16.428571701049805" />
    <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="15.0" prefWidth="85.0" text="Teacher">
       <font>
          <Font size="20.0" />
@@ -74,21 +74,21 @@
          </FontAwesomeIconView>
       </graphic>
    </Button>
-    <TableView fx:id="tableView" layoutY="60.0" prefHeight="400.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
-        <columns>
-            <TableColumn prefWidth="200.0" text="Student Name">
-                <cellValueFactory>
-                    <PropertyValueFactory property="student" />
-                </cellValueFactory>
-            </TableColumn>
+   <TableView fx:id="tableView" layoutY="60.0" prefHeight="400.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <columns>
+         <TableColumn prefWidth="200.0" text="Student Name">
+            <cellValueFactory>
+               <PropertyValueFactory property="student" />
+            </cellValueFactory>
+         </TableColumn>
          <TableColumn fx:id="attendancesColumn" prefWidth="200.0" text="Attendances #" />
          <TableColumn prefWidth="585.0" text="Notes">
             <cellValueFactory>
                <PropertyValueFactory property="notes" />
             </cellValueFactory>
          </TableColumn>
-        </columns>
-    </TableView>
+      </columns>
+   </TableView>
    <Label alignment="CENTER_RIGHT" layoutX="25.0" layoutY="467.0" prefWidth="100.0" text="Student">
       <font>
          <Font size="24.0" />
@@ -160,7 +160,7 @@
          <Font size="24.0" />
       </font>
    </Button>
-   <Button layoutX="960.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#printAction" prefWidth="35.0" styleClass="small-size">
+   <Button layoutX="955.0" layoutY="15.0" minHeight="35.0" mnemonicParsing="false" onAction="#printAction" prefWidth="35.0" styleClass="small-size">
       <graphic>
          <FontAwesomeIconView glyphName="PRINT" size="18">
             <font>
