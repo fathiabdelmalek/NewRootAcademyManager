@@ -22,7 +22,7 @@ public class DBCManager {
         return factory;
     }
 
-    public void handleTransactionException(Exception e) {
+    public void handleTransactionException() {
         if (factory != null && factory.isOpen()) {
             EntityManager em = factory.createEntityManager();
             if (em.getTransaction().isActive()) {
@@ -30,6 +30,5 @@ public class DBCManager {
             }
             em.close();
         }
-        throw new RuntimeException(e);
     }
 }

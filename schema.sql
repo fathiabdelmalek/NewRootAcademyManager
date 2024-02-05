@@ -45,7 +45,7 @@ CREATE TABLE lessons (
 
 CREATE TABLE rooms (
     id INTEGER AUTO_INCREMENT,
-    code VARCHAR(5) NOT NULL UNIQUE,
+    code VARCHAR(7) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 

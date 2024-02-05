@@ -10,6 +10,8 @@ import org.hibernate.Session;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PrintService {
     private static final DBCManager dbcm = DBCManager.getInstance();
@@ -37,24 +39,27 @@ public class PrintService {
                         "\tINNER JOIN \"TEACHERS\" ON\n" +
                         "\t \"TEACHERS\".\"ID\" = \"LESSONS\".\"TEACHER_ID\"\n" +
                         "WHERE \"LESSONS\".\"ID\" = " + id;
-                try (InputStream inputStream = PrintService.class.getResourceAsStream("/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml")){
+                try (InputStream inputStream = PrintService.class.getResourceAsStream("/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml");
+                     InputStream logoStream = PrintService.class.getResourceAsStream("/com/fathi/newrootacademymanager/images/logo.png")){
                     if (inputStream != null) {
+                        Map<String, Object> parameters = new HashMap<>();
+                        parameters.put("logoPath", logoStream);
                         JasperDesign jd = JRXmlLoader.load(inputStream);
                         JRDesignQuery query = new JRDesignQuery();
                         query.setText(sql);
                         jd.setQuery(query);
                         JasperReport jr = JasperCompileManager.compileReport(jd);
-                        JasperPrint jp = JasperFillManager.fillReport(jr, null, connection);
+                        JasperPrint jp = JasperFillManager.fillReport(jr, parameters, connection);
                         JasperPrintManager.printReport(jp, true);
                     } else {
                         LoggingService.error("JRXML resource not found");
                     }
                 } catch (JRException | IOException e) {
-                    throw new RuntimeException(e);
+                    DialogsService.showErrorDialog("Error", e.getMessage());
                 }
             });
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
         }
     }
 }

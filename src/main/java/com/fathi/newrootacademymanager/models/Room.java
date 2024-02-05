@@ -8,7 +8,7 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, unique = true, length = 5)
+    @Column(nullable = false, unique = true, length = 7)
     private String code;
 
     public Room() {}

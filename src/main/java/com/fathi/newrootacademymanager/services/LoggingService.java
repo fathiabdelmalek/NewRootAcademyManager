@@ -2,6 +2,9 @@ package com.fathi.newrootacademymanager.services;
 
 import com.fathi.newrootacademymanager.helpers.enums.ActivityType;
 import com.fathi.newrootacademymanager.models.Activity;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 
 import java.util.logging.Logger;
 
@@ -40,6 +43,7 @@ public class LoggingService {
 
     public static void error(String msg) {
         logger.severe(msg);
+        DialogsService.showErrorDialog("Error", msg);
     }
 
     private static void log(String msg, ActivityType type) {

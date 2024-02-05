@@ -1,11 +1,13 @@
 package com.fathi.newrootacademymanager.controllers;
 
 import com.fathi.newrootacademymanager.MainApplication;
+import com.fathi.newrootacademymanager.services.DialogsService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -91,7 +93,8 @@ public class MainViewController {
 
     @FXML
     void close(ActionEvent actionEvent) {
-        System.exit(0);
+        if (DialogsService.showConfirmationDialog("Confirm Exit", "Do you really want to exit?") == ButtonType.YES)
+            System.exit(0);
     }
 
     @FXML

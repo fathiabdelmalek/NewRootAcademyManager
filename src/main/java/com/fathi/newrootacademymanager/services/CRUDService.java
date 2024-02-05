@@ -27,7 +27,8 @@ public class CRUDService {
             result.addAll(em.createQuery(query).getResultList());
             return result;
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return null;
         }
     }
@@ -44,7 +45,8 @@ public class CRUDService {
             result.addAll(em.createQuery(query).setMaxResults(maxResults).getResultList());
             return result;
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return null;
         }
     }
@@ -60,7 +62,8 @@ public class CRUDService {
             query.where(predicates.toArray(new Predicate[0]));
             return FXCollections.observableArrayList(em.createQuery(query).getResultList());
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return null;
         }
     }
@@ -72,7 +75,8 @@ public class CRUDService {
             Root<T> root = query.from(entityClass);
             return em.createQuery(query.where(cb.equal(root.get("id"), id))).getSingleResult();
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return null;
         }
     }
@@ -83,7 +87,8 @@ public class CRUDService {
             em.persist(entity);
             em.getTransaction().commit();
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
         }
     }
 
@@ -93,7 +98,8 @@ public class CRUDService {
             em.merge(entity);
             em.getTransaction().commit();
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
         }
     }
 
@@ -103,7 +109,8 @@ public class CRUDService {
             em.remove(em.contains(entity) ? entity : em.merge(entity));
             em.getTransaction().commit();
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
         }
     }
 }

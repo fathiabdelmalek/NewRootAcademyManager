@@ -30,7 +30,8 @@ public class CalculationsService {
             Long result = em.createQuery(query).getSingleResult();
             return result != null ? result.intValue() : 0;
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return -1;
         }
     }
@@ -47,7 +48,8 @@ public class CalculationsService {
             Long result = em.createQuery(query).getSingleResult();
             return result != null ? result.intValue() : 0;
         } catch (Exception e) {
-            dbcm.handleTransactionException(e);
+            dbcm.handleTransactionException();
+            DialogsService.showErrorDialog("Error", e.getMessage());
             return -1;
         }
     }
@@ -60,7 +62,8 @@ public class CalculationsService {
             query.select((Selection<T>) cb.sum(root.get(column)));
             return em.createQuery(query).getSingleResult();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return null;
         }
     }
 
@@ -69,12 +72,12 @@ public class CalculationsService {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<T> query = cb.createQuery(fieldClass);
             Root<U> root = query.from(entityClass);
-            query
-                    .where(cb.greaterThanOrEqualTo(root.get(filterValue), (Comparable) operator))
+            query.where(cb.greaterThanOrEqualTo(root.get(filterValue), (Comparable) operator))
                     .select((Selection<T>) cb.sum(root.get(column)));
             return em.createQuery(query).getSingleResult();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return null;
         }
     }
 
@@ -86,7 +89,8 @@ public class CalculationsService {
             query.select(cb.count(root)).where(cb.equal(root.get("grade"), grade));
             return em.createQuery(query).getSingleResult().intValue();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return -1;
         }
     }
 
@@ -98,7 +102,8 @@ public class CalculationsService {
             query.select(cb.count(root)).where(cb.equal(root.get("grade").get("level"), level));
             return em.createQuery(query).getSingleResult().intValue();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return -1;
         }
     }
 
@@ -116,7 +121,8 @@ public class CalculationsService {
                     Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
             ));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return null;
         }
     }
 
@@ -134,7 +140,8 @@ public class CalculationsService {
                     Collectors.mapping(data -> (BigDecimal) data[1], Collectors.reducing(BigDecimal.ZERO, BigDecimal::add))
             ));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            DialogsService.showErrorDialog("Error", e.getMessage());
+            return null;
         }
     }
 }

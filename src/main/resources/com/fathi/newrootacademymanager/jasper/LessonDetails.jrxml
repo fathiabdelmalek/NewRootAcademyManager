@@ -6,6 +6,7 @@
 NTsiU1RVREVOVFMiICwxNSwxNSwzOWQyZjY1NS0wYzY1LTQ4ZjEtOTgwOS1mOTcxODk3OGQzOGI7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 JDBC"/>
+	<parameter name="logoPath" class="java.io.InputStream"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT ("STUDENTS"."FIRST_NAME" || ' ' || "STUDENTS"."LAST_NAME") AS "Student Name", 
 	"ATTENDANCES"."TIMES_PRESENT" AS "Times Present",
@@ -51,11 +52,11 @@ WHERE "LESSONS"."ID" = 1]]>
 			</staticText>
 			<image>
 				<reportElement x="480" y="0" width="80" height="79" uuid="00e211d9-580f-462c-a1f8-5d400aa76fd7"/>
-				<imageExpression><![CDATA["C:/Users/abdel/OneDrive/Documents/NewRootAcademyManager/src/main/resources/com/fathi/newrootacademymanager/images/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="0" y="0" width="80" height="79" uuid="9abcf7f4-e4a7-48ff-a76a-79a60c5952c1"/>
-				<imageExpression><![CDATA["C:/Users/abdel/OneDrive/Documents/NewRootAcademyManager/src/main/resources/com/fathi/newrootacademymanager/images/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>
 			</image>
 		</band>
 	</title>

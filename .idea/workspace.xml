@@ -10,7 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New Root Academy Manager.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/helpers/DBCManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/helpers/DBCManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CRUDService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CRUDService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/CalculationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/LoggingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/logo.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,11 +112,12 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Shell Script.Build and Deploy.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.script.sh.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdel/OneDrive/Documents/.NewRootAcademyManager&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Git/bin/bash.exe&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -129,7 +143,7 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Shell Script.Build and Deploy">
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
@@ -137,6 +151,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Build and Deploy" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/script.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="false" />
+      <option name="INTERPRETER_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Git/bin/bash.exe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="false" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main Application" />
+      <item itemvalue="Shell Script.Build and Deploy" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Shell Script.Build and Deploy" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -206,6 +244,11 @@
       <workItem from="1706539516123" duration="1462000" />
       <workItem from="1706562082967" duration="498000" />
       <workItem from="1706562660086" duration="1296000" />
+      <workItem from="1706736558714" duration="132000" />
+      <workItem from="1706902534721" duration="4290000" />
+      <workItem from="1706907995818" duration="296000" />
+      <workItem from="1707073118621" duration="9231000" />
+      <workItem from="1707090759458" duration="1073000" />
     </task>
     <servers />
   </component>
