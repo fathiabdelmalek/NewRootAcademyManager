@@ -5,28 +5,17 @@ import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import com.fathi.newrootacademymanager.models.Lesson;
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
-import com.fathi.newrootacademymanager.services.PrintService;
-import com.fathi.newrootacademymanager.services.TableBoardPrinter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.print.*;
 import javafx.scene.Parent;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import org.thymeleaf.context.Context;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -36,8 +25,6 @@ import java.util.Map;
 public class TableBoardViewController {
     @FXML
     private AnchorPane pane;
-    @FXML
-    private Pane tablePane;
     @FXML
     private ComboBox<Room> roomChoice;
     @FXML
@@ -56,30 +43,6 @@ public class TableBoardViewController {
     @FXML
     void changeRoomAction(ActionEvent event) {
         refreshTable();
-    }
-
-    @FXML
-    void printAction(ActionEvent event) {
-        // TODO : print the time table of the current room
-//        WritableImage snapshot = pane.snapshot(new SnapshotParameters(), null);
-//
-//        // Save the snapshot to a temporary image file
-//        try {
-//            FileChooser fileChooser = new FileChooser();
-//            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG Files", "*.png"));
-//            File file = fileChooser.showSaveDialog(new Stage());
-//            if (file != null) {
-//                Image.write(BufferedImage.fromFXImage(snapshot, null), "png", file);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            // Handle error saving image
-//        }
-//        Context context = new Context();
-//        context.setVariable("", null);
-//        PrintService.printTableBoard(context, getClass().getResourceAsStream("/com/fathi/newrootacademymanager/templates/table-board-template.html"));
-//        TableBoardPrinter.print(tablePane);
-        TableBoardPrinter.print(pane);
     }
 
     private void refreshTable() {
