@@ -11,9 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/table-board-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/views/others/table-board-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +99,8 @@
     &quot;Maven.newrootacademymanager [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [validate].executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -138,7 +142,7 @@
       <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Build and Deploy">
+  <component name="RunManager" selected="Application.Main Application">
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
@@ -244,7 +248,10 @@
       <workItem from="1706907995818" duration="296000" />
       <workItem from="1707073118621" duration="9231000" />
       <workItem from="1707090759458" duration="1607000" />
-      <workItem from="1707164658694" duration="2245000" />
+      <workItem from="1707164658694" duration="3189000" />
+      <workItem from="1707334518570" duration="2951000" />
+      <workItem from="1707338294104" duration="3645000" />
+      <workItem from="1707426685027" duration="7230000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,10 @@
 module com.fathi.newrootacademymanager {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
+    requires javafx.web;
     requires java.sql;
+    requires thymeleaf;
     requires jasperreports;
     requires com.h2database;
     requires jakarta.persistence;

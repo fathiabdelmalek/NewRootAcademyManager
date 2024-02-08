@@ -2,19 +2,23 @@ package com.fathi.newrootacademymanager.services;
 
 import com.fathi.newrootacademymanager.helpers.DBCManager;
 import jakarta.persistence.EntityManager;
+import javafx.print.PrinterJob;
+import javafx.scene.web.WebView;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.hibernate.Session;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class PrintService {
     private static final DBCManager dbcm = DBCManager.getInstance();
+    private static final TemplateEngine engine = new TemplateEngine();
 
     private PrintService() {}
 
@@ -40,6 +44,24 @@ public class PrintService {
             });
         } catch (Exception e) {
             DialogsService.showErrorDialog("Error", e.getMessage());
+        }
+    }
+
+    public static void printTableBoard(Context context, InputStream template) {
+        try (InputStream inputStream = template;
+             Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8)) {
+            String htmlContent = scanner.useDelimiter("\\A").next();
+            WebView webView = new WebView();
+            webView.getEngine().loadContent(engine.process(htmlContent, context));
+            PrinterJob printerJob = PrinterJob.createPrinterJob();
+            if (printerJob != null) {
+                if (printerJob.showPrintDialog(null)) {
+                    printerJob.printPage(webView);
+                    printerJob.endJob();
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
