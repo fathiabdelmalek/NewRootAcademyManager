@@ -5,6 +5,7 @@ import com.fathi.newrootacademymanager.helpers.enums.WeekDay;
 import com.fathi.newrootacademymanager.models.Lesson;
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
+import com.fathi.newrootacademymanager.services.PrintService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.time.LocalTime;
@@ -25,6 +27,8 @@ import java.util.Map;
 public class TableBoardViewController {
     @FXML
     private AnchorPane pane;
+    @FXML
+    private Pane tablePane;
     @FXML
     private ComboBox<Room> roomChoice;
     @FXML
@@ -43,6 +47,11 @@ public class TableBoardViewController {
     @FXML
     void changeRoomAction(ActionEvent event) {
         refreshTable();
+    }
+
+    @FXML
+    void printAction(ActionEvent event) {
+        PrintService.printTableBoard(tablePane);
     }
 
     private void refreshTable() {

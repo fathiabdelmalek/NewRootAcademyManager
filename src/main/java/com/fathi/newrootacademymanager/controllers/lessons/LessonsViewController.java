@@ -197,7 +197,7 @@ public class LessonsViewController {
             lesson.setLessonName(lessonNameText.getText());
             lesson.setDayOfWeek(dayChoice.getValue());
             lesson.setStartTime(LocalTime.of(startHourSpinner.getValue(), startMinuteSpinner.getValue()));
-            LocalTime.of(startHourSpinner.getValue() + 1, startMinuteSpinner.getValue() + 30);
+            lesson.setEndTime(LocalTime.of(startHourSpinner.getValue() + 1, startMinuteSpinner.getValue() + 30));
             lesson.setPrice(BigDecimal.valueOf(Double.parseDouble(priceText.getText())));
             lesson.setGrade(gradeChoice.getValue());
             lesson.setRoom(roomChoice.getValue());
