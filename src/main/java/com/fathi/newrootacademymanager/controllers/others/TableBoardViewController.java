@@ -6,6 +6,7 @@ import com.fathi.newrootacademymanager.models.Lesson;
 import com.fathi.newrootacademymanager.models.Room;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.PrintService;
+import com.fathi.newrootacademymanager.services.RoutingService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -72,16 +73,7 @@ public class TableBoardViewController {
                 String style = label.getStyle();
                 label.setStyle(style + "-fx-pref-height: " + (100.0 * (end - start)) + "; -fx-cursor: hand;");
                 label.setOnMouseClicked(event -> {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
-                        Parent view = loader.load();
-                        LessonDetailsViewController detailsController = loader.getController();
-                        detailsController.initialize(lesson.getId());
-                        pane.getChildren().clear();
-                        pane.getChildren().add(view);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                    RoutingService.navigateToLessonDetails(lesson.getId());
                 });
                 clearCell(day, start, (end - start));
                 grid.add(label, day, start, 1, (end - start));

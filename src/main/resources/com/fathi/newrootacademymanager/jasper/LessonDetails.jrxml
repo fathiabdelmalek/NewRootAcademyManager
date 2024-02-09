@@ -6,10 +6,10 @@
 NTsiU1RVREVOVFMiICwxNSwxNSwzOWQyZjY1NS0wYzY1LTQ4ZjEtOTgwOS1mOTcxODk3OGQzOGI7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="H2 JDBC"/>
-	<parameter name="logoPath" class="java.io.InputStream"/>
 	<parameter name="id" class="java.lang.Integer"/>
+<!--	<parameter name="logoPath" class="java.io.InputStream"/>-->
 	<queryString language="SQL">
-		<![CDATA[SELECT ("STUDENTS"."FIRST_NAME" || ' ' || "STUDENTS"."LAST_NAME") AS "Student Name", 
+		<![CDATA[SELECT ("STUDENTS"."FIRST_NAME" || ' ' || "STUDENTS"."LAST_NAME") AS "Student Name",
 	"ATTENDANCES"."TIMES_PRESENT" AS "Times Present",
 	"ATTENDANCES"."DUES" AS "Dues",
 	"ATTENDANCES"."NOTES" AS "Notes",
@@ -19,20 +19,20 @@ NTsiU1RVREVOVFMiICwxNSwxNSwzOWQyZjY1NS0wYzY1LTQ4ZjEtOTgwOS1mOTcxODk3OGQzOGI7]]>
 	"LESSONS"."PERCENTAGE" AS "Percentage",
 	"LESSONS"."TEACHER_DUES" AS "Teacher Dues",
 FROM "ATTENDANCES"
-	INNER JOIN "STUDENTS" ON 
+	INNER JOIN "STUDENTS" ON
 	 "STUDENTS"."ID" = "ATTENDANCES"."STUDENT_ID"
-	INNER JOIN "LESSONS" ON 
+	INNER JOIN "LESSONS" ON
 	 "LESSONS"."ID" = "ATTENDANCES"."LESSON_ID"
 	INNER JOIN "TEACHERS" ON
 	 "TEACHERS"."ID" = "LESSONS"."TEACHER_ID"
 WHERE "LESSONS"."ID" = $P{id}]]>
 	</queryString>
-	<field name="Student Name" class="java.lang.String"/>
+	<field name="Student Name"/>
 	<field name="Times Present" class="java.lang.Integer"/>
 	<field name="Dues" class="java.math.BigDecimal"/>
-	<field name="Notes" class="java.lang.String"/>
-	<field name="Lesson Name" class="java.lang.String"/>
-	<field name="Teacher Name" class="java.lang.String"/>
+	<field name="Notes"/>
+	<field name="Lesson Name"/>
+	<field name="Teacher Name"/>
 	<field name="Percentage" class="java.lang.Integer"/>
 	<field name="Teacher Dues" class="java.math.BigDecimal"/>
 	<field name="Price" class="java.math.BigDecimal"/>
@@ -51,14 +51,14 @@ WHERE "LESSONS"."ID" = $P{id}]]>
 				</textElement>
 				<text><![CDATA[New Root Academy]]></text>
 			</staticText>
-			<image>
-				<reportElement x="480" y="0" width="80" height="79" uuid="00e211d9-580f-462c-a1f8-5d400aa76fd7"/>
-				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="0" y="0" width="80" height="79" uuid="9abcf7f4-e4a7-48ff-a76a-79a60c5952c1"/>
-				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>
-			</image>
+<!--			<image>-->
+<!--				<reportElement x="480" y="0" width="80" height="79" uuid="00e211d9-580f-462c-a1f8-5d400aa76fd7"/>-->
+<!--				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>-->
+<!--			</image>-->
+<!--			<image>-->
+<!--				<reportElement x="0" y="0" width="80" height="79" uuid="9abcf7f4-e4a7-48ff-a76a-79a60c5952c1"/>-->
+<!--				<imageExpression><![CDATA[$P{logoPath}]]></imageExpression>-->
+<!--			</image>-->
 		</band>
 	</title>
 	<pageHeader>

@@ -1,6 +1,8 @@
 package com.fathi.newrootacademymanager;
 
 import com.fathi.newrootacademymanager.helpers.DBCManager;
+import com.fathi.newrootacademymanager.services.PrintService;
+import com.fathi.newrootacademymanager.services.RoutingService;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +21,8 @@ public class MainApplication extends Application {
             @Override
             public Parent call() {
                 DBCManager.getInstance();
+                RoutingService.getInstance();
+                PrintService.getInstance();
                 return null;
             }
         };

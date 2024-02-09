@@ -5,6 +5,7 @@ import com.fathi.newrootacademymanager.models.*;
 import com.fathi.newrootacademymanager.services.CRUDService;
 import com.fathi.newrootacademymanager.services.CalculationsService;
 import com.fathi.newrootacademymanager.services.LoggingService;
+import com.fathi.newrootacademymanager.services.RoutingService;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -122,17 +123,7 @@ public class LessonsViewController {
             TableRow<Lesson> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    int lessonId = row.getItem().getId();
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fathi/newrootacademymanager/views/lessons/lesson-details-view.fxml"));
-                        Parent view = loader.load();
-                        LessonDetailsViewController detailsController = loader.getController();
-                        detailsController.initialize(lessonId);
-                        pane.getChildren().clear();
-                        pane.getChildren().add(view);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                    RoutingService.navigateToLessonDetails(row.getItem().getId());
                 }
             });
             return row;

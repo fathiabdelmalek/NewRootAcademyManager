@@ -25,4 +25,5 @@ module com.fathi.newrootacademymanager {
 
     exports com.fathi.newrootacademymanager;
     exports com.fathi.newrootacademymanager.models;
+    opens com.fathi.newrootacademymanager.actions to javafx.fxml, org.hibernate.orm.core;
 }

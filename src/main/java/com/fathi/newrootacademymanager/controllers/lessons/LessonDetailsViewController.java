@@ -1,6 +1,6 @@
 package com.fathi.newrootacademymanager.controllers.lessons;
 
-import com.fathi.newrootacademymanager.helpers.AttendanceActions;
+import com.fathi.newrootacademymanager.actions.AttendanceActions;
 import com.fathi.newrootacademymanager.models.Attendance;
 import com.fathi.newrootacademymanager.models.Lesson;
 import com.fathi.newrootacademymanager.models.Student;

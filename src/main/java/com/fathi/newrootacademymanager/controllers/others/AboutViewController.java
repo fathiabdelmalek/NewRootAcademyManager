@@ -1,26 +1,19 @@
 package com.fathi.newrootacademymanager.controllers.others;
 
+import com.fathi.newrootacademymanager.controllers.MovableController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class AboutViewController {
+public class AboutViewController extends MovableController {
     @FXML
     private AnchorPane topPane;
     private double xOffset, yOffset;
 
     @FXML
-    void initialize() {
-        topPane.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-        topPane.setOnMouseDragged(event -> {
-            Stage stage = (Stage) topPane.getScene().getWindow();
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
+    public void initialize() {
+        super.initialize();
     }
 
     @FXML
