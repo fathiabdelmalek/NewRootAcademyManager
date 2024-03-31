@@ -37,7 +37,7 @@ public class IncomesViewController {
         Platform.runLater(() -> searchText.requestFocus());
 
         studentChoice.setItems(FXCollections.observableList(CRUDService.readAll(Student.class)));
-        studentChoice.getItems().addFirst(null);
+        studentChoice.getItems().add(0, null);
 
         timeColumn.setCellFactory(column -> {
             TableCell<Expense, LocalDateTime> cell = new TableCell<>() {

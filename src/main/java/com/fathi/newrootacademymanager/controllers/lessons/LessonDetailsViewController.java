@@ -67,7 +67,7 @@ public class LessonDetailsViewController {
         teacherPaymentButton.setDisable(BigDecimal.valueOf(Double.parseDouble(salaryText.getText())).compareTo(BigDecimal.ZERO) <= 0);
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
-        gradeChoice.getItems().addFirst(null);
+        gradeChoice.getItems().add(0, null);
         gradeChoice.setValue(lesson.getGrade());
         gradeChoice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setStudentChoice();
@@ -209,7 +209,7 @@ public class LessonDetailsViewController {
             params.put("grade", gradeChoice.getValue());
             studentChoice.setItems(FXCollections.observableList(CRUDService.readByCriteria(Student.class, params)));
         }
-        studentChoice.getItems().addFirst(null);
+        studentChoice.getItems().add(0, null);
     }
 
     private void updateFromSelection(Attendance selection) {

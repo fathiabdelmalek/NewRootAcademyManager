@@ -58,10 +58,10 @@ public class LessonsViewController {
         Platform.runLater(() -> searchText.requestFocus());
 
         gradeChoice.setItems(FXCollections.observableList(CRUDService.readAll(Grade.class)));
-        gradeChoice.getItems().addFirst(null);
+        gradeChoice.getItems().add(0, null);
 
         dayChoice.setItems(FXCollections.observableArrayList(WeekDay.values()));
-        dayChoice.getItems().addFirst(null);
+        dayChoice.getItems().add(0, null);
 
         SpinnerValueFactory<Integer> startHoursRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(8, 16, 8);
         SpinnerValueFactory<Integer> startMinutesRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 30, 0, 30);
@@ -69,10 +69,10 @@ public class LessonsViewController {
         startMinuteSpinner.setValueFactory(startMinutesRange);
 
         roomChoice.setItems(FXCollections.observableArrayList(CRUDService.readAll(Room.class)));
-        roomChoice.getItems().addFirst(null);
+        roomChoice.getItems().add(0, null);
 
         teacherChoice.setItems(FXCollections.observableList(CRUDService.readAll(Teacher.class)));
-        teacherChoice.getItems().addFirst(null);
+        teacherChoice.getItems().add(0, null);
 
         SpinnerValueFactory<Integer> percentageRange = new SpinnerValueFactory.IntegerSpinnerValueFactory(40, 70, 50, 5);
         percentageSpinner.setValueFactory(percentageRange);

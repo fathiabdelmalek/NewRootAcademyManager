@@ -9,21 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonDetailsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/lessons/LessonsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/AboutViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/AboutViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/others/TableBoardViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/helpers/AttendanceActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/actions/AttendanceActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/services/PrintService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/jasper/LessonDetails.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fathi/newrootacademymanager/templates/table-board-template.html" beforeDir="false" />
-    </list>
+    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +104,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Git/bin/bash.exe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdel/OneDrive/Documents/.NewRootAcademyManager&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -128,7 +114,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2816092&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -146,6 +132,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager\dist" />
       <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager" />
     </key>
   </component>
@@ -185,8 +172,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-3183f394aec4-7d648f2c" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-3183f394aec4-aba903c2" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -262,7 +249,15 @@
       <workItem from="1707439557269" duration="2499000" />
       <workItem from="1707482421002" duration="2125000" />
       <workItem from="1707484897546" duration="2573000" />
-      <workItem from="1707487852716" duration="2343000" />
+      <workItem from="1707487852716" duration="2612000" />
+      <workItem from="1707679637891" duration="76000" />
+      <workItem from="1708803507640" duration="4895000" />
+      <workItem from="1709496493764" duration="3440000" />
+      <workItem from="1710104036046" duration="655000" />
+      <workItem from="1710105609322" duration="1009000" />
+      <workItem from="1710159356983" duration="226000" />
+      <workItem from="1710159866969" duration="542000" />
+      <workItem from="1711926535155" duration="654000" />
     </task>
     <servers />
   </component>

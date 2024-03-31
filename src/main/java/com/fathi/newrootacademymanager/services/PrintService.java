@@ -5,13 +5,11 @@ import jakarta.persistence.EntityManager;
 import javafx.print.*;
 import javafx.scene.Node;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import net.sf.jasperreports.engine.*;
 import org.hibernate.Session;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -52,13 +50,11 @@ public class PrintService {
                 } catch (JRException | IOException e) {
                     DialogsService.showErrorDialog("Error", e.getMessage());
                     LoggingService.error(e.getMessage());
-                    e.printStackTrace();
                 }
             });
         } catch (Exception e) {
             DialogsService.showErrorDialog("Error", e.getMessage());
             LoggingService.error(e.getMessage());
-            e.printStackTrace();
         }
     }
 
