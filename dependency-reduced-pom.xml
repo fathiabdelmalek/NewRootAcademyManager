@@ -9,57 +9,11 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>3.13.0</version>
         <configuration>
-          <source>17</source>
-          <target>17</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.8</version>
-        <executions>
-          <execution>
-            <id>default-cli</id>
-            <phase>package</phase>
-            <configuration>
-              <mainClass>com.fathi.newrootacademymanager/com.fathi.newrootacademymanager.Main</mainClass>
-              <executable>C:\Program Files\Java\jdk-21\bin\java</executable>
-              <launcher>${project.name}</launcher>
-              <jlinkZipName>${project.name}</jlinkZipName>
-              <jlinkImageName>${project.name}</jlinkImageName>
-              <noManPages>true</noManPages>
-              <stripDebug>true</stripDebug>
-              <noHeaderFiles>true</noHeaderFiles>
-              <manifestEntries>
-                <Implementation-Vendor>Fathi Abdelmalek/FASoft</Implementation-Vendor>
-              </manifestEntries>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.0</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <transformers>
-                <transformer>
-                  <mainClass>com.fathi.newrootacademymanager.Main</mainClass>
-                  <manifestEntries>
-                    <Implementation-Vendor>Fathi Abdelmalek/FASoft</Implementation-Vendor>
-                  </manifestEntries>
-                </transformer>
-              </transformers>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -78,10 +32,72 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer>
+                  <mainClass>${mainclass}</mainClass>
+                </transformer>
+                <transformer />
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.panteleyev</groupId>
+        <artifactId>jpackage-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jpackage</goal>
+            </goals>
+            <configuration>
+              <name>${project.name}</name>
+              <appVersion>${project.version}</appVersion>
+              <vendor>${vendor.name}/${vendor.group}</vendor>
+              <destination>target/dist</destination>
+              <mainClass>${mainclass}</mainClass>
+              <mainJar>${project.build.finalName}.jar</mainJar>
+              <input>target</input>
+              <winMenu>true</winMenu>
+              <winDirChooser>true</winDirChooser>
+              <winShortcut>true</winShortcut>
+              <winMenuGroup>${vendor.group}</winMenuGroup>
+              <icon>src/main/resources/com/fathi/newrootacademymanager/images/icon.ico</icon>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.graalvm.sdk</groupId>
+      <artifactId>graal-sdk</artifactId>
+      <version>21.3.11</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mainclass>com.fathi.newrootacademymanager.Main</mainclass>
+    <java.version>21</java.version>
+    <graalvm.version>21.0.5+9.1</graalvm.version>
+    <vendor.name>Fathi Abdelmalek</vendor.name>
     <project.name>New Root Academy Manager</project.name>
+    <project.version>1.0.0</project.version>
+    <vendor.group>FASoftec</vendor.group>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <javafx.version>17.0.6</javafx.version>
   </properties>
 </project>

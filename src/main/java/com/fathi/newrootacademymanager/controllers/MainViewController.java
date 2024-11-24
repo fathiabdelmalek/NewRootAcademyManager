@@ -18,10 +18,7 @@ import java.io.IOException;
 
 public class MainViewController extends MovableController {
     @FXML
-    private AnchorPane topPane;
-    @FXML
     private AnchorPane mainPane;
-    private double xOffset, yOffset;
 
     @FXML
     public void initialize() {
@@ -79,6 +76,7 @@ public class MainViewController extends MovableController {
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
+            RoutingService.setPane(mainPane);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

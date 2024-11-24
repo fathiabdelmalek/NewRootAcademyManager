@@ -9,7 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="" />
+    <list default="true" id="7298d65f-e9a5-44bc-8e0b-16ad339bfb97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fathi/newrootacademymanager/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,13 +71,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -85,12 +87,18 @@
   &quot;keyToString&quot;: {
     &quot;Application.LessonReport.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main Application.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.MyPrinter.executor&quot;: &quot;Run&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Maven.newrootacademymanager [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [org.graalvm.buildtools:native-maven-plugin:0.9.28:build].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [org.graalvm.buildtools:native-maven-plugin:0.9.28:compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.newrootacademymanager [org.panteleyev:jpackage-maven-plugin:1.6.0:help].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [package].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [test].executor&quot;: &quot;Run&quot;,
     &quot;Maven.newrootacademymanager [validate].executor&quot;: &quot;Run&quot;,
@@ -99,19 +107,20 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Shell Script.Build and Deploy.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.script.sh.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdel/OneDrive/Documents/.NewRootAcademyManager&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdel/OneDrive/Documents/NewRootAcademyManager&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2816092&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
@@ -132,6 +141,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager\src\main\resources\META-INF\native-image\com\fathi\newrootacademymanager" />
       <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager\dist" />
       <recent name="C:\Users\abdel\OneDrive\Documents\NewRootAcademyManager" />
     </key>
@@ -140,6 +150,19 @@
     <configuration name="Main Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.MainApplication" />
       <module name="newrootacademymanager" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fathi.newrootacademymanager.Main" />
+      <module name="newrootacademymanager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fathi.newrootacademymanager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,10 +184,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main Application" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Shell Script.Build and Deploy" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Shell Script.Build and Deploy" />
       </list>
     </recent_temporary>
@@ -172,8 +197,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -258,6 +283,22 @@
       <workItem from="1710159356983" duration="226000" />
       <workItem from="1710159866969" duration="542000" />
       <workItem from="1711926535155" duration="654000" />
+      <workItem from="1714410241684" duration="276000" />
+      <workItem from="1716975342532" duration="444000" />
+      <workItem from="1726595709700" duration="259000" />
+      <workItem from="1731961169832" duration="10000" />
+      <workItem from="1731961196479" duration="20000" />
+      <workItem from="1731963051957" duration="7908000" />
+      <workItem from="1731971208102" duration="239000" />
+      <workItem from="1731971620662" duration="4504000" />
+      <workItem from="1731976185207" duration="1071000" />
+      <workItem from="1731977384818" duration="682000" />
+      <workItem from="1731978139291" duration="46000" />
+      <workItem from="1731978251521" duration="432000" />
+      <workItem from="1732037364334" duration="10773000" />
+      <workItem from="1732057029063" duration="512000" />
+      <workItem from="1732310599751" duration="3263000" />
+      <workItem from="1732313994679" duration="3252000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,94 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": ".*\\.fxml$"
+      },
+      {
+        "pattern": ".*\\.css$"
+      },
+      {
+        "pattern": ".*\\.properties$"
+      },
+      {
+        "pattern": ".*\\.xml$"
+      },
+      {
+        "pattern": ".*\\.jar$"
+      },
+      {
+        "pattern": ".*\\.jrxml$"
+      },
+      {
+        "pattern": "META-INF/persistence.xml"
+      },
+      {
+        "pattern": "META-INF/services/.*"
+      }
+    ]
+  },
+  "bundles": [
+    {
+      "name": "com.sun.javafx.tk.quantum.QuantumMessagesBundle"
+    }
+  ],
+  "reflection": [
+    {
+      "name": "javafx.fxml.FXMLLoader",
+      "methods": [
+        { "name": "<init>", "parameterTypes": [] }
+      ]
+    },
+    {
+      "name": "javafx.scene.control.Control",
+      "queryAllDeclaredMethods": true,
+      "queryAllDeclaredFields": true
+    },
+    {
+      "name": "javafx.scene.layout.Region",
+      "queryAllDeclaredMethods": true,
+      "queryAllDeclaredFields": true
+    },
+    {
+      "name": "org.hibernate.dialect.H2Dialect",
+      "methods": [
+        { "name": "<init>", "parameterTypes": [] }
+      ]
+    },
+    {
+      "name": "com.h2.Driver",
+      "methods": [
+        { "name": "<init>", "parameterTypes": [] }
+      ]
+    },
+    {
+      "name": "net.sf.jasperreports.engine.JasperCompileManager",
+      "methods": [
+        { "name": "<init>", "parameterTypes": [] }
+      ]
+    }
+  ],
+  "jni": [
+    {
+      "name": "org.h2.store.fs.FilePathDisk",
+      "methods": [
+        { "name": "createDirectory" },
+        { "name": "delete" },
+        { "name": "exists" },
+        { "name": "getCanonicalPath" },
+        { "name": "isAbsolute" },
+        { "name": "isDirectory" },
+        { "name": "lastModified" },
+        { "name": "length" },
+        { "name": "list" },
+        { "name": "moveTo" },
+        { "name": "newDirectoryStream" },
+        { "name": "newInputStream" },
+        { "name": "newOutputStream" },
+        { "name": "setReadOnly" },
+        { "name": "size" },
+        { "name": "truncate" }
+      ]
+    }
+  ]
+}
